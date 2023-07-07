@@ -1046,28 +1046,28 @@ let keyCommands = {
 			numbers: false,
 			keywords: false,
 			color: "rgb(234, 0, 255)",
-			allowedWords: keyCommands.radar.w1.allowedWords
+			allowedWords: ["any", "ally", "enemy", "player", "boss", "attacker", "ground", "flying"]
 		},
 		w2: {
 			words: false,
 			numbers: false,
 			keywords: false,
 			color: "rgb(234, 0, 255)",
-			allowedWords: keyCommands.radar.w1.allowedWords
+			allowedWords: ["any", "ally", "enemy", "player", "boss", "attacker", "ground", "flying"]
 		},
 		w3: {
 			words: false,
 			numbers: false,
 			keywords: false,
 			color: "rgb(234, 0, 255)",
-			allowedWords: keyCommands.radar.w1.allowedWords
+			allowedWords: ["any", "ally", "enemy", "player", "boss", "attacker", "ground", "flying"]
 		},
 		w4: {
 			words: false,
 			numbers: false,
 			keywords: false,
 			color: "rgb(234, 0, 255)",
-			allowedWords: keyCommands.radar.w4.allowedWords
+			allowedWords: ["distance", "health", "maxHealth", "shield", "armor"]
 		},
 		w5: {
 			words: false,
