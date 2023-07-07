@@ -12,8 +12,10 @@ const lines = code.split('\n');
 
 // creating function with all code
 let hightLightingErrors = () => {
+	console.log("started..")
 // creating iteration of all lines
 	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
+		console.log(iteration1)
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
   let firstWord = words[0];
@@ -27,6 +29,7 @@ let hightLightingErrors = () => {
 
 			// iteration of all words to find errors
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
+				console.log(iteration2)
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
 					// if keywords allowed its this word
@@ -59,4 +62,4 @@ let hightLightingErrors = () => {
 	}
 }
 
-textarea.addEventListener("change", (hightLightingErrors()));
+textarea.addEventListener("input", (hightLightingErrors));
