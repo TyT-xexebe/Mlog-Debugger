@@ -4,7 +4,7 @@ import {objControl, objDraw, objUcontrol, objUlocate, keyCommands, keywords, reg
 let jumpLabels1 = [];
 let jumpLabels2 = [];
 let Errors = [];
-
+const textarea = document.getElementById('codeInput');
 // creating function with all code
 let hightLightingErrors = () => {
 	// getting textarea text-code
