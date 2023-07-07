@@ -1,5 +1,5 @@
 // imports all commands and his settings
-import {objControl, objDraw, objUcontrol, objUlocate, keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
+import {objControl, objDraw, objUcontrol, objUlocate, keyCommands, keywords, reg1, reg2, reg3, reg4} from "../scripts/ObjectsMlog.mjs"
 // cresting arrays for arrors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
