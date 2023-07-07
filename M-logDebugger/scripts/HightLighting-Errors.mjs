@@ -11,8 +11,7 @@ let hightLightingErrors = () => {
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
-	console.log("started..");
-	console.log(Errors);
+	console.log("started..");console.log(Errors);
 // creating iteration of all lines
 	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		console.log(iteration1)
@@ -33,25 +32,25 @@ let hightLightingErrors = () => {
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
 					// if keywords allowed its this word
-					if(keyCommands.hasOwnProperty(firstWord).w[iteration2 + 1].keywords == true){
+					if(keyCommands[firstWord].w[iteration2 + 1].keywords == true){
 						words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 						// if keywords not recomended in this word
-					}else if(keyCommands.hasOwnProperty(firstWord).w[iteration2 + 1].keywords == "notRecomended"){
+					}else if(keyCommands[firstWord].w[iteration2 + 1].keywords == "notRecomended"){
 						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
 						Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
 						// if keyword not allowed in this words
 					}else{
 						// if allowedParams == array
-						if(isArray(keyCommands.hasOwnProperty(firstWord).w[iteration2 + 1].allowedParams)){
+						if(isArray(keyCommands[firstWord].w[iteration2 + 1].allowedParams)){
 							// if allowedParams not include word
-							if(!keyCommands.hasOwnProperty(firstWord).w[iteration2 + 1].allowedParams.hasOwnProperty(words[iteration2])){
+							if(!keyCommands[firstWord].w[iteration2 + 1].allowedParams.hasOwnProperty(words[iteration2])){
 								Errors.push({notfound: words[iteration2], message: "this keyword not allowed here!", line: iteration1});
 								// if allowedParams include word
-							}else if(keyCommands.hasOwnProperty(firstWord).w[iteration2 + 1].allowedParams.hasOwnProperty(words[iteration2])){
+							}else if(keyCommands[firstWord].w[iteration2 + 1].allowedParams.hasOwnProperty(words[iteration2])){
 								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 							}
 							// if keywords and allowedParams == false 
-						}else if(keyCommands.hasOwnProperty(firstWord).w[iteration2 + 1].allowedParams == false){
+						}else if(keyCommands[firstWord].w[iteration2 + 1].allowedParams == false){
 							Errors.push({notfound: words[iteration2], message: "keywords not allowed here!", line: iteration1});
 						};
 					};
