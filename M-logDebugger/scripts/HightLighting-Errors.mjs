@@ -63,11 +63,11 @@ let hightLightingErrors = () => {
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
 						};
 					};
-					
 				};
 			}
 		}
 	}
+	Errors = [];
 }
 
 textarea.addEventListener("input", (hightLightingErrors));
