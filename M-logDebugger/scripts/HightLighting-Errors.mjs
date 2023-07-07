@@ -11,7 +11,7 @@ const code = textarea.value.trim();
 const lines = code.split('\n');
 
 // creating function with all code
-let HightLighting_Errors = () => {
+let hightLightingErrors = () => {
 // creating iteration of all lines
 	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
@@ -59,4 +59,4 @@ let HightLighting_Errors = () => {
 	}
 }
 
-textarea.addEventListener("change", (HightLighting_Errors()));
+textarea.addEventListener("change", (hightLightingErrors()));
