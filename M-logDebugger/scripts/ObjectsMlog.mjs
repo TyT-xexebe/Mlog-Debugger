@@ -741,7 +741,7 @@ let keyCommands = {
 	control: {
 		someVariants: true,
 		w1: {
-			words: true,
+			words: false,
 		 numbers: false,
 	 	keywords: false,
 	 	color: "rgb(0, 255, 98)",
@@ -870,7 +870,7 @@ let keyCommands = {
 	 	color: false,
 			allowedWords: false
 		},
-		w1: {
+		w2: {
 			words: true,
 		 numbers: true,
 	 	keywords: true,
@@ -881,7 +881,7 @@ let keyCommands = {
 
 	op: {
 		w1: {
-			words: true,
+			words: false,
 		 numbers: false,
 	 	keywords: false,
 	 	color: false,
@@ -894,14 +894,14 @@ let keyCommands = {
 	 	color: "rgb(234, 0, 255)",
 			allowedWords: false
 		},
-		w2: {
+		w3: {
 			words: true,
 		 numbers: true,
 	 	keywords: true,
 	 	color: false,
 			allowedWords: false
 		},
-		w3: {
+		w4: {
 			words: true,
 		 numbers: true,
 	 	keywords: true,

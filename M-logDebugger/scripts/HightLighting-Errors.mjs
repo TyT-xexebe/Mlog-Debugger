@@ -28,8 +28,7 @@ let hightLightingErrors = () => {
 
 			// iteration of all words to find errors
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
-				let num1 = iteration2 + 2;
-				let finder1 = `w${num1}`;
+				let finder1 = `w${iteration2}`;
 				console.log(`line: ${iteration1} word: ${iteration2} finder w: ${finder1} num: ${num1}`)
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
@@ -57,7 +56,7 @@ let hightLightingErrors = () => {
 								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 							}
 							// if keywords and allowedParams == false 
-						}else if(keyCommands[firstWord][finder1].allowedParams == false){
+						}else if(keyCommands[firstWord][finder1].allowedParams == "undefined"){
 							console.log(`word ${words[iteration2]} not allowed`)
 							Errors.push({notfound: words[iteration2], message: "keywords not allowed here!", line: iteration1});
 						};
