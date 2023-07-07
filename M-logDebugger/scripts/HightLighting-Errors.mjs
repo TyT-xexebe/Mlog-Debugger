@@ -30,6 +30,7 @@ let hightLightingErrors = () => {
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
 				let num1 = iteration2 + 2;
 				let finder1 = `w${num1}`;
+				console.log(`line: ${iteration1} word: ${iteration2} finder w: ${finder1} num: ${num1}`)
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
 					console.log(`word ${words[iteration2]} started on @`)
