@@ -5,13 +5,12 @@ let jumpLabels1 = [];
 let jumpLabels2 = [];
 let Errors = [];
 
-// getting textarea text-code
-const textarea = document.getElementById('codeInput');
-const code = textarea.value.trim();
-const lines = code.split('\n');
-
 // creating function with all code
 let hightLightingErrors = () => {
+	// getting textarea text-code
+	const textarea = document.getElementById('codeInput');
+	const code = textarea.value.trim();
+	const lines = code.split('\n');
 	console.log("started..");
 	console.log(lines.length);
 	console.log(code);
