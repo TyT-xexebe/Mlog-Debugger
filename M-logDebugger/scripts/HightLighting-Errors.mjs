@@ -7,11 +7,11 @@ let Errors = [];
 
 // getting textarea text-code
 const textarea = document.getElementById('codeInput');
-  const code = textarea.value.trim();
-  const lines = code.split('\n');
+const code = textarea.value.trim();
+const lines = code.split('\n');
 
 // creating function with all code
-const HightLighting_Errors = () => {
+let HightLighting_Errors = () => {
 // creating iteration of all lines
 	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
@@ -56,13 +56,9 @@ const HightLighting_Errors = () => {
 
 
 				};
-
-
-				
-
 			}
 		}
-
-
 	}
 }
+
+textarea.addEventListener("change", (HightLighting_Errors()))
