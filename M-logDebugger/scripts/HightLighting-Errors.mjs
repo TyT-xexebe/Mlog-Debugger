@@ -12,6 +12,7 @@ let hightLightingErrors = () => {
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 	console.log("started..");
+	console.log(Errors);
 // creating iteration of all lines
 	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		console.log(iteration1)
@@ -54,7 +55,7 @@ let hightLightingErrors = () => {
 							Errors.push({notfound: words[iteration2], message: "keywords not allowed here!", line: iteration1});
 						};
 					};
-					console.log(Errors);
+					
 				};
 			}
 		}
