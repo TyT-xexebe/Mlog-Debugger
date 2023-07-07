@@ -53,12 +53,10 @@ let HightLighting_Errors = () => {
 						};
 					};
 					console.log(Errors);
-
-
 				};
 			}
 		}
 	}
 }
 
-textarea.addEventListener("change", (HightLighting_Errors()))
+textarea.addEventListener("change", (HightLighting_Errors()));
