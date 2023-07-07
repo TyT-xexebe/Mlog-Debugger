@@ -12,8 +12,6 @@ let hightLightingErrors = () => {
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 	console.log("started..");
-	console.log(lines.length);
-	console.log(code);
 // creating iteration of all lines
 	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		console.log(iteration1)
