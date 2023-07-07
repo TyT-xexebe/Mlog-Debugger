@@ -12,7 +12,9 @@ const lines = code.split('\n');
 
 // creating function with all code
 let hightLightingErrors = () => {
-	console.log("started..")
+	console.log("started..");
+	console.log(lines.length);
+	console.log(code);
 // creating iteration of all lines
 	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		console.log(iteration1)
