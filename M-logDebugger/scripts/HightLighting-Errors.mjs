@@ -28,7 +28,8 @@ let hightLightingErrors = () => {
 
 			// iteration of all words to find errors
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
-				let finder1 = `w${iteration2 + 2}`
+				let num1 = iteration2 + 2;
+				let finder1 = `w${num1}`;
 				console.log(`line: ${iteration1}`);
 				console.log(`word: ${iteration2}`);
 				console.log(`w in object: ${finder1}`);
