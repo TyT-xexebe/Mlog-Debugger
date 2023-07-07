@@ -45,7 +45,7 @@ let hightLightingErrors = () => {
 						// if keyword not allowed in this words
 					}else{
 						// if allowedParams == array
-						if(isArray(keyCommands[firstWord][finder1].allowedParams)){
+						if(Array.isArray(keyCommands[firstWord][finder1].allowedParams)){
 							// if allowedParams not include word
 							if(!keyCommands[firstWord][finder1].allowedParams.includes(words[iteration2])){
 								console.log(`word ${words[iteration2]} not allowed`)
