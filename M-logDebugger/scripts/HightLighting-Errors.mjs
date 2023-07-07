@@ -19,7 +19,7 @@ let HightLighting_Errors = () => {
   let firstWord = words[0];
 
 		// checking if keyCommands have firstWord
-		if(!keyCommands.contains(firstWord)){
+		if(!keyCommands.include(firstWord)){
 			Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 			words[0] = `<span id="errors">${words[0]}</span>`
 		}else{
@@ -41,10 +41,10 @@ let HightLighting_Errors = () => {
 						// if allowedParams == array
 						if(isArray(keyCommands.firstWord.w[iteration2 + 1].allowedParams)){
 							// if allowedParams not include word
-							if(!keyCommands.firstWord.w[iteration2 + 1].allowedParams.contains(words[iteration2])){
+							if(!keyCommands.firstWord.w[iteration2 + 1].allowedParams.include(words[iteration2])){
 								Errors.push({notfound: words[iteration2], message: "this keyword not allowed here!", line: iteration1});
 								// if allowedParams include word
-							}else if(keyCommands.firstWord.w[iteration2 + 1].allowedParams.contains(words[iteration2])){
+							}else if(keyCommands.firstWord.w[iteration2 + 1].allowedParams.include(words[iteration2])){
 								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 							}
 							// if keywords and allowedParams == false 
