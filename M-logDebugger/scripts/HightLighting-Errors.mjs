@@ -40,8 +40,8 @@ let hightLightingErrors = () => {
 						// if keywords not recomended in this word
 					}else if(keyCommands[firstWord][finder1].keywords == "notRecomended"){
 						console.log(`word ${words[iteration2]} not recomended`)
+						Errors.push({notfound: words[iteration2], message: "this keyword not recomended here", line: iteration1});
 						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
-						Errors.push({notfound: words[iteration2], message: "this word not recomended here", line: iteration1});
 						// if keyword not allowed in this words
 					}else{
 						// if allowedParams == array
@@ -50,15 +50,17 @@ let hightLightingErrors = () => {
 							if(!keyCommands[firstWord][finder1].allowedParams.includes(words[iteration2])){
 								console.log(`word ${words[iteration2]} not allowed`)
 								Errors.push({notfound: words[iteration2], message: "this keyword not allowed here!", line: iteration1});
+								words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
 								// if allowedParams include word
 							}else if(keyCommands[firstWord][finder1].allowedParams.includes(words[iteration2])){
 								console.log(`word ${words[iteration2]} allowed`)
 								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 							}
 							// if keywords and allowedParams == false 
-						}else if(keyCommands[firstWord][finder1].allowedParams == "undefined"){
+						}else if(keyCommands[firstWord][finder1].allowedParams == undefined){
 							console.log(`word ${words[iteration2]} not allowed`)
-							Errors.push({notfound: words[iteration2], message: "keywords not allowed here!", line: iteration1});
+							Errors.push({notfound: words[iteration2], message: "any keywords not allowed here!", line: iteration1});
+							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
 						};
 					};
 					
