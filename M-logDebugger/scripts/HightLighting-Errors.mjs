@@ -30,33 +30,34 @@ let hightLightingErrors = () => {
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
 				let num1 = iteration2 + 2;
 				let finder1 = `w${num1}`;
-				console.log(`line: ${iteration1}`);
-				console.log(`word: ${iteration2}`);
-				console.log(`w in object: ${finder1}`);
-				console.log(`command: ${keyCommands[firstWord]}`);
-				console.log(`command w: ${keyCommands[firstWord][finder1]}`);
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
+					console.log(`word ${words[iteration2]} started on @`)
 					// if keywords allowed its this word
 					if(keyCommands[firstWord][finder1].keywords == true){
+						console.log(`word ${words[iteration2]} allowed`)
 						words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 						// if keywords not recomended in this word
 					}else if(keyCommands[firstWord][finder1].keywords == "notRecomended"){
+						console.log(`word ${words[iteration2]} not recomended`)
 						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
-						Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
+						Errors.push({notfound: words[iteration2], message: "this word not recomended here", line: iteration1});
 						// if keyword not allowed in this words
 					}else{
 						// if allowedParams == array
 						if(isArray(keyCommands[firstWord][finder1].allowedParams)){
 							// if allowedParams not include word
-							if(!keyCommands[firstWord][finder1].allowedParams.hasOwnProperty(words[iteration2])){
+							if(!keyCommands[firstWord][finder1].allowedParams.includes(words[iteration2])){
+								console.log(`word ${words[iteration2]} not allowed`)
 								Errors.push({notfound: words[iteration2], message: "this keyword not allowed here!", line: iteration1});
 								// if allowedParams include word
-							}else if(keyCommands[firstWord][finder1].allowedParams.hasOwnProperty(words[iteration2])){
+							}else if(keyCommands[firstWord][finder1].allowedParams.includes(words[iteration2])){
+								console.log(`word ${words[iteration2]} allowed`)
 								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 							}
 							// if keywords and allowedParams == false 
 						}else if(keyCommands[firstWord][finder1].allowedParams == false){
+							console.log(`word ${words[iteration2]} not allowed`)
 							Errors.push({notfound: words[iteration2], message: "keywords not allowed here!", line: iteration1});
 						};
 					};
