@@ -28,29 +28,30 @@ let hightLightingErrors = () => {
 
 			// iteration of all words to find errors
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
+				let finder1 = `w${iteration2 + 2}`
 				console.log(iteration2)
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
 					// if keywords allowed its this word
-					if(keyCommands[firstWord].w[iteration2 + 1].keywords == true){
+					if(keyCommands[firstWord][finder1].keywords == true){
 						words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 						// if keywords not recomended in this word
-					}else if(keyCommands[firstWord].w[iteration2 + 1].keywords == "notRecomended"){
+					}else if(keyCommands[firstWord][finder1].keywords == "notRecomended"){
 						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
 						Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
 						// if keyword not allowed in this words
 					}else{
 						// if allowedParams == array
-						if(isArray(keyCommands[firstWord].w[iteration2 + 1].allowedParams)){
+						if(isArray(keyCommands[firstWord][finder1].allowedParams)){
 							// if allowedParams not include word
-							if(!keyCommands[firstWord].w[iteration2 + 1].allowedParams.hasOwnProperty(words[iteration2])){
+							if(!keyCommands[firstWord][finder1].allowedParams.hasOwnProperty(words[iteration2])){
 								Errors.push({notfound: words[iteration2], message: "this keyword not allowed here!", line: iteration1});
 								// if allowedParams include word
-							}else if(keyCommands[firstWord].w[iteration2 + 1].allowedParams.hasOwnProperty(words[iteration2])){
+							}else if(keyCommands[firstWord][finder1].allowedParams.hasOwnProperty(words[iteration2])){
 								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 							}
 							// if keywords and allowedParams == false 
-						}else if(keyCommands[firstWord].w[iteration2 + 1].allowedParams == false){
+						}else if(keyCommands[firstWord][finder1].allowedParams == false){
 							Errors.push({notfound: words[iteration2], message: "keywords not allowed here!", line: iteration1});
 						};
 					};
