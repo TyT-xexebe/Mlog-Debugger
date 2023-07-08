@@ -43,13 +43,14 @@ let hightLightingErrors = () => {
 			}
 			// iteration of all words to find errors
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
-				let commandToFind
+				let commandToFind;
+				let finder1;
 				console.log(`command to find: ${commandToFind} subCommand: ${subCommandRead}`)
 				if(subCommandRead = 1){
-					let finder1 = `w${iteration2 + 1}`;
+					finder1 = `w${iteration2 + 1}`;
 					commandToFind = keyCommands[firstWord][secondWord][finder1];
 				}else{
-					let finder1 = `w${iteration2}`;
+					finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][finder1];
 				}
 				console.log(`line: ${iteration1} word: ${iteration2} finder w: ${finder1}`)
