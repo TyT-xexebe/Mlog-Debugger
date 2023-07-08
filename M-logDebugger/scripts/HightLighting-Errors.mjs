@@ -27,26 +27,28 @@ let hightLightingErrors = () => {
 		}else{
 			words[0] = `<span id="command">${words[0]}</span>`
 
+			let subCommandRead
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
 				if(keyCommands[firstWord].hasOwnProperty(secondWord) || !secondWord == ""){
-					let subCommandRead = 1;
+					subCommandRead = 1;
 					words[1] = `<span id="command">${words[1]}</span>`;
 				}else{
-					let subCommandRead = 1;
+					subCommandRead = 1;
 					Errors.push({notfound: secondWord, message: `the ${firstWord} dont have sub-command ${secondWord}`, line: iteration1});
 					words[1] = `<span id="errors">${words[1]}</span>`
 				}
 			}else{
-				let subCommandRead = 0;
+				subCommandRead = 0;
 			}
 			// iteration of all words to find errors
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
+				let commandToFind
 				if(subCommandRead = 1){
 					let finder1 = `w${iteration2 + 1}`;
-					let commandToFind = keyCommands[firstWord][secondWord][finder1];
+					commandToFind = keyCommands[firstWord][secondWord][finder1];
 				}else{
 					let finder1 = `w${iteration2}`;
-					let commandToFind = keyCommands[firstWord][finder1];
+					commandToFind = keyCommands[firstWord][finder1];
 				}
 				
 				console.log(`line: ${iteration1} word: ${iteration2} finder w: ${finder1}`)
