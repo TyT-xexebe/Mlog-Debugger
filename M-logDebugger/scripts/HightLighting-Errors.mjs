@@ -31,7 +31,7 @@ let hightLightingErrors = () => {
 			console.log(`someVarians: ${keyCommands[firstWord].hasOwnProperty("someVariants")}  secondWord: ${secondWord}  hasProperty: ${keyCommands[firstWord].hasOwnProperty(secondWord)}`)
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
 				if(keyCommands[firstWord].hasOwnProperty(secondWord) || !secondWord == ""){
-					subCommandRead = 1;
+					subCommandRead = 0;
 					words[1] = `<span id="command">${words[1]}</span>`;
 				}else{
 					subCommandRead = 1;
@@ -45,8 +45,9 @@ let hightLightingErrors = () => {
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
 				let commandToFind;
 				let finder1;
+				secondWord = `${words[1]}`;
 				console.log(`command to find: ${commandToFind} subCommand: ${subCommandRead}`)
-				if(subCommandRead = 1){
+				if(subCommandRead == 1){
 					finder1 = `w${iteration2 + 1}`;
 					commandToFind = keyCommands[firstWord][secondWord][finder1];
 				}else{
