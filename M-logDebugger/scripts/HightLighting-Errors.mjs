@@ -28,6 +28,7 @@ let hightLightingErrors = () => {
 			words[0] = `<span id="command">${words[0]}</span>`
 
 			let subCommandRead
+			console.log(`someVarians: ${keyCommands[firstWord].hasOwnProperty("someVariants")}  secondWord: ${secondWord}  hasProperty: ${keyCommands[firstWord].hasOwnProperty(secondWord)}`)
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
 				if(keyCommands[firstWord].hasOwnProperty(secondWord) || !secondWord == ""){
 					subCommandRead = 1;
@@ -50,8 +51,7 @@ let hightLightingErrors = () => {
 					let finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][finder1];
 				}
-				
-				console.log(`line: ${iteration1} word: ${iteration2} finder w: ${finder1}`)
+				console.log(`line: ${iteration1} word: ${iteration2} finder w: ${finder1} command to find: ${commandToFind}`)
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
 					console.log(`word ${words[iteration2]} started on @`)
