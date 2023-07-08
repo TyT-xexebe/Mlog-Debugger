@@ -5,41 +5,6 @@ let reg2 = new RegExp("^bank\\d{1,999}$");
 // allowed word1 in drawflush and pringfush
 let reg3 = new RegExp("^display\\d{1,999}$");
 let reg4 = new RegExp("^message\\d{1,999}$");
-// allowed word2 in draw
-let objDraw = {
-	clear: {
-		words: 3
-	},
-	color: {
-		words: 4
-	},
-	col: {
-		words: 1
-	},
-	stroke: {
-		words: 1
-	},
-	line: {
-		words: 4
-	},
-	rect: {
-		words: 4
-	},
-	lineRect: {
-		words: 4
-	},
-	poly: {
-		words: 5
-	},
-	triangle: {
-		words: 6
-	},
-	image: {
-		words: 3,
-		keywords: true
-	}
-};
-
 // allowed word2 in control
 let objControl = {
 	enabled: {
@@ -581,6 +546,7 @@ someVariants = true // say to code it need read a allowedWords like object || no
 */
 
 let keyCommands = {
+	max: 99999,
 	"#": {
 		words: true,
 		numbers: true,
@@ -590,7 +556,7 @@ let keyCommands = {
 	},
 
 	read: {
-		someVariants: true,
+		max: 3,
 		w1: {
 			words: true,
 		 numbers: false,
@@ -603,7 +569,7 @@ let keyCommands = {
 		 numbers: false,
 	 	keywords: false,
 	 	color: "rgb(0, 183, 255)",
-			allowedWords: [reg1, reg2]
+			allowedWords: false
 		},
 		w3: {
 			words: true,
@@ -615,7 +581,7 @@ let keyCommands = {
 	},
 
 	write: {
-		someVariants: true,
+		max: 3,
 		w1: {
 			words: true,
 		 numbers: false,
@@ -628,7 +594,7 @@ let keyCommands = {
 		 numbers: false,
 	 	keywords: false,
 	 	color: "rgb(0, 183, 255)",
-			allowedWords: [reg1, reg2]
+			allowedWords: false
 		},
 		w3: {
 			words: true,
@@ -641,55 +607,8 @@ let keyCommands = {
 
 	draw: {
 		someVariants: true,
-		w1: {
-			words: true,
-		 numbers: false,
-	 	keywords: false,
-	 	color: "rgb(0, 255, 98)",
-			allowedWords: objDraw
-		},
-		w2: {
-			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
-	 	color: false,
-			allowedWords: false
-		},
-		w3: {
-			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
-	 	color: false,
-			allowedWords: false
-		},
-		w4: {
-			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
-	 	color: false,
-			allowedWords: false,
-		},
-		w5: {
-			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
-	 	color: false,
-			allowedWords: false
-		},
-		w6: {
-			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
-	 	color: false,
-			allowedWords: false
-		},
-		w7: {
-			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
-	 	color: false,
-			allowedWords: false
-		}
+
+
 	},
 
 	print: {
@@ -785,7 +704,6 @@ let keyCommands = {
 	},
 
 	radar: {
-		someVariants: true,
 		w1: {
 			words: false,
 		 numbers: false,
@@ -1103,4 +1021,4 @@ let keyCommands = {
 	}
 };
 
-export {objControl, objDraw, objUcontrol, objUlocate, keyCommands, keywords, reg1, reg2, reg3, reg4}
+export {keyCommands, keywords, reg1, reg2, reg3, reg4}
