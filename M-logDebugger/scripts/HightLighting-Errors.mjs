@@ -44,6 +44,7 @@ let hightLightingErrors = () => {
 			// iteration of all words to find errors
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
 				let commandToFind
+				console.log(`command to find: ${commandToFind} subCommand: ${subCommandRead}`)
 				if(subCommandRead = 1){
 					let finder1 = `w${iteration2 + 1}`;
 					commandToFind = keyCommands[firstWord][secondWord][finder1];
@@ -51,7 +52,7 @@ let hightLightingErrors = () => {
 					let finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][finder1];
 				}
-				console.log(`line: ${iteration1} word: ${iteration2} finder w: ${finder1} command to find: ${commandToFind}`)
+				console.log(`line: ${iteration1} word: ${iteration2} finder w: ${finder1}`)
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
 					console.log(`word ${words[iteration2]} started on @`)
