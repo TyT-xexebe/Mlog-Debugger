@@ -41,7 +41,7 @@ let hightLightingErrors = () => {
 				subCommandRead = 0;
 			}
 			// checking if words in line more then need
-			let lineWords = words.length + 1;
+			let lineWords = words.length - 1;
 			if(subCommandRead == 0){
 				console.log(`lineWords: ${lineWords} first: ${keyCommands[firstWord]} max: ${keyCommands[firstWord].max}`)
 				if(lineWords > keyCommands[firstWord].max){
