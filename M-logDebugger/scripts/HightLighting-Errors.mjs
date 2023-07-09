@@ -62,6 +62,9 @@ let hightLightingErrors = () => {
 					finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][finder1];
 				}
+				if(typeof commandToFind == 'undefined'){
+					console.log("syka blyat")
+				}
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
 					// if keywords allowed its this word
@@ -95,7 +98,7 @@ let hightLightingErrors = () => {
 						};
 					};
 				};
-
+				
 				// if word == number
 				if(isNaN(words[iteration2])){
 					if(commandToFind.numbers == false){
