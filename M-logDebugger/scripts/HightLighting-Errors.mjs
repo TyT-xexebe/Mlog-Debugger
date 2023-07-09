@@ -45,12 +45,12 @@ let hightLightingErrors = () => {
 			}
 			// checing if words in line more then need
 			if(subCommandRead == 0){
-				if(words.length > keyCommands.firstWord.max){
-					Errors.push({notfound: firstWord, message: `the command ${firstWord} can access only ${keyCommands.firstWord.max} propertry words!`, line: iteration1});
+				if(words.length > keyCommands[firstWord].max){
+					Errors.push({notfound: firstWord, message: `the command ${firstWord} can access only ${keyCommands[firstWord].max} propertry words!`, line: iteration1});
 				}
 			}else{
-				if(words.length > keyCommands.firstWord.secondWord.max){
-					Errors.push({notfound: firstWord, message: `the command ${firstWord} ${secondWord} can access only ${keyCommands.firstWord.max} propertry words!`, line: iteration1});
+				if(words.length > keyCommands[firstWord][secondWord].max){
+					Errors.push({notfound: firstWord, message: `the command ${firstWord} ${secondWord} can access only ${keyCommands[firstWord][secondWord].max} propertry words!`, line: iteration1});
 				}
 			}
 			// iteration of all words to find errors
