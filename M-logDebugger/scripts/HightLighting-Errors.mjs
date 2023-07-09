@@ -40,13 +40,16 @@ let hightLightingErrors = () => {
 			}else{
 				subCommandRead = 0;
 			}
-			// checing if words in line more then need
+			// checking if words in line more then need
+			let lineWords = words.length + 1;
 			if(subCommandRead == 0){
-				if(words.length += 1 > keyCommands[firstWord].max){
+				console.log(`lineWords: ${lineWords} first: ${keyCommands[firstWord]} max: ${keyCommands[firstWord].max}`)
+				if(lineWords > keyCommands[firstWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} can access only ${keyCommands[firstWord].max} propertry words!`, line: iteration1});
 				}
 			}else{
-				if(words.length += 1 > keyCommands[firstWord][secondWord].max){
+				console.log(`lineWords: ${lineWords} first: ${keyCommands[firstWord]} second: ${keyCommands[firstWord][secondWord]} max: ${keyCommands[firstWord][secondWord].max}`)
+				if(lineWords > keyCommands[firstWord][secondWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} ${secondWord} can access only ${keyCommands[firstWord][secondWord].max} propertry words!`, line: iteration1});
 				}
 			}
