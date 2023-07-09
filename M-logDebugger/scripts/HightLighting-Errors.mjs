@@ -1,5 +1,5 @@
 // imports all commands and his settings
-import {keyCommands, keywords, reg1, reg2, reg3, reg4} from "../scripts/ObjectsMlog.mjs"
+import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
 // cresting arrays for arrors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
@@ -21,12 +21,13 @@ let hightLightingErrors = () => {
   let secondWord = words[1];
 
 		// checking if keyCommands have firstWord
-		if(!keyCommands.hasOwnProperty(firstWord)){
+		if(!keyCommands.hasOwnProperty(firstWord) || !firstWord == ""){
 			Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 			words[0] = `<span id="errors">${words[0]}</span>`
 		}else{
 			words[0] = `<span id="command">${words[0]}</span>`
 
+			// checking if command have sub-command
 			let subCommandRead
 			console.log(`someVarians: ${keyCommands[firstWord].hasOwnProperty("someVariants")}  secondWord: ${secondWord}  hasProperty: ${keyCommands[firstWord].hasOwnProperty(secondWord)}`)
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
@@ -41,8 +42,19 @@ let hightLightingErrors = () => {
 			}else{
 				subCommandRead = 0;
 			}
+			// checing if words in line more then need
+			if(subCommandRead == 0){
+				if(words.length > keyCommands.firstWord.max){
+					Errors.push({notfound: firstWord, message: `the command ${firstWord} can access only ${keyCommands.firstWord.max} propertry words!`, line: iteration1});
+				}
+			}else{
+				if(words.length > keyCommands.firstWord.secondWord.max){
+					Errors.push({notfound: firstWord, message: `the command ${firstWord} ${secondWord} can access only ${keyCommands.firstWord.max} propertry words!`, line: iteration1});
+				}
+			}
 			// iteration of all words to find errors
 			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
+				// getting commandToFind by subCommandRead
 				let commandToFind;
 				let finder1;
 				secondWord = `${words[1]}`;
@@ -60,8 +72,13 @@ let hightLightingErrors = () => {
 					console.log(`word ${words[iteration2]} started on @`)
 					// if keywords allowed its this word
 					if(commandToFind.keywords == true){
-						console.log(`word ${words[iteration2]} allowed`)
-						words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
+						if(keywords.include(words[iteration2])){
+							console.log(`word ${words[iteration2]} allowed`)
+							words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
+						}else{
+							Errors.push({notfound: words[iteration2], message: "keywords not include this word", line: iteration1});
+							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+						}
 						// if keywords not recomended in this word
 					}else if(commandToFind.keywords == "notRecomended"){
 						console.log(`word ${words[iteration2]} not recomended`)
