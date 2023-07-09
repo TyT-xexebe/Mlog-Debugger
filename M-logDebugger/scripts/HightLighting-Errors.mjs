@@ -48,6 +48,7 @@ let hightLightingErrors = () => {
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} can access only ${keyCommands[firstWord].max} propertry words!`, line: iteration1});
 				}
 			}else{
+				secondWord = `${words[1]}`;
 				console.log(`lineWords: ${lineWords} first: ${keyCommands[firstWord]} second: ${keyCommands[firstWord][secondWord]} max: ${keyCommands[firstWord][secondWord].max}`)
 				if(lineWords > keyCommands[firstWord][secondWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} ${secondWord} can access only ${keyCommands[firstWord][secondWord].max} propertry words!`, line: iteration1});
