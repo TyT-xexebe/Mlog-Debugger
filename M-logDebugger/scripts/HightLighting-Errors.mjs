@@ -62,6 +62,7 @@ let hightLightingErrors = () => {
 					finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][finder1];
 				}
+				console.log(`sub: ${subCommandRead} first: ${firstWord} second: ${secondWord} finder: ${finder1} lineWord: ${lineWords}`)
 				if(typeof commandToFind == 'undefined'){
 					console.log("syka blyat")
 				}
