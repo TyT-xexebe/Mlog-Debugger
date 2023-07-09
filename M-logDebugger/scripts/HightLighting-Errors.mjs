@@ -28,7 +28,7 @@ let hightLightingErrors = () => {
 			// checking if command have sub-command
 			let subCommandRead
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
-				if(keyCommands[firstWord].hasOwnProperty(secondWord) && secondWord !== undefined){
+				if(keyCommands[firstWord].hasOwnProperty(secondWord)){
 					subCommandRead = 1;
 					words[1] = `<span id="command">${words[1]}</span>`;
 				}else{
@@ -56,10 +56,10 @@ let hightLightingErrors = () => {
 				let commandToFind;
 				let finder1;
 				if(subCommandRead == 1){
-					finder1 = `w${iteration2 + 2}`;
+					finder1 = `w${iteration2 + 1}`;
 					commandToFind = keyCommands[firstWord][secondWord][finder1];
 				}else{
-					finder1 = `w${iteration2 + 1}`;
+					finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][finder1];
 				}
 				console.log(`sub: ${subCommandRead} first: ${firstWord} second: ${secondWord} finder: ${finder1} lineWord: ${lineWords}`)

@@ -862,6 +862,22 @@ let keyCommands = {
 			}
 		},
 
+		pathfind: {
+			max: 3,
+			w2: {
+				words: true,
+				numbers: true,
+				keywords: true,
+				allowedWords: false
+			},
+			w3: {
+				words: true,
+				numbers: true,
+				keywords: true,
+				allowedWords: false
+			}
+		},
+
 		itemTake: {
 			max: 4,
 			w2: {
