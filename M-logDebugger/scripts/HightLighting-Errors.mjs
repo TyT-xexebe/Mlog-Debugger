@@ -128,15 +128,16 @@ let hightLightingErrors = () => {
 					
 					
 				}
-
 			}
+			lines[iteration1] = words.join(' ');
 		}
-		lines[iteration1] = words.join(' ');
 	}
 	Errors = [];
 	formattedCode = lines.join('<br>');
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
+	lines = [];
+	code = [];
 }
 
 textarea.addEventListener("input", (hightLightingErrors));
