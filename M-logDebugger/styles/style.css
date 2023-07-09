@@ -108,7 +108,7 @@ body {
 }
 
 #command {
-	color: rgb(234, 0, 255);
+	color: rgb(198, 34, 212);
 }
 
 #text {
@@ -117,6 +117,10 @@ body {
 
 #keywords {
 	color: rgb(2, 182, 41);
+}
+
+#numbers {
+	color: rgb(222, 255, 38);
 }
 
 #errors {

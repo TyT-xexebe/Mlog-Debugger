@@ -11,7 +11,6 @@ let hightLightingErrors = () => {
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
-	console.log("started..");console.log(Errors);
 // creating iteration of all lines
 	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
@@ -43,12 +42,10 @@ let hightLightingErrors = () => {
 			// checking if words in line more then need
 			let lineWords = words.length - 1;
 			if(subCommandRead == 0){
-				console.log(`lineWords: ${lineWords} first: ${keyCommands[firstWord]} max: ${keyCommands[firstWord].max}`)
 				if(lineWords > keyCommands[firstWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} can access only ${keyCommands[firstWord].max} propertry words!`, line: iteration1});
 				}
 			}else{
-				console.log(`lineWords: ${lineWords} first: ${keyCommands[firstWord]} second: ${keyCommands[firstWord][secondWord]} max: ${keyCommands[firstWord][secondWord].max}`)
 				if(lineWords > keyCommands[firstWord][secondWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} ${secondWord} can access only ${keyCommands[firstWord][secondWord].max} propertry words!`, line: iteration1});
 				}
@@ -67,11 +64,9 @@ let hightLightingErrors = () => {
 				}
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
-					console.log(`word ${words[iteration2]} started on @`)
 					// if keywords allowed its this word
 					if(commandToFind.keywords == true){
 						if(keywords.includes(words[iteration2])){
-							console.log(`word ${words[iteration2]} allowed`)
 							words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 						}else{
 							Errors.push({notfound: words[iteration2], message: "keywords not include this word", line: iteration1});
@@ -79,7 +74,6 @@ let hightLightingErrors = () => {
 						}
 						// if keywords not recomended in this word
 					}else if(commandToFind.keywords == "notRecomended"){
-						console.log(`word ${words[iteration2]} not recomended`)
 						Errors.push({notfound: words[iteration2], message: "this keyword not recomended here", line: iteration1});
 						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
 						// if keyword not allowed in this words
@@ -88,22 +82,44 @@ let hightLightingErrors = () => {
 						if(Array.isArray(commandToFind.allowedParams)){
 							// if allowedParams not include word
 							if(!commandToFind.allowedParams.includes(words[iteration2])){
-								console.log(`word ${words[iteration2]} not allowed`)
 								Errors.push({notfound: words[iteration2], message: "this keyword not allowed here!", line: iteration1});
 								words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
 								// if allowedParams include word
 							}else if(commandToFind.allowedParams.includes(words[iteration2])){
-								console.log(`word ${words[iteration2]} allowed`)
 								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 							}
 							// if keywords and allowedParams are null
 						}else if(commandToFind.allowedParams == undefined){
-							console.log(`word ${words[iteration2]} not allowed`)
 							Errors.push({notfound: words[iteration2], message: "any keywords not allowed here!", line: iteration1});
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
 						};
 					};
 				};
+
+				// if word == number
+				if(isNaN(words[iteration2])){
+					if(commandToFind.numbers == false){
+						Errors.push({notfound: words[iteration2], message: "any numbers not allowed here!", line: iteration1});
+						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+					}else{
+						words[iteration2] = `<span id="numbers">${words[iteration2]}</span>`
+					}
+
+					// if word == text
+					if(commandToFind.words == true){
+						words[iteration2] = `<span id="text">${words[iteration2]}</span>`
+					}else{
+						if(commandToFind.allowedWords == false){
+							Errors.push({notfound: words[iteration2], message: "any words not allowed here!", line: iteration1});
+							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+						}else if(commandToFind.allowedWords.includes(words[iteration2])){
+							words[iteration2] = `<span id="text">${words[iteration2]}</span>`
+						}else{
+							Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
+							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+						}
+					}
+				}
 			}
 		}
 	}
