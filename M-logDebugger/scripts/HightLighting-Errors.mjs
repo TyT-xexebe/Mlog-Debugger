@@ -14,14 +14,12 @@ let hightLightingErrors = () => {
 	console.log("started..");console.log(Errors);
 // creating iteration of all lines
 	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
-		console.log(iteration1)
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
   let firstWord = words[0];
   let secondWord = words[1];
 
 		// checking if keyCommands have firstWord
-		console.log(`firstWord: ${firstWord} key?: ${keyCommands.hasOwnProperty(firstWord)}`)
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 			words[0] = `<span id="errors">${words[0]}</span>`
@@ -30,9 +28,8 @@ let hightLightingErrors = () => {
 
 			// checking if command have sub-command
 			let subCommandRead
-			console.log(`someVarians: ${keyCommands[firstWord].hasOwnProperty("someVariants")}  secondWord: ${secondWord}  hasProperty: ${keyCommands[firstWord].hasOwnProperty(secondWord)}`)
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
-				if(keyCommands[firstWord].hasOwnProperty(secondWord) || secondWord !== undefined){
+				if(keyCommands[firstWord].hasOwnProperty(secondWord) && secondWord !== undefined){
 					subCommandRead = 1;
 					words[1] = `<span id="command">${words[1]}</span>`;
 				}else{
@@ -45,11 +42,11 @@ let hightLightingErrors = () => {
 			}
 			// checing if words in line more then need
 			if(subCommandRead == 0){
-				if(words.length > keyCommands[firstWord].max){
+				if(words.length += 1 > keyCommands[firstWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} can access only ${keyCommands[firstWord].max} propertry words!`, line: iteration1});
 				}
 			}else{
-				if(words.length > keyCommands[firstWord][secondWord].max){
+				if(words.length += 1 > keyCommands[firstWord][secondWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} ${secondWord} can access only ${keyCommands[firstWord][secondWord].max} propertry words!`, line: iteration1});
 				}
 			}
@@ -59,7 +56,6 @@ let hightLightingErrors = () => {
 				let commandToFind;
 				let finder1;
 				secondWord = `${words[1]}`;
-				console.log(`command to find: ${commandToFind} subCommand: ${subCommandRead}`)
 				if(subCommandRead == 1){
 					finder1 = `w${iteration2 + 1}`;
 					commandToFind = keyCommands[firstWord][secondWord][finder1];
@@ -67,7 +63,6 @@ let hightLightingErrors = () => {
 					finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][finder1];
 				}
-				console.log(`line: ${iteration1} word: ${iteration2} finder w: ${finder1}`)
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
 					console.log(`word ${words[iteration2]} started on @`)
