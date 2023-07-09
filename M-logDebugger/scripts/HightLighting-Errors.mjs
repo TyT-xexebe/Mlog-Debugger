@@ -8,6 +8,7 @@ const textarea = document.getElementById('codeInput');
 // creating function with all code
 let hightLightingErrors = () => {
 	// getting textarea text-code
+	let formattedCode = " ";
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
@@ -123,12 +124,20 @@ let hightLightingErrors = () => {
 							Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
 						}
+						
 					}
+					
+					
 				}
+
 			}
 		}
+		lines[i] = words.join(' ');
 	}
 	Errors = [];
+	formattedCode = lines.join('<br>');
+	const output = document.getElementById('codeOutput');
+	output.innerHTML = formattedCode;
 }
 
 textarea.addEventListener("input", (hightLightingErrors));
