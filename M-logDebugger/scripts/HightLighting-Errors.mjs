@@ -17,7 +17,7 @@ let hightLightingErrors = () => {
 		let words = lines[iteration1].split(' ');
   let firstWord = words[0];
   let secondWord = words[1];
-
+		console.log(Errors);
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
@@ -64,7 +64,8 @@ let hightLightingErrors = () => {
 				}
 				console.log(`sub: ${subCommandRead} first: ${firstWord} second: ${secondWord} finder: ${finder1} lineWord: ${lineWords}`)
 				if(typeof commandToFind == 'undefined'){
-					console.log("syka blyat")
+					Errors.push({notfound: words[iteration2], message: "have errors with commands names", line: iteration1});
+					continue;
 				}
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
