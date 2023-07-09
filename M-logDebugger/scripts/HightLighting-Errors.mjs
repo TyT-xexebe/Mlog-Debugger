@@ -21,7 +21,8 @@ let hightLightingErrors = () => {
   let secondWord = words[1];
 
 		// checking if keyCommands have firstWord
-		if(!keyCommands.hasOwnProperty(firstWord) || firstWord !== " "){
+		console.log(`firstWord: ${firstWord} key?: ${keyCommands.hasOwnProperty(firstWord)}`)
+		if(!keyCommands.hasOwnProperty(firstWord)){
 			Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 			words[0] = `<span id="errors">${words[0]}</span>`
 		}else{
