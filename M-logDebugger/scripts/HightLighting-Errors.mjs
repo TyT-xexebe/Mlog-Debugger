@@ -70,7 +70,7 @@ let hightLightingErrors = () => {
 					console.log(`word ${words[iteration2]} started on @`)
 					// if keywords allowed its this word
 					if(commandToFind.keywords == true){
-						if(keywords.include(words[iteration2])){
+						if(keywords.includes(words[iteration2])){
 							console.log(`word ${words[iteration2]} allowed`)
 							words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
 						}else{
