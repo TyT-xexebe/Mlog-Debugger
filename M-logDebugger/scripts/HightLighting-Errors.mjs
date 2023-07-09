@@ -32,11 +32,11 @@ let hightLightingErrors = () => {
 			let subCommandRead
 			console.log(`someVarians: ${keyCommands[firstWord].hasOwnProperty("someVariants")}  secondWord: ${secondWord}  hasProperty: ${keyCommands[firstWord].hasOwnProperty(secondWord)}`)
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
-				if(keyCommands[firstWord].hasOwnProperty(secondWord) || !secondWord == ""){
-					subCommandRead = 0;
+				if(keyCommands[firstWord].hasOwnProperty(secondWord) || secondWord !== undefined){
+					subCommandRead = 1;
 					words[1] = `<span id="command">${words[1]}</span>`;
 				}else{
-					subCommandRead = 1;
+					subCommandRead = 0;
 					Errors.push({notfound: secondWord, message: `the ${firstWord} dont have sub-command ${secondWord}`, line: iteration1});
 					words[1] = `<span id="errors">${words[1]}</span>`
 				}
