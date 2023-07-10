@@ -34,6 +34,7 @@ body {
 }
 
 .codeOutput {
+ font-size: 18px;
 	height: 91vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
