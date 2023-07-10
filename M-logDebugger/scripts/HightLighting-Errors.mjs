@@ -108,7 +108,7 @@ let hightLightingErrors = () => {
 				};
 				
 				// if word == number
-				if(isNaN(words[iteration2])){
+				if(!isNaN(words[iteration2])){
 					if(commandToFind.numbers == false){
 						Errors.push({notfound: words[iteration2], message: "any numbers not allowed here!", line: iteration1});
 						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
