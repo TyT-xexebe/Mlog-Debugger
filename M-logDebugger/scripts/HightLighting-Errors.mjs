@@ -10,8 +10,6 @@ let hightLightingErrors = () => {
 	// getting textarea text-code
 	let formattedCode = " ";
 	const textarea = document.getElementById('codeInput');
-	lines = [];
-	code = [];
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 // creating iteration of all lines
@@ -75,14 +73,17 @@ let hightLightingErrors = () => {
 					if(commandToFind.keywords == true){
 						if(keywords.includes(words[iteration2])){
 							words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
+							continue;
 						}else{
 							Errors.push({notfound: words[iteration2], message: "keywords not include this word", line: iteration1});
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							continue;
 						}
 						// if keywords not recomended in this word
 					}else if(commandToFind.keywords == "notRecomended"){
 						Errors.push({notfound: words[iteration2], message: "this keyword not recomended here", line: iteration1});
 						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+						continue;
 						// if keyword not allowed in this words
 					}else{
 						// if allowedParams == array
@@ -91,14 +92,17 @@ let hightLightingErrors = () => {
 							if(!commandToFind.allowedParams.includes(words[iteration2])){
 								Errors.push({notfound: words[iteration2], message: "this keyword not allowed here!", line: iteration1});
 								words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+								continue;
 								// if allowedParams include word
 							}else if(commandToFind.allowedParams.includes(words[iteration2])){
 								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
+								continue;
 							}
 							// if keywords and allowedParams are null
 						}else if(commandToFind.allowedParams == undefined){
 							Errors.push({notfound: words[iteration2], message: "any keywords not allowed here!", line: iteration1});
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							continue;
 						};
 					};
 				};
@@ -108,10 +112,12 @@ let hightLightingErrors = () => {
 					if(commandToFind.numbers == false){
 						Errors.push({notfound: words[iteration2], message: "any numbers not allowed here!", line: iteration1});
 						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+						continue;
 					}else{
 						words[iteration2] = `<span id="numbers">${words[iteration2]}</span>`
+						continue;
 					}
-
+				}
 					// if word == text
 					if(commandToFind.words == true){
 						words[iteration2] = `<span id="text">${words[iteration2]}</span>`
@@ -119,17 +125,17 @@ let hightLightingErrors = () => {
 						if(commandToFind.allowedWords == false){
 							Errors.push({notfound: words[iteration2], message: "any words not allowed here!", line: iteration1});
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							continue;
 						}else if(commandToFind.allowedWords.includes(words[iteration2])){
 							words[iteration2] = `<span id="text">${words[iteration2]}</span>`
+							continue;
 						}else{
 							Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							continue;
 						}
-						
 					}
-					
-					
-				}
+				
 			}
 			lines[iteration1] = words.join(' ');
 		}
