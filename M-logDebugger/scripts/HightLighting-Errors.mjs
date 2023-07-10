@@ -137,8 +137,8 @@ let hightLightingErrors = () => {
 					}
 				
 			}
-			lines[iteration1] = words.join(' ');
 		}
+		lines[iteration1] = words.join(' ');
 	}
 	Errors = [];
 	formattedCode = lines.join('<br>');

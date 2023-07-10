@@ -112,7 +112,7 @@ body {
 }
 
 #text {
-	color: rgb(0, 183, 255);
+	color: rgb(56, 157, 197);
 }
 
 #keywords {
@@ -120,12 +120,12 @@ body {
 }
 
 #numbers {
-	color: rgb(222, 255, 38);
+	color: rgb(228, 231, 49);
 }
 
 #errors {
-	color: rgb(173, 0, 0);
-	background-color: rgba(255, 0, 0, 0.514);
+	color: rgb(214, 0, 0);
+	background-color: rgba(247, 47, 47, 0.719);
 	width: fit-content;
 	height: fit-content;
 }
