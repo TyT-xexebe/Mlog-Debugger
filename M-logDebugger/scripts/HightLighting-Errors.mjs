@@ -10,6 +10,8 @@ let hightLightingErrors = () => {
 	// getting textarea text-code
 	let formattedCode = " ";
 	const textarea = document.getElementById('codeInput');
+	lines = [];
+	code = [];
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 // creating iteration of all lines
@@ -136,8 +138,6 @@ let hightLightingErrors = () => {
 	formattedCode = lines.join('<br>');
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
-	lines = [];
-	code = [];
 }
 
 textarea.addEventListener("input", (hightLightingErrors));
