@@ -105,38 +105,35 @@ let hightLightingErrors = () => {
 							
 						};
 					};
-					lines[iteration1] = words.join(' ');
-					continue;
-				};
-				
-				// if word == number
-				if(!isNaN(words[iteration2])){
-					if(commandToFind.numbers == false){
-						Errors.push({notfound: words[iteration2], message: "any numbers not allowed here!", line: iteration1});
-						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
-						
-					}else{
-						words[iteration2] = `<span id="numbers">${words[iteration2]}</span>`
-						
-					}
-				}
-					// if word == text
-					if(commandToFind.words == true){
-						words[iteration2] = `<span id="text">${words[iteration2]}</span>`
-					}else{
-						if(commandToFind.allowedWords == false){
-							Errors.push({notfound: words[iteration2], message: "any words not allowed here!", line: iteration1});
+				}else{
+					
+					// if word == number
+					if(!isNaN(words[iteration2])){
+						if(commandToFind.numbers == false){
+							Errors.push({notfound: words[iteration2], message: "any numbers not allowed here!", line: iteration1});
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
-							
-						}else if(commandToFind.allowedWords.includes(words[iteration2])){
-							words[iteration2] = `<span id="text">${words[iteration2]}</span>`
 							
 						}else{
-							Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
-							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							words[iteration2] = `<span id="numbers">${words[iteration2]}</span>`
 							
 						}
+					}else{
+						// if word == text
+						if(commandToFind.words == true){
+							words[iteration2] = `<span id="text">${words[iteration2]}</span>`
+						}else{
+							if(commandToFind.allowedWords == false){
+								Errors.push({notfound: words[iteration2], message: "any words not allowed here!", line: iteration1});
+								words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							}else if(commandToFind.allowedWords.includes(words[iteration2])){
+								words[iteration2] = `<span id="text">${words[iteration2]}</span>`
+							}else{
+								Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
+								words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							}
+						}
 					}
+				}
 			}
 			lines[iteration1] = words.join(' ');
 		}
