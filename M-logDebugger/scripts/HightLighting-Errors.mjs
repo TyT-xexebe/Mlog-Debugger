@@ -65,7 +65,7 @@ let hightLightingErrors = () => {
 				}
 				console.log(`sub: ${subCommandRead} first: ${firstWord} second: ${secondWord} finder: ${finder1} lineWord: ${lineWords}`)
 				if(typeof commandToFind == 'undefined'){
-					
+					continue;
 				}
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
