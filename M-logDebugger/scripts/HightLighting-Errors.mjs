@@ -136,9 +136,10 @@ let hightLightingErrors = () => {
 						}
 					}
 				lines[iteration1] = words.join(' ');
+				formattedCode = lines.join('\n');
 			}
 		}
-		formattedCode = lines.join('\n');
+		
 	}
 	Errors = [];
 	const output = document.getElementById('codeOutput');
