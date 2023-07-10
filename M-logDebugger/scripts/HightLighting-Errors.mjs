@@ -14,8 +14,7 @@ let hightLightingErrors = () => {
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
-// creating iteration of all lines
-	MainLoop:for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
+// creating iteration of all lines        for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
   let firstWord = words[0];
@@ -54,7 +53,7 @@ let hightLightingErrors = () => {
 				}
 			}
 			// iteration of all words to find errors
-			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
+			MainLoop:for(let iteration2 = 0; iteration2 < words.length; iteration2++){
 				// getting commandToFind by subCommandRead
 				let commandToFind;
 				let finder1;
