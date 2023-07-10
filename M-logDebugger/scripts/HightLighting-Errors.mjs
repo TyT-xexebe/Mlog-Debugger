@@ -139,10 +139,10 @@ let hightLightingErrors = () => {
 			}
 		}
 	}
-	formattedCode = lines.join('\n');
+	formattedCode = lines.join('</br>');
 	Errors = [];
 	const output = document.getElementById('codeOutput');
-	output.innerText = formattedCode;
+	output.innerHTML = formattedCode;
 }
 
 textarea.addEventListener("input", (hightLightingErrors));
