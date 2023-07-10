@@ -14,7 +14,9 @@ let hightLightingErrors = () => {
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
-// creating iteration of all lines        for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
+// creating iteration of all lines
+         
+for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
   let firstWord = words[0];
