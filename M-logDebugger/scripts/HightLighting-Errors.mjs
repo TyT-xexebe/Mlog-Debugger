@@ -9,6 +9,8 @@ const textarea = document.getElementById('codeInput');
 let hightLightingErrors = () => {
 	// getting textarea text-code
 	let formattedCode = " ";
+	const output = document.getElementById('codeOutput');
+	output.innerHTML = formattedCode;
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
@@ -65,6 +67,7 @@ let hightLightingErrors = () => {
 				}
 				console.log(`sub: ${subCommandRead} first: ${firstWord} second: ${secondWord} finder: ${finder1} lineWord: ${lineWords}`)
 				if(typeof commandToFind == 'undefined'){
+					lines[iteration1] = words.join(' ');
 					continue;
 				}
 				// if words starts on @
@@ -140,7 +143,6 @@ let hightLightingErrors = () => {
 	}
 	formattedCode = lines.join('\n');
 	Errors = [];
-	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
 }
 
