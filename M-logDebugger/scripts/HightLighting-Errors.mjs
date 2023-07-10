@@ -15,7 +15,7 @@ let hightLightingErrors = () => {
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 // creating iteration of all lines
-	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
+	MainLoop:for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
   let firstWord = words[0];
@@ -68,7 +68,7 @@ let hightLightingErrors = () => {
 				console.log(`sub: ${subCommandRead} first: ${firstWord} second: ${secondWord} finder: ${finder1} lineWord: ${lineWords}`)
 				if(typeof commandToFind == 'undefined'){
 					lines[iteration1] = words.join(' ');
-					continue;
+					continue MainLoop;
 				}
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
@@ -138,10 +138,10 @@ let hightLightingErrors = () => {
 					}
 				}
 			}
-			lines[iteration1] = words.join(' ');
+			lines[iteration1] = words.join('&nbsp;');
 		}
 	}
-	formattedCode = lines.join('\n');
+	formattedCode = lines.join('<br>');
 	Errors = [];
 	output.innerHTML = formattedCode;
 }
