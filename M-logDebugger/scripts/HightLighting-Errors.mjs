@@ -142,7 +142,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			lines[iteration1] = words.join('&nbsp;');
 		}
 	}
-	formattedCode = lines.join('\n');
+	formattedCode = lines.join('\n\n');
 	Errors = [];
 	output.innerHTML = formattedCode;
 }
