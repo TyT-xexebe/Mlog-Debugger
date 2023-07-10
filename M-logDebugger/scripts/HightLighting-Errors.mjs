@@ -73,8 +73,7 @@ let hightLightingErrors = () => {
 					if(commandToFind.keywords == true){
 						if(keywords.includes(words[iteration2])){
 							words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
-							lines[iteration1] = words.join(' ');
-							continue;
+							
 						}else{
 							Errors.push({notfound: words[iteration2], message: "keywords not include this word", line: iteration1});
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
@@ -97,15 +96,17 @@ let hightLightingErrors = () => {
 								// if allowedParams include word
 							}else if(commandToFind.allowedParams.includes(words[iteration2])){
 								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
-								lines[iteration1] = words.join(' ');
-								continue;
+								
 							}
 							// if keywords and allowedParams are null
 						}else if(commandToFind.allowedParams == undefined){
 							Errors.push({notfound: words[iteration2], message: "any keywords not allowed here!", line: iteration1});
 							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							
 						};
 					};
+					lines[iteration1] = words.join(' ');
+					continue;
 				};
 				
 				// if word == number
@@ -116,11 +117,8 @@ let hightLightingErrors = () => {
 						
 					}else{
 						words[iteration2] = `<span id="numbers">${words[iteration2]}</span>`
-						lines[iteration1] = words.join(' ');
-						continue;
+						
 					}
-					lines[iteration1] = words.join(' ');
-					continue;
 				}
 					// if word == text
 					if(commandToFind.words == true){
