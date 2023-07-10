@@ -135,13 +135,12 @@ let hightLightingErrors = () => {
 							continue;
 						}
 					}
-				
+				lines[iteration1] = words.join(' ');
 			}
 		}
-		lines[iteration1] = words.join(' ');
+		formattedCode = lines.join('\n');
 	}
 	Errors = [];
-	formattedCode = lines.join('<br>');
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
 }
