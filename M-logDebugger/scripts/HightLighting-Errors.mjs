@@ -144,10 +144,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		}
 	}
 	for (let i = 0; i < lines.length; i++) {
-  		const line = lines[i]
-  		.replace(/ /g, '&nbsp;') // Заменить пробелы на &nbsp;
-  		.replace(/\n/g, '<br>'); // Заменить символы новой строки на <br>
-  		formattedCode += '<span>' + line + '</span><br>';
+  		formattedCode += lines[i] + '<br>';
 	}
 	Errors = [];
 	output.innerHTML = formattedCode;
