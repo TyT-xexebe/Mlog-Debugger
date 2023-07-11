@@ -143,7 +143,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			lines[iteration1] = words.join(' ');
 		}
 	}
-	formattedCode = lines.join('<br>');
+	for (let i = 0; i < lines.length; i++) {
+  		formattedCode += lines[i].replace(/ /g, '&nbsp;') + '<br>';
+	}
 	Errors = [];
 	output.innerHTML = formattedCode;
 }
