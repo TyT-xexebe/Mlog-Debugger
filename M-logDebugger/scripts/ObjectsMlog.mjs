@@ -1077,13 +1077,13 @@ let keyCommands = {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedWords: ["@null"]
+				allowedParams: ["@null"]
 			},
 			w3: {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedWords: ["@null"]
+				allowedParams: ["@null"]
 			},
 			w4: {
 				words: true,
@@ -1137,7 +1137,7 @@ let keyCommands = {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedWords: ["@null"]
+				allowedParams: ["@null"]
 			},
 			w5: {
 				words: true,
@@ -1149,7 +1149,6 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w7: {
@@ -1172,20 +1171,19 @@ let keyCommands = {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedWords: ["@null"]
+				allowedParams: ["@null"]
 			},
 			w3: {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedWords: ["@null"]
+				allowedParams: ["@null"]
 			},
 			w4: {
 				words: false,
 				numbers: false,
 				keywords: false,
-
-				allowedWords: ["@null"]
+				allowedParams: ["@null"]
 			},
 			w5: {
 				words: true,
@@ -1219,20 +1217,19 @@ let keyCommands = {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedWords: ["@null"]
+				allowedParams: ["@null"]
 			},
 			w3: {
 				words: false,
 				numbers: false,
 				keywords: false,
-
-				allowedWords: ["@null"]
+				allowedParams: ["@null"]
 			},
 			w4: {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedWords: ["@null"]
+				allowedParams: ["@null"]
 			},
 			w5: {
 				words: true,
