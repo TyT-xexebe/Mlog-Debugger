@@ -140,7 +140,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					}
 				}
 			}
-			lines[iteration1] = words.join('\n');
+			lines[iteration1] = words.join('&nbsp;');
 		}
 	}
 	for (let i = 0; i < lines.length; i++) {
