@@ -34,7 +34,6 @@ body {
 }
 
 .codeOutput {
- font-size: 18px;
 	height: 91vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -51,7 +50,6 @@ body {
 }
 
 .other {
- display: none;
 	height: 0vh;
 	width: 100%;
 	background-color: rgb(51, 51, 51);
@@ -66,7 +64,6 @@ body {
 }
 
 .other button {
- display: none;
 	background-color: rgb(61, 61, 61);
 	padding: 4px 15px 4px 15px;
 	border: none;
@@ -78,7 +75,6 @@ body {
 }
 
 .other h5 {
- display: none;
 	background-color: rgb(61, 61, 61);
 	padding: 4px 15px 4px 15px;
 	border: none;
@@ -91,7 +87,6 @@ body {
 }
 
 .other button:hover {
- display: none;
 	background-color: rgb(61, 61, 61);
 	padding: 6px 17px 6px 17px;
 	border: none;
