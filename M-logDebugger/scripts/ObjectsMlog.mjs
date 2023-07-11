@@ -1050,10 +1050,10 @@ let keyCommands = {
 			allowedWords: ["distance", "health", "maxHealth", "shield", "armor"]
 		},
 		w5: {
-			words: false,
+			words: true,
 		 	numbers: true,
 	 		keywords: false,
-			allowedWords: ["0", "1"]
+			allowedWords: false
 		},
 		w6: {
 			words: true,
@@ -1077,25 +1077,27 @@ let keyCommands = {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedParams: ["@null"]
+				allowedParams: ["@null"],
+				allowedWords: false
 			},
 			w3: {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedParams: ["@null"]
+				allowedParams: ["@null"],
+				allowedWords: false
 			},
 			w4: {
 				words: true,
 				numbers: false,
 				keywords: false,
+				allowedWords: false,
 				allowedParams: ["@copper", "@lead", "@sand", "@coal", "@titanium", "@scrap", "@thorium", "@beryllium", "@tungsten"]
 			},
 			w5: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w6: {
@@ -1130,14 +1132,14 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w4: {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedParams: ["@null"]
+				allowedParams: ["@null"],
+				allowedWords: false
 			},
 			w5: {
 				words: true,
@@ -1171,13 +1173,15 @@ let keyCommands = {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedParams: ["@null"]
+				allowedParams: ["@null"],
+				allowedWords: false
 			},
 			w3: {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedParams: ["@null"]
+				allowedParams: ["@null"],
+				allowedWords: false
 			},
 			w4: {
 				words: false,
@@ -1223,13 +1227,15 @@ let keyCommands = {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedParams: ["@null"]
+				allowedParams: ["@null"],
+				allowedWords: false
 			},
 			w4: {
 				words: false,
 				numbers: false,
 				keywords: false,
-				allowedParams: ["@null"]
+				allowedParams: ["@null"],
+				allowedWords: false
 			},
 			w5: {
 				words: true,
