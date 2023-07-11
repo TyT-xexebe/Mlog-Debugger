@@ -8,12 +8,12 @@ const textarea = document.getElementById('codeInput');
 // creating function with all code
 let hightLightingErrors = () => {
 	// getting textarea text-code
-	let formattedCode = " ";
+	let formattedCode = "";
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
-	const lines = code.split('<br>');
+	const lines = code.split('\n');
 // creating iteration of all lines
 
          
@@ -140,7 +140,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					}
 				}
 			}
-			lines[iteration1] = words.join('&nbsp;');
+			lines[iteration1] = words.join(' ');
 		}
 	}
 	formattedCode = lines.join('<br>');
