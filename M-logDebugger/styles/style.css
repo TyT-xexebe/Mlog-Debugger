@@ -23,7 +23,6 @@ body {
 	width: calc(50vw - 10px);
 	margin: 0;
 	resize: none;
-	display: inline-flex;
 	background-color: rgb(61, 61, 61);
 	color: white;
 	border: none;
@@ -39,7 +38,6 @@ body {
 	overflow-x: hidden;
 	overflow-wrap: break-word;
 	width: calc(50vw - 10px);
-	display: inline-flex;
 	margin: 0;
 	padding: 5px 5px 5px 5px;
 	background-color: rgb(61, 61, 61);
