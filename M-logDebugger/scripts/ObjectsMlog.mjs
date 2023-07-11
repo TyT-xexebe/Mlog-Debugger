@@ -23,20 +23,20 @@ let keyCommands = {
 		max: 3,
 		w1: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w2: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w3: {
 			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
+		 	numbers: true,
+	 		keywords: "notRecomended",
 			allowedWords: false
 		}
 	},
@@ -45,20 +45,20 @@ let keyCommands = {
 		max: 3,
 		w1: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w2: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w3: {
 			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
+		 	numbers: true,
+	 		keywords: "notRecomended",
 			allowedWords: false
 		}
 	},
@@ -66,7 +66,7 @@ let keyCommands = {
 	draw: {
 		someVariants: true,
 		clear: {
-			max: 6,
+			max: 5,
 			w2: {
 				words: true,
 				numbers: true,
@@ -93,7 +93,7 @@ let keyCommands = {
 			}
 		},
 		color: {
-			max: 7,
+			max: 6,
 			w2: {
 				words: true,
 				numbers: true,
@@ -126,7 +126,7 @@ let keyCommands = {
 			}
 		},
 		col: {
-			max: 3,
+			max: 2,
 			w2: {
 				words: true,
 				numbers: true,
@@ -135,7 +135,7 @@ let keyCommands = {
 			}
 		},
 		stroke: {
-			max: 3,
+			max: 2,
 			w2: {
 				words: true,
 				numbers: true,
@@ -144,7 +144,7 @@ let keyCommands = {
 			}
 		},
 		line: {
-			max: 7,
+			max: 5,
 			w2: {
 				words: true,
 				numbers: true,
@@ -171,7 +171,7 @@ let keyCommands = {
 			}
 		},
 		rect: {
-			max: 6,
+			max: 5,
 			w2: {
 				words: true,
 				numbers: true,
@@ -198,7 +198,7 @@ let keyCommands = {
 			}
 		},
 		lineRect: {
-			max: 6,
+			max: 5,
 			w2: {
 				words: true,
 				numbers: true,
@@ -225,7 +225,7 @@ let keyCommands = {
 			}
 		},
 		poly: {
-			max: 7,
+			max: 6,
 			w2: {
 				words: true,
 				numbers: true,
@@ -258,7 +258,7 @@ let keyCommands = {
 			}
 		},
 		triangle: {
-			max: 8,
+			max: 7,
 			w2: {
 				words: true,
 				numbers: true,
@@ -297,7 +297,7 @@ let keyCommands = {
 			}
 		},
 		linePoly: {
-			max: 7,
+			max: 6,
 			w2: {
 				words: true,
 				numbers: true,
@@ -330,7 +330,7 @@ let keyCommands = {
 			}
 		},
 		image: {
-			max: 7,
+			max: 6,
 			w2: {
 				words: true,
 				numbers: true,
@@ -353,7 +353,6 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			},
 			w6: {
@@ -418,14 +417,12 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			}
 		},
@@ -436,28 +433,24 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w4: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w5: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			}
 		},
@@ -468,14 +461,12 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			}
 		},
@@ -486,14 +477,12 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			}
 		},
@@ -504,7 +493,6 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			}
 		}
@@ -514,44 +502,44 @@ let keyCommands = {
 		max: 7,
 		w1: {
 			words: false,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: ["any", "ally", "enemy", "player", "boss", "attacker", "ground", "flying"]
 		},
 		w2: {
 			words: false,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: ["any", "ally", "enemy", "player", "boss", "attacker", "ground", "flying"]
 		},
 		w3: {
 			words: false,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: ["any", "ally", "enemy", "player", "boss", "attacker", "ground", "flying"]
 		},
 		w4: {
 			words: false,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: ["distance", "health", "maxHealth", "shield", "armor"]
 		},
 		w5: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w6: {
 			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
+		 	numbers: true,
+	 		keywords: "notRecomended",
 			allowedWords: false
 		},
 		w7: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		}
 	},
@@ -560,20 +548,20 @@ let keyCommands = {
 		max: 3,
 		w1: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w2: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w3: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false,
 			allowedParams: ["@copper","@lead","@metaglass","@graphite","@sand","@coal","@titanium","@thorium","@scrap","@silicon","@plastanium","@phase-fabric","@surge-alloy","@spore-pod","@blast-compound","@pyratite","@beryllium","@tungsten","@oxide","@carbide","@fissile-matter","@dormant-cyst","@water","@slag","@oil","@cryofluid","@neoplasm","@arkycite","@gallium","@ozone","@hydrogen","@nitrogen","@cyanogen","@totalItems","@firstItem","@totalLiquds","@totalPower","@itemCapacity","@liquidCapacity","@powerNetStored","@powerNetCapacity","@powerNetIn","@powerNetOut","@ammo","@ammoCapacity","@health","@maxHealth","@heat","@efficiency","@progress","@timescale","@rotation","@x","@y","@shootX","@shootY","@size","@dead","@range","@shooting","@boosting","@mineX","@mineY","@mine","@speed","@team","@type","@flag","@controlled","@controller","@name","@payLoadCount","@payLoadType","@enabled","@config","@color"]
 		}
@@ -583,14 +571,14 @@ let keyCommands = {
 		max: 2,
 		w1: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w2: {
 			words: true,
-		 numbers: true,
-	 	keywords: true,
+		 	numbers: true,
+	 		keywords: true,
 			allowedWords: false
 		},
 	},
@@ -599,26 +587,26 @@ let keyCommands = {
 		max: 4,
 		w1: {
 			words: false,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: ["add", "sub", "mul", "div", "idiv", "mod", "pow", "equal", "notEqual", "land", "lessThan", "lessThanEq", "greaterThan", "greaterThanEq", "strictEqual", "shl", "shr", "or", "and", "xor", "not", "max", "min", "angle", "len", "noise", "abs", "log", "log10", "floor", "ceil", "rand", "sqrt", "sin", "cos", "tan", "acos", "asin", "atan"]
 		},
 		w2: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w3: {
 			words: true,
-		 numbers: true,
-	 	keywords: true,
+		 	numbers: true,
+	 		keywords: true,
 			allowedWords: false
 		},
 		w4: {
 			words: true,
-		 numbers: true,
-	 	keywords: true,
+		 	numbers: true,
+	 		keywords: true,
 			allowedWords: false
 		},
 	},
@@ -628,20 +616,20 @@ let keyCommands = {
 		someVariants: true,
 		w1: {
 			words: false,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: ["item", "liquid", "unit", "block"]
 		},
 		w2: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w3: {
 			words: true,
-		 numbers: true,
-	 	keywords: false,
+		 	numbers: true,
+	 		keywords: false,
 			allowedWords: false
 		}
 	},
@@ -650,32 +638,32 @@ let keyCommands = {
 		max: 5,
 		w1: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w2: {
 			words: true,
-		 numbers: true,
-	 	keywords: false,
+		 	numbers: true,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w3: {
 			words: true,
-		 numbers: true,
-	 	keywords: false,
+		 	numbers: true,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w4: {
 			words: true,
-		 numbers: true,
-	 	keywords: false,
+		 	numbers: true,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w5: {
 			words: true,
-		 numbers: true,
-	 	keywords: false,
+		 	numbers: true,
+	 		keywords: false,
 			allowedWords: false
 		}
 	},
@@ -684,8 +672,8 @@ let keyCommands = {
 		max: 1,
 		w1: {
 			words: true,
-		 numbers: true,
-	 	keywords: false,
+		 	numbers: true,
+	 		keywords: false,
 			allowedWords: false
 		}
 	},
@@ -702,20 +690,20 @@ let keyCommands = {
 		max: 4,
 		w1: {
 			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
+		 	numbers: true,
+	 		keywords: false,
 			allowedWords: false
 		},
 		w2: {
 			words: false,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: ["equal", "notEqual", "strictEqual", "always", "lessThan", "greaterThan", "lessThanEq", "greaterThanEq"]
 		},
 		w3: {
 			words: true,
-		 numbers: true,
-	 	keywords: true,
+		 	numbers: true,
+	 		keywords: true,
 			allowedWords: false
 		},
 		w4: {
@@ -730,8 +718,8 @@ let keyCommands = {
 		max: 1,
 		w1: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false,
 			allowedParams: ["@dagger","@mace","@fortress","@scepter","@reign","@nova","@pulsar","@quasar","@vela","@corvus","@crawler","@atrax","@spiroct","@arkyid","@toxopid","@flare","@horizon","@zenith","@antumbra","@eclipse","@mono","@poly","@mega","@quad","@oct","@risso","@minke","@bryde","@sei","@omura","@retusa","@oxynoe","@cyerce","@aegires","@navanax","@alpha","@beta","@gamma","@stell","@locus","@precept","@vanquish","@conquer","@merui","@cleroi","@anthicus","@anthicus-missile","@tecta","@collaris","@elude","@avert","@obviate","@quell","@quell-missile","@disrupt","@disrupt-missile","@renale","@latum","@evoke","@incite","@emanate","@block","@manifold","@assembly-drone","@scathe-missile","@turret-unit-build-tower"]
 		}
@@ -753,14 +741,12 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			}
 		},
@@ -771,21 +757,18 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w4: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			}
 		},
@@ -796,7 +779,6 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			}
 		},
@@ -807,21 +789,18 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w4: {
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			}
 		},
@@ -832,14 +811,12 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			}
 		},
@@ -850,14 +827,12 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			}
 		},
@@ -884,14 +859,12 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: false,
-
 				allowedWords: false,
 				allowedParams: ["@copper","@lead","@metaglass","@graphite","@sand","@coal","@titanium","@thorium","@scrap","@silicon","@plastanium","@phase-fabric","@surge-alloy","@spore-pod","@blast-compound","@pyratite","@beryllium","@tungsten","@oxide","@carbide","@fissile-matter","@dormant-cyst"]
 			},
@@ -899,7 +872,6 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			}
 		},
@@ -912,9 +884,8 @@ let keyCommands = {
 			max: 2,
 			w2: {
 				words: true,
-		 	numbers: false,
-	 		keywords: false,
-
+		 		numbers: false,
+	 			keywords: false,
 				allowedWords: false,
 				allowedParams: ["@dagger","@mace","@fortress","@scepter","@reign","@nova","@pulsar","@quasar","@vela","@corvus","@crawler","@atrax","@spiroct","@arkyid","@toxopid","@flare","@horizon","@zenith","@antumbra","@eclipse","@mono","@poly","@mega","@quad","@oct","@risso","@minke","@bryde","@sei","@omura","@retusa","@oxynoe","@cyerce","@aegires","@navanax","@alpha","@beta","@gamma","@stell","@locus","@precept","@vanquish","@conquer","@merui","@cleroi","@anthicus","@anthicus-missile","@tecta","@collaris","@elude","@avert","@obviate","@quell","@quell-missile","@disrupt","@disrupt-missile","@renale","@latum","@evoke","@incite","@emanate","@block","@manifold","@assembly-drone","@scathe-missile","@turret-unit-build-tower"]
 			}
@@ -930,14 +901,12 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			}
 		},
@@ -948,7 +917,6 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			}
 		},
@@ -959,35 +927,30 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w4: {
 				words: true,
 				numbers: false,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w5: {
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
-
 				allowedWords: false
 			},
 			w6: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			}
 		},
@@ -998,21 +961,18 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w4: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w5: {
@@ -1026,7 +986,6 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			}
 		},
@@ -1037,28 +996,24 @@ let keyCommands = {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w3: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w4: {
 				words: true,
 				numbers: true,
 				keywords: true,
-
 				allowedWords: false
 			},
 			w5: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			}
 		},
@@ -1096,20 +1051,20 @@ let keyCommands = {
 		},
 		w5: {
 			words: false,
-		 numbers: true,
-	 	keywords: false,
+		 	numbers: true,
+	 		keywords: false,
 			allowedWords: ["0", "1"]
 		},
 		w6: {
 			words: true,
-		 numbers: true,
-	 	keywords: "notRecomended",
+		 	numbers: true,
+	 		keywords: "notRecomended",
 			allowedWords: false
 		},
 		w7: {
 			words: true,
-		 numbers: false,
-	 	keywords: false,
+		 	numbers: false,
+	 		keywords: false,
 			allowedWords: false
 		}
 	},
@@ -1117,34 +1072,24 @@ let keyCommands = {
 	ulocate: {
 		someVariants: true,
 		ore: {
-			max: 7,
-			w1: {
-				words: false,
-				numbers: false,
-				keywords: false,
-
-				allowedWords: ["@null"]
-			},
+			max: 8,
 			w2: {
 				words: false,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: ["@null"]
 			},
 			w3: {
-				words: true,
+				words: false,
 				numbers: false,
 				keywords: false,
-
-				allowedParams: ["@copper", "@lead", "@sand", "@coal", "@titanium", "@scrap", "@thorium", "@beryllium", "@tungsten"]
+				allowedWords: ["@null"]
 			},
 			w4: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
-				allowedWords: false
+				allowedParams: ["@copper", "@lead", "@sand", "@coal", "@titanium", "@scrap", "@thorium", "@beryllium", "@tungsten"]
 			},
 			w5: {
 				words: true,
@@ -1157,53 +1102,47 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w7: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
+				allowedWords: false
+			},
+			w8: {
+				words: true,
+				numbers: false,
+				keywords: false,
 				allowedWords: false
 			}
 		},
 
-		builing: {
-			max: 7,
-			w1: {
+		building: {
+			max: 8,
+			w2: {
 				words: false,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: ["core", "battery", "turret", "reactor", "generator", "storage", "repair", "factory"]
 			},
-			w2: {
+			w3: {
 				words: true,
 				numbers: true,
 				keywords: false,
 
 				allowedWords: false
 			},
-			w3: {
+			w4: {
 				words: false,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: ["@null"]
-			},
-			w4: {
-				words: true,
-				numbers: false,
-				keywords: false,
-
-				allowedWords: false
 			},
 			w5: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w6: {
@@ -1217,78 +1156,69 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
+				allowedWords: false
+			},
+			w8: {
+				words: true,
+				numbers: false,
+				keywords: false,
 				allowedWords: false
 			}
 		},
 
 		damaged: {
-			max: 7,
-			w1: {
-				words: false,
-				numbers: false,
-				keywords: false,
-
-				allowedWords: ["@null"]
-			},
+			max: 8,
 			w2: {
 				words: false,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: ["@null"]
 			},
 			w3: {
 				words: false,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: ["@null"]
 			},
 			w4: {
-				words: true,
+				words: false,
 				numbers: false,
 				keywords: false,
 
-				allowedWords: false
+				allowedWords: ["@null"]
 			},
 			w5: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w6: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w7: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
+				allowedWords: false
+			},
+			w8: {
+				words: true,
+				numbers: false,
+				keywords: false,
 				allowedWords: false
 			}
 		},
 
 		spawn: {
-			max: 7,
-			w1: {
-				words: false,
-				numbers: false,
-				keywords: false,
-
-				allowedWords: ["@null"]
-			},
+			max: 8,
 			w2: {
 				words: false,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: ["@null"]
 			},
 			w3: {
@@ -1299,31 +1229,33 @@ let keyCommands = {
 				allowedWords: ["@null"]
 			},
 			w4: {
-				words: true,
+				words: false,
 				numbers: false,
 				keywords: false,
-
-				allowedWords: false
+				allowedWords: ["@null"]
 			},
 			w5: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w6: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w7: {
 				words: true,
 				numbers: false,
 				keywords: false,
-
+				allowedWords: false
+			},
+			w8: {
+				words: true,
+				numbers: false,
+				keywords: false,
 				allowedWords: false
 			}
 		}
