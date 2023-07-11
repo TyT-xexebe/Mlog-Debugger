@@ -61,10 +61,10 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				let commandToFind;
 				let finder1;
 				if(subCommandRead == 1){
-					finder1 = `w${iteration2 + 2}`;
+					finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][secondWord][finder1];
 				}else{
-					finder1 = `w${iteration2 + 1}`;
+					finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][finder1];
 				}
 				console.log(`sub: ${subCommandRead} first: ${firstWord} second: ${secondWord} finder: ${finder1} lineWord: ${lineWords}`)
