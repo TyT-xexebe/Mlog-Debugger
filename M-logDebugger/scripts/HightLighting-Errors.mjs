@@ -15,7 +15,8 @@ let hightLightingErrors = () => {
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 // creating iteration of all lines
-         
+
+         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
@@ -142,7 +143,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			lines[iteration1] = words.join('&nbsp;');
 		}
 	}
-	formattedCode = lines.join('\n\n');
+	formattedCode = lines.join('<br><br>');
 	Errors = [];
 	output.innerHTML = formattedCode;
 }
