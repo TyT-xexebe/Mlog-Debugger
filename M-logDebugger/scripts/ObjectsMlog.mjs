@@ -66,7 +66,7 @@ let keyCommands = {
 	draw: {
 		someVariants: true,
 		clear: {
-			max: 5,
+			max: 6,
 			w2: {
 				words: true,
 				numbers: true,
@@ -93,7 +93,7 @@ let keyCommands = {
 			}
 		},
 		color: {
-			max: 6,
+			max: 7,
 			w2: {
 				words: true,
 				numbers: true,
@@ -126,7 +126,7 @@ let keyCommands = {
 			}
 		},
 		col: {
-			max: 2,
+			max: 3,
 			w2: {
 				words: true,
 				numbers: true,
@@ -135,7 +135,7 @@ let keyCommands = {
 			}
 		},
 		stroke: {
-			max: 2,
+			max: 3,
 			w2: {
 				words: true,
 				numbers: true,
@@ -144,7 +144,7 @@ let keyCommands = {
 			}
 		},
 		line: {
-			max: 5,
+			max: 7,
 			w2: {
 				words: true,
 				numbers: true,
@@ -171,7 +171,7 @@ let keyCommands = {
 			}
 		},
 		rect: {
-			max: 5,
+			max: 6,
 			w2: {
 				words: true,
 				numbers: true,
@@ -198,7 +198,7 @@ let keyCommands = {
 			}
 		},
 		lineRect: {
-			max: 5,
+			max: 6,
 			w2: {
 				words: true,
 				numbers: true,
@@ -225,7 +225,7 @@ let keyCommands = {
 			}
 		},
 		poly: {
-			max: 6,
+			max: 7,
 			w2: {
 				words: true,
 				numbers: true,
@@ -258,7 +258,7 @@ let keyCommands = {
 			}
 		},
 		triangle: {
-			max: 7,
+			max: 8,
 			w2: {
 				words: true,
 				numbers: true,
@@ -297,7 +297,7 @@ let keyCommands = {
 			}
 		},
 		linePoly: {
-			max: 6,
+			max: 7,
 			w2: {
 				words: true,
 				numbers: true,
@@ -330,7 +330,7 @@ let keyCommands = {
 			}
 		},
 		image: {
-			max: 6,
+			max: 7,
 			w2: {
 				words: true,
 				numbers: true,
