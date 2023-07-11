@@ -144,7 +144,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		}
 	}
 	for (let i = 0; i < lines.length; i++) {
-  		const line = lines[i].replace(/ /g, '&nbsp;');
+  		const line = lines[i]
+  		.replace(/&/g, '&amp;') // Заменить & на &amp;
+ 		.replace(/</g, '&lt;') // Заменить < на &lt;
+  		.replace(/>/g, '&gt;') // Заменить > на &gt;
+  		.replace(/ /g, '&nbsp;') // Заменить пробелы на &nbsp;
+  		.replace(/\n/g, '<br>'); // Заменить символы новой строки на <br>
   		formattedCode += '<span>' + line + '</span><br>';
 	}
 	Errors = [];
