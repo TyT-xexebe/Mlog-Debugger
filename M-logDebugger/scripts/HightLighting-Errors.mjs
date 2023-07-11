@@ -144,7 +144,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		}
 	}
 	for (let i = 0; i < lines.length; i++) {
-  		formattedCode += lines[i] + '<br>';
+  		formattedCode += `${lines[i]} \n`;
 	}
 	Errors = [];
 	output.innerHTML = formattedCode;
