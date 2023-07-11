@@ -13,7 +13,7 @@ let hightLightingErrors = () => {
 	output.innerHTML = formattedCode;
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
-	const lines = code.split('\n');
+	const lines = code.split('<br>');
 // creating iteration of all lines
 
          
