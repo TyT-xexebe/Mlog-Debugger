@@ -16,7 +16,7 @@ body {
 
 
 .codeInput {
-	height: 91vh;
+	height: 90vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	overflow-wrap: normal;
@@ -26,20 +26,20 @@ body {
 	background-color: rgb(61, 61, 61);
 	color: white;
 	border: none;
-	padding: 4vh 5px 5px 5px;
+	padding: 6vh 5px 5px 5px;
 	position: absolute;
 	bottom: 0%;
 	left: 0%;
 }
 
 .codeOutput {
-	height: 91vh;
+	height: 90vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	overflow-wrap: break-word;
 	width: calc(50vw - 10px);
 	margin: 0;
-	padding: 4vh 5px 5px 5px;
+	padding: 6vh 5px 5px 5px;
 	background-color: rgb(61, 61, 61);
 	color: white;
 	position: absolute;
