@@ -98,9 +98,7 @@ body {
 	height: fit-content;
 	width: fit-content;
 	position: absolute;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
+	align-text: center;
 	align-items: center;
 	justify-content: center;
 	top: 40vw;
@@ -109,17 +107,6 @@ body {
 	background-color: rgb(51, 51, 51);
 	padding: 5px 10px 5px 10px;
 }
-
-h4 {
-	padding: 3px 5px 3px 5px;
-	text-align: center;
-	border: 0.5px solid rgb(194, 25, 25);
-	background-color: rgba(194, 25, 25, 0.767);
-	color: white;
-	font-weight: 700;
-}
-
-
 
 #command {
 	color: rgb(198, 34, 212);
