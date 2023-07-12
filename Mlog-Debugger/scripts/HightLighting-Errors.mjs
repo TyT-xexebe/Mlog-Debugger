@@ -191,7 +191,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 
 textarea.addEventListener("input", (hightLightingErrors));
 
-let open = () => {
+let openF = () => {
 	let errorOutput = document.getElementById("errorList");
 	if(errorOutput.style.display == "none"){
 		errorOutput.style.display = "flex";
