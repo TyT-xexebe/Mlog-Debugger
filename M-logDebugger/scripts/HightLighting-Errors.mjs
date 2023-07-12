@@ -8,16 +8,14 @@ const textarea = document.getElementById('codeInput');
 // creating function with all code
 let hightLightingErrors = () => {
 	// getting textarea text-code
-	let formattedCode = "";
+	let formattedCode = " ";
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 // creating iteration of all lines
-
-         
-for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
+	for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
   let firstWord = words[0];
@@ -25,8 +23,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		console.log(Errors);
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
-			Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
-			words[0] = `<span id="errors">${words[0]}</span>`
+			if(!firstWord.endsWith(":")){
+				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
+				words[0] = `<span id="errors">${words[0]}</span>`
+			}else{
+				words[0] = `<span id="label">${words[0]}</span>`
+			}
 		}else{
 			words[0] = `<span id="command">${words[0]}</span>`
 
@@ -56,12 +58,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 			}
 			// iteration of all words to find errors
-			MainLoop:for(let iteration2 = 0; iteration2 < words.length; iteration2++){
+			for(let iteration2 = 0; iteration2 < words.length; iteration2++){
 				// getting commandToFind by subCommandRead
 				let commandToFind;
 				let finder1;
 				if(subCommandRead == 1){
-					finder1 = `w${iteration2}`;
+					finder1 = `w${iteration2 + 1}`;
 					commandToFind = keyCommands[firstWord][secondWord][finder1];
 				}else{
 					finder1 = `w${iteration2}`;
@@ -70,7 +72,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				console.log(`sub: ${subCommandRead} first: ${firstWord} second: ${secondWord} finder: ${finder1} lineWord: ${lineWords}`)
 				if(typeof commandToFind == 'undefined'){
 					lines[iteration1] = words.join(' ');
-					continue MainLoop;
+					continue;
 				}
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
@@ -140,12 +142,39 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					}
 				}
 			}
-			lines[iteration1] = words.join('&nbsp;');
+			lines[iteration1] = words.join(' ');
 		}
 	}
-	for (let i = 0; i < lines.length; i++) {
-  		formattedCode += lines[i] + '<br>';
+	let checking = () => {
+  for (let i = 0; i < lines.length; i++){
+   let words = lines[i].split(' ');
+   let firstWord = words[0];
+
+   if(firstWord == 'jump'){
+    label1 = words[1];
+    jumpLabels1.push(label1);
+   }
+
+   if(firstWord.endsWith(':')){
+    label2 = words[0];
+    label2 = label2.slice(0, -1);
+    jumpLabels2.push(label2);
+   }
+    
+  }
+  jumpLabels1 = [...new Set(jumpLabels1)];
+  console.log(`label1\n ${jumpLabels1}\nlabel2\n${jumpLabels2}`);
+
+  const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
+  const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
+  let missingValues = [...missingValues1, ...missingValues2];
+  console.log(missingValues)
+  missingValues.map((value) => {Errors.push({notfound: value, message: "label error",line: i});});
+  jumpLabels1 = [];
+  jumpLabels2 = [];
 	}
+	checking();
+	formattedCode = lines.join('\n');
 	Errors = [];
 	output.innerHTML = formattedCode;
 }

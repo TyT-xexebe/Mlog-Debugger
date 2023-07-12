@@ -10,36 +10,38 @@ body {
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
-	margin-top: 9vh;
+	margin-top: 6vh;
 }
 
 
 
 .codeInput {
-	height: 90vh;
+	height: 91vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	overflow-wrap: normal;
 	width: calc(50vw - 10px);
 	margin: 0;
 	resize: none;
+	display: inline-flex;
 	background-color: rgb(61, 61, 61);
 	color: white;
 	border: none;
-	padding: 6vh 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
 	position: absolute;
 	bottom: 0%;
 	left: 0%;
 }
 
 .codeOutput {
-	height: 90vh;
+	height: 91vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	overflow-wrap: break-word;
 	width: calc(50vw - 10px);
+	display: inline-flex;
 	margin: 0;
-	padding: 6vh 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
 	background-color: rgb(61, 61, 61);
 	color: white;
 	position: absolute;
@@ -48,7 +50,7 @@ body {
 }
 
 .other {
-	height: 9vh;
+	height: 7vh;
 	width: 100%;
 	background-color: rgb(51, 51, 51);
 	position: absolute;
@@ -119,6 +121,10 @@ body {
 
 #numbers {
 	color: rgb(228, 231, 49);
+}
+
+#label {
+	color: aquamarine;
 }
 
 #errors {
