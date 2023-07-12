@@ -152,8 +152,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 			}
 			lines[iteration1] = words.join('&nbsp;');
-		}
-
+}
+}
 	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words = lines[iteration3].split(' ');
 		if(words[0].endsWith(':')){
@@ -181,7 +181,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	}
 	Errors = [];
 	output.innerHTML = formattedCode;
-}
+
 }
 
 textarea.addEventListener("input", (hightLightingErrors));
