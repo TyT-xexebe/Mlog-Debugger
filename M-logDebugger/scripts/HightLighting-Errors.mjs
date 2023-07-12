@@ -151,7 +151,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			}
 			lines[iteration1] = words.join('&nbsp;');
 		}
-	}
 
 	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words = lines[iteration3].split(' ');
