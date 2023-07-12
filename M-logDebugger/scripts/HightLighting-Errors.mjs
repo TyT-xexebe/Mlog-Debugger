@@ -29,6 +29,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			if(!firstWord.endsWith(":")){
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 				words[0] = `<span id="errors">${words[0]}</span>`
+			}else{
+			words[0] = `<span id="label">${words[0]}</span>`
 			}
 		}else{
 				if(words[0] == 'jump'){
@@ -158,7 +160,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			label = words[0];
 			label = label.slice(0, -1);
 			jumpLabels2.push(label);
-			words[0] = `<span id="label">${words[0]}</span>`
 			label = ' ';
 		}
 	}
