@@ -178,8 +178,13 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	for (let i = 0; i < lines.length; i++) {
   		formattedCode += lines[i] + '<br>';
 	}
-	Errors = [];
 	output.innerHTML = formattedCode;
+
+	let errorOutput = document.getElementById("errorList");
+	errorOutput.value = " ";
+	
+	
+	Errors = [];
 
 }
 
