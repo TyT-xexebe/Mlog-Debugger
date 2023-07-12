@@ -32,7 +32,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			}
 		}else{
 				if(words[0] == 'jump'){
-					if(isNan(words[1])){
+					if(isNaN(words[1])){
 						jumpLabels1.push(words[1]);
 					}
 				}
