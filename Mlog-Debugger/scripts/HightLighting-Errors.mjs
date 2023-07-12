@@ -184,7 +184,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
 	for(let iteration4 = 0; iteration4 < Errors.length; iteration4++){
-		errorOutput.value += `error: ${Errors[iteration4].notfound} | ${Errors.message} | line: ${Errors.line} \n\n`
+		errorOutput.value += `error: ${Errors[iteration4].notfound} | ${Errors[iteration4].message} | line: ${Errors[iteration4].line} \n\n`
 	}
 	Errors = [];
 }
