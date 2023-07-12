@@ -153,7 +153,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 
 		if(words[0].endsWith(':')){
 			label = words[0];
-			label = label2.slice(0, -1);
+			label = label.slice(0, -1);
 			jumpLabels2.push(label);
 			words[0] = `<span id="label">${words[0]}</span>`
 			label = ' ';
