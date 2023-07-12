@@ -95,11 +95,10 @@ body {
 }
 
 .other .errorList {
-	height: fit-content;
-	width: fit-content;
+	height: 90vh;
+	width: 80vw;
 	position: absolute;
 	align-text: center;
-	align-items: center;
 	justify-content: center;
 	top: 40vw;
 	left: 30vh;
@@ -108,6 +107,7 @@ body {
 	padding: 5px 10px 5px 10px;
 	color: white;
 	font-width: 700;
+	overflow-y: scroll;
 }
 
 #command {
