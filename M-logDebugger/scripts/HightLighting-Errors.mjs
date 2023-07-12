@@ -157,7 +157,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			}
 		}
 
-		if(firstWord.endsWith(':')){
+		if(words[0].endsWith(':')){
 			label2 = words[0];
 			label2 = label2.slice(0, -1);
 			jumpLabels2.push(label2);
