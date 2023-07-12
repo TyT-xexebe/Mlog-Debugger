@@ -200,5 +200,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	}
 	Errors = [];
 }
-
+let button = document.getElementByID("button");
 textarea.addEventListener("input", (hightLightingErrors));
+button.addEventListener("click", (openF));
