@@ -199,4 +199,4 @@ let openF = () => {
 		errorOutput.style.display = "none";
 	}
 }
-open();
+openF();
