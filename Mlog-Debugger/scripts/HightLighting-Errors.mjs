@@ -184,11 +184,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
 	for(let iteration4 = 0; iteration4 < Errors.length; iteration4++){
-		let liElement = document.createElement("h4");
-		liElement.value = `error: ${Errors[iteration4].notfound} | ${Errors.message} | line: ${Errors.line}`
-		errorOutput.appendChild(liElement);
+		errorOutput.value += `error: ${Errors[iteration4].notfound} | ${Errors.message} | line: ${Errors.line} \n\n`
 	}
-	document.getElementById("button").value = `${document.getElementById("button").value} ${Errors.length}`;
 	Errors = [];
 }
 
@@ -202,4 +199,4 @@ let open = () => {
 		errorOutput.style.display = "none";
 	}
 }
-open()
+open();
