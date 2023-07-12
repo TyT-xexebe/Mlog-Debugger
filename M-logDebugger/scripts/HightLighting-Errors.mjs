@@ -3,8 +3,7 @@ import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
 // cresting arrays for arrors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
-let label1;
-let label2;
+let label;
 let Errors = [];
 const textarea = document.getElementById('codeInput');
 // creating function with all code
@@ -150,18 +149,14 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 
 	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words = lines[iteration3].split(' ');
-		if(words[0] == 'jump'){
-			if(isNan(words[1])){
-				label1 = words[1];
-				jumpLabels1.push(label1);
-			}
-		}
+		if(words[0] == 'jump'){if(isNan(words[1])){jumpLabels1.push(words[1]);}}
 
 		if(words[0].endsWith(':')){
-			label2 = words[0];
-			label2 = label2.slice(0, -1);
-			jumpLabels2.push(label2);
+			label = words[0];
+			label = label2.slice(0, -1);
+			jumpLabels2.push(label);
 			words[0] = `<span id="label">${words[0]}</span>`
+			label = ' ';
 		}
 	}
 	jumpLabels1 = [...new Set(jumpLabels1)];
@@ -172,7 +167,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let missingValues = [...missingValues1, ...missingValues2];
 	console.log(missingValues)
 	missingValues.map((value) => {
-		Errors.push({notfound: value, message: "label error",line: iteration3});
+		Errors.push({notfound: value, message: "label error"});
 });
 	jumpLabels1 = [];
 	jumpLabels2 = [];
