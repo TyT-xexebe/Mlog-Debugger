@@ -1,5 +1,17 @@
 // imports all commands and his settings
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
+
+let openF = () => {
+	let errorOutput = document.getElementById("errorList");
+	if(errorOutput.style.display == "none"){
+		errorOutput.style.display = "block";
+	}else{
+		errorOutput.style.display = "none";
+	}
+}
+openF();
+
+
 // cresting arrays for arrors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
@@ -190,13 +202,3 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 }
 
 textarea.addEventListener("input", (hightLightingErrors));
-
-let openF = () => {
-	let errorOutput = document.getElementById("errorList");
-	if(errorOutput.style.display == "none"){
-		errorOutput.style.display = "flex";
-	}else{
-		errorOutput.style.display = "none";
-	}
-}
-openF();
