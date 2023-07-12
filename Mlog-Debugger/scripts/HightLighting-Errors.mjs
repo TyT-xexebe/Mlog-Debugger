@@ -194,7 +194,7 @@ textarea.addEventListener("input", (hightLightingErrors));
 let open = () => {
 	let errorOutput = document.getElementById("errorList");
 	if(errorOutput.style.display == "none"){
-		errorOutput.style.display = "block";
+		errorOutput.style.display = "flex";
 	}else{
 		errorOutput.style.display = "none";
 	}
