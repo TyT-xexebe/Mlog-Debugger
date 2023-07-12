@@ -31,7 +31,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				words[0] = `<span id="errors">${words[0]}</span>`
 			}
 		}else{
-			words[0] = `<span id="command">${words[0]}</span>`
+			if(firstWord !== "jump"){
+				words[0] = `<span id="command">${words[0]}</span>`
+			}
 
 			// checking if command have sub-command
 			let subCommandRead
