@@ -37,7 +37,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					}
 				}
 				words[0] = `<span id="command">${words[0]}</span>`
-		}
+		
 
 			// checking if command have sub-command
 			let subCommandRead
@@ -180,6 +180,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	}
 	Errors = [];
 	output.innerHTML = formattedCode;
+}
 }
 
 textarea.addEventListener("input", (hightLightingErrors));
