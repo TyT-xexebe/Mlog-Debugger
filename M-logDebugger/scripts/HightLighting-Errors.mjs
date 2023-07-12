@@ -149,7 +149,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 
 	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words = lines[iteration3].split(' ');
-		console.log(`word1: ${word[0]} word2: ${word[1]}`)
+		console.log(`word1: ${words[0]} word2: ${words[1]}`)
 		if(words[0] == 'jump'){
 			if(isNan(words[1])){
 				jumpLabels1.push(words[1]);
