@@ -43,6 +43,10 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 				words[0] = `<span id="errors">${words[0]}</span>`
 			}
+			if(firstWord !== ""){
+				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
+				words[0] = `<span id="errors">${words[0]}</span>`
+			}
 		}else{
 				if(words[0] == 'jump'){
 					if(isNaN(words[1])){
@@ -183,7 +187,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let missingValues = [...missingValues1, ...missingValues2];
 	console.log(missingValues)
 	missingValues.map((value) => {
-		Errors.push({notfound: value, message: "label error"});
+	Errors.push({notfound: label, message: `label "${value}" dont used`, line: iteration3});
 });
 	jumpLabels1 = [];
 	jumpLabels2 = [];
@@ -197,9 +201,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
 	let	notFoundMessage = ' ';
-	button.innerHTML = `Errors | <span class="err">${Errors.length}</span>`;
+	button.innerHTML = `Errors | ${Errors.length}`;
 	for(let iteration4 = 0; iteration4 < Errors.length; iteration4++){
-		notFoundMessage += `error: <span class="err">${Errors[iteration4].notfound}</span> | <span class="err">${Errors[iteration4].message}</span> | line: <span class="err">${Errors[iteration4].line}</span> <br>`
+		notFoundMessage += `error: ${Errors[iteration4].notfound} | ${Errors[iteration4].message} | line: ${Errors[iteration4].line} <br>`
 	}
 	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
