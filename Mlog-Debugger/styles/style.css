@@ -98,15 +98,15 @@ body {
 	height: 90vh;
 	width: 80vw;
 	position: absolute;
-	align-text: center;
 	justify-content: center;
+	text-align: center;
 	top: 40vw;
 	left: 30vh;
 	border-radius: 5px;
 	background-color: rgb(51, 51, 51);
 	padding: 5px 10px 5px 10px;
 	color: white;
-	font-width: 700;
+	font-weight: 700;
 	overflow-y: scroll;
 }
 

@@ -17,11 +17,12 @@ let jumpLabels1 = [];
 let jumpLabels2 = [];
 let label;
 let Errors = [];
+let button = document.getElementById("button");
 const textarea = document.getElementById('codeInput');
 // creating function with all code
 let hightLightingErrors = () => {
 	// getting textarea text-code
-	let formattedCode = "";
+	let formattedCode = " ";
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
 	const textarea = document.getElementById('codeInput');
@@ -188,18 +189,21 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	jumpLabels2 = [];
 
 	for (let i = 0; i < lines.length; i++) {
-  		formattedCode += lines[i] + '<br>';
+  formattedCode += lines[i] + '<br>';
 	}
 	output.innerHTML = formattedCode;
 
 
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
+	let	notFoundMessage = ' ';
 	for(let iteration4 = 0; iteration4 < Errors.length; iteration4++){
-		errorOutput.value += `error: ${Errors[iteration4].notfound} | ${Errors[iteration4].message} | line: ${Errors[iteration4].line} \n\n`
+		notFoundMessage += `error: ${Errors[iteration4].notfound} | ${Errors[iteration4].message} | line: ${Errors[iteration4].line} \n\n`
 	}
+	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
+	button.innerHTML = `Errors | ${Errors.length + 1}`;
 }
-let button = document.getElementById("button");
+
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
