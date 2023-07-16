@@ -43,7 +43,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 				words[0] = `<span id="errors">${words[0]}</span>`
 			}
-			if(firstWord !== ""){
+			if(firstWord == " "){
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 				words[0] = `<span id="errors">${words[0]}</span>`
 			}
