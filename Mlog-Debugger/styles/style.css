@@ -95,14 +95,14 @@ body {
 }
 
 .other #errorList {
-	height: 90vh;
-	width: 80vw;
+	height: 60vh;
+	width: 70vw;
 	position: absolute;
 	justify-content: center;
-	text-align: center;
-	top: 40vw;
-	left: 30vh;
-	border-radius: 5px;
+	text-align: start;
+	top: 20vw;
+	left: 15vh;
+	border-radius: 7px;
 	background-color: rgb(51, 51, 51);
 	padding: 5px 10px 5px 10px;
 	color: white;
@@ -135,4 +135,12 @@ body {
 	background-color: rgba(82, 0, 0, 0.719);
 	width: fit-content;
 	height: fit-content;
+}
+
+.err {
+	color: white;
+	background-color: rgb(177, 29, 29);
+	padding: 2px 2px 2px 2px;
+	border: none;
+	border-radius: 1px;
 }

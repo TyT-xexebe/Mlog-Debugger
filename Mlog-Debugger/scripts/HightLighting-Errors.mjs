@@ -197,12 +197,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
 	let	notFoundMessage = ' ';
+	button.innerHTML = `Errors | <span class="err">${Errors.length}</span>`;
 	for(let iteration4 = 0; iteration4 < Errors.length; iteration4++){
-		notFoundMessage += `error: ${Errors[iteration4].notfound} | ${Errors[iteration4].message} | line: ${Errors[iteration4].line} <br>`
+		notFoundMessage += `error: <span class="err">${Errors[iteration4].notfound}</span> | <span class="err">${Errors[iteration4].message}</span> | line: <span class="err">${Errors[iteration4].line}</span> <br>`
 	}
 	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
-	button.innerHTML = `Errors | ${Errors.length + 1}`;
 }
 
 textarea.addEventListener("input", (hightLightingErrors));
