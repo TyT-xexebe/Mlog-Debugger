@@ -198,7 +198,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	errorOutput.value = " ";
 	let	notFoundMessage = ' ';
 	for(let iteration4 = 0; iteration4 < Errors.length; iteration4++){
-		notFoundMessage += `error: ${Errors[iteration4].notfound} | ${Errors[iteration4].message} | line: ${Errors[iteration4].line} \n\n`
+		notFoundMessage += `error: ${Errors[iteration4].notfound} | ${Errors[iteration4].message} | line: ${Errors[iteration4].line} <br>`
 	}
 	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
