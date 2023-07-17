@@ -111,36 +111,25 @@ body {
 }
 
 #command {
-	color: rgb(198, 34, 212);
+	color: rgb(153, 0, 255);
 }
 
 #text {
-	color: rgb(56, 157, 197);
+	color: rgb(0, 102, 204);
 }
 
 #keywords {
-	color: rgb(2, 182, 41);
+	color: rgb(102, 204, 0);
 }
 
 #numbers {
-	color: rgb(228, 231, 49);
+	color: rgb(255, 204, 0);
 }
 
 #label {
-	color: aquamarine;
+	color: rgb(0, 204, 204);
 }
 
 #errors {
-	color: rgb(255, 23, 23);
-	background-color: rgba(82, 0, 0, 0.719);
-	width: fit-content;
-	height: fit-content;
-}
-
-.err {
-	color: white;
-	background-color: rgb(177, 29, 29);
-	padding: 2px 2px 2px 2px;
-	border: none;
-	border-radius: 1px;
+	color: rgb(204, 0, 0);
 }
