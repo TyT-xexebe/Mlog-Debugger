@@ -189,7 +189,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	console.log(missingValues)
 	missingValues.map((value) => {
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
-			words3 = lines.split(" ");
+			words3 = lines[iteration5].split(" ");
 			if(words3[0] == "jump"){
 				if(missingValues.includes(words3[1])){
 					words3[1] = `<span id="errors">${words3[1]}</span>`
