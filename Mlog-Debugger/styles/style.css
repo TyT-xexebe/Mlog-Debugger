@@ -79,7 +79,7 @@ body {
 	font-weight: 600;
 	font-size: small;
 	height: 15px;
- width: 255px;
+ 	width: 255px;
 }
 
 .other button:hover {
@@ -95,19 +95,18 @@ body {
 }
 
 .other #errorList {
-	height: 60vh;
-	width: 70vw;
 	position: absolute;
+	height: 89vh;
+	width: calc(50vw - 10px);
 	justify-content: center;
 	text-align: start;
-	top: 20vw;
-	left: 15vh;
-	border-radius: 7px;
 	background-color: rgb(51, 51, 51);
 	padding: 5px 10px 5px 10px;
 	color: white;
 	font-weight: 700;
 	overflow-y: scroll;
+	bottom: 0%;
+	right: 0%;
 }
 
 #command {
