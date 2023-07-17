@@ -15,6 +15,7 @@ openF();
 // cresting arrays for arrors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
+let iterationLabel = [];
 let label;
 let Errors = [];
 let button = document.getElementById("button");
@@ -40,10 +41,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			if(!firstWord.endsWith(":")){
-				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
-				words[0] = `<span id="errors">${words[0]}</span>`
-			}
-			if(firstWord == " "){
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 				words[0] = `<span id="errors">${words[0]}</span>`
 			}
@@ -175,6 +172,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			label = words[0];
 			label = label.slice(0, -1);
 			jumpLabels2.push(label);
+			iterationLabel.push(iteration3);
 			label = ' ';
 			words[0] = `<span id="label">${words[0]}<span>`
 		}
@@ -187,10 +185,11 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let missingValues = [...missingValues1, ...missingValues2];
 	console.log(missingValues)
 	missingValues.map((value) => {
-	Errors.push({notfound: label, message: `label "${value}" dont used`, line: iteration3});
+	Errors.push({notfound: label, message: `label "${value}" dont used`, line: `lines of label arrors: ${...iterationLabel}`});
 });
 	jumpLabels1 = [];
 	jumpLabels2 = [];
+	iterationLabel = [];
 
 	for (let i = 0; i < lines.length; i++) {
   formattedCode += lines[i] + '<br>';
