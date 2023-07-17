@@ -94,7 +94,7 @@ body {
 	transition: 0.5s;
 }
 
-.other #errorList {
+#errorList {
 	position: absolute;
 	height: 89vh;
 	width: calc(50vw - 10px);
