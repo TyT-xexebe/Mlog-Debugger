@@ -15,7 +15,6 @@ openF();
 // cresting arrays for arrors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
-let iterationLabel = [];
 let label;
 let Errors = [];
 let button = document.getElementById("button");
@@ -48,7 +47,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				if(words[0] == 'jump'){
 					if(isNaN(words[1])){
 						jumpLabels1.push(words[1]);
-						words[0] = `<span id="label">${words[0]}</span>`
+						words[1] = `<span id="label">${words[1]}</span>`
 					}
 				}
 				words[0] = `<span id="command">${words[0]}</span>`
@@ -168,14 +167,13 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 }
 }
 	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
-		let words = lines[iteration3].split(' ');
-		if(words[0].endsWith(':')){
-			label = words[0];
+		let words2 = lines[iteration3].split(' ');
+		if(words2[0].endsWith(':')){
+			label = words2[0];
 			label = label.slice(0, -1);
 			jumpLabels2.push(label);
-			iterationLabel.push(iteration3);
 			label = ' ';
-			words[0] = `<span id="label">${words[0]}</span>`
+			words2[0] = `<span id="label">${words2[0]}</span>`
 		}
 	}
 	jumpLabels1 = [...new Set(jumpLabels1)];
