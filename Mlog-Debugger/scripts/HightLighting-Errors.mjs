@@ -48,15 +48,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		console.log(Errors);
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
-			console.log(firstWord);
-			console.log(words[0]);
-			if(!firstWord.endsWith(":")){
-				console.log(word[0]);
+			if(firstWord.endsWith(":")){
+				words[0] = `<span id="label">${words[0]}</span>`
+				console.log(`label "${words[0]}" get spanned`);
+			}else{
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 				words[0] = `<span id="errors">${words[0]}</span>`
-			}else{
-				console.log(words[0]);
-				words[0] = `<span id="label">${words[0]}</span>`
 			}
 		}else{
 				if(words[0] == 'jump'){
