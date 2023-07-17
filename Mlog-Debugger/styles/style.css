@@ -10,18 +10,18 @@ body {
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
-	margin-top: 9vh;
+	margin-top: 11vh;
 }
 
 .codeInput {
-	height: 89vh;
+	height: 88vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	overflow-wrap: normal;
 	width: calc(50vw - 10px);
 	margin: 0;
 	resize: none;
-	background-color: rgb(41, 41, 41);
+	background-color: rgb(31, 31, 31);
 	color: white;
 	border: none;
 	padding: 8vh 5px 5px 5px;
@@ -31,14 +31,14 @@ body {
 }
 
 .codeOutput {
-	height: 89vh;
+	height: 88vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	overflow-wrap: break-word;
 	width: calc(50vw - 10px);
 	margin: 0;
 	padding: 8vh 5px 5px 5px;
-	background-color: rgb(41, 41, 41);
+	background-color: rgb(31, 31, 31);
 	color: white;
 	position: absolute;
 	bottom: 0%;
@@ -48,7 +48,7 @@ body {
 .other {
 	height: 9vh;
 	width: 100%;
-	background-color: rgb(31, 31, 31);
+	background-color: rgb(21, 21, 21);
 	position: absolute;
 	top: 0%;
 	right: 0%;
@@ -60,7 +60,7 @@ body {
 }
 
 .other button {
-	background-color: rgb(41, 41, 41);
+	background-color: rgb(31, 31, 31);
 	padding: 4px 15px 4px 15px;
 	border: none;
 	border-radius: 3px;
@@ -71,7 +71,7 @@ body {
 }
 
 .other h5 {
-	background-color: rgb(41, 41, 41);
+	background-color: rgb(31, 31, 31);
 	padding: 4px 15px 4px 15px;
 	border: none;
 	border-radius: 3px;
@@ -83,7 +83,7 @@ body {
 }
 
 .other button:hover {
-	background-color: rgb(41, 41, 41);
+	background-color: rgb(31, 31, 31);
 	padding: 6px 17px 6px 17px;
 	border: none;
 	border-radius: 3px;
@@ -100,7 +100,7 @@ body {
 	width: calc(50vw - 10px);
 	justify-content: center;
 	text-align: start;
-	background-color: rgb(51, 51, 51);
+	background-color: rgb(31, 31, 31);
 	padding: 5px 10px 5px 10px;
 	color: white;
 	font-weight: 700;
