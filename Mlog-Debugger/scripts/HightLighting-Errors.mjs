@@ -190,14 +190,17 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	missingValues.map((value) => {
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
+			console.log(`iteration: ${iteration5} | word1: ${words3[0]} | word2: ${words3[1]}`)
 			if(words3[0] == "jump"){
 				if(missingValues.includes(words3[1])){
+					console.log("jump label missed");
 					words3[1] = `<span id="errors">${words3[1]}</span>`
 					Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
 				}
 			}
 			if(words3[0].endsWith(":")){
 				if(missingValues.includes(words3[0])){
+					console.log("label missed");
 					words3[0] = `<span id="errors">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words[0]}"`, line: iteration5});
 				}
