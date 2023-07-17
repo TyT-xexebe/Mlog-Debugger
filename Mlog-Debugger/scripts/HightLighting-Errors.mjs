@@ -185,7 +185,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let missingValues = [...missingValues1, ...missingValues2];
 	console.log(missingValues)
 	missingValues.map((value) => {
-	Errors.push({notfound: label, message: `label "${value}" dont used`, line: `lines of label arrors: ${iterationLabel}`});
+	Errors.push({notfound: "label", message: `label "${value}" dont used`, line: ` `});
 });
 	jumpLabels1 = [];
 	jumpLabels2 = [];
