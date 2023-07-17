@@ -48,6 +48,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				if(words[0] == 'jump'){
 					if(isNaN(words[1])){
 						jumpLabels1.push(words[1]);
+						words[0] = `<span id="label">${words[0]}</span>`
 					}
 				}
 				words[0] = `<span id="command">${words[0]}</span>`
@@ -174,7 +175,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			jumpLabels2.push(label);
 			iterationLabel.push(iteration3);
 			label = ' ';
-			words[0] = `<span id="label">${words[0]}<span>`
+			words[0] = `<span id="label">${words[0]}</span>`
 		}
 	}
 	jumpLabels1 = [...new Set(jumpLabels1)];
@@ -185,14 +186,14 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let missingValues = [...missingValues1, ...missingValues2];
 	console.log(missingValues)
 	missingValues.map((value) => {
-	Errors.push({notfound: "label", message: `label "${value}" dont used`, line: ` `});
-});
+		Errors.push({notfound: "label", message: `label "${value}" dont used`, line: ` `});
+	});
 	jumpLabels1 = [];
 	jumpLabels2 = [];
 	iterationLabel = [];
 
 	for (let i = 0; i < lines.length; i++) {
-  formattedCode += lines[i] + '<br>';
+  		formattedCode += lines[i] + '<br>';
 	}
 	output.innerHTML = formattedCode;
 
