@@ -188,7 +188,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	});
 	jumpLabels1 = [];
 	jumpLabels2 = [];
-	iterationLabel = [];
 
 	for (let i = 0; i < lines.length; i++) {
   		formattedCode += lines[i] + '<br>';
