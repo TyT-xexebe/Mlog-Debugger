@@ -28,9 +28,18 @@ let hightLightingErrors = () => {
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
-// creating iteration of all lines
 
-         
+	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
+		let words2 = lines[iteration3].split(' ');
+		if(words2[0].endsWith(':')){
+			label = words2[0];
+			label = label.slice(0, -1);
+			jumpLabels2.push(label);
+			label = ' ';
+		}
+	}
+	
+// creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
@@ -42,6 +51,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			if(!firstWord.endsWith(":")){
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 				words[0] = `<span id="errors">${words[0]}</span>`
+			}else{
+				words[0] = `<span id="label">${words[0]}</span>`
 			}
 		}else{
 				if(words[0] == 'jump'){
@@ -166,16 +177,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			lines[iteration1] = words.join('&nbsp;');
 }
 }
-	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
-		let words2 = lines[iteration3].split(' ');
-		if(words2[0].endsWith(':')){
-			label = words2[0];
-			label = label.slice(0, -1);
-			jumpLabels2.push(label);
-			label = ' ';
-			words2[0] = `<span id="label">${words2[0]}</span>`
-		}
-	}
 	jumpLabels1 = [...new Set(jumpLabels1)];
 	console.log(`label1\n ${jumpLabels1}\nlabel2\n${jumpLabels2}`);
 
