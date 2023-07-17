@@ -196,7 +196,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
 				}
 			}
-			if(words3[0].endsWith(":"){
+			if(words3[0].endsWith(":")){
 				if(missingValues.includes(words3[0])){
 					words3[0] = `<span id="errors">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words[0]}"`, line: iteration5});
