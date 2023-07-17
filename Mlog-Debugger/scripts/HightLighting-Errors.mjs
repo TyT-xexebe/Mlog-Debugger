@@ -49,13 +49,13 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			console.log(firstWord);
-			console.log(word[0]);
+			console.log(words[0]);
 			if(!firstWord.endsWith(":")){
 				console.log(word[0]);
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
 				words[0] = `<span id="errors">${words[0]}</span>`
 			}else{
-				console.log(word[0]);
+				console.log(words[0]);
 				words[0] = `<span id="label">${words[0]}</span>`
 			}
 		}else{
