@@ -11,6 +11,48 @@ let openF = () => {
 }
 openF();
 
+let openF2 = () => {
+	let setting = document.getElementById("settings");
+	if(setting.style.display == "none"){
+		setting.style.display = "block";
+	}else{
+		setting.style.display = "none";
+	}
+}
+openF2();
+
+// settings
+let switch1 = document.getElementById("show1");
+let switch2 = document.getElementById("show2");
+let switch3 = document.getElementById("show3");
+let switch4 = document.getElementById("show4");
+
+let set1;
+let set2;
+let set3;
+let set4;
+
+console.log(`set1: ${set1} | set2: ${set2} | set3: ${set3} | set4: ${set4}`)
+let settings = (set, switching) => {
+	if(set == 1){
+		switching.style.transform = "translateX(calc(- var(--index)))";
+		switching.style.backgroundColor = "rgb(32, 156, 53)";
+		return set = 0;
+	}else{
+		switching.style.transform = "translateX(var(--index))";
+		switching.style.backgroundColor = "rgb(177, 22, 22)";
+		return set = 1;
+ }
+}
+
+switch1.addEventListener("click", (settings(set1, switch1)));
+switch2.addEventListener("click", (settings(set2, switch2)));
+switch3.addEventListener("click", (settings(set3, switch3)));
+switch4.addEventListener("click", (settings(set4, switch4)));
+
+
+
+
 
 // cresting arrays for arrors
 let jumpLabels1 = [];
@@ -18,6 +60,7 @@ let jumpLabels2 = [];
 let label;
 let Errors = [];
 let button = document.getElementById("button");
+let button2 = document.getElementById("setting");
 const textarea = document.getElementById('codeInput');
 // creating function with all code
 let hightLightingErrors = () => {
@@ -238,3 +281,4 @@ for (let ii = 0; ii < lines.length; ii++) {
 
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
+button2.addEventListener("click", (openF2));

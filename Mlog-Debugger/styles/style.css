@@ -141,3 +141,47 @@
 #errors {
 	color: rgb(201, 0, 0);
 }
+
+.txt {
+	content: "-HighLighting-";
+	color: rgb(97, 97, 97);
+}
+
+:root {
+	--index: calc(1vh + 1vw);
+}
+
+.switch {
+	height: var(--index);
+	width: calc(var(--index)*2);
+	background-color: rgb(58, 58, 58);
+	border: none;
+	border-radius: 8px;
+	padding: 0.5px 0.5px 0.5px 0.5px;
+}
+
+.scr {
+	position: absolute;
+	height: calc(var(--index)*0.9);
+	width: calc(var(--index)*0.9);
+	background-color: rgb(21, 134, 40);
+	border-radius: 46%;
+	margin: 0.5px 0.5px 0.5px 0.5px;
+	transition: 0.5s;
+}
+
+.settings {
+	position: absolute;
+	height: 89vh;
+	width: calc(50vw - 20px);
+	justify-content: center;
+	text-align: start;
+	background-color: rgb(31, 31, 31);
+	padding: 5px 10px 5px 10px;
+	color: #A29F9F;
+	font-weight: 600;
+	overflow-y: scroll;
+	bottom: 0%;
+	left: 0%;
+	font-size: 16px;
+}
