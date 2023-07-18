@@ -39,69 +39,6 @@ let set2 = new Set([0]);
 let set3 = new Set([0]);
 let set4 = new Set([0]);
 
-
-let settings = (set, switching) => {
-	let setArray = [...set];
-	let firstValue = setArray[0];
-
-	if (firstValue == 1) {
-		switching.style.transform = "translateX(calc(- var(--index)))";
-		switching.style.backgroundColor = "rgb(32, 156, 53)";
-		set.clear();
-		set.add(0);
-	} else {
-		switching.style.transform = "translateX(var(--index))";
-		switching.style.backgroundColor = "rgb(177, 22, 22)";
-		set.clear();
-		set.add(1);
-	}
-};
-switch1.addEventListener("click", () => settings(set1, switch1));
-switch2.addEventListener("click", () => settings(set2, switch2));
-switch3.addEventListener("click", () => settings(set3, switch3));
-switch4.addEventListener("click", () => settings(set4, switch4));
-
-// settings for highligtning
-let value1 = [...set1][0];
-let value2 = [...set2][0];
-let value3 = [...set3][0];
-let value4 = [...set4][0];
-if(value1 == 1){
-	keyColor = "text";
-	commandColor = "text";
-	textColor = "text";
-	errorColor = "text";
-	numberColor = "text";
-	labelColor = "text";
-	hightLightingErrors()
-}else{
-	if(value2 == 1){
-		errorColor = "text";
-	}else{
-		errorColor = "errors";
-	}
-	
-	if(value3 == 1){
-		labelColor = "text";
-	}else{
-		labelColor = "label";
-	}
-
-	if(value4 == 1){
-		keyColor = "text";
-		commandColor = "text";
-		numberColor = "text";
-		textColor = "text";
-	}else{
-		keyColor = "keywords";
-		commandColor = "command";
-		numberColor = "numbers";
-		textColor = "text";
-	}
-	hightLightingErrors()
-}
-
-
 // creating arrays for errors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
@@ -327,6 +264,68 @@ for (let ii = 0; ii < lines.length; ii++) {
 	Errors = [];
 }
 hightLightingErrors();
+
+let settings = (set, switching) => {
+	let setArray = [...set];
+	let firstValue = setArray[0];
+
+	if (firstValue == 1) {
+		switching.style.transform = "translateX(calc(- var(--index)))";
+		switching.style.backgroundColor = "rgb(32, 156, 53)";
+		set.clear();
+		set.add(0);
+	} else {
+		switching.style.transform = "translateX(var(--index))";
+		switching.style.backgroundColor = "rgb(177, 22, 22)";
+		set.clear();
+		set.add(1);
+	}
+};
+switch1.addEventListener("click", () => settings(set1, switch1));
+switch2.addEventListener("click", () => settings(set2, switch2));
+switch3.addEventListener("click", () => settings(set3, switch3));
+switch4.addEventListener("click", () => settings(set4, switch4));
+
+// settings for highligtning
+let value1 = [...set1][0];
+let value2 = [...set2][0];
+let value3 = [...set3][0];
+let value4 = [...set4][0];
+if(value1 == 1){
+	keyColor = "text";
+	commandColor = "text";
+	textColor = "text";
+	errorColor = "text";
+	numberColor = "text";
+	labelColor = "text";
+	hightLightingErrors()
+}else{
+	if(value2 == 1){
+		errorColor = "text";
+	}else{
+		errorColor = "errors";
+	}
+	
+	if(value3 == 1){
+		labelColor = "text";
+	}else{
+		labelColor = "label";
+	}
+
+	if(value4 == 1){
+		keyColor = "text";
+		commandColor = "text";
+		numberColor = "text";
+		textColor = "text";
+	}else{
+		keyColor = "keywords";
+		commandColor = "command";
+		numberColor = "numbers";
+		textColor = "text";
+	}
+	hightLightingErrors()
+}
+
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
