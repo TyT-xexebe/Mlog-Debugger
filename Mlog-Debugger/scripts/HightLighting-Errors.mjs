@@ -104,9 +104,13 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				words[0] = `<span id="${labelColor}">${words[0]}</span>`
 				lines[iteration1] = words.join('&nbsp;');
 			}else{
-				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
-				words[0] = `<span id="${errorColor}">${words[0]}</span>`
-				lines[iteration1] = words.join('&nbsp;');
+				if(firstWord !== " " || "\n"){
+				 	Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
+				 	words[0] = `<span id="${errorColor}">${words[0]}</span>`
+				 	lines[iteration1] = words.join('&nbsp;');
+				}else{
+					lines[iteration1] = words.join('&nbsp;');
+				}
 			}
 		}else{
 				if(words[0] == 'jump'){
