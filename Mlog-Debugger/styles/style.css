@@ -77,9 +77,6 @@
 	color: white;
 	font-weight: 600;
 	font-size: small;
-	position: relative;
-	left: 93vw;
-	top: 35%;
 }
 
 .other h5 {
@@ -143,7 +140,6 @@
 }
 
 .txt {
-	content: "-HighLighting-";
 	color: rgb(97, 97, 97);
 }
 

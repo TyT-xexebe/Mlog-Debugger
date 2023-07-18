@@ -22,6 +22,13 @@ let openF2 = () => {
 openF2();
 
 // settings
+let keyColor;
+let textColor;
+let commandColor;
+let errorColor;
+let numberColor;
+let labelColor;
+
 let switch1 = document.getElementById("show1");
 let switch2 = document.getElementById("show2");
 let switch3 = document.getElementById("show3");
@@ -38,15 +45,15 @@ let settings = (set, switching) => {
 	let firstValue = setArray[0];
 
 	if (firstValue == 1) {
-			switching.style.transform = "translateX(calc(- var(--index)))";
-			switching.style.backgroundColor = "rgb(32, 156, 53)";
-			set.clear();
-			set.add(0);
+		switching.style.transform = "translateX(calc(- var(--index)))";
+		switching.style.backgroundColor = "rgb(32, 156, 53)";
+		set.clear();
+		set.add(0);
 	} else {
-			switching.style.transform = "translateX(var(--index))";
-			switching.style.backgroundColor = "rgb(177, 22, 22)";
-			set.clear();
-			set.add(1);
+		switching.style.transform = "translateX(var(--index))";
+		switching.style.backgroundColor = "rgb(177, 22, 22)";
+		set.clear();
+		set.add(1);
 	}
 };
 switch1.addEventListener("click", () => settings(set1, switch1));
@@ -54,7 +61,48 @@ switch2.addEventListener("click", () => settings(set2, switch2));
 switch3.addEventListener("click", () => settings(set3, switch3));
 switch4.addEventListener("click", () => settings(set4, switch4));
 
-// cresting arrays for arrors
+// settings for highligtning
+let value1 = [...set1][0];
+let value2 = [...set2][0];
+let value3 = [...set3][0];
+let value4 = [...set4][0];
+if(value1 == 1){
+	keyColor = "text";
+	commandColor = "text";
+	textColor = "text";
+	errorColor = "text";
+	numberColor = "text";
+	labelColor = "text";
+	hightLightingErrors()
+}else{
+	if(value2 == 1){
+		errorColor = "text";
+	}else{
+		errorColor = "errors";
+	}
+	
+	if(value3 == 1){
+		labelColor = "text";
+	}else{
+		labelColor = "label";
+	}
+
+	if(value4 == 1){
+		keyColor = "text";
+		commandColor = "text";
+		numberColor = "text";
+		textColor = "text";
+	}else{
+		keyColor = "keywords";
+		commandColor = "command";
+		numberColor = "numbers";
+		textColor = "text";
+	}
+	hightLightingErrors()
+}
+
+
+// creating arrays for errors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
 let label;
@@ -96,14 +144,14 @@ let hightLightingErrors = () => {
 			if(words3[0] == "jump"){
 				if(missingValues.includes(words3[1])){
 					console.log("jump label missed");
-					words3[1] = `<span id="errors">${words3[1]}</span>`
+					words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
 					Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
 				}
 			}
 			if(words3[0].endsWith(":")){
 				if(missingValues.includes(words3[0])){
 					console.log("label missed");
-					words3[0] = `<span id="errors">${words3[0]}</span>`
+					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words[0]}"`, line: iteration5});
 				}
 			}
@@ -122,22 +170,22 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			if(firstWord.endsWith(":")){
-				words[0] = `<span id="label">${words[0]}</span>`
+				words[0] = `<span id="${labelColor}">${words[0]}</span>`
 				console.log(`label "${words[0]}" get spanned`);
 				lines[iteration1] = words.join('&nbsp;');
 			}else{
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
-				words[0] = `<span id="errors">${words[0]}</span>`
+				words[0] = `<span id="${errorColor}">${words[0]}</span>`
 				lines[iteration1] = words.join('&nbsp;');
 			}
 		}else{
 				if(words[0] == 'jump'){
 					if(isNaN(words[1])){
 						jumpLabels1.push(words[1]);
-						words[1] = `<span id="label">${words[1]}</span>`
+						words[1] = `<span id="${labelColor}">${words[1]}</span>`
 					}
 				}
-				words[0] = `<span id="command">${words[0]}</span>`
+				words[0] = `<span id="${commandColor}">${words[0]}</span>`
 		
 
 			// checking if command have sub-command
@@ -145,11 +193,11 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
 				if(keyCommands[firstWord].hasOwnProperty(secondWord)){
 					subCommandRead = 1;
-					words[1] = `<span id="command">${words[1]}</span>`;
+					words[1] = `<span id="${commandColor}">${words[1]}</span>`;
 				}else{
 					subCommandRead = 0;
 					Errors.push({notfound: secondWord, message: `the ${firstWord} dont have sub-command ${secondWord}`, line: iteration1});
-					words[1] = `<span id="errors">${words[1]}</span>`
+					words[1] = `<span id="${errorColor}">${words[1]}</span>`
 				}
 			}else{
 				subCommandRead = 0;
@@ -159,13 +207,13 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			if(subCommandRead == 0){
 				if(lineWords > keyCommands[firstWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} can access only ${keyCommands[firstWord].max} propertry words!`, line: iteration1});
-					words[0] = `<span id="errors">${words[0]}</span>`
+					words[0] = `<span id="${errorColor}">${words[0]}</span>`
 				}
 			}else{
 				if(lineWords > keyCommands[firstWord][secondWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} ${secondWord} can access only ${keyCommands[firstWord][secondWord].max} propertry words!`, line: iteration1});
-					words[0] = `<span id="errors">${words[0]}</span>`
-					words[1] = `<span id="errors">${words[1]}</span>`
+					words[0] = `<span id="${errorColor}">${words[0]}</span>`
+					words[1] = `<span id="${errorColor}">${words[1]}</span>`
 				}
 			}
 			// iteration of all words to find errors
@@ -190,17 +238,17 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					// if keywords allowed its this word
 					if(commandToFind.keywords == true){
 						if(keywords.includes(words[iteration2])){
-							words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
+							words[iteration2] = `<span id="${keyColor}">${words[iteration2]}</span>`
 							
 						}else{
 							Errors.push({notfound: words[iteration2], message: "keywords not include this word", line: iteration1});
-							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 							
 						}
 						// if keywords not recomended in this word
 					}else if(commandToFind.keywords == "notRecomended"){
 						Errors.push({notfound: words[iteration2], message: "this keyword not recomended here", line: iteration1});
-						words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+						words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 						
 						// if keyword not allowed in this words
 					}else{
@@ -209,17 +257,17 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							// if allowedParams not include word
 							if(!commandToFind.allowedParams.includes(words[iteration2])){
 								Errors.push({notfound: words[iteration2], message: "this keyword not allowed here!", line: iteration1});
-								words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+								words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 								
 								// if allowedParams include word
 							}else if(commandToFind.allowedParams.includes(words[iteration2])){
-								words[iteration2] = `<span id="keywords">${words[iteration2]}</span>`
+								words[iteration2] = `<span id="${keyColor}">${words[iteration2]}</span>`
 								
 							}
 							// if keywords and allowedParams are null
 						}else if(commandToFind.allowedParams == undefined){
 							Errors.push({notfound: words[iteration2], message: "any keywords not allowed here!", line: iteration1});
-							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 							
 						};
 					};
@@ -229,25 +277,25 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					if(!isNaN(words[iteration2])){
 						if(commandToFind.numbers == false){
 							Errors.push({notfound: words[iteration2], message: "any numbers not allowed here!", line: iteration1});
-							words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+							words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 							
 						}else{
-							words[iteration2] = `<span id="numbers">${words[iteration2]}</span>`
+							words[iteration2] = `<span id="${numberColor}">${words[iteration2]}</span>`
 							
 						}
 					}else{
 						// if word == text
 						if(commandToFind.words == true){
-							words[iteration2] = `<span id="text">${words[iteration2]}</span>`
+							words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
 						}else{
 							if(commandToFind.allowedWords == false){
 								Errors.push({notfound: words[iteration2], message: "any words not allowed here!", line: iteration1});
-								words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+								words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 							}else if(commandToFind.allowedWords.includes(words[iteration2])){
-								words[iteration2] = `<span id="text">${words[iteration2]}</span>`
+								words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
 							}else{
 								Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
-								words[iteration2] = `<span id="errors">${words[iteration2]}</span>`
+								words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 							}
 						}
 					}
@@ -273,12 +321,12 @@ for (let ii = 0; ii < lines.length; ii++) {
 	let	notFoundMessage = ' ';
 	button.innerHTML = `Errors | ${Errors.length}`;
 	for(let iteration4 = 0; iteration4 < Errors.length; iteration4++){
-		notFoundMessage += `<span id="text">error: <span id="errors">${Errors[iteration4].notfound}</span> | <span id="error">${Errors[iteration4].message}</span> | line: ${Errors[iteration4].line} </span><br><hr><br>`
+		notFoundMessage += `<span id="${textColor}">error: <span id="${errorColor}">${Errors[iteration4].notfound}</span> | <span id="error">${Errors[iteration4].message}</span> | line: ${Errors[iteration4].line} </span><br><hr><br>`
 	}
 	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
 }
-
+hightLightingErrors();
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
