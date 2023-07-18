@@ -27,32 +27,32 @@ let switch2 = document.getElementById("show2");
 let switch3 = document.getElementById("show3");
 let switch4 = document.getElementById("show4");
 
-let set1;
-let set2;
-let set3;
-let set4;
+let set1 = new Set([0]);
+let set2 = new Set([0]);
+let set3 = new Set([0]);
+let set4 = new Set([0]);
 
-console.log(`set1: ${set1} | set2: ${set2} | set3: ${set3} | set4: ${set4}`)
+
 let settings = (set, switching) => {
-	if(set == 1){
-		switching.style.transform = "translateX(calc(- var(--index)))";
-		switching.style.backgroundColor = "rgb(32, 156, 53)";
-		return set = 0;
-	}else{
-		switching.style.transform = "translateX(var(--index))";
-		switching.style.backgroundColor = "rgb(177, 22, 22)";
-		return set = 1;
- }
-}
+	let setArray = [...set];
+	let firstValue = setArray[0];
 
+	if (firstValue == 1) {
+			switching.style.transform = "translateX(calc(- var(--index)))";
+			switching.style.backgroundColor = "rgb(32, 156, 53)";
+			set.clear();
+			set.add(0);
+	} else {
+			switching.style.transform = "translateX(var(--index))";
+			switching.style.backgroundColor = "rgb(177, 22, 22)";
+			set.clear();
+			set.add(1);
+	}
+};
 switch1.addEventListener("click", () => settings(set1, switch1));
 switch2.addEventListener("click", () => settings(set2, switch2));
 switch3.addEventListener("click", () => settings(set3, switch3));
 switch4.addEventListener("click", () => settings(set4, switch4));
-
-
-
-
 
 // cresting arrays for arrors
 let jumpLabels1 = [];
