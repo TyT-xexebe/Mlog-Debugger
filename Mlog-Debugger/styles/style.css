@@ -110,25 +110,25 @@ body {
 }
 
 #command {
-	color: rgb(189, 147, 249);
+	color: #A525BF;
 }
 
 #text {
-	color: rgb(152, 195, 121);
+	color: #A29F9F;
 }
 
 #keywords {
-	color: rgb(235, 119, 52);
+	color: #66CCCC;
 }
 
 #numbers {
-	color: rgb(209, 154, 102);
+	color: #40CB6F;
 }
 
 #label {
-	color: rgb(102, 153, 153);
+	color: #898888;
 }
 
 #errors {
-	color: rgb(206, 0, 0);
+	color: #FA3D3D;
 }
