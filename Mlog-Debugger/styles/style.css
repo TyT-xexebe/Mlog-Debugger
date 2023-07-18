@@ -34,7 +34,7 @@
 	height: 88vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	overflow-wrap: break-word;
+	overflow-wrap: normal;
 	width: calc(50vw - 10px);
 	margin: 0;
 	padding: 8vh 5px 5px 5px;
@@ -43,6 +43,7 @@
 	position: absolute;
 	bottom: 0%;
 	right: 0%;
+
 }
 
 .other {

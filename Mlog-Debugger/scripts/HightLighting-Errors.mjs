@@ -213,9 +213,15 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			lines[iteration1] = words.join('&nbsp;');
 }
 }
+for (let ii = 0; ii < lines.length; ii++) {
+	let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
+	lines[ii] = lineContent;
+}
+
 	for (let i = 0; i < lines.length; i++) {
-  		formattedCode += lines[i] + '<br>';
+ 	formattedCode += lines[i] + '<br>';
 	}
+
 	output.innerHTML = formattedCode;
 
 
