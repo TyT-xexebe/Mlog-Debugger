@@ -127,9 +127,9 @@ body {
 }
 
 #label {
-	color: #a9a9a9;
+	color: rgb(67, 67, 67);
 }
 
 #errors {
-	color: #474747;
+	color: rgb(208, 0, 0);
 }
