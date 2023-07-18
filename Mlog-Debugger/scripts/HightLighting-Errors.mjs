@@ -68,26 +68,21 @@ let hightLightingErrors = () => {
 	}
 
 	jumpLabels1 = [...new Set(jumpLabels1)];
-	console.log(`label1\n ${jumpLabels1}\nlabel2\n${jumpLabels2}`);
 
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
 	let missingValues = [...missingValues1, ...missingValues2];
-	console.log(missingValues)
 	missingValues.map((value) => {
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
-			console.log(`iteration: ${iteration5} | word1: ${words3[0]} | word2: ${words3[1]}`)
 			if(words3[0] == "jump"){
 				if(missingValues.includes(words3[1])){
-					console.log("jump label missed");
 					words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
 					Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
 				}
 			}
 			if(words3[0].endsWith(":")){
 				if(missingValues.includes(words3[0])){
-					console.log("label missed");
 					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words[0]}"`, line: iteration5});
 				}
@@ -103,12 +98,10 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		let words = lines[iteration1].split(' ');
   let firstWord = words[0];
   let secondWord = words[1];
-		console.log(Errors);
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			if(firstWord.endsWith(":")){
 				words[0] = `<span id="${labelColor}">${words[0]}</span>`
-				console.log(`label "${words[0]}" get spanned`);
 				lines[iteration1] = words.join('&nbsp;');
 			}else{
 				Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
@@ -165,7 +158,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					finder1 = `w${iteration2}`;
 					commandToFind = keyCommands[firstWord][finder1];
 				}
-				console.log(`sub: ${subCommandRead} first: ${firstWord} second: ${secondWord} finder: ${finder1} lineWord: ${lineWords}`)
 				if(typeof commandToFind == 'undefined'){
 					lines[iteration1] = words.join(' ');
 					continue MainLoop;
@@ -263,7 +255,9 @@ for (let ii = 0; ii < lines.length; ii++) {
 	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
 }
-hightLightingErrors();
+textarea.addEventListener("input", (hightLightingErrors));
+button.addEventListener("click", (openF));
+button2.addEventListener("click", (openF2));
 
 let settings = (set, switching) => {
 	let setArray = [...set];
@@ -280,52 +274,47 @@ let settings = (set, switching) => {
 		set.clear();
 		set.add(1);
 	}
+	// settings for highligtning
+	let value1 = [...set1][0];
+	let value2 = [...set2][0];
+	let value3 = [...set3][0];
+	let value4 = [...set4][0];
+	if(value1 == 1){
+		keyColor = "text";
+		commandColor = "text";
+		textColor = "text";
+		errorColor = "text";
+		numberColor = "text";
+		labelColor = "text";
+		hightLightingErrors()
+	}else{
+		if(value2 == 1){
+			errorColor = "text";
+		}else{
+			errorColor = "errors";
+		}
+		
+		if(value3 == 1){
+			labelColor = "text";
+		}else{
+			labelColor = "label";
+		}
+
+		if(value4 == 1){
+			keyColor = "text";
+			commandColor = "text";
+			numberColor = "text";
+			textColor = "text";
+		}else{
+			keyColor = "keywords";
+			commandColor = "command";
+			numberColor = "numbers";
+			textColor = "text";
+		}
+		hightLightingErrors()
+	}
 };
 switch1.addEventListener("click", () => settings(set1, switch1));
 switch2.addEventListener("click", () => settings(set2, switch2));
 switch3.addEventListener("click", () => settings(set3, switch3));
 switch4.addEventListener("click", () => settings(set4, switch4));
-
-// settings for highligtning
-let value1 = [...set1][0];
-let value2 = [...set2][0];
-let value3 = [...set3][0];
-let value4 = [...set4][0];
-if(value1 == 1){
-	keyColor = "text";
-	commandColor = "text";
-	textColor = "text";
-	errorColor = "text";
-	numberColor = "text";
-	labelColor = "text";
-	hightLightingErrors()
-}else{
-	if(value2 == 1){
-		errorColor = "text";
-	}else{
-		errorColor = "errors";
-	}
-	
-	if(value3 == 1){
-		labelColor = "text";
-	}else{
-		labelColor = "label";
-	}
-
-	if(value4 == 1){
-		keyColor = "text";
-		commandColor = "text";
-		numberColor = "text";
-		textColor = "text";
-	}else{
-		keyColor = "keywords";
-		commandColor = "command";
-		numberColor = "numbers";
-		textColor = "text";
-	}
-	hightLightingErrors()
-}
-
-textarea.addEventListener("input", (hightLightingErrors));
-button.addEventListener("click", (openF));
-button2.addEventListener("click", (openF2));
