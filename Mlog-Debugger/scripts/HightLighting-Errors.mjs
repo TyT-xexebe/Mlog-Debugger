@@ -45,10 +45,10 @@ let settings = (set, switching) => {
  }
 }
 
-switch1.addEventListener("click", (settings(set1, switch1)));
-switch2.addEventListener("click", (settings(set2, switch2)));
-switch3.addEventListener("click", (settings(set3, switch3)));
-switch4.addEventListener("click", (settings(set4, switch4)));
+switch1.addEventListener("click", () => settings(set1, switch1));
+switch2.addEventListener("click", () => settings(set2, switch2));
+switch3.addEventListener("click", () => settings(set3, switch3));
+switch4.addEventListener("click", () => settings(set4, switch4));
 
 
 
