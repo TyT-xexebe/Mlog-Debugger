@@ -221,7 +221,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	let	notFoundMessage = ' ';
 	button.innerHTML = `Errors | ${Errors.length}`;
 	for(let iteration4 = 0; iteration4 < Errors.length; iteration4++){
-		notFoundMessage += `error: ${Errors[iteration4].notfound} | ${Errors[iteration4].message} | line: ${Errors[iteration4].line} <br>`
+		notFoundMessage += `<span id="text">error: <span id="error">${Errors[iteration4].notfound}</span> | <span id="error">${Errors[iteration4].message}</span> | line: ${Errors[iteration4].line} </span><br><hr><br>`
 	}
 	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
