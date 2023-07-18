@@ -116,10 +116,13 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			if(subCommandRead == 0){
 				if(lineWords > keyCommands[firstWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} can access only ${keyCommands[firstWord].max} propertry words!`, line: iteration1});
+					words[0] = `<span id="errors">${words[0]}</span>`
 				}
 			}else{
 				if(lineWords > keyCommands[firstWord][secondWord].max){
 					Errors.push({notfound: firstWord, message: `the command ${firstWord} ${secondWord} can access only ${keyCommands[firstWord][secondWord].max} propertry words!`, line: iteration1});
+					words[0] = `<span id="errors">${words[0]}</span>`
+					words[1] = `<span id="errors">${words[1]}</span>`
 				}
 			}
 			// iteration of all words to find errors
