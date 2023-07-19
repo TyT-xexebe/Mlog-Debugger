@@ -827,8 +827,9 @@ let keyCommands = {
 			w2: {
 				words: true,
 				numbers: false,
-				keywords: "notRecomended",
-				allowedWords: false
+				keywords: false,
+				allowedWords: false,
+				allowedParams: ["@air"]
 			},
 			w3: {
 				words: true,
