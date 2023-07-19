@@ -315,6 +315,7 @@ let settings = (set, switching) => {
 			textColor = "text";
 		}
 	}
+	hightLightingErrors();
 };
 switch1.addEventListener("click", () => settings(set1, switch1));
 switch2.addEventListener("click", () => settings(set2, switch2));
