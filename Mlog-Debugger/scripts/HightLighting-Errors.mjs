@@ -290,7 +290,6 @@ let settings = (set, switching) => {
 		errorColor = "text";
 		numberColor = "text";
 		labelColor = "text";
-		hightLightingErrors()
 	}else{
 		if(value2 == 1){
 			errorColor = "text";
@@ -315,10 +314,11 @@ let settings = (set, switching) => {
 			numberColor = "numbers";
 			textColor = "text";
 		}
-		hightLightingErrors()
 	}
 };
 switch1.addEventListener("click", () => settings(set1, switch1));
 switch2.addEventListener("click", () => settings(set2, switch2));
 switch3.addEventListener("click", () => settings(set3, switch3));
 switch4.addEventListener("click", () => settings(set4, switch4));
+hightLightingErrors();
+settings();
