@@ -34,16 +34,17 @@ let switch2 = document.getElementById("show2");
 let switch3 = document.getElementById("show3");
 let switch4 = document.getElementById("show4");
 
-let set1 = new Set([0]);
-let set2 = new Set([0]);
+let set1 = new Set([1]);
+let set2 = new Set([1]);
 let set3 = new Set([0]);
-let set4 = new Set([0]);
+let set4 = new Set([1]);
 
 // creating arrays for errors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
 let label;
 let Errors = [];
+let missingValues = [];
 let button = document.getElementById("button");
 let button2 = document.getElementById("setting");
 const textarea = document.getElementById('codeInput');
@@ -56,41 +57,6 @@ let hightLightingErrors = () => {
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
-
-	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
-		let words2 = lines[iteration3].split(' ');
-		if(words2[0].endsWith(':')){
-			label = words2[0];
-			label = label.slice(0, -1);
-			jumpLabels2.push(label);
-			label = ' ';
-		}	
-	}
-	jumpLabels1 = [...new Set(jumpLabels1)];
-
-	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
-	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
-	let missingValues = [...missingValues1, ...missingValues2];
-	missingValues.map((value) => {
-		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
-			let words3 = lines[iteration5].split(" ");
-			if(words3[0] == "jump"){
-				if(missingValues.includes(words3[1])){
-					words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
-					Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
-				}
-			}
-			if(words3[0].endsWith(":")){
-				let label2 = words3[0].slice(0, -1);
-				if(missingValues.includes(label2)){
-					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
-					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
-				}
-			}
-		}
-	});
-	jumpLabels1 = [];
-	jumpLabels2 = [];
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
@@ -101,17 +67,16 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			if(firstWord.endsWith(":")){
-				let label3 = words[0].slice(0, -1);
+				let label3 = firstWord.slice(0, -1);
 				if(!missingValues.includes(label3)){
 					words[0] = `<span id="${labelColor}">${words[0]}</span>`
-					lines[iteration1] = words.join('&nbsp;');
 				}
+				lines[iteration1] = words.join('&nbsp;');
 			}
 		}else{
 				if(words[0] == 'jump'){
 					if(isNaN(words[1])){
 						if(!missingValues.includes(words[1])){
-							jumpLabels1.push(words[1]);
 							words[1] = `<span id="${labelColor}">${words[1]}</span>`
 						}
 					}
@@ -245,6 +210,40 @@ for (let ii = 0; ii < lines.length; ii++) {
 
 	output.innerHTML = formattedCode;
 
+	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
+		let words2 = lines[iteration3].split(' ');
+		if(words2[0].endsWith(':')){
+			label = words2[0];
+			label = label.slice(0, -1);
+			jumpLabels2.push(label);
+			label = ' ';
+		}	
+	}
+	jumpLabels1 = [...new Set(jumpLabels1)];
+
+	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
+	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
+	let missingValues = [...missingValues1, ...missingValues2];
+	missingValues.map((value) => {
+		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
+			let words3 = lines[iteration5].split(" ");
+			if(words3[0] == "jump"){
+				if(missingValues.includes(words3[1])){
+					words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
+					Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
+				}
+			}
+			if(words3[0].endsWith(":")){
+				let label2 = words3[0].slice(0, -1);
+				if(missingValues.includes(label2)){
+					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
+					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
+				}
+			}
+		}
+	});
+	jumpLabels1 = [];
+	jumpLabels2 = [];
 
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
@@ -276,10 +275,10 @@ let settings = (set, switching) => {
 		set.add(1);
 	}
 	// settings for highligtning
-	let value1 = [...set1][1];
-	let value2 = [...set2][1];
+	let value1 = [...set1][0];
+	let value2 = [...set2][0];
 	let value3 = [...set3][0];
-	let value4 = [...set4][1];
+	let value4 = [...set4][0];
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
