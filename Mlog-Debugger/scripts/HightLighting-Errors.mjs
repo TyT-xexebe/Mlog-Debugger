@@ -107,7 +107,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					lines[iteration1] = words.join('&nbsp;');
 				}
 			}
-		}
 		}else{
 				if(words[0] == 'jump'){
 					if(isNaN(words[1])){
