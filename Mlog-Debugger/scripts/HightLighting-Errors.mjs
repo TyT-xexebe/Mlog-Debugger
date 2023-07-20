@@ -44,7 +44,6 @@ let jumpLabels1 = [];
 let jumpLabels2 = [];
 let label;
 let Errors = [];
-let missingValues = [];
 let button = document.getElementById("button");
 let button2 = document.getElementById("setting");
 const textarea = document.getElementById('codeInput');
@@ -57,6 +56,7 @@ let hightLightingErrors = () => {
 	const textarea = document.getElementById('codeInput');
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
+	let missingValues = [];
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
@@ -223,7 +223,7 @@ for (let ii = 0; ii < lines.length; ii++) {
 
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
-	let missingValues = [...missingValues1, ...missingValues2];
+	missingValues = [...missingValues1, ...missingValues2];
 	missingValues.map((value) => {
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
