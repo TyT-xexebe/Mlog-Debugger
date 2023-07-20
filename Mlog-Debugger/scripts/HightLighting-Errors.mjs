@@ -84,7 +84,7 @@ let hightLightingErrors = () => {
 				let label2 = words3[0].slice(0, -1);
 				if(missingValues.includes(label2)){
 					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
-					Errors.push({notfound: "label", message: `any jump dont use label "${words[0]}"`, line: iteration5});
+					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
 				}
 			}
 		}
