@@ -66,7 +66,6 @@ let hightLightingErrors = () => {
 			label = ' ';
 		}	
 	}
-
 	jumpLabels1 = [...new Set(jumpLabels1)];
 
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
@@ -82,7 +81,8 @@ let hightLightingErrors = () => {
 				}
 			}
 			if(words3[0].endsWith(":")){
-				if(missingValues.includes(words3[0])){
+				let label2 = words3[0].slice(0, -1);
+				if(missingValues.includes(label2)){
 					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words[0]}"`, line: iteration5});
 				}
@@ -101,22 +101,20 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			if(firstWord.endsWith(":")){
-				words[0] = `<span id="${labelColor}">${words[0]}</span>`
-				lines[iteration1] = words.join('&nbsp;');
-			}else{
-				if(firstWord !== "" || "\n" || "/\s/g" || "\s"){
-				 	Errors.push({notfound: firstWord, message: "this command not found in 'keyCommands'", line: iteration1});
-				 	words[0] = `<span id="${errorColor}">${words[0]}</span>`
-				 	lines[iteration1] = words.join('&nbsp;');
-				}else{
+				let label3 = words[0].slice(0, -1);
+				if(!missingValues.includes(label3)){
+					words[0] = `<span id="${labelColor}">${words[0]}</span>`
 					lines[iteration1] = words.join('&nbsp;');
 				}
 			}
+		}
 		}else{
 				if(words[0] == 'jump'){
 					if(isNaN(words[1])){
-						jumpLabels1.push(words[1]);
-						words[1] = `<span id="${labelColor}">${words[1]}</span>`
+						if(!missingValues.includes(words[1])){
+							jumpLabels1.push(words[1]);
+							words[1] = `<span id="${labelColor}">${words[1]}</span>`
+						}
 					}
 				}
 				words[0] = `<span id="${commandColor}">${words[0]}</span>`
@@ -279,10 +277,10 @@ let settings = (set, switching) => {
 		set.add(1);
 	}
 	// settings for highligtning
-	let value1 = [...set1][0];
-	let value2 = [...set2][0];
+	let value1 = [...set1][1];
+	let value2 = [...set2][1];
 	let value3 = [...set3][0];
-	let value4 = [...set4][0];
+	let value4 = [...set4][1];
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
