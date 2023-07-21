@@ -227,7 +227,6 @@ console.log("highlightning end");
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
 	missingValues = [...missingValues1, ...missingValues2];
 	console.log(`missed labels: ${missingValues}`)
-	missingValues.map((value) => {
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
 			if(words3[0] == "jump"){
@@ -258,7 +257,6 @@ console.log("highlightning end");
 				}
 			}
 		}
-	});
 	jumpLabels1 = [];
 	jumpLabels2 = [];
 
