@@ -238,7 +238,7 @@ for (let ii = 0; ii < lines.length; ii++) {
 						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
 						lines[iteration5] = words3.join('&nbsp;');
 					}else{
-						console.log(`jump label ${words3[1] finded}`);
+						console.log(`jump label ${words3[1]} finded}`);
 						words3[1] = `<span id="${labelColor}">${words3[1]}</span>`
 						lines[iteration5] = words3.join('&nbsp;');
 					}
@@ -252,7 +252,7 @@ for (let ii = 0; ii < lines.length; ii++) {
 					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
 					lines[iteration5] = words3.join('&nbsp;');
 				}else{
-					console.log(`label ${words3[0] finded}`);
+					console.log(`label ${words3[0]} finded}`);
 					words3[0] = `<span id="${labelColor}">${words3[0]}</span>`
 					lines[iteration5] = words3.join('&nbsp;');
 				}
