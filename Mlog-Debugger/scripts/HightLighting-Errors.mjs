@@ -43,6 +43,7 @@ let set4 = new Set([1]);
 let jumpLabels1 = [];
 let jumpLabels2 = [];
 let label;
+let label2;
 let Errors = [];
 let button = document.getElementById("button");
 let button2 = document.getElementById("setting");
@@ -67,20 +68,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			if(firstWord.endsWith(":")){
-				let label3 = firstWord.slice(0, -1);
-				if(!missingValues.includes(label3)){
-					words[0] = `<span id="${labelColor}">${words[0]}</span>`
-				}
 				lines[iteration1] = words.join('&nbsp;');
+			}else{
+				Errors.push({notfound: secondWord, message: `the ${firstWord} not a command`, line: iteration1});
+				words[0] = `<span id="${errorColor}">${words[0]}</span>`
 			}
 		}else{
-				if(words[0] == 'jump'){
-					if(isNaN(words[1])){
-						if(!missingValues.includes(words[1])){
-							words[1] = `<span id="${labelColor}">${words[1]}</span>`
-						}
-					}
-				}
 				words[0] = `<span id="${commandColor}">${words[0]}</span>`
 		
 
@@ -127,6 +120,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				if(typeof commandToFind == 'undefined'){
 					lines[iteration1] = words.join(' ');
 					continue MainLoop;
+				}
+
+				if(words[0] == 'jump'){
+					if(isNaN(words[1])){
+						continue MainLoop;
+					}
 				}
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
@@ -203,24 +202,25 @@ for (let ii = 0; ii < lines.length; ii++) {
 	let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
 	lines[ii] = lineContent;
 }
-
-	for (let i = 0; i < lines.length; i++) {
- 	formattedCode += lines[i] + '<br>';
-	}
-
-	output.innerHTML = formattedCode;
-
+	
 	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words2 = lines[iteration3].split(' ');
 		if(words2[0].endsWith(':')){
 			label = words2[0];
 			label = label.slice(0, -1);
 			jumpLabels2.push(label);
-			label = ' ';
 		}	
-	}
-	jumpLabels1 = [...new Set(jumpLabels1)];
 
+		if(words2[0] == "jump"){
+			if(isNaN(words2[1])){
+				jumpLabels1.push(words2[1]);
+			}
+		}
+	}
+	
+	jumpLabels1 = [...new Set(jumpLabels1)];
+	jumpLabels2 = [...new Set(jumpLabels2)];
+	
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
 	missingValues = [...missingValues1, ...missingValues2];
@@ -228,22 +228,33 @@ for (let ii = 0; ii < lines.length; ii++) {
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
 			if(words3[0] == "jump"){
-				if(missingValues.includes(words3[1])){
-					words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
-					Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
+				if(isNaN(words3[1])){
+					if(missingValues.includes(words3[1])){
+						words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
+						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
+					}else{
+						words3[1] = `<span id="${labelColor}">${words3[1]}</span>`
+					}
 				}
 			}
 			if(words3[0].endsWith(":")){
-				let label2 = words3[0].slice(0, -1);
+				label2 = words3[0].slice(0, -1);
 				if(missingValues.includes(label2)){
 					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
+				}else{
+					words3[0] = `<span id="${labelColor}">${words3[0]}</span>`
 				}
 			}
 		}
 	});
 	jumpLabels1 = [];
 	jumpLabels2 = [];
+
+	for (let i = 0; i < lines.length; i++) {
+ 	formattedCode += lines[i] + '<br>';
+	}
+	output.innerHTML = formattedCode;
 
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
