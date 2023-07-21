@@ -198,6 +198,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			lines[iteration1] = words.join('&nbsp;');
 }
 }
+console.log("highlightning end")
 for (let ii = 0; ii < lines.length; ii++) {
 	let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
 	lines[ii] = lineContent;
@@ -220,20 +221,24 @@ for (let ii = 0; ii < lines.length; ii++) {
 	
 	jumpLabels1 = [...new Set(jumpLabels1)];
 	jumpLabels2 = [...new Set(jumpLabels2)];
+	console.log(`jump labels: ${jumpLabel1} | labels: ${jumpLabels2}`)
 	
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
 	missingValues = [...missingValues1, ...missingValues2];
+	console.log(`missed labels: ${missingValues}`)
 	missingValues.map((value) => {
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
 			if(words3[0] == "jump"){
 				if(isNaN(words3[1])){
 					if(missingValues.includes(words3[1])){
+						console.log(`inded missed jump label: ${words3[1]}`);
 						words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
 						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
 						lines[iteration5] = words3.join('&nbsp;');
 					}else{
+						console.log(`jump label ${words3[1] finded}`);
 						words3[1] = `<span id="${labelColor}">${words3[1]}</span>`
 						lines[iteration5] = words3.join('&nbsp;');
 					}
@@ -242,10 +247,12 @@ for (let ii = 0; ii < lines.length; ii++) {
 			if(words3[0].endsWith(":")){
 				label2 = words3[0].slice(0, -1);
 				if(missingValues.includes(label2)){
+					console.log(`inded missed label: ${words3[0]}`);
 					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
 					lines[iteration5] = words3.join('&nbsp;');
 				}else{
+					console.log(`label ${words3[0] finded}`);
 					words3[0] = `<span id="${labelColor}">${words3[0]}</span>`
 					lines[iteration5] = words3.join('&nbsp;');
 				}
