@@ -221,7 +221,7 @@ for (let ii = 0; ii < lines.length; ii++) {
 	
 	jumpLabels1 = [...new Set(jumpLabels1)];
 	jumpLabels2 = [...new Set(jumpLabels2)];
-	console.log(`jump labels: ${jumpLabel1} | labels: ${jumpLabels2}`)
+	console.log(`jump labels: ${jumpLabels1} | labels: ${jumpLabels2}`)
 	
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
