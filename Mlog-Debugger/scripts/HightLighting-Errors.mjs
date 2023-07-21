@@ -70,8 +70,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			if(firstWord.endsWith(":")){
 				lines[iteration1] = words.join('&nbsp;');
 			}else{
-				Errors.push({notfound: secondWord, message: `the ${firstWord} not a command`, line: iteration1});
+				Errors.push({notfound: firstWord, message: `the ${firstWord} not a command`, line: iteration1});
 				words[0] = `<span id="${errorColor}">${words[0]}</span>`
+				lines[iteration1] = words.join('&nbsp;');
 			}
 		}else{
 				words[0] = `<span id="${commandColor}">${words[0]}</span>`
@@ -120,12 +121,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				if(typeof commandToFind == 'undefined'){
 					lines[iteration1] = words.join(' ');
 					continue MainLoop;
-				}
-
-				if(words[0] == 'jump'){
-					if(isNaN(words[1])){
-						continue MainLoop;
-					}
 				}
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
@@ -178,6 +173,11 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							
 						}
 					}else{
+						if(words[0] == 'jump'){
+							if(isNaN(words[1])){
+								continue MainLoop;
+							}
+						}
 						// if word == text
 						if(commandToFind.words == true){
 							words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
@@ -232,8 +232,10 @@ for (let ii = 0; ii < lines.length; ii++) {
 					if(missingValues.includes(words3[1])){
 						words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
 						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
+						lines[iteration5] = words3.join('&nbsp;');
 					}else{
 						words3[1] = `<span id="${labelColor}">${words3[1]}</span>`
+						lines[iteration5] = words3.join('&nbsp;');
 					}
 				}
 			}
@@ -242,8 +244,10 @@ for (let ii = 0; ii < lines.length; ii++) {
 				if(missingValues.includes(label2)){
 					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
+					lines[iteration5] = words3.join('&nbsp;');
 				}else{
 					words3[0] = `<span id="${labelColor}">${words3[0]}</span>`
+					lines[iteration5] = words3.join('&nbsp;');
 				}
 			}
 		}
