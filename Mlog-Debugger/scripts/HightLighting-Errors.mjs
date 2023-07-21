@@ -206,6 +206,7 @@ for (let ii = 0; ii < lines.length; ii++) {
 	
 	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words2 = lines[iteration3].split(' ');
+		console.log(`word: ${words2[0]} | word2: ${words2[1]}`)
 		if(words2[0].endsWith(':')){
 			label = words2[0];
 			label = label.slice(0, -1);
