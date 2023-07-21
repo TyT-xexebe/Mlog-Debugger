@@ -199,10 +199,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 }
 }
 console.log("highlightning end")
-for (let ii = 0; ii < lines.length; ii++) {
-	let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
-	lines[ii] = lineContent;
-}
 	
 	for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words2 = lines[iteration3].split(' ');
@@ -262,6 +258,11 @@ for (let ii = 0; ii < lines.length; ii++) {
 	});
 	jumpLabels1 = [];
 	jumpLabels2 = [];
+
+	for (let ii = 0; ii < lines.length; ii++) {
+		let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
+		lines[ii] = lineContent;
+	}
 
 	for (let i = 0; i < lines.length; i++) {
  	formattedCode += lines[i] + '<br>';
