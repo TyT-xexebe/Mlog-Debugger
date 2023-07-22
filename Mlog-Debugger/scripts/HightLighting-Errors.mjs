@@ -128,6 +128,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			if(firstWord.endsWith(":")){
 				lines[iteration1] = words.join('&nbsp;');
+			}else if(firstWord.startsWith("<")){
+				lines[iteration1] = words.join('&nbsp;');
 			}else{
 				Errors.push({notfound: firstWord, message: `the ${firstWord} not a command`, line: iteration1});
 				words[0] = `<span id="${errorColor}">${words[0]}</span>`
@@ -178,6 +180,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 				if(typeof commandToFind == 'undefined'){
 					lines[iteration1] = words.join(' ');
+					continue MainLoop;
+				}
+				if(words[iteration2].startsWith(<)){
 					continue MainLoop;
 				}
 				// if words starts on @
