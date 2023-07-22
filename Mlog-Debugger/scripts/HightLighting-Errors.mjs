@@ -228,7 +228,7 @@ console.log("highlightning end");
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
 			if(words3[0] == "jump"){
-				console.log(`if number ${words3[1] ${isNaN(words3[1]}}`)
+				console.log(`if number ${words3[1]} ${isNaN(words3[1]}}`)
 				if(isNaN(words3[1])){
 					if(missingValues.includes(words3[1])){
 						console.log(`missed jump label: ${words3[1]}`);
@@ -236,7 +236,7 @@ console.log("highlightning end");
 						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
 						lines[iteration5] = words3.join('&nbsp;');
 					}else{
-						console.log(`jump label ${words3[1]} finded}`);
+						console.log(`jump label ${words3[1]} finded`);
 						words3[1] = `<span id="${labelColor}">${words3[1]}</span>`
 						lines[iteration5] = words3.join('&nbsp;');
 					}
@@ -250,7 +250,7 @@ console.log("highlightning end");
 					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
 					lines[iteration5] = words3.join('&nbsp;');
 				}else{
-					console.log(`label ${words3[0]} finded}`);
+					console.log(`label ${words3[0]} finded`);
 					words3[0] = `<span id="${labelColor}">${words3[0]}</span>`
 					lines[iteration5] = words3.join('&nbsp;');
 				}
