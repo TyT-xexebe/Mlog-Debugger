@@ -228,7 +228,7 @@ console.log("highlightning end");
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
 			if(words3[0] == "jump"){
-				console.log(`if number ${words3[1]} ${isNaN(words3[1]}}`)
+				console.log(`if number ${words3[1]} ${isNaN(words3[1])}`)
 				if(isNaN(words3[1])){
 					if(missingValues.includes(words3[1])){
 						console.log(`missed jump label: ${words3[1]}`);
