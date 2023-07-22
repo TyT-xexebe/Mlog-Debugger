@@ -231,7 +231,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							
 						}
 					}else{
-						if(words[0] == 'jump'){
+						if(firstWord == 'jump'){
 							if(iteration1 == 1){
 								continue MainLoop;
 							}
