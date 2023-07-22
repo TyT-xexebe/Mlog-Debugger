@@ -182,7 +182,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					lines[iteration1] = words.join(' ');
 					continue MainLoop;
 				}
-				if(words[iteration2].startsWith(<)){
+				if(words[iteration2].startsWith("<")){
 					continue MainLoop;
 				}
 				// if words starts on @
