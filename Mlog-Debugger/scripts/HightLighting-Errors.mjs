@@ -195,10 +195,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						}
 					}else{
 						if(words[0] == 'jump'){
-							if(words[1] !== undefined){
-								if(isNaN(words[1])){
-									continue MainLoop;
-								}
+							if(iteration1 == 1){
+								continue MainLoop;
 							}
 						}
 						// if word == text
@@ -230,9 +228,10 @@ console.log("highlightning end");
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
 			if(words3[0] == "jump"){
+				console.log(`if number ${words3[1] ${isNaN(words3[1]}}`)
 				if(isNaN(words3[1])){
 					if(missingValues.includes(words3[1])){
-						console.log(`inded missed jump label: ${words3[1]}`);
+						console.log(`missed jump label: ${words3[1]}`);
 						words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
 						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
 						lines[iteration5] = words3.join('&nbsp;');
@@ -246,7 +245,7 @@ console.log("highlightning end");
 			if(words3[0].endsWith(":")){
 				label2 = words3[0].slice(0, -1);
 				if(missingValues.includes(label2)){
-					console.log(`inded missed label: ${words3[0]}`);
+					console.log(`missed label: ${words3[0]}`);
 					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
 					lines[iteration5] = words3.join('&nbsp;');
@@ -259,6 +258,7 @@ console.log("highlightning end");
 		}
 	jumpLabels1 = [];
 	jumpLabels2 = [];
+	missingValues = [];
 
 	for (let ii = 0; ii < lines.length; ii++) {
 		let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
