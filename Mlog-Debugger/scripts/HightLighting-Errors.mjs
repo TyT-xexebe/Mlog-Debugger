@@ -238,7 +238,7 @@ console.log("highlightning end");
 			if(words3[0] == "jump&nbsp;<span"){
 				let savedW = words3[0].split(" ");
 				savedW = savedW.slice(4, 11);
-				words3[0] = savedW;
+				words3[0] = savedW.join(" ");
 				console.log(savedW)
 				if(isNaN(words3[1])){
 					if(missingValues.includes(words3[1])){
