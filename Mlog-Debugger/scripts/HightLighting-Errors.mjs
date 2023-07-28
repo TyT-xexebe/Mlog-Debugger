@@ -206,7 +206,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								continue MainLoop;
 							}
 						}
-						console.log(`firstword: ${firstWord}`)
 						// if word == text
 						if(commandToFind.words == true){
 							words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
@@ -227,22 +226,18 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			lines[iteration1] = words.join('&nbsp;');
 }
 }
-console.log("highlightning end");
 
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
 	missingValues = [...missingValues1, ...missingValues2];
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
-			console.log(`word ${words3[0]} is ${words3[0] == "jump&nbsp;<span"}`)
 			if(words3[0] == "jump&nbsp;<span"){
-				let savedW = words3[0].split(" ");
-				savedW = savedW.slice(4, 11);
-				words3[0] = savedW.join(" ");
-				console.log(savedW)
+				words3[0] = words3[0].slice(4, 11);
+				console.log(savedW);
+				console.log(lines[iteration5].split(" "))
 				if(isNaN(words3[1])){
 					if(missingValues.includes(words3[1])){
-						console.log(`missed jump label: ${words3[1]}`);
 						words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
 						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
 						lines[iteration5] = words3.join('&nbsp;');
@@ -253,7 +248,6 @@ console.log("highlightning end");
 						lines[iteration5] = words3.join('&nbsp;');
 					}
 				}
-				words3[0] = `<span id="${commandColor}">${words3[0]}</span>`
 			}
 			if(words3[0].endsWith(":")){
 				label2 = words3[0].slice(0, -1);
