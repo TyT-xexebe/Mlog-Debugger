@@ -59,6 +59,9 @@ let hightLightingErrors = () => {
 	const lines = code.split('\n');
 	let missingValues = [];
 
+	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
+	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
+	missingValues = [...missingValues1, ...missingValues2];
 
 for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words2 = lines[iteration3].split(' ');
@@ -239,10 +242,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			lines[iteration1] = words.join('&nbsp;');
 }
 }
-
-	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
-	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
-	missingValues = [...missingValues1, ...missingValues2];
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
 			if(words3[0].endsWith(":")){
