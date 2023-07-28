@@ -59,10 +59,6 @@ let hightLightingErrors = () => {
 	const lines = code.split('\n');
 	let missingValues = [];
 
-	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
-	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
-	missingValues = [...missingValues1, ...missingValues2];
-
 for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words2 = lines[iteration3].split(' ');
 		console.log(`word: ${words2[0]} | word2: ${words2[1]}`)
@@ -82,7 +78,9 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	jumpLabels1 = [...new Set(jumpLabels1)];
 	jumpLabels2 = [...new Set(jumpLabels2)];
 	console.log(`jump labels: ${jumpLabels1} | labels: ${jumpLabels2}`)
-
+	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
+	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
+	missingValues = [...missingValues1, ...missingValues2];
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
