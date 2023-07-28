@@ -80,44 +80,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	jumpLabels2 = [...new Set(jumpLabels2)];
 	console.log(`jump labels: ${jumpLabels1} | labels: ${jumpLabels2}`)
 
-	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
-	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
-	missingValues = [...missingValues1, ...missingValues2];
-	console.log(`missed labels: ${missingValues}`)
-		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
-			let words3 = lines[iteration5].split(" ");
-			console.log(`word ${words3[0]} is ${words3[0] == "jump"}`)
-			if(words3[0] == "jump"){
-				if(isNaN(words3[1])){
-					if(missingValues.includes(words3[1])){
-						console.log(`missed jump label: ${words3[1]}`);
-						words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
-						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
-						lines[iteration5] = words3.join('&nbsp;');
-					}else{
-						console.log(`jump label ${words3[1]} finded`);
-						words3[1] = `<span id="${labelColor}">${words3[1]}</span>`
-						lines[iteration5] = words3.join('&nbsp;');
-					}
-				}
-			}
-			if(words3[0].endsWith(":")){
-				label2 = words3[0].slice(0, -1);
-				if(missingValues.includes(label2)){
-					console.log(`missed label: ${words3[0]}`);
-					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
-					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
-					lines[iteration5] = words3.join('&nbsp;');
-				}else{
-					console.log(`label ${words3[0]} finded`);
-					words3[0] = `<span id="${labelColor}">${words3[0]}</span>`
-					lines[iteration5] = words3.join('&nbsp;');
-				}
-			}
-		}
-	jumpLabels1 = [];
-	jumpLabels2 = [];
-	missingValues = [];
+	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
@@ -241,6 +204,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								continue MainLoop;
 							}
 						}
+						console.log(`firstword: ${firstWord}`)
 						// if word == text
 						if(commandToFind.words == true){
 							words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
@@ -262,6 +226,45 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 }
 }
 console.log("highlightning end");
+
+	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
+	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
+	missingValues = [...missingValues1, ...missingValues2];
+	console.log(`missed labels: ${missingValues}`)
+		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
+			let words3 = lines[iteration5].split(" ");
+			console.log(`word ${words3[0]} is ${words3[0] == "jump"}`)
+			if(words3[0] == "jump"){
+				if(isNaN(words3[1])){
+					if(missingValues.includes(words3[1])){
+						console.log(`missed jump label: ${words3[1]}`);
+						words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
+						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
+						lines[iteration5] = words3.join('&nbsp;');
+					}else{
+						console.log(`jump label ${words3[1]} finded`);
+						words3[1] = `<span id="${labelColor}">${words3[1]}</span>`
+						lines[iteration5] = words3.join('&nbsp;');
+					}
+				}
+			}
+			if(words3[0].endsWith(":")){
+				label2 = words3[0].slice(0, -1);
+				if(missingValues.includes(label2)){
+					console.log(`missed label: ${words3[0]}`);
+					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
+					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
+					lines[iteration5] = words3.join('&nbsp;');
+				}else{
+					console.log(`label ${words3[0]} finded`);
+					words3[0] = `<span id="${labelColor}">${words3[0]}</span>`
+					lines[iteration5] = words3.join('&nbsp;');
+				}
+			}
+		}
+	jumpLabels1 = [];
+	jumpLabels2 = [];
+	missingValues = [];
 
 	
 
@@ -288,6 +291,7 @@ console.log("highlightning end");
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
+
 
 let settings = (set, switching) => {
 	let setArray = [...set];
