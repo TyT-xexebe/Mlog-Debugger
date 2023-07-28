@@ -105,7 +105,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				if(isNaN(words[1])){
 					if(missingValues.includes(words[1])){
 						words[1] = `<span id="${errorColor}">${words[1]}</span>`
-						Errors.push({notfound: "label", message: `label "${words[1]}" dont used in code`, line: iteration5});
+						Errors.push({notfound: "label", message: `label "${words[1]}" dont used in code`, line: iteration1});
 						lines[iteration1] = words.join('&nbsp;');
 					}else{
 						console.log(`jump label ${words[1]} finded`);
