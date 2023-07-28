@@ -237,7 +237,7 @@ console.log("highlightning end");
 			let words3 = lines[iteration5].split(" ");
 			console.log(`word ${words3[0]} is ${words3[0] == "jump"}`)
 			if(words3[0] == "jump&nbsp;<span"){
-				savedW = words3[0].split(" ");
+				let savedW = words3[0].split(" ");
 				savedW = savedW.slice(4, 11);
 				words3[0] = savedW;
 				if(isNaN(words3[1])){
