@@ -234,7 +234,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			let words3 = lines[iteration5].split(" ");
 			if(words3[0] == "jump&nbsp;<span"){
 				words3[0] = words3[0].slice(4, 11);
-				console.log(savedW);
 				console.log(lines[iteration5].split(" "))
 				if(isNaN(words3[1])){
 					if(missingValues.includes(words3[1])){
