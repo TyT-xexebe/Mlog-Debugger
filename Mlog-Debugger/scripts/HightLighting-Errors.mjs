@@ -99,9 +99,22 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				lines[iteration1] = words.join('&nbsp;');
 			}
 		}else{
-			if(firstWord !== "jump"){
-				words[0] = `<span id="${commandColor}">${words[0]}</span>`
+
+			if(words[0] == "jump"){
+				if(isNaN(words[1])){
+					if(missingValues.includes(words[1])){
+						words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
+						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
+						lines[iteration1] = words.join('&nbsp;');
+					}else{
+						console.log(`jump label ${words[1]} finded`);
+						words[1] = `<span id="${labelColor}">${words[1]}</span>`
+						lines[iteration1] = words.join('&nbsp;');
+					}
+				}
 			}
+				words[0] = `<span id="${commandColor}">${words[0]}</span>`
+
 
 			// checking if command have sub-command
 			let subCommandRead
@@ -232,23 +245,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	missingValues = [...missingValues1, ...missingValues2];
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
 			let words3 = lines[iteration5].split(" ");
-			if(words3[0] == "jump&nbsp;<span"){
-				words3[0] = words3[0].slice(4, 11);
-				let wordW = words3[1].slice(0, 10);
-				wordW = words3[1].slice(0, -7);
-				if(isNaN(wordW)){
-					if(missingValues.includes(wordW)){
-						words3[1] = `<span id="${errorColor}">${wordW}</span>`
-						Errors.push({notfound: "label", message: `label "${wordW}" dont used in code`, line: iteration5});
-						lines[iteration5] = words3.join('&nbsp;');
-					}else{
-						console.log(`jump label ${words3[1]} finded`);
-						words3[1] = `<span id="${labelColor}">${wordW}</span>`
-
-						lines[iteration5] = words3.join('&nbsp;');
-					}
-				}
-			}
 			if(words3[0].endsWith(":")){
 				label2 = words3[0].slice(0, -1);
 				if(missingValues.includes(label2)){
