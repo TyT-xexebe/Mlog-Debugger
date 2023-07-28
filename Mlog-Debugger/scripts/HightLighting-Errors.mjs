@@ -99,7 +99,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				lines[iteration1] = words.join('&nbsp;');
 			}
 		}else{
+			if(firstWord !== "jump"){
 				words[0] = `<span id="${commandColor}">${words[0]}</span>`
+			}
 
 			// checking if command have sub-command
 			let subCommandRead
@@ -244,9 +246,11 @@ console.log("highlightning end");
 					}else{
 						console.log(`jump label ${words3[1]} finded`);
 						words3[1] = `<span id="${labelColor}">${words3[1]}</span>`
+
 						lines[iteration5] = words3.join('&nbsp;');
 					}
 				}
+				words3[0] = `<span id="${commandColor}">${words3[0]}</span>`
 			}
 			if(words3[0].endsWith(":")){
 				label2 = words3[0].slice(0, -1);
