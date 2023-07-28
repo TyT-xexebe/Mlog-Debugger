@@ -234,15 +234,16 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			let words3 = lines[iteration5].split(" ");
 			if(words3[0] == "jump&nbsp;<span"){
 				words3[0] = words3[0].slice(4, 11);
-				console.log(lines[iteration5].split(" "))
-				if(isNaN(words3[1])){
-					if(missingValues.includes(words3[1])){
-						words3[1] = `<span id="${errorColor}">${words3[1]}</span>`
-						Errors.push({notfound: "label", message: `label "${words3[1]}" dont used in code`, line: iteration5});
+				let wordW = words3[1].slice(0, 10);
+				wordW = words3[1].slice(0, -7);
+				if(isNaN(wordW)){
+					if(missingValues.includes(wordW)){
+						words3[1] = `<span id="${errorColor}">${wordW}</span>`
+						Errors.push({notfound: "label", message: `label "${wordW}" dont used in code`, line: iteration5});
 						lines[iteration5] = words3.join('&nbsp;');
 					}else{
 						console.log(`jump label ${words3[1]} finded`);
-						words3[1] = `<span id="${labelColor}">${words3[1]}</span>`
+						words3[1] = `<span id="${labelColor}">${wordW}</span>`
 
 						lines[iteration5] = words3.join('&nbsp;');
 					}
