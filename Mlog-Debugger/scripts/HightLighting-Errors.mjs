@@ -28,16 +28,19 @@ let commandColor;
 let errorColor;
 let numberColor;
 let labelColor;
+let varColor;
 
 let switch1 = document.getElementById("show1");
 let switch2 = document.getElementById("show2");
 let switch3 = document.getElementById("show3");
 let switch4 = document.getElementById("show4");
+let switch5 = document.getElementById("show5");
 
 let set1 = new Set([1]);
 let set2 = new Set([1]);
 let set3 = new Set([0]);
 let set4 = new Set([1]);
+let set5 = new Set([0]);
 
 // creating arrays for errors
 let jumpLabels1 = [];
@@ -220,6 +223,10 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								continue MainLoop;
 							}
 						}
+
+						if(commandToFind.var == true){
+							words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
+						}
 						// if word == text
 						if(commandToFind.words == true){
 							words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
@@ -307,6 +314,7 @@ let settings = (set, switching) => {
 	let value2 = [...set2][0];
 	let value3 = [...set3][0];
 	let value4 = [...set4][0];
+	let value5 = [...set5][0];
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
@@ -314,6 +322,7 @@ let settings = (set, switching) => {
 		errorColor = "text";
 		numberColor = "text";
 		labelColor = "text";
+		varColor = "text";
 	}else{
 		if(value2 == 1){
 			errorColor = "text";
@@ -338,6 +347,12 @@ let settings = (set, switching) => {
 			numberColor = "numbers";
 			textColor = "text";
 		}
+
+		if(value5 == 1){
+			varColor = "text";
+		}else{
+			varColor = "variable";
+		}
 	}
 	hightLightingErrors();
 };
@@ -345,8 +360,10 @@ switch1.addEventListener("click", () => settings(set1, switch1));
 switch2.addEventListener("click", () => settings(set2, switch2));
 switch3.addEventListener("click", () => settings(set3, switch3));
 switch4.addEventListener("click", () => settings(set4, switch4));
+switch5.addEventListener("click", () => settings(set5, switch5));
 settings(set1, switch1);
 settings(set2, switch2);
 settings(set3, switch3);
 settings(set4, switch4);
+settings(set5, switch5);
 hightLightingErrors();
