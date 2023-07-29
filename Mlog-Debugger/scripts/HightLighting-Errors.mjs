@@ -218,14 +218,15 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							
 						}
 					}else{
+						if(commandToFind.var == true){
+							words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
+						}else{
+
+						
 						if(firstWord == 'jump'){
 							if(iteration1 == 1){
 								continue MainLoop;
 							}
-						}
-
-						if(commandToFind.var == true){
-							words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
 						}
 						// if word == text
 						if(commandToFind.words == true){
@@ -240,6 +241,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								Errors.push({notfound: words[iteration2], message: "this word not allowed here!", line: iteration1});
 								words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 							}
+						}
 						}
 					}
 				}
