@@ -22,6 +22,7 @@ let keyCommands = {
 	read: {
 		max: 3,
 		w1: {
+			var: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -44,6 +45,7 @@ let keyCommands = {
 	write: {
 		max: 3,
 		w1: {
+			var: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -395,6 +397,7 @@ let keyCommands = {
 	getlink: {
 		max: 2,
 		w1: {
+			var: true,
 			words: true,
 			numbers: false,
 			keywords: false,
@@ -537,6 +540,7 @@ let keyCommands = {
 			allowedWords: false
 		},
 		w7: {
+			var: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -547,6 +551,7 @@ let keyCommands = {
 	sensor: {
 		max: 3,
 		w1: {
+			var: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -571,6 +576,7 @@ let keyCommands = {
 	set: {
 		max: 2,
 		w1: {
+			var: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -593,6 +599,7 @@ let keyCommands = {
 			allowedWords: ["add", "sub", "mul", "div", "idiv", "mod", "pow", "equal", "notEqual", "land", "lessThan", "lessThanEq", "greaterThan", "greaterThanEq", "strictEqual", "shl", "shr", "or", "and", "xor", "not", "max", "min", "angle", "len", "noise", "abs", "log", "log10", "floor", "ceil", "rand", "sqrt", "sin", "cos", "tan", "acos", "asin", "atan"]
 		},
 		w2: {
+			var: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -614,7 +621,6 @@ let keyCommands = {
 
 	lookup: {
 		max: 3,
-		someVariants: true,
 		w1: {
 			words: false,
 		 	numbers: false,
@@ -622,6 +628,7 @@ let keyCommands = {
 			allowedWords: ["item", "liquid", "unit", "block"]
 		},
 		w2: {
+			var: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -638,6 +645,7 @@ let keyCommands = {
 	packcolor: {
 		max: 5,
 		w1: {
+			var: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -972,12 +980,14 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w4: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w5: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
@@ -985,6 +995,7 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w6: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
@@ -1013,6 +1024,7 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w5: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
@@ -1064,6 +1076,7 @@ let keyCommands = {
 			allowedWords: false
 		},
 		w7: {
+			var: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -1097,24 +1110,28 @@ let keyCommands = {
 				allowedParams: ["@copper", "@lead", "@sand", "@coal", "@titanium", "@scrap", "@thorium", "@beryllium", "@tungsten"]
 			},
 			w5: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w6: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w7: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w8: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
@@ -1144,24 +1161,28 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w5: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w6: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w7: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w8: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
@@ -1192,24 +1213,28 @@ let keyCommands = {
 				allowedParams: ["@null"]
 			},
 			w5: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w6: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w7: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w8: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
@@ -1240,24 +1265,28 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w5: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w6: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w7: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w8: {
+				var: true,
 				words: true,
 				numbers: false,
 				keywords: false,
