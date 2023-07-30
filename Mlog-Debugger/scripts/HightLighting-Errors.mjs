@@ -29,18 +29,23 @@ let errorColor;
 let numberColor;
 let labelColor;
 let varColor;
+let inColor;
 
 let switch1 = document.getElementById("show1");
 let switch2 = document.getElementById("show2");
 let switch3 = document.getElementById("show3");
 let switch4 = document.getElementById("show4");
 let switch5 = document.getElementById("show5");
+let switch6 = document.getElementById("show6");
+let switch7 = document.getElementById("show7");
 
 let set1 = new Set([1]);
 let set2 = new Set([1]);
 let set3 = new Set([0]);
 let set4 = new Set([1]);
 let set5 = new Set([0]);
+let set6 = new Set([0]);
+let set7 = new Set([0]);
 
 // creating arrays for errors
 let jumpLabels1 = [];
@@ -49,6 +54,7 @@ let label;
 let label2;
 let Errors = [];
 let variables = [];
+let inputVaribles = [];
 let button = document.getElementById("button");
 let button2 = document.getElementById("setting");
 const textarea = document.getElementById('codeInput');
@@ -83,6 +89,10 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
 	missingValues = [...missingValues1, ...missingValues2];
+
+	const missingVar1 = variables.filter(value => !inputVariables.includes(value));
+	const missingVar2 = inputVariables.filter(value => !variables.includes(value));
+	missingValues2 = [...missingVar1, ...missingVar2];
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
@@ -219,7 +229,18 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					}else{
 						if(commandToFind.var == true){
 							variables.push(words[iteration2]);
+							if(!missingValues2.includes(words[iteration2])){
 							words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
+							}else{
+								let inp1 = [...set7];
+								let inp2 = inp1[0];
+								if(inp2 = 1){
+									Errors.push({notfound: words[iteration2], message: "this variable dont used in code", line: iteration1});
+									words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
+								}else{
+									words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
+								}
+							}
 						}else{
 
 						
@@ -230,7 +251,23 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						}
 						// if word == text
 						if(commandToFind.words == true){
-							words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
+							if(commandToFind.input !== undefined){
+								inputVaribles.push(words[iteration2]);
+								if(!missingValues2.includes(words[iteration2])){
+									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
+								}else{
+									let inp3 = [...set7];
+									let inp4 = inp3[0];
+									if(inp4 = 1){
+										Errors.push({notfound: words[iteration2], message: "this variable not declarated in code", line: iteration1});
+										words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
+									}else{
+										words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
+									}
+								}
+							}else{
+								words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
+							}
 						}else{
 							if(commandToFind.allowedWords == false){
 								Errors.push({notfound: words[iteration2], message: "any words not allowed here!", line: iteration1});
@@ -267,8 +304,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	jumpLabels2 = [];
 	missingValues = [];
 
-	
-
 	for (let ii = 0; ii < lines.length; ii++) {
 		let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
 		lines[ii] = lineContent;
@@ -288,8 +323,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	}
 	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
-	console.log(variables);
-	variables = [];
 }
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
@@ -317,6 +350,7 @@ let settings = (set, switching) => {
 	let value3 = [...set3][0];
 	let value4 = [...set4][0];
 	let value5 = [...set5][0];
+	let value6 = [...set6][0];
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
@@ -325,6 +359,7 @@ let settings = (set, switching) => {
 		numberColor = "text";
 		labelColor = "text";
 		varColor = "text";
+		inColor = "text";
 	}else{
 		if(value2 == 1){
 			errorColor = "text";
@@ -355,6 +390,12 @@ let settings = (set, switching) => {
 		}else{
 			varColor = "variable";
 		}
+
+		if(value6 == 1){
+			inColor = "text";
+		}else{
+			inColor = "vOutput";
+		}
 	}
 	hightLightingErrors();
 };
@@ -363,9 +404,13 @@ switch2.addEventListener("click", () => settings(set2, switch2));
 switch3.addEventListener("click", () => settings(set3, switch3));
 switch4.addEventListener("click", () => settings(set4, switch4));
 switch5.addEventListener("click", () => settings(set5, switch5));
+switch6.addEventListener("click", () => settings(set6, switch6));
+switch7.addEventListener("click", () => settings(set7, switch7));
 settings(set1, switch1);
 settings(set2, switch2);
 settings(set3, switch3);
 settings(set4, switch4);
 settings(set5, switch5);
+settings(set6, switch6);
+settings(set7, switch7);
 hightLightingErrors();
