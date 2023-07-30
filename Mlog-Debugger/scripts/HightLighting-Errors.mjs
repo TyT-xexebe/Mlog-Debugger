@@ -54,7 +54,7 @@ let label;
 let label2;
 let Errors = [];
 let variables = [];
-let inputVaribles = [];
+let inputVariables = [];
 let button = document.getElementById("button");
 let button2 = document.getElementById("setting");
 const textarea = document.getElementById('codeInput');
@@ -252,7 +252,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						// if word == text
 						if(commandToFind.words == true){
 							if(commandToFind.input !== undefined){
-								inputVaribles.push(words[iteration2]);
+								inputVariables.push(words[iteration2]);
 								if(!missingValues2.includes(words[iteration2])){
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 								}else{
