@@ -235,7 +235,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							}else{
 								let inp1 = [...set7];
 								let inp2 = inp1[0];
-								if(inp2 = 1){
+								if(inp2 == 1){
 									Errors.push({notfound: words[iteration2], message: "this variable dont used in code", line: iteration1});
 									words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 								}else{
@@ -253,13 +253,17 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						// if word == text
 						if(commandToFind.words == true){
 							if(commandToFind.input !== undefined){
+								if(words[iteration2] == "true" || "false"){
+									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
+									continue MainLoop;
+								}
 								inputVariables.push(words[iteration2]);
 								if(!missingVar.includes(words[iteration2])){
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 								}else{
 									let inp3 = [...set7];
 									let inp4 = inp3[0];
-									if(inp4 = 1){
+									if(inp4 == 1){
 										Errors.push({notfound: words[iteration2], message: "this variable not declarated in code", line: iteration1});
 										words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 									}else{
