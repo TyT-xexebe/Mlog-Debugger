@@ -29,12 +29,14 @@ let keyCommands = {
 			allowedWords: false
 		},
 		w2: {
+			input: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
 			allowedWords: false
 		},
 		w3: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: "notRecomended",
@@ -45,19 +47,21 @@ let keyCommands = {
 	write: {
 		max: 3,
 		w1: {
-			var: true,
+			input: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
 			allowedWords: false
 		},
 		w2: {
+			input: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
 			allowedWords: false
 		},
 		w3: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: "notRecomended",
@@ -70,24 +74,28 @@ let keyCommands = {
 		clear: {
 			max: 5,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -97,30 +105,35 @@ let keyCommands = {
 		color: {
 			max: 6,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w6: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -130,6 +143,7 @@ let keyCommands = {
 		col: {
 			max: 2,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -139,6 +153,7 @@ let keyCommands = {
 		stroke: {
 			max: 2,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -154,18 +169,21 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -175,24 +193,28 @@ let keyCommands = {
 		rect: {
 			max: 5,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -202,24 +224,28 @@ let keyCommands = {
 		lineRect: {
 			max: 5,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -229,30 +255,35 @@ let keyCommands = {
 		poly: {
 			max: 6,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w6: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -262,36 +293,42 @@ let keyCommands = {
 		triangle: {
 			max: 7,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w6: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w7: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -301,30 +338,35 @@ let keyCommands = {
 		linePoly: {
 			max: 6,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w6: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -334,30 +376,35 @@ let keyCommands = {
 		image: {
 			max: 6,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w6: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -377,6 +424,7 @@ let keyCommands = {
 	drawflush: {
 		max: 1,
 		w1: {
+			input: true,
 			words: true,
 			numbers: false,
 			keywords: false,
@@ -387,6 +435,7 @@ let keyCommands = {
 	printflush: {
 		max: 1,
 		w1: {
+			input: true,
 			words: true,
 			numbers: false,
 			keywords: false,
@@ -405,6 +454,7 @@ let keyCommands = {
 		},
 
 		w2: {
+			input: true,
 			words: true,
 			numbers: true,
 			keywords: false,
@@ -417,12 +467,14 @@ let keyCommands = {
 		enabled: {
 			max: 3,
 			w2: {
+				input: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -433,24 +485,28 @@ let keyCommands = {
 		shoot: {
 			max: 5,
 			w2: {
+				input: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -461,12 +517,14 @@ let keyCommands = {
 		shootp: {
 			max: 3,
 			w2: {
+				input: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -477,12 +535,14 @@ let keyCommands = {
 		config: {
 			max: 3,
 			w2: {
+				input: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -493,6 +553,7 @@ let keyCommands = {
 		color: {
 			max: 2,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -528,12 +589,14 @@ let keyCommands = {
 			allowedWords: ["distance", "health", "maxHealth", "shield", "armor"]
 		},
 		w5: {
+			input: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
 			allowedWords: false
 		},
 		w6: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: "notRecomended",
@@ -558,6 +621,7 @@ let keyCommands = {
 			allowedWords: false
 		},
 		w2: {
+			input: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -565,6 +629,7 @@ let keyCommands = {
 			allowedParams: ["@unit"]
 		},
 		w3: {
+			input: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -583,6 +648,7 @@ let keyCommands = {
 			allowedWords: false
 		},
 		w2: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: true,
@@ -606,12 +672,14 @@ let keyCommands = {
 			allowedWords: false
 		},
 		w3: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: true,
 			allowedWords: false
 		},
 		w4: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: true,
@@ -635,6 +703,7 @@ let keyCommands = {
 			allowedWords: false
 		},
 		w3: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: false,
@@ -652,24 +721,28 @@ let keyCommands = {
 			allowedWords: false
 		},
 		w2: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: false,
 			allowedWords: false
 		},
 		w3: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: false,
 			allowedWords: false
 		},
 		w4: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: false,
 			allowedWords: false
 		},
 		w5: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: false,
@@ -680,6 +753,7 @@ let keyCommands = {
 	wait: {
 		max: 1,
 		w1: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: false,
@@ -710,15 +784,17 @@ let keyCommands = {
 			allowedWords: ["equal", "notEqual", "strictEqual", "always", "lessThan", "greaterThan", "lessThanEq", "greaterThanEq"]
 		},
 		w3: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: true,
 			allowedWords: false
 		},
 		w4: {
+			input: true,
 			words: true,
-		 numbers: true,
-	 	keywords: true,
+		 	numbers: true,
+	 		keywords: true,
 			allowedWords: false
 		}
 	},
@@ -726,6 +802,7 @@ let keyCommands = {
 	ubind: {
 		max: 1,
 		w1: {
+			input: true,
 			words: true,
 		 	numbers: false,
 	 		keywords: false,
@@ -747,12 +824,14 @@ let keyCommands = {
 		move: {
 			max: 3,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -763,18 +842,21 @@ let keyCommands = {
 		approach: {
 			max: 4,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -785,6 +867,7 @@ let keyCommands = {
 		boost: {
 			max: 2,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -795,18 +878,21 @@ let keyCommands = {
 		target: {
 			max: 4,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -817,12 +903,14 @@ let keyCommands = {
 		targetp: {
 			max: 3,
 			w2: {
+				input: true,
 				words: true,
 				numbers: false,
 				keywords: false,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -833,6 +921,7 @@ let keyCommands = {
 		itemDrop: {
 			max: 3,
 			w2: {
+				input: true,
 				words: true,
 				numbers: false,
 				keywords: false,
@@ -840,6 +929,7 @@ let keyCommands = {
 				allowedParams: ["@air"]
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -850,12 +940,14 @@ let keyCommands = {
 		pathfind: {
 			max: 3,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -866,12 +958,14 @@ let keyCommands = {
 		itemTake: {
 			max: 4,
 			w2: {
+				input: true,
 				words: true,
 				numbers: false,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: false,
@@ -879,6 +973,7 @@ let keyCommands = {
 				allowedParams: ["@copper","@lead","@metaglass","@graphite","@sand","@coal","@titanium","@thorium","@scrap","@silicon","@plastanium","@phase-fabric","@surge-alloy","@spore-pod","@blast-compound","@pyratite","@beryllium","@tungsten","@oxide","@carbide","@fissile-matter","@dormant-cyst"]
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
@@ -893,6 +988,7 @@ let keyCommands = {
 		payTake: {
 			max: 2,
 			w2: {
+				input: true,
 				words: true,
 		 		numbers: false,
 	 			keywords: false,
@@ -908,12 +1004,14 @@ let keyCommands = {
 		mine: {
 			max: 3,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -924,6 +1022,7 @@ let keyCommands = {
 		flag: {
 			max: 2,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -934,30 +1033,35 @@ let keyCommands = {
 		build: {
 			max: 6,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: false,
 				keywords: true,
 				allowedWords: false
 			},
 			w5: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
 			},
 			w6: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -968,12 +1072,14 @@ let keyCommands = {
 		getBlock: {
 			max: 6,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -991,7 +1097,6 @@ let keyCommands = {
 				words: true,
 				numbers: false,
 				keywords: false,
-
 				allowedWords: false
 			},
 			w6: {
@@ -1006,18 +1111,21 @@ let keyCommands = {
 		within: {
 			max: 5,
 			w2: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: true,
@@ -1064,12 +1172,14 @@ let keyCommands = {
 			allowedWords: ["distance", "health", "maxHealth", "shield", "armor"]
 		},
 		w5: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: false,
 			allowedWords: false
 		},
 		w6: {
+			input: true,
 			words: true,
 		 	numbers: true,
 	 		keywords: "notRecomended",
@@ -1103,6 +1213,7 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w4: {
+				input: true,
 				words: true,
 				numbers: false,
 				keywords: false,
@@ -1148,6 +1259,7 @@ let keyCommands = {
 				allowedWords: ["core", "battery", "turret", "reactor", "generator", "storage", "repair", "factory"]
 			},
 			w3: {
+				input: true,
 				words: true,
 				numbers: true,
 				keywords: false,
