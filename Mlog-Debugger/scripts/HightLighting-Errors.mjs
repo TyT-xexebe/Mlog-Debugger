@@ -253,11 +253,11 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						// if word == text
 						if(commandToFind.words == true){
 							if(commandToFind.input !== undefined){
+								inputVariables.push(words[iteration2]);
 								if(words[iteration2] == "true" || "false"){
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 									continue MainLoop;
 								}
-								inputVariables.push(words[iteration2]);
 								if(!missingVar.includes(words[iteration2])){
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 								}else{
