@@ -323,8 +323,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
  	formattedCode += lines[i] + '<br>';
 	}
 	output.innerHTML = formattedCode;
-	missingVar1 = [];
-	missingVar2 = [];
+	variables = [];
+	inputVariables = [];
 	missingVar = [];
 
 	let errorOutput = document.getElementById("errorList");
