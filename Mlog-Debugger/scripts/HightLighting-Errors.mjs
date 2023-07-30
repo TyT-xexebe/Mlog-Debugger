@@ -48,6 +48,7 @@ let jumpLabels2 = [];
 let label;
 let label2;
 let Errors = [];
+let variables = [];
 let button = document.getElementById("button");
 let button2 = document.getElementById("setting");
 const textarea = document.getElementById('codeInput');
@@ -64,7 +65,6 @@ let hightLightingErrors = () => {
 
 for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words2 = lines[iteration3].split(' ');
-		console.log(`word: ${words2[0]} | word2: ${words2[1]}`)
 		if(words2[0].endsWith(':')){
 			label = words2[0];
 			label = label.slice(0, -1);
@@ -80,7 +80,6 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	
 	jumpLabels1 = [...new Set(jumpLabels1)];
 	jumpLabels2 = [...new Set(jumpLabels2)];
-	console.log(`jump labels: ${jumpLabels1} | labels: ${jumpLabels2}`)
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
 	missingValues = [...missingValues1, ...missingValues2];
@@ -219,6 +218,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						}
 					}else{
 						if(commandToFind.var == true){
+							variables.push(words[iteration2]);
 							words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
 						}else{
 
@@ -254,12 +254,10 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			if(words3[0].endsWith(":")){
 				label2 = words3[0].slice(0, -1);
 				if(missingValues.includes(label2)){
-					console.log(`missed label: ${words3[0]}`);
 					words3[0] = `<span id="${errorColor}">${words3[0]}</span>`
 					Errors.push({notfound: "label", message: `any jump dont use label "${words3[0]}"`, line: iteration5});
 					lines[iteration5] = words3.join('&nbsp;');
 				}else{
-					console.log(`label ${words3[0]} finded`);
 					words3[0] = `<span id="${labelColor}">${words3[0]}</span>`
 					lines[iteration5] = words3.join('&nbsp;');
 				}
@@ -283,13 +281,15 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
-	let	notFoundMessage = ' ';
+	let notFoundMessage = ' ';
 	button.innerHTML = `Errors | ${Errors.length}`;
 	for(let iteration4 = 0; iteration4 < Errors.length; iteration4++){
 		notFoundMessage += `<span id="${textColor}">error: <span id="${errorColor}">${Errors[iteration4].notfound}</span> | <span id="error">${Errors[iteration4].message}</span> | line: ${Errors[iteration4].line} </span><br><hr><br>`
 	}
 	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
+	console.log(variables);
+	variables = [];
 }
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
