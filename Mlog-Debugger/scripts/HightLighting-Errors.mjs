@@ -68,6 +68,7 @@ let hightLightingErrors = () => {
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 	let missingValues = [];
+	let missingVar = [];
 
 for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words2 = lines[iteration3].split(' ');
@@ -92,7 +93,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 
 	const missingVar1 = variables.filter(value => !inputVariables.includes(value));
 	const missingVar2 = inputVariables.filter(value => !variables.includes(value));
-	missingValues2 = [...missingVar1, ...missingVar2];
+	missingVar = [...missingVar1, ...missingVar2];
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
@@ -229,7 +230,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					}else{
 						if(commandToFind.var == true){
 							variables.push(words[iteration2]);
-							if(!missingValues2.includes(words[iteration2])){
+							if(!missingVar.includes(words[iteration2])){
 							words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
 							}else{
 								let inp1 = [...set7];
@@ -253,7 +254,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						if(commandToFind.words == true){
 							if(commandToFind.input !== undefined){
 								inputVariables.push(words[iteration2]);
-								if(!missingValues2.includes(words[iteration2])){
+								if(!missingVar.includes(words[iteration2])){
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 								}else{
 									let inp3 = [...set7];
@@ -303,6 +304,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	jumpLabels1 = [];
 	jumpLabels2 = [];
 	missingValues = [];
+	missingVar = [];
 
 	for (let ii = 0; ii < lines.length; ii++) {
 		let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
