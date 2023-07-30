@@ -94,6 +94,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	const missingVar1 = variables.filter(value => !inputVariables.includes(value));
 	const missingVar2 = inputVariables.filter(value => !variables.includes(value));
 	missingVar = [...missingVar1, ...missingVar2];
+	console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`)
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
@@ -235,7 +236,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							}else{
 								let inp1 = [...set7];
 								let inp2 = inp1[0];
-								if(inp2 == 1){
+								if(inp2 == 0){
 									Errors.push({notfound: words[iteration2], message: "this variable dont used in code", line: iteration1});
 									words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 								}else{
@@ -263,7 +264,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								}else{
 									let inp3 = [...set7];
 									let inp4 = inp3[0];
-									if(inp4 == 1){
+									if(inp4 == 0){
 										Errors.push({notfound: words[iteration2], message: "this variable not declarated in code", line: iteration1});
 										words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 									}else{
