@@ -232,7 +232,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						if(commandToFind.var == true){
 							variables.push(words[iteration2]);
 							if(!missingVar.includes(words[iteration2])){
-							words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
+								console.log(`missing not includes a ${words[iteration2]}`)
+								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
 							}else{
 								let inp1 = [...set7];
 								let inp2 = inp1[0];
@@ -257,9 +258,11 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								inputVariables.push(words[iteration2]);
 								if(words[iteration2] == "true" || "false"){
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
+									console.log(`true and false word: ${words[iteration2]}`);
 									continue MainLoop;
 								}
 								if(!missingVar.includes(words[iteration2])){
+									console.log(`missing not includes a ${words[iteration2]}`)
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 								}else{
 									let inp3 = [...set7];
@@ -309,7 +312,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	jumpLabels1 = [];
 	jumpLabels2 = [];
 	missingValues = [];
-	missingVar = [];
+	
 
 	for (let ii = 0; ii < lines.length; ii++) {
 		let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
@@ -320,6 +323,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
  	formattedCode += lines[i] + '<br>';
 	}
 	output.innerHTML = formattedCode;
+	missingVar1 = [];
+	missingVar2 = [];
+	missingVar = [];
 
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
