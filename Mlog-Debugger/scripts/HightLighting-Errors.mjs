@@ -229,6 +229,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						if(commandToFind.var == true){
 							variables.push(words[iteration2]);
 							console.log(`output: ${words[iteration2]} is ${missingVar.includes(words[iteration2])}`);
+							const missingVar1 = variables.filter(value => !inputVariables.includes(value));
+							const missingVar2 = inputVariables.filter(value => !variables.includes(value));
+							missingVar = [...missingVar1, ...missingVar2];
 							if(!missingVar.includes(words[iteration2])){
 								console.log(`missing not includes a ${words[iteration2]}`)
 								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
@@ -255,6 +258,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							if(commandToFind.input == true){
 								inputVariables.push(words[iteration2]);
 								console.log(`input: ${words[iteration2]} is ${missingVar.includes(words[iteration2])}`);
+								const missingVar1 = variables.filter(value => !inputVariables.includes(value));
+								const missingVar2 = inputVariables.filter(value => !variables.includes(value));
+								missingVar = [...missingVar1, ...missingVar2];
 								if(!missingVar.includes(words[iteration2])){
 									console.log(`missing not includes a ${words[iteration2]}`)
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
@@ -287,9 +293,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 			}
 			lines[iteration1] = words.join('&nbsp;');
-			const missingVar1 = variables.filter(value => !inputVariables.includes(value));
-			const missingVar2 = inputVariables.filter(value => !variables.includes(value));
-			missingVar = [...missingVar1, ...missingVar2];
 			
 }
 }
