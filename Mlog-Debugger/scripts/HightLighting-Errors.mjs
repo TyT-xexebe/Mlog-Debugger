@@ -92,10 +92,6 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	missingValues = [...missingValues1, ...missingValues2];
 	variables.push("true");
 	variables.push("false");
-	const missingVar1 = variables.filter(value => !inputVariables.includes(value));
-	const missingVar2 = inputVariables.filter(value => !variables.includes(value));
-	missingVar = [...missingVar1, ...missingVar2];
-	console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`)
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
@@ -289,6 +285,10 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 			}
 			lines[iteration1] = words.join('&nbsp;');
+			const missingVar1 = variables.filter(value => !inputVariables.includes(value));
+			const missingVar2 = inputVariables.filter(value => !variables.includes(value));
+			missingVar = [...missingVar1, ...missingVar2];
+			console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
 }
 }
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
@@ -308,6 +308,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	jumpLabels1 = [];
 	jumpLabels2 = [];
 	missingValues = [];
+
+
 	
 
 	for (let ii = 0; ii < lines.length; ii++) {
