@@ -320,10 +320,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
  	formattedCode += lines[i] + '<br>';
 	}
 	output.innerHTML = formattedCode;
-	console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
-	variables = [];
-	inputVariables = [];
-	missingVar = [];
 
 	let errorOutput = document.getElementById("errorList");
 	errorOutput.value = " ";
@@ -339,6 +335,11 @@ textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
 
+hightLightingErrors();
+console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
+variables = [];
+inputVariables = [];
+missingVar = [];
 
 let settings = (set, switching) => {
 	let setArray = [...set];
