@@ -85,6 +85,10 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		}
 	}
 	
+	
+// creating iteration of all lines         
+for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
+
 	jumpLabels1 = [...new Set(jumpLabels1)];
 	jumpLabels2 = [...new Set(jumpLabels2)];
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
@@ -93,8 +97,6 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	variables.push("true");
 	variables.push("false");
 	
-// creating iteration of all lines         
-for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
   let firstWord = words[0];
