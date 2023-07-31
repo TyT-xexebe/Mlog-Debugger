@@ -184,7 +184,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						let subCommandRead2
 						let firstWord2 = words4[0];
 						let secondWord2 = words4[1];
-						if(!keyCommands.hasOwnProperty(firstWord2){
+						console.log(`${firstWord2} ${secondWord2}`)
+						if(!keyCommands.hasOwnProperty(firstWord2)){
 							continue loop;
 						}
 						if(keyCommands[firstWord2].hasOwnProperty("someVariants")){
