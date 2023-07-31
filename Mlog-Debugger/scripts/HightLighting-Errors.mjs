@@ -228,7 +228,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					}else{	
 						if(commandToFind.var == true){
 							variables.push(words[iteration2]);
-							console.log(words[iteration2])
+							console.log(`output: ${words[iteration2]} is ${missingVar.includes(words[iteration2])}`);
 							if(!missingVar.includes(words[iteration2])){
 								console.log(`missing not includes a ${words[iteration2]}`)
 								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
@@ -254,6 +254,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						if(commandToFind.words == true){
 							if(commandToFind.input == true){
 								inputVariables.push(words[iteration2]);
+								console.log(`input: ${words[iteration2]} is ${missingVar.includes(words[iteration2])}`);
 								if(!missingVar.includes(words[iteration2])){
 									console.log(`missing not includes a ${words[iteration2]}`)
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
