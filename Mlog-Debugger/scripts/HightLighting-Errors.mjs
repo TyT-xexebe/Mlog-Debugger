@@ -90,7 +90,8 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
 	missingValues = [...missingValues1, ...missingValues2];
-
+	variables.push("true");
+	variables.push("false");
 	const missingVar1 = variables.filter(value => !inputVariables.includes(value));
 	const missingVar2 = inputVariables.filter(value => !variables.includes(value));
 	missingVar = [...missingVar1, ...missingVar2];
@@ -256,11 +257,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						if(commandToFind.words == true){
 							if(commandToFind.input !== undefined){
 								inputVariables.push(words[iteration2]);
-								if(words[iteration2] == "true" || "false"){
-									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
-									console.log(`true and false word: ${words[iteration2]}`);
-									continue MainLoop;
-								}
 								if(!missingVar.includes(words[iteration2])){
 									console.log(`missing not includes a ${words[iteration2]}`)
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
