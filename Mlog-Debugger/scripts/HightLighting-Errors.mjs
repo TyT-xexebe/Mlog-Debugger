@@ -97,8 +97,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
-  let firstWord = words[0];
-  let secondWord = words[1];
+  		let firstWord = words[0];
+  		let secondWord = words[1];
 		// checking if keyCommands have firstWord
 		if(!keyCommands.hasOwnProperty(firstWord)){
 			if(firstWord.endsWith(":")){
@@ -178,12 +178,15 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 
 				
-				for(let iteration6 = 0; iteration6 < lines.length; iteration6++){
+				loop:for(let iteration6 = 0; iteration6 < lines.length; iteration6++){
 					let words4 = lines[iteration6].split(" ");
 					for(let iteration7 = 0; iteration7 < words4.length; iteration7++){
 						let subCommandRead2
 						let firstWord2 = words4[0];
 						let secondWord2 = words4[1];
+						if(!keyCommands.hasOwnProperty(firstWord2){
+							continue loop;
+						}
 						if(keyCommands[firstWord2].hasOwnProperty("someVariants")){
 							if(keyCommands[firstWord2].hasOwnProperty(secondWord2)){
 								subCommandRead2 = 1;
