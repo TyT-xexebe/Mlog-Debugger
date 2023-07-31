@@ -86,49 +86,20 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	}
 
 for(let iteration6 = 0; iteration6 < lines.length; iteration6++){
-		let words4 = lines[iteration6].split(" ");
-		for(let iteration7 = 0; iteration7 < words4.length; iteration7++){
-			const missingVar1 = variables.filter(value => !inputVariables.includes(value));
-			const missingVar2 = inputVariables.filter(value => !variables.includes(value));
-			missingVar = [...missingVar1, ...missingVar2];
-			if(words4[iteration7].var == true){
-				if(!missingVar.includes(words4[iteration7])){
-					console.log(`missing not includes a ${words4[iteration7]}`)
-					words4[iteration7] = `<span id="${varColor}">${words4[iteration7]}</span>`
-				}else{
-					let inp1 = [...set7];
-					let inp2 = inp1[0];
-					if(inp2 == 0){
-						Errors.push({notfound: words4[iteration7], message: "this variable dont used in code", line: iteration6});
-						words4[iteration7] = `<span id="${errorColor}">${words4[iteration7]}</span>`
-					}else{
-						words4[iteration7] = `<span id="${textColor}">${words4[iteration7]}</span>`
-					}
-				}
-			}
-			if(words4[iteration7].words == true){
-				if(words4[iteration7].input == true){
-					console.log(`input: ${words4[iteration7]} is ${missingVar.includes(words4[iteration7])}`);
-					const missingVar1 = variables.filter(value => !inputVariables.includes(value));
-					const missingVar2 = inputVariables.filter(value => !variables.includes(value));
-					missingVar = [...missingVar1, ...missingVar2];
-					if(!missingVar.includes(words4[iteration7])){
-						console.log(`missing not includes a ${words4[iteration7]}`)
-						words4[iteration7] = `<span id="${inColor}">${words4[iteration7]}</span>`
-					}else{
-						let inp3 = [...set7];
-						let inp4 = inp3[0];
-						if(inp4 == 0){
-							Errors.push({notfound: words4[iteration7], message: "this variable not declarated in code", line: iteration6});
-							words4[iteration7] = `<span id="${errorColor}">${words4[iteration7]}</span>`
-						}else{
-							words4[iteration7] = `<span id="${textColor}">${words4[iteration7]}</span>`
-						}
-					}
-				}
+	let words4 = lines[iteration6].split(" ");
+	for(let iteration7 = 0; iteration7 < words4.length; iteration7++){
+		if(words4[iteration7].var == true){
+			variables.push(words4[iteration7]);
+			console.log(`output added: ${words4[iteration7]}`);
+		}
+		if(words4[iteration7].words == true){
+			if(words4[iteration7].input == true){
+				inputVariables.push(words4[iteration7]);
+				console.log(`input added: ${words4[iteration7]}`);
 			}
 		}
 	}
+}
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
@@ -271,8 +242,21 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						}
 					}else{	
 						if(commandToFind.var == true){
-							variables.push(words[iteration2]);
-						
+							const missingVar1 = variables.filter(value => !inputVariables.includes(value));
+							const missingVar2 = inputVariables.filter(value => !variables.includes(value));
+							missingVar = [...missingVar1, ...missingVar2];
+							if(!missingVar.includes(words[iteration2])){
+								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
+							}else{
+								let inp1 = [...set7];
+								let inp2 = inp1[0];
+								if(inp2 == 0){
+									Errors.push({notfound: words[iteration2], message: "this variable dont used in code", line: iteration1});
+									words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
+								}else{
+									words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
+								}
+							}
 						}else{
 
 						
@@ -284,7 +268,21 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						// if word == text
 						if(commandToFind.words == true){
 							if(commandToFind.input == true){
-								inputVariables.push(words[iteration2]);
+								const missingVar1 = variables.filter(value => !inputVariables.includes(value));
+								const missingVar2 = inputVariables.filter(value => !variables.includes(value));
+								missingVar = [...missingVar1, ...missingVar2];
+								if(!missingVar.includes(words[iteration2])){
+									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
+								}else{
+									let inp3 = [...set7];
+									let inp4 = inp3[0];
+									if(inp4 == 0){
+										Errors.push({notfound: words[iteration2], message: "this variable not declarated in code", line: iteration1});
+										words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
+									}else{
+										words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
+									}
+								}
 							}else{
 								words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
 							}
