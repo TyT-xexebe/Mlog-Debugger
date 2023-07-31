@@ -94,8 +94,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
 	const missingValues2 = jumpLabels2.filter(value => !jumpLabels1.includes(value));
 	missingValues = [...missingValues1, ...missingValues2];
-	variables.push("true");
-	variables.push("false");
 	
 		// gettings all words in line
 		let words = lines[iteration1].split(' ');
@@ -160,10 +158,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			}
 			// iteration of all words to find errors
 			MainLoop:for(let iteration2 = 0; iteration2 < words.length; iteration2++){
-				const missingVar1 = variables.filter(value => !inputVariables.includes(value));
-				const missingVar2 = inputVariables.filter(value => !variables.includes(value));
-				missingVar = [...missingVar1, ...missingVar2];
-				console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
 				// getting commandToFind by subCommandRead
 				let commandToFind;
 				let finder1;
@@ -232,8 +226,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							
 						}
 					}else{
+						const missingVar1 = variables.filter(value => !inputVariables.includes(value));
+						const missingVar2 = inputVariables.filter(value => !variables.includes(value));
+						missingVar = [...missingVar1, ...missingVar2];
+						console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
+						
 						if(commandToFind.var == true){
-							variables.push(words[iteration2]);
 							if(!missingVar.includes(words[iteration2])){
 								console.log(`missing not includes a ${words[iteration2]}`)
 								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
@@ -247,6 +245,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 									words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
 								}
 							}
+							variables.push(words[iteration2]);
 						}else{
 
 						
@@ -258,7 +257,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						// if word == text
 						if(commandToFind.words == true){
 							if(commandToFind.input !== undefined){
-								inputVariables.push(words[iteration2]);
 								if(!missingVar.includes(words[iteration2])){
 									console.log(`missing not includes a ${words[iteration2]}`)
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
@@ -272,6 +270,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 										words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
 									}
 								}
+								inputVariables.push(words[iteration2]);
 							}else{
 								words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
 							}
@@ -311,9 +310,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	jumpLabels1 = [];
 	jumpLabels2 = [];
 	missingValues = [];
-
-
-	
 
 	for (let ii = 0; ii < lines.length; ii++) {
 		let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
