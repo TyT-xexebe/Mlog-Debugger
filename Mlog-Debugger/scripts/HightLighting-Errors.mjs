@@ -158,6 +158,10 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			}
 			// iteration of all words to find errors
 			MainLoop:for(let iteration2 = 0; iteration2 < words.length; iteration2++){
+				const missingVar1 = variables.filter(value => !inputVariables.includes(value));
+				const missingVar2 = inputVariables.filter(value => !variables.includes(value));
+				missingVar = [...missingVar1, ...missingVar2];
+				console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
 				// getting commandToFind by subCommandRead
 				let commandToFind;
 				let finder1;
@@ -285,10 +289,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 			}
 			lines[iteration1] = words.join('&nbsp;');
-			const missingVar1 = variables.filter(value => !inputVariables.includes(value));
-			const missingVar2 = inputVariables.filter(value => !variables.includes(value));
-			missingVar = [...missingVar1, ...missingVar2];
-			console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
+			
 }
 }
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
