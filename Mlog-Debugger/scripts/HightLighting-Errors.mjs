@@ -331,7 +331,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	errorOutput.innerHTML = notFoundMessage;
 	Errors = [];
 
-hightLightingErrors();
 console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
 variables = [];
 inputVariables = [];
