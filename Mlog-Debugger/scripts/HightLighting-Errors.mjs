@@ -225,12 +225,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							words[iteration2] = `<span id="${numberColor}">${words[iteration2]}</span>`
 							
 						}
-					}else{
-						const missingVar1 = variables.filter(value => !inputVariables.includes(value));
-						const missingVar2 = inputVariables.filter(value => !variables.includes(value));
-						missingVar = [...missingVar1, ...missingVar2];
-						console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
-						
+					}else{	
 						if(commandToFind.var == true){
 							variables.push(words[iteration2]);
 							if(!missingVar.includes(words[iteration2])){
@@ -290,6 +285,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 			}
 			lines[iteration1] = words.join('&nbsp;');
+			const missingVar1 = variables.filter(value => !inputVariables.includes(value));
+			const missingVar2 = inputVariables.filter(value => !variables.includes(value));
+			missingVar = [...missingVar1, ...missingVar2];
 			
 }
 }
@@ -320,6 +318,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
  	formattedCode += lines[i] + '<br>';
 	}
 	output.innerHTML = formattedCode;
+	console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
 	variables = [];
 	inputVariables = [];
 	missingVar = [];
