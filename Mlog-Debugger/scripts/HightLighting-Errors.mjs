@@ -119,15 +119,13 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 						}
 						
 						
-						console.log(words4[iteration7]);
 						if(commandToFind2.var == true){
 							variables.push(words4[iteration7]);
-							console.log(`output added: ${words4[iteration7]}`);
 						}
-						if(words4[iteration7].words == true){
+						
+						if(commandToFind2.words == true){
 							if(commandToFind2.input == true){
 								inputVariables.push(words4[iteration7]);
-								console.log(`input added: ${words4[iteration7]}`);
 							}
 						}
 					}
