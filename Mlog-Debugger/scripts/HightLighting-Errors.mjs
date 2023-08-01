@@ -113,7 +113,6 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 							finder2 = `w${iteration7}`;
 							commandToFind2 = keyCommands[firstWord2][finder2];
 						}
-						console.log(`finder: ${finder2} | command to find: ${commandToFind2} | line: ${iteration6} | subCommand: ${subCommandRead2} | ${firstWord2} ${secondWord2}`)
 						if(typeof commandToFind2 == 'undefined'){
 							continue loop;
 						}
@@ -128,7 +127,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 						
 						if(commandToFind2.words == true){
 							if(commandToFind2.input == true){
-								if(words4[iteration7] == 'true' || 'false'){
+								if(words4[iteration7].toString() == 'true' || 'false'){
 									continue loop;
 								}
 								inputVariables.push(words4[iteration7]);
@@ -284,6 +283,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					}else{	
 						if(commandToFind.var == true){
 							if(words[iteration2].toString() == 'true' || 'false'){
+								console.log(`word: ${words[iteration2].toString()} what? ${words[iteration2].toString() == 'true' || 'false'}`)
 								words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 								continue MainLoop;
 							}
@@ -314,6 +314,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						if(commandToFind.words == true){
 							if(commandToFind.input == true){
 								if(words[iteration2].toString() == 'true' || 'false'){
+									console.log(`word: ${words[iteration2].toString()} what? ${words[iteration2].toString() == 'true' || 'false'}`)
 									words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 									continue MainLoop;
 								}
@@ -354,7 +355,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			
 }
 }
-	console.log(`missing: ${missingVar} \n variablesInput: ${inputVariables} \n outputVariables: ${variables}`);
 	variables = [];
 	inputVariables = [];
 	missingVar = [];
