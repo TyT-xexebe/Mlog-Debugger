@@ -114,6 +114,10 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 							finder2 = `w${iteration7}`;
 							commandToFind2 = keyCommands[firstWord2][finder2];
 						}
+						if(typeof commandToFind2 == 'undefined'){
+							continue loop;
+						}
+						
 						
 						console.log(words4[iteration7]);
 						if(commandToFind2.var == true){
