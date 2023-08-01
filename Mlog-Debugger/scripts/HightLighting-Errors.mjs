@@ -85,6 +85,50 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		}
 	}
 
+					loop:for(let iteration6 = 0; iteration6 < lines.length; iteration6++){
+					let words4 = lines[iteration6].split(" ");
+					for(let iteration7 = 0; iteration7 < words4.length; iteration7++){
+						let subCommandRead2
+						let firstWord2 = words4[0];
+						let secondWord2 = words4[1];
+						console.log(`${firstWord2} ${secondWord2}`)
+						if(!keyCommands.hasOwnProperty(firstWord2)){
+							continue loop;
+						}
+						if(keyCommands[firstWord2].hasOwnProperty("someVariants")){
+							if(keyCommands[firstWord2].hasOwnProperty(secondWord2)){
+								subCommandRead2 = 1;
+							}else{
+								subCommandRead2 = 0;
+							}
+						}else{
+							subCommandRead2 = 0;
+						}
+
+						let commandToFind2;
+						let finder2;
+						if(subCommandRead2 == 1){
+							finder2 = `w${iteration7}`;
+							commandToFind2 = keyCommands[firstWord2][secondWord2][finder2];
+						}else{
+							finder2 = `w${iteration7}`;
+							commandToFind2 = keyCommands[firstWord2][finder2];
+						}
+						
+						console.log(words4[iteration7]);
+						if(commandToFind2.var == true){
+							variables.push(words4[iteration7]);
+							console.log(`output added: ${words4[iteration7]}`);
+						}
+						if(words4[iteration7].words == true){
+							if(commandToFind2.input == true){
+								inputVariables.push(words4[iteration7]);
+								console.log(`input added: ${words4[iteration7]}`);
+							}
+						}
+					}
+				}
+
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
@@ -178,49 +222,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 
 				
-				loop:for(let iteration6 = 0; iteration6 < lines.length; iteration6++){
-					let words4 = lines[iteration6].split(" ");
-					for(let iteration7 = 0; iteration7 < words4.length; iteration7++){
-						let subCommandRead2
-						let firstWord2 = words4[0];
-						let secondWord2 = words4[1];
-						console.log(`${firstWord2} ${secondWord2}`)
-						if(!keyCommands.hasOwnProperty(firstWord2)){
-							continue loop;
-						}
-						if(keyCommands[firstWord2].hasOwnProperty("someVariants")){
-							if(keyCommands[firstWord2].hasOwnProperty(secondWord2)){
-								subCommandRead2 = 1;
-							}else{
-								subCommandRead2 = 0;
-							}
-						}else{
-							subCommandRead2 = 0;
-						}
-
-						let commandToFind2;
-						let finder2;
-						if(subCommandRead2 == 1){
-							finder2 = `w${iteration7}`;
-							commandToFind2 = keyCommands[firstWord2][secondWord2][finder2];
-						}else{
-							finder2 = `w${iteration7}`;
-							commandToFind2 = keyCommands[firstWord2][finder2];
-						}
-						
-						console.log(words4[iteration7]);
-						if(commandToFind2.var == true){
-							variables.push(words4[iteration7]);
-							console.log(`output added: ${words4[iteration7]}`);
-						}
-						if(words4[iteration7].words == true){
-							if(commandToFind2.input == true){
-								inputVariables.push(words4[iteration7]);
-								console.log(`input added: ${words4[iteration7]}`);
-							}
-						}
-					}
-				}
+				
 				// if words starts on @
 				if(words[iteration2].startsWith("@")){
 					// if keywords allowed its this word
