@@ -120,7 +120,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 						
 						
 						if(commandToFind2.var == true){
-							if(words4[iteration7] == 'true' || 'false'){
+							if(words4[iteration7].toString() == 'true' || 'false'){
 								continue loop;
 							}
 							variables.push(words4[iteration7]);
@@ -283,7 +283,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						}
 					}else{	
 						if(commandToFind.var == true){
-							if(words[iteration2] == 'true' || 'false'){
+							if(words[iteration2].toString() == 'true' || 'false'){
 								words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 								continue MainLoop;
 							}
@@ -313,7 +313,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						// if word == text
 						if(commandToFind.words == true){
 							if(commandToFind.input == true){
-								if(words[iteration2] == 'true' || 'false'){
+								if(words[iteration2].toString() == 'true' || 'false'){
 									words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 									continue MainLoop;
 								}
