@@ -120,11 +120,17 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 						
 						
 						if(commandToFind2.var == true){
+							if(words4[iteration7] == 'true' || 'false'){
+								continue loop;
+							}
 							variables.push(words4[iteration7]);
 						}
 						
 						if(commandToFind2.words == true){
 							if(commandToFind2.input == true){
+								if(words4[iteration7] == 'true' || 'false'){
+									continue loop;
+								}
 								inputVariables.push(words4[iteration7]);
 							}
 						}
@@ -277,6 +283,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						}
 					}else{	
 						if(commandToFind.var == true){
+							if(words[iteration2] == 'true' || 'false'){
+								continue MainLoop;
+							}
 							const missingVar1 = variables.filter(value => !inputVariables.includes(value));
 							const missingVar2 = inputVariables.filter(value => !variables.includes(value));
 							missingVar = [...missingVar1, ...missingVar2];
@@ -303,6 +312,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						// if word == text
 						if(commandToFind.words == true){
 							if(commandToFind.input == true){
+								if(words[iteration2] == 'true' || 'false'){
+									continue MainLoop;
+								}
 								const missingVar1 = variables.filter(value => !inputVariables.includes(value));
 								const missingVar2 = inputVariables.filter(value => !variables.includes(value));
 								missingVar = [...missingVar1, ...missingVar2];
