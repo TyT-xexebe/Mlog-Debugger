@@ -85,9 +85,9 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		}
 	}
 
-					loop:for(let iteration6 = 0; iteration6 < lines.length; iteration6++){
+					for(let iteration6 = 0; iteration6 < lines.length; iteration6++){
 					let words4 = lines[iteration6].split(" ");
-					for(let iteration7 = 0; iteration7 < words4.length; iteration7++){
+					loop:for(let iteration7 = 0; iteration7 < words4.length; iteration7++){
 						let subCommandRead2
 						let firstWord2 = words4[0];
 						let secondWord2 = words4[1];
@@ -106,12 +106,11 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 
 						let commandToFind2;
 						let finder2;
-						let iteration = iteration7 + 1;
 						if(subCommandRead2 == 1){
-							finder2 = `w${iteration}`;
+							finder2 = `w${iteration7}`;
 							commandToFind2 = keyCommands[firstWord2][secondWord2][finder2];
 						}else{
-							finder2 = `w${iteration}`;
+							finder2 = `w${iteration7}`;
 							commandToFind2 = keyCommands[firstWord2][finder2];
 						}
 						console.log(`finder: ${finder2} | command to find: ${commandToFind2} | line: ${iteration6} | subCommand: ${subCommandRead2} | ${firstWord2} ${secondWord2}`)
