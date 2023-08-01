@@ -91,7 +91,6 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 						let subCommandRead2
 						let firstWord2 = words4[0];
 						let secondWord2 = words4[1];
-						console.log(`${firstWord2} ${secondWord2}`)
 						if(!keyCommands.hasOwnProperty(firstWord2)){
 							continue loop;
 						}
@@ -114,6 +113,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 							finder2 = `w${iteration7}`;
 							commandToFind2 = keyCommands[firstWord2][finder2];
 						}
+						console.log(`command to find: ${commandToFind2} | line: ${iteration6} | subCommand: ${subCommandRead2} | ${firstWord2} ${secondWord2}`)
 						if(typeof commandToFind2 == 'undefined'){
 							continue loop;
 						}
