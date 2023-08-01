@@ -284,6 +284,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 					}else{	
 						if(commandToFind.var == true){
 							if(words[iteration2] == 'true' || 'false'){
+								words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 								continue MainLoop;
 							}
 							const missingVar1 = variables.filter(value => !inputVariables.includes(value));
@@ -313,6 +314,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						if(commandToFind.words == true){
 							if(commandToFind.input == true){
 								if(words[iteration2] == 'true' || 'false'){
+									words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 									continue MainLoop;
 								}
 								const missingVar1 = variables.filter(value => !inputVariables.includes(value));
