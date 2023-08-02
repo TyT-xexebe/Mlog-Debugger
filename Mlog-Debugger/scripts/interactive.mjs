@@ -14,15 +14,12 @@ let syntaxHelper = () => {
     endOfLine = text.length;
   }
   let lineText = text.substring(startOfLine, endOfLine);
-	console.log(lineText)
-	
-  loop:for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
-		let words = lineText.split(' ');
+  console.log(lineText)
+  let words = lineText.split(' ');
+  loop:for(let iteration1 = 0; iteration1 < words.length; iteration1++){
     let firstWord = words[0];
     let secondWord = words[1];
-    
     if(keyCommands.hasOwnProperty(firstWord)){
-      
       let subCommandRead
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
 				if(keyCommands[firstWord].hasOwnProperty(secondWord)){
