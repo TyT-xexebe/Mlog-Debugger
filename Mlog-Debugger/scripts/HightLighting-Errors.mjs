@@ -156,7 +156,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				lines[iteration1] = words.join('&nbsp;');
 			}else if(firstWord.startsWith("<")){
 				lines[iteration1] = words.join('&nbsp;');
-			}else if(firstWord.toString() == " \n" || firstWord.toString() == " &nbsp;" || firstWord.toString() == " " || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "\n" || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "&nbsp;\n" || firstWord.toString() == "&nbsp;"){
+			}else if(firstWord.toString() == "&nbsp;<br>" || firstWord.toString() == " <br>" || firstWord.toString() == "<br>" || firstWord.toString() == " \n" || firstWord.toString() == " &nbsp;" || firstWord.toString() == " " || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "\n" || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "&nbsp;\n" || firstWord.toString() == "&nbsp;"){
 				lines[iteration1] = words.join('&nbsp;');
 			}else{
 				Errors.push({notfound: firstWord, message: `the ${firstWord} not a command`, line: iteration1});
