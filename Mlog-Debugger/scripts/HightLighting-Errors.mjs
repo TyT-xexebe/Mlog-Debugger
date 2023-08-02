@@ -119,7 +119,10 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 						
 						
 						if(commandToFind2.var == true){
-							if(words4[iteration7].toString() == 'true' || 'false'){
+							if(words4[iteration7].toString() == 'false'){
+								continue loop;
+							}
+							if(words4[iteration7].toString() == 'true'){
 								continue loop;
 							}
 							variables.push(words4[iteration7]);
@@ -127,6 +130,12 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 						
 						if(commandToFind2.words == true){
 							if(commandToFind2.input == true){
+								if(words4[iteration7].toString() == 'false'){
+									continue loop;
+								}
+								if(words4[iteration7].toString() == 'true'){
+									continue loop;
+								}
 								inputVariables.push(words4[iteration7]);
 							}
 						}
@@ -285,6 +294,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							if(!missingVar.includes(words[iteration2])){
 								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
 							}else{
+								if(words[iteration2].toString() == 'true'){
+									continue MainLoop;
+								}
+								if(words[iteration2].toString() == 'false'){
+									continue MainLoop;
+								}
 								let inp1 = [...set7];
 								let inp2 = inp1[0];
 								if(inp2 == 0){
@@ -311,6 +326,12 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								if(!missingVar.includes(words[iteration2])){
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 								}else{
+									if(words[iteration2].toString() == 'true'){
+										continue MainLoop;
+									}
+									if(words[iteration2].toString() == 'false'){
+										continue MainLoop;
+									}
 									let inp3 = [...set7];
 									let inp4 = inp3[0];
 									if(inp4 == 0){
