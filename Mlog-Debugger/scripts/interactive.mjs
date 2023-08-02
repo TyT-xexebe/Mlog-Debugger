@@ -47,3 +47,4 @@ let syntaxHelper = () => {
   }
 }
 textarea.addEventListener("input", (syntaxHelper));
+textarea.addEventListener("click", (syntaxHelper));
