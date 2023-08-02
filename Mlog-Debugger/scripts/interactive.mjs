@@ -17,7 +17,7 @@ let syntaxHelper = () => {
 	console.log(lineText)
 	
   loop:for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
-		let words = lineText[iteration1].split(' ');
+		let words = lineText.split(' ');
     let firstWord = words[0];
     let secondWord = words[1];
     
