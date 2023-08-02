@@ -289,6 +289,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							if(!missingVar.includes(words[iteration2])){
 								if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
 									words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
+									continue MainLoop;
 								}
 								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
 							}else{
@@ -320,6 +321,10 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								const missingVar2 = inputVariables.filter(value => !variables.includes(value));
 								missingVar = [...missingVar1, ...missingVar2];
 								if(!missingVar.includes(words[iteration2])){
+									if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
+										words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
+										continue MainLoop;
+									}
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 								}else{
 									if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
