@@ -156,7 +156,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				lines[iteration1] = words.join('&nbsp;');
 			}else if(firstWord.startsWith("<")){
 				lines[iteration1] = words.join('&nbsp;');
-			}else if(firstWord.toString() == "\n" || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "&nbsp;\n" || firstWord.toString() == "&nbsp;"){
+			}else if(firstWord.toString() == " \n" || firstWord.toString() == " &nbsp;" || firstWord.toString() == " " || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "\n" || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "&nbsp;\n" || firstWord.toString() == "&nbsp;"){
 				lines[iteration1] = words.join('&nbsp;');
 			}else{
 				Errors.push({notfound: firstWord, message: `the ${firstWord} not a command`, line: iteration1});
@@ -172,7 +172,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						Errors.push({notfound: "label", message: `label "${words[1]}" dont used in code`, line: iteration1});
 						lines[iteration1] = words.join('&nbsp;');
 					}else{
-						console.log(`jump label ${words[1]} finded`);
 						words[1] = `<span id="${labelColor}">${words[1]}</span>`
 						lines[iteration1] = words.join('&nbsp;');
 					}
@@ -288,6 +287,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							const missingVar2 = inputVariables.filter(value => !variables.includes(value));
 							missingVar = [...missingVar1, ...missingVar2];
 							if(!missingVar.includes(words[iteration2])){
+								if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
+									words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
+								}
 								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
 							}else{
 								if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
