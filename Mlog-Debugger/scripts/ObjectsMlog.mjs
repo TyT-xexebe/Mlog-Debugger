@@ -11,8 +11,8 @@ someVariants = true // say to code it need read a allowedWords like object || no
 */
 
 let keyCommands = {
-	max: 99999,
 	"#": {
+		max: 99999,
 		words: true,
 		numbers: true,
 		keywords: true,
@@ -20,6 +20,7 @@ let keyCommands = {
 	},
 
 	read: {
+		syntax: "read outVar cell1 num",
 		max: 3,
 		w1: {
 			var: true,
@@ -45,6 +46,7 @@ let keyCommands = {
 	},
 
 	write: {
+		syntax: "write var cell1 num",
 		max: 3,
 		w1: {
 			input: true,
@@ -72,6 +74,32 @@ let keyCommands = {
 	draw: {
 		someVariants: true,
 		clear: {
+			syntax: "draw clear red green blue",
+			max: 4,
+			w2: {
+				input: true,
+				words: true,
+				numbers: true,
+				keywords: "notRecomended",
+				allowedWords: false
+			},
+			w3: {
+				input: true,
+				words: true,
+				numbers: true,
+				keywords: "notRecomended",
+				allowedWords: false
+			},
+			w4: {
+				input: true,
+				words: true,
+				numbers: true,
+				keywords: "notRecomended",
+				allowedWords: false
+			}
+		},
+		color: {
+			syntax: "draw color red green blue alpha",
 			max: 5,
 			w2: {
 				input: true,
@@ -95,44 +123,6 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w5: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			}
-		},
-		color: {
-			max: 6,
-			w2: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w3: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w4: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w5: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w6: {
 				input: true,
 				words: true,
 				numbers: true,
@@ -151,6 +141,7 @@ let keyCommands = {
 			}
 		},
 		stroke: {
+			syntax: "draw stroke num",
 			max: 2,
 			w2: {
 				input: true,
@@ -161,7 +152,8 @@ let keyCommands = {
 			}
 		},
 		line: {
-			max: 5,
+			syntax: "draw line x1 y1 x2 y2",
+			max: 4,
 			w2: {
 				words: true,
 				numbers: true,
@@ -176,13 +168,6 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w4: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w5: {
 				input: true,
 				words: true,
 				numbers: true,
@@ -191,7 +176,8 @@ let keyCommands = {
 			}
 		},
 		rect: {
-			max: 5,
+			syntax: "draw line x1 y1 x2 y2",
+			max: 4,
 			w2: {
 				input: true,
 				words: true,
@@ -207,13 +193,6 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w4: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w5: {
 				input: true,
 				words: true,
 				numbers: true,
@@ -222,6 +201,32 @@ let keyCommands = {
 			}
 		},
 		lineRect: {
+			syntax: "draw lineRect x1 y1 x2 y2",
+			max: 4,
+			w2: {
+				input: true,
+				words: true,
+				numbers: true,
+				keywords: "notRecomended",
+				allowedWords: false
+			},
+			w3: {
+				input: true,
+				words: true,
+				numbers: true,
+				keywords: "notRecomended",
+				allowedWords: false
+			},
+			w4: {
+				input: true,
+				words: true,
+				numbers: true,
+				keywords: "notRecomended",
+				allowedWords: false
+			}
+		},
+		poly: {
+			syntax: "draw line x y sides radius rotation",
 			max: 5,
 			w2: {
 				input: true,
@@ -252,7 +257,8 @@ let keyCommands = {
 				allowedWords: false
 			}
 		},
-		poly: {
+		triangle: {
+			syntax: "draw triangle x1 y1 x2 y2 x3 y3",
 			max: 6,
 			w2: {
 				input: true,
@@ -283,51 +289,6 @@ let keyCommands = {
 				allowedWords: false
 			},
 			w6: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			}
-		},
-		triangle: {
-			max: 7,
-			w2: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w3: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w4: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w5: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w6: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
-			},
-			w7: {
 				input: true,
 				words: true,
 				numbers: true,
@@ -336,7 +297,8 @@ let keyCommands = {
 			}
 		},
 		linePoly: {
-			max: 6,
+			syntax: "draw linePoly x y sides radius rotation",
+			max: 5,
 			w2: {
 				input: true,
 				words: true,
@@ -364,17 +326,12 @@ let keyCommands = {
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
-			},
-			w6: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
+			}owedWords: false
 			}
 		},
 		image: {
-			max: 6,
+			syntax: "draw image x y @keyword size rotation",
+			max: 5,
 			w2: {
 				input: true,
 				words: true,
@@ -402,18 +359,12 @@ let keyCommands = {
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
-			},
-			w6: {
-				input: true,
-				words: true,
-				numbers: true,
-				keywords: "notRecomended",
-				allowedWords: false
 			}
 		}
 	},
 
 	print: {
+		syntax: 'print "text"',
 		max: 9999,
 		words: true,
 		numbers: true,
@@ -422,6 +373,7 @@ let keyCommands = {
 	},
 
 	drawflush: {
+		syntax: "drawflush display",
 		max: 1,
 		w1: {
 			input: true,
@@ -433,6 +385,7 @@ let keyCommands = {
 	},
 
 	printflush: {
+		syntax: "printflush message",
 		max: 1,
 		w1: {
 			input: true,
@@ -444,6 +397,7 @@ let keyCommands = {
 	},
 
 	getlink: {
+		syntax: "getlink outVar num",
 		max: 2,
 		w1: {
 			var: true,
@@ -452,7 +406,6 @@ let keyCommands = {
 			keywords: false,
 			allowedWords: false
 		},
-
 		w2: {
 			input: true,
 			words: true,
@@ -465,6 +418,7 @@ let keyCommands = {
 	control: {
 		someVariants: true,
 		enabled: {
+			syntax: "control enabled block enable",
 			max: 3,
 			w2: {
 				input: true,
@@ -483,6 +437,7 @@ let keyCommands = {
 		},
 
 		shoot: {
+			syntax: "control shoot block x y shoot",
 			max: 5,
 			w2: {
 				input: true,
@@ -515,6 +470,7 @@ let keyCommands = {
 		},
 
 		shootp: {
+			syntax: "control shootp block unitObj",
 			max: 3,
 			w2: {
 				input: true,
@@ -533,6 +489,7 @@ let keyCommands = {
 		},
 
 		config: {
+			syntax: "control config block configuration",
 			max: 3,
 			w2: {
 				input: true,
@@ -551,18 +508,27 @@ let keyCommands = {
 		},
 
 		color: {
+			syntax: "control color block packcolor",
 			max: 2,
 			w2: {
 				input: true,
 				words: true,
+				numbers: false,
+				keywords: false,
+				allowedWords: false
+			},
+			w3: {
+				input: true,
+				words: true,
 				numbers: true,
-				keywords: true,
+				keywords: false,
 				allowedWords: false
 			}
 		}
 	},
 
 	radar: {
+		syntax: "radar eny any any type turret num outVar",
 		max: 7,
 		w1: {
 			words: false,
@@ -612,6 +578,7 @@ let keyCommands = {
 	},
 
 	sensor: {
+		syntax: "sensor outVar obj @parameter",
 		max: 3,
 		w1: {
 			var: true,
@@ -639,6 +606,7 @@ let keyCommands = {
 	},
 
 	set: {
+		syntax: "set outVar value",
 		max: 2,
 		w1: {
 			var: true,
@@ -657,6 +625,7 @@ let keyCommands = {
 	},
 
 	op: {
+		syntax: "op math outVar value1 value2",
 		max: 4,
 		w1: {
 			words: false,
@@ -688,6 +657,7 @@ let keyCommands = {
 	},
 
 	lookup: {
+		syntax: "lookup type outVar num",
 		max: 3,
 		w1: {
 			words: false,
@@ -712,6 +682,7 @@ let keyCommands = {
 	},
 
 	packcolor: {
+		syntax: "packcolor outVar red green blue alpha",
 		max: 5,
 		w1: {
 			var: true,
@@ -751,6 +722,7 @@ let keyCommands = {
 	},
 
 	wait: {
+		syntax: "wait seconds",
 		max: 1,
 		w1: {
 			input: true,
@@ -762,14 +734,17 @@ let keyCommands = {
 	},
 
 	stop: {
+		syntax: "stop",
 		max: 0
 },
 
 	end: {
+		syntax: "end",
 		max: 0
 	},
 
 	jump: {
+		syntax: "jump any lineNum type value1 value2",
 		max: 4,
 		w1: {
 			words: true,
@@ -800,6 +775,7 @@ let keyCommands = {
 	},
 
 	ubind: {
+		syntax: "ubind @unit",
 		max: 1,
 		w1: {
 			input: true,
@@ -814,14 +790,17 @@ let keyCommands = {
 	ucontrol: {
 		someVariants: true,
 		idle: {
+			syntax: "ucontrol idle",
 			max: 1
 		},
 
 		stop: {
+			syntax: "ucontrol stop",
 			max: 1
 		},
 
 		move: {
+			syntax: "ucontrol move x y",
 			max: 3,
 			w2: {
 				input: true,
@@ -840,6 +819,7 @@ let keyCommands = {
 		},
 
 		approach: {
+			syntax: "ucontrol approach x y radius",
 			max: 4,
 			w2: {
 				input: true,
@@ -865,6 +845,7 @@ let keyCommands = {
 		},
 
 		boost: {
+			syntax: "ucontrol boost enable",
 			max: 2,
 			w2: {
 				input: true,
@@ -876,6 +857,7 @@ let keyCommands = {
 		},
 
 		target: {
+			syntax: "ucontrol target x y shoot",
 			max: 4,
 			w2: {
 				input: true,
@@ -901,6 +883,7 @@ let keyCommands = {
 		},
 
 		targetp: {
+			syntax: "ucontrol targetp unitObj shoot",
 			max: 3,
 			w2: {
 				input: true,
@@ -919,6 +902,7 @@ let keyCommands = {
 		},
 
 		itemDrop: {
+			syntax: "ucontrol itemDrop block count",
 			max: 3,
 			w2: {
 				input: true,
@@ -938,6 +922,7 @@ let keyCommands = {
 		},
 
 		pathfind: {
+			syntax: "ucontrol pathfind x y",
 			max: 3,
 			w2: {
 				input: true,
@@ -956,6 +941,7 @@ let keyCommands = {
 		},
 
 		itemTake: {
+			syntax: "ucontrol itemTake block @type count",
 			max: 4,
 			w2: {
 				input: true,
@@ -982,10 +968,12 @@ let keyCommands = {
 		},
 
 		payDrop: {
+			syntax: "ucontrol payDrop",
 			max: 1
 		},
 
 		payTake: {
+			syntax: "ucontrol payTake @unit",
 			max: 2,
 			w2: {
 				input: true,
@@ -998,10 +986,12 @@ let keyCommands = {
 		},
 
 		payEnter: {
+			syntax: "ucontrol payEnter",
 			max: 1
 		},
 
 		mine: {
+			syntax: "ucontrol mine x y",
 			max: 3,
 			w2: {
 				input: true,
@@ -1020,6 +1010,7 @@ let keyCommands = {
 		},
 
 		flag: {
+			syntax: "ucontrol flag value",
 			max: 2,
 			w2: {
 				input: true,
@@ -1031,6 +1022,7 @@ let keyCommands = {
 		},
 
 		build: {
+			syntax: "ucontrol build x y block rotate config",
 			max: 6,
 			w2: {
 				input: true,
@@ -1070,6 +1062,7 @@ let keyCommands = {
 		},
 
 		getBlock: {
+			syntax: "ucontrol getBlock x y type build floor",
 			max: 6,
 			w2: {
 				input: true,
@@ -1109,6 +1102,7 @@ let keyCommands = {
 		},
 
 		within: {
+			syntax: "ucontrol within x y radius outVar",
 			max: 5,
 			w2: {
 				input: true,
@@ -1141,11 +1135,13 @@ let keyCommands = {
 		},
 
 		unbind: {
+			syntax: "ucontrol unbind",
 			max: 1
 		}
 	},
 
 	uradar: {
+		syntax: "uradar any any any type num num outVar",
 		max: 7,
 		w1: {
 			words: false,
@@ -1197,6 +1193,7 @@ let keyCommands = {
 	ulocate: {
 		someVariants: true,
 		ore: {
+			syntax: "ulocate ore @null @null @ore outX outY outFound outBuilding",
 			max: 8,
 			w2: {
 				words: false,
@@ -1251,6 +1248,7 @@ let keyCommands = {
 		},
 
 		building: {
+			syntax: "ulocate building type enemy @null outX outY outFound outBuilding",
 			max: 8,
 			w2: {
 				words: false,
@@ -1303,6 +1301,7 @@ let keyCommands = {
 		},
 
 		damaged: {
+			syntax: "ulocate damaged @null @null @null outX outY outFound outBuilding",
 			max: 8,
 			w2: {
 				words: false,
@@ -1355,6 +1354,7 @@ let keyCommands = {
 		},
 
 		spawn: {
+			syntax: "ulocate spawn @null @null @null outX outY outFound outBuilding",
 			max: 8,
 			w2: {
 				words: false,
