@@ -156,6 +156,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				lines[iteration1] = words.join('&nbsp;');
 			}else if(firstWord.startsWith("<")){
 				lines[iteration1] = words.join('&nbsp;');
+			}else if(firstWord.toString() == "\n" || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "&nbsp;\n" || firstWord.toString() == "&nbsp;"){
+				lines[iteration1] = words.join('&nbsp;');
 			}else{
 				Errors.push({notfound: firstWord, message: `the ${firstWord} not a command`, line: iteration1});
 				words[0] = `<span id="${errorColor}">${words[0]}</span>`
