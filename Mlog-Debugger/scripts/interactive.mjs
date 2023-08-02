@@ -54,3 +54,4 @@ let syntaxHelper = () => {
     
   }
 }
+textarea.addEventListerner("input", syntaxHelper);
