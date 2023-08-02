@@ -1,12 +1,11 @@
 // imports all commands and his settings
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
-
+console.log("started...")
 const textarea = document.getElementById('codeInput');
 const code = textarea.value.trim();
 const lines = code.split('\n');
 
 let syntaxHelper = () => {
-	
   let cursorPos = textarea.selectionStart;
   let text = textarea.value;
   let startOfLine = text.lastIndexOf('\n', cursorPos - 1) + 1;
