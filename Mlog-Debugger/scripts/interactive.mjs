@@ -12,7 +12,6 @@ let syntaxHelper = () => {
     endOfLine = text.length;
   }
   let lineText = text.substring(startOfLine, endOfLine);
-  console.log(lineText)
   let words = lineText.split(' ');
   loop:for(let iteration1 = 0; iteration1 < words.length; iteration1++){
     let firstWord = words[0];
@@ -41,9 +40,8 @@ let syntaxHelper = () => {
 			if(words[iteration1].startsWith("<")){
 				continue loop;
 			}
-	console.log(commandToFind.syntax)
       let output = document.getElementById("suggestions");
-      output.value = commandToFind.syntax;
+      output.innerHTML = commandToFind.syntax;
     }
     
   }
