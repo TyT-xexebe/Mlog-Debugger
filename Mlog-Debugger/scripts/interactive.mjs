@@ -6,8 +6,18 @@ const code = textarea.value.trim();
 const lines = code.split('\n');
 
 let syntaxHelper = () => {
+	
+  let cursorPos = textarea.selectionStart;
+  let text = textarea.value;
+  let startOfLine = text.lastIndexOf('\n', cursorPos - 1) + 1;
+  let endOfLine = text.indexOf('\n', cursorPos);
+  if (endOfLine === -1) {
+    endOfLine = text.length;
+  }
+  let lineText = text.substring(startOfLine, endOfLine);
+	
   for (let iteration1 = 0; iteration1 < lines.length; iteration1++){
-		let words = lines[iteration1].split(' ');
+		let words = lineText[iteration1].split(' ');
     firstWord = words[0];
     secondWord = words[1];
     
