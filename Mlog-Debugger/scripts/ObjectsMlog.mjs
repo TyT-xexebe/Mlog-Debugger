@@ -326,7 +326,6 @@ let keyCommands = {
 				numbers: true,
 				keywords: "notRecomended",
 				allowedWords: false
-			}owedWords: false
 			}
 		},
 		image: {
