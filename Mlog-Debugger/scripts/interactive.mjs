@@ -2,8 +2,6 @@
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
 console.log("started...")
 const textarea = document.getElementById('codeInput');
-const code = textarea.value.trim();
-const lines = code.split('\n');
 
 let syntaxHelper = () => {
   let cursorPos = textarea.selectionStart;
@@ -40,7 +38,7 @@ let syntaxHelper = () => {
 			if(typeof commandToFind == 'undefined'){
 				continue loop;
 			}
-			if(words[iteration2].startsWith("<")){
+			if(words[iteration1].startsWith("<")){
 				continue loop;
 			}
 	console.log(commandToFind.syntax)
