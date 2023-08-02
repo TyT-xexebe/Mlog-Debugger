@@ -5,7 +5,7 @@ const textarea = document.getElementById('codeInput');
 const code = textarea.value.trim();
 const lines = code.split('\n');
 
-let syntaxHelper = () => {
+loop:let syntaxHelper = () => {
   let cursorPos = textarea.selectionStart;
   let text = textarea.value;
   let startOfLine = text.lastIndexOf('\n', cursorPos - 1) + 1;
@@ -41,11 +41,10 @@ let syntaxHelper = () => {
 				commandToFind = keyCommands[firstWord];
 			}
 			if(typeof commandToFind == 'undefined'){
-				lines[iteration1] = words.join(' ');
-				continue MainLoop;
+				continue loop;
 			}
 			if(words[iteration2].startsWith("<")){
-				continue MainLoop;
+				continue loop;
 			}
 	console.log(commandToFind.syntax)
       let output = document.getElementById("suggestions");
