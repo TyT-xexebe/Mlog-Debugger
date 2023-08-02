@@ -119,7 +119,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 						
 						
 						if(commandToFind2.var == true){
-							if(words4[iteration7].toString() == 'false' || 'true'){
+							if(words4[iteration7].toString() === "true" || words4[iteration7].toString() === "false"){
 								continue loop;
 							}
 							variables.push(words4[iteration7]);
@@ -127,7 +127,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 						
 						if(commandToFind2.words == true){
 							if(commandToFind2.input == true){
-								if(words4[iteration7].toString() == 'false' || 'true'){
+								if(words4[iteration7].toString() === "true" || words4[iteration7].toString() === "false"){
 									continue loop;
 								}
 								inputVariables.push(words4[iteration7]);
@@ -288,7 +288,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							if(!missingVar.includes(words[iteration2])){
 								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
 							}else{
-								if(words[iteration2].toString() == 'false' || 'true'){
+								if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
+									words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 									continue MainLoop;
 								}
 								let inp1 = [...set7];
@@ -297,7 +298,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 									Errors.push({notfound: words[iteration2], message: "this variable dont used in code", line: iteration1});
 									words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 								}else{
-									words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
+									words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
 								}
 							}
 						}else{
@@ -317,7 +318,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								if(!missingVar.includes(words[iteration2])){
 									words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 								}else{
-									if(words[iteration2].toString() == 'false' || 'true'){
+									if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
+										words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 										continue MainLoop;
 									}
 									let inp3 = [...set7];
@@ -326,7 +328,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 										Errors.push({notfound: words[iteration2], message: "this variable not declarated in code", line: iteration1});
 										words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 									}else{
-										words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
+										words[iteration2] = `<span id="${inColor}">${words[iteration2]}</span>`
 									}
 								}
 							}else{
