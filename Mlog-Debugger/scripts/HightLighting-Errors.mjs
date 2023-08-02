@@ -288,7 +288,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							missingVar = [...missingVar1, ...missingVar2];
 							if(!missingVar.includes(words[iteration2])){
 								if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
-									words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
+									words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
+									Errors.push({notfound: words[iteration2], message: "variable output cant be true/false", line: iteration1});
 									continue MainLoop;
 								}
 								words[iteration2] = `<span id="${varColor}">${words[iteration2]}</span>`
