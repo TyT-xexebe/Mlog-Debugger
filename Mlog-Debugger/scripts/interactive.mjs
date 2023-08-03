@@ -2,8 +2,10 @@
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
 console.log("started...")
 const textarea = document.getElementById('codeInput');
+const output = document.getElementById("suggestions");
 
 let syntaxHelper = () => {
+	output.innerHTML = " ";
   let cursorPos = textarea.selectionStart;
   let text = textarea.value;
   let startOfLine = text.lastIndexOf('\n', cursorPos - 1) + 1;
@@ -40,7 +42,6 @@ let syntaxHelper = () => {
 			if(words[iteration1].startsWith("<")){
 				continue loop;
 			}
-      let output = document.getElementById("suggestions");
       output.innerHTML = commandToFind.syntax;
     }
     
