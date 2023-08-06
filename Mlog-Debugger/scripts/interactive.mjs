@@ -90,7 +90,7 @@ let getArray = () => {
 				}else{
 					commandToFind = keyCommands[firstWord];
 				}
-				if(typeof commandToFind == 'undefined'){
+				if(commandToFind === undefined){
 					continue loop2;
 				}
 				if(words[i].startsWith("<")){
