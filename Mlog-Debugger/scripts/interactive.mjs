@@ -1,5 +1,6 @@
 // imports all commands and his settings
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
+import {vars} from "../scripts/HightLighting-Errors.mjs"
 console.log("started...")
 const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
@@ -107,15 +108,15 @@ let getArray = () => {
 				}else{
 					let array = [];
 					if(keyCommands[firstWord].w2.keywords == true){
-						array[...keywords];
+						array.push(...keywords);
 					}else if(keyCommands[firstWord].w2.allowedParams == true){
-						array[...keyCommands[firstWord].w2.allowedParams];
+						array.push(...keyCommands[firstWord].w2.allowedParams);
 					}
 
 					if(keyCommands[firstWord].w2.words == true){
-						array[...vars];
+						array.push(...vars);
 					}else if(keyCommands[firstWord].w2.allowedWords !== false){
-						array[...keyCommands[firstWord].w2.allowedWords]
+						array.push(...keyCommands[firstWord].w2.allowedWords);
 					}
 					return array
 				}
@@ -125,15 +126,15 @@ let getArray = () => {
 				let w = `w${i}`
 				let array = [];
 				if(keyCommands[firstWord][w].keywords == true){
-					array[...keywords];
+					array.push(...keywords);
 				}else if(keyCommands[firstWord][w].allowedParams == true){
-					array[...keyCommands[firstWord][w].allowedParams];
+					array.push(...keyCommands[firstWord][w].allowedParams);
 				}
 
 				if(keyCommands[firstWord][w].words == true){
-					array[...vars];
+					array.push(...vars);
 				}else if(keyCommands[firstWord][w].allowedWords !== false){
-					array[...keyCommands[firstWord][w].allowedWords]
+					array.push(...keyCommands[firstWord][w].allowedWords);
 				}
 				return array
 			}
