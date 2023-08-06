@@ -93,7 +93,7 @@ let getArray = () => {
 				if(typeof commandToFind == 'undefined'){
 					continue loop2;
 				}
-				if(words[iteration1].startsWith("<")){
+				if(words[i].startsWith("<")){
 					continue loop2;
 				}
 		}
