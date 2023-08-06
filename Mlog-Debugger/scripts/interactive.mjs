@@ -149,6 +149,8 @@ let getArray = () => {
 				console.log(`${w}: ${array}`)
 				return array
 			}
+		}else{
+			continue loop2;
 		}
 	}
 }
@@ -156,6 +158,7 @@ let getArray = () => {
 function compareWord() {
     const currentWord = getWord();
     const wordArray = getArray();
+	console.log(`currt: ${currentWord} | wordArray ${wordArray}`)
     const similar = document.getElementById("helper");
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
     console.log(`similarWords: ${similarWords} | wordArray: ${wordArray}`)
