@@ -100,6 +100,8 @@ let getArray = () => {
 				if(words[i].startsWith("<")){
 					continue loop2;
 				}
+		}else{
+			continue loop2;
 		}
 		let currentWord = getWord();
 		console.log(`currWord: ${currentWord} | commandToFind ${commandToFind}`);
@@ -130,9 +132,7 @@ let getArray = () => {
 					console.log(`w2: ${array}`)
 					return array
 				}
-			}
-
-			if(i > 2){
+			}else{
 				let w = `w${i}`
 				let array = [];
 				if(keyCommands[firstWord][w].keywords == true){
@@ -148,7 +148,7 @@ let getArray = () => {
 				}
 				console.log(`${w}: ${array}`)
 				return array
-			}
+			}	
 		}else{
 			continue loop2;
 		}
