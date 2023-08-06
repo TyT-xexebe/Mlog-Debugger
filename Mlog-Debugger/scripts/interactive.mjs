@@ -68,12 +68,13 @@ let getArray = () => {
         const endPos = text.indexOf("\n", caretPos);
         const line = text.substring(startPos, endPos === -1 ? text.length : endPos);
 	let words = line.split(" ");
+	let subCommandRead;
+	let commandToFind;
 	loop2:for(let i = 0; i < words.length; i++){
 		let firstWord = words[0];
 		let secondWord = words[1];
 		console.log(`first: ${firstWord} | second: ${secondWord} | line: ${line}`)
 		if(keyCommands.hasOwnProperty(firstWord)){
-			let subCommandRead = 0
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
 				if(keyCommands[firstWord].hasOwnProperty(secondWord)){
 					subCommandRead = 1;
@@ -84,7 +85,6 @@ let getArray = () => {
 				subCommandRead = 0;
 			}
 		      	console.log(`sub: ${subCommandRead}`)
-		      	let commandToFind;
 				if(subCommandRead == 1){
 					commandToFind = keyCommands[firstWord][secondWord];
 				}else{
