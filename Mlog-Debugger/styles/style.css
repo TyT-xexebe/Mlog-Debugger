@@ -88,7 +88,20 @@
 	font-weight: 600;
 	font-size: small;
 	height: 15px;
- 	width: 555px;
+ 	width: 550px;
+}
+
+.other #helper {
+	background-color: rgb(31, 31, 31);
+	padding: 4px 15px 4px 15px;
+	border: none;
+	border-radius: 3px;
+	color: white;
+	font-weight: 600;
+	font-size: small;
+	height: 15px;
+ 	width: 125px;
+	overflow-y: scroll;
 }
 
 #errorList {
