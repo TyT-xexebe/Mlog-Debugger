@@ -139,6 +139,7 @@ let getArray = () => {
 				return array
 			}
 		}
+	}
 }
 
 function compareWord() {
