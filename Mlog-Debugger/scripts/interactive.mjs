@@ -90,7 +90,8 @@ let getArray = () => {
 				}else{
 					commandToFind = keyCommands[firstWord];
 				}
-				if(commandToFind === undefined){
+				console.log(typeof commandToFind);
+				if(typeof commandToFind === "undefined"){
 					continue loop2;
 				}
 				if(words[i].startsWith("<")){
@@ -98,7 +99,7 @@ let getArray = () => {
 				}
 		}
 		let currentWord = getWord();
-		console.log(`currWord: ${currentWord} | commandToFind ${commandToFind}`)
+		console.log(`currWord: ${currentWord} | commandToFind ${commandToFind}`);
 		if(words[i] == currentWord){
 			if(i == 1){
 				let array = Object.keys(keyCommands);
