@@ -94,7 +94,10 @@ let getArray = () => {
 				}
 				console.log(typeof commandToFind);
 				if(typeof commandToFind === "undefined"){
-					continue loop2;
+					let obj3 = Object.keys(keyCommands[firstWord]);
+					array.push(...obj3);
+					console.log("returned keyCommands")
+					return array
 				}
 				if(typeof subCommandRead === "undefined"){
 					continue loop2;
@@ -103,7 +106,10 @@ let getArray = () => {
 					continue loop2;
 				}
 		}else{
-			continue loop2;
+			let obj4 = Object.keys(keyCommands);
+			array.push(...obj4);
+			console.log("returned keyCommands")
+			return array
 		}
 		console.log(`currWord: ${currentWord} | subCommandRead: ${subCommandRead}`);
 		if(words[i] == currentWord){
