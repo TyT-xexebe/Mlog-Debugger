@@ -57,6 +57,7 @@ function getWord() {
     const startPos = text.lastIndexOf(" ", caretPos - 1) + 1;
     const endPos = text.indexOf(" ", caretPos);
     const currentWord = text.substring(startPos, endPos === -1 ? text.length : endPos);
+    console.log(`current word: ${currentWord}`)
     return currentWord;
 }
 
@@ -70,6 +71,7 @@ let getArray = () => {
 	loop2:for(let i = 0; i < words.length; i++){
 		let firstWord = words[0];
 		let secondWord = words[1];
+		console.log(`first: ${firstWord} | second: ${secondWord} | line: ${line}`)
 		if(keyCommands.hasOwnProperty(firstWord)){
 			let subCommandRead
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
@@ -96,14 +98,17 @@ let getArray = () => {
 				}
 		}
 		curentWord = getWord();
+		console.log(`currWord: ${curentWord} | commandToFind ${commandToFind}`)
 		if(words[i] == currentWord){
 			if(i == 1){
 				let array = Object.keys(keyCommands);
+				console.log("returned keyCommands")
 				return array
 			}
 			if(i == 2){
 				if(subCommandRead == 1){
 					let array = Object.keys(keyCommands[firstWord]);
+					console.log("returned subCommands")
 					return array
 				}else{
 					let array = [];
@@ -118,6 +123,7 @@ let getArray = () => {
 					}else if(keyCommands[firstWord].w2.allowedWords !== false){
 						array.push(...keyCommands[firstWord].w2.allowedWords);
 					}
+					console.log(`w2: ${array}`)
 					return array
 				}
 			}
@@ -136,6 +142,7 @@ let getArray = () => {
 				}else if(keyCommands[firstWord][w].allowedWords !== false){
 					array.push(...keyCommands[firstWord][w].allowedWords);
 				}
+				console.log(`${w}: ${array}`)
 				return array
 			}
 		}
@@ -147,17 +154,19 @@ function compareWord() {
     const wordArray = getArray();
     const similar = document.getElementById("helper");
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
+    console.log(`similarWords: ${similarWords} | wordArray: ${wordArray}`)
     if (similarWords.length > 0) {
-        similar.textContent = similarWords.join(", ");
+        similar.textContent = similarWords.join("\n");
     } else {
         similar.textContent = "nothing";
     }
+	return similarWords
 }
 
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
         const currentWord = getWord();
-        const similarWords = getArray();
+        const similarWords = compareWord();
         if (similarWords.length > 0) {
             const textarea2 = event.target;
             const caretPos = textarea2.selectionStart;
