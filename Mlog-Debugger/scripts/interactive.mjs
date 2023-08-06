@@ -1,6 +1,6 @@
 // imports all commands and his settings
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
-import {vars} from "../scripts/HightLighting-Errors.mjs"
+import {variables} from "../scripts/HightLighting-Errors.mjs"
 console.log("started...")
 const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
@@ -114,7 +114,7 @@ let getArray = () => {
 					}
 
 					if(keyCommands[firstWord].w2.words == true){
-						array.push(...vars);
+						array.push(...variables);
 					}else if(keyCommands[firstWord].w2.allowedWords !== false){
 						array.push(...keyCommands[firstWord].w2.allowedWords);
 					}
@@ -132,7 +132,7 @@ let getArray = () => {
 				}
 
 				if(keyCommands[firstWord][w].words == true){
-					array.push(...vars);
+					array.push(...variables);
 				}else if(keyCommands[firstWord][w].allowedWords !== false){
 					array.push(...keyCommands[firstWord][w].allowedWords);
 				}
