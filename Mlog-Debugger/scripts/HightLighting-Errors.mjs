@@ -1,6 +1,5 @@
 // imports all commands and his settings
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
-
 let openF = () => {
 	let errorOutput = document.getElementById("errorList");
 	if(errorOutput.style.display == "none"){
@@ -363,6 +362,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			
 }
 }
+	export {variables};
 	variables = [];
 	inputVariables = [];
 	missingVar = [];
