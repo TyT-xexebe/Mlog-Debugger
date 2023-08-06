@@ -94,6 +94,9 @@ let getArray = () => {
 				if(typeof commandToFind === "undefined"){
 					continue loop2;
 				}
+				if(typeof commandToFind === "object"){
+					continue loop2;
+				}
 				if(words[i].startsWith("<")){
 					continue loop2;
 				}
