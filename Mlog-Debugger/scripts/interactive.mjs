@@ -97,8 +97,8 @@ let getArray = () => {
 					continue loop2;
 				}
 		}
-		curentWord = getWord();
-		console.log(`currWord: ${curentWord} | commandToFind ${commandToFind}`)
+		currentWord = getWord();
+		console.log(`currWord: ${currentWord} | commandToFind ${commandToFind}`)
 		if(words[i] == currentWord){
 			if(i == 1){
 				let array = Object.keys(keyCommands);
@@ -178,3 +178,4 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+textarea.addEventListener("input", (compareWord));
