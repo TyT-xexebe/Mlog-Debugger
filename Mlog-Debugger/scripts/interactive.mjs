@@ -97,7 +97,7 @@ let getArray = () => {
 					continue loop2;
 				}
 		}
-		currentWord = getWord();
+		let currentWord = getWord();
 		console.log(`currWord: ${currentWord} | commandToFind ${commandToFind}`)
 		if(words[i] == currentWord){
 			if(i == 1){
