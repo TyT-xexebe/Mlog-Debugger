@@ -101,7 +101,7 @@ let getArray = () => {
 			continue loop2;
 		}
 		let currentWord = getWord();
-		console.log(`currWord: ${currentWord}`);
+		console.log(`currWord: ${currentWord} | subCommandRead: ${subCommandRead}`);
 		if(words[i] == currentWord){
 			if(i == 1){
 				let array = Object.keys(keyCommands);
