@@ -70,6 +70,8 @@ let getArray = () => {
 	let words = line.split(" ");
 	let subCommandRead;
 	let commandToFind;
+	let currentWord = getWord();
+	let array = [];
 	loop2:for(let i = 0; i < words.length; i++){
 		let firstWord = words[0];
 		let secondWord = words[1];
@@ -103,21 +105,21 @@ let getArray = () => {
 		}else{
 			continue loop2;
 		}
-		let currentWord = getWord();
 		console.log(`currWord: ${currentWord} | subCommandRead: ${subCommandRead}`);
 		if(words[i] == currentWord){
 			if(i == 1){
-				let array = Object.keys(keyCommands);
+				let obj1 = Object.keys(keyCommands);
+				array.push(...obj1);
 				console.log("returned keyCommands")
 				return array
 			}
 			if(i == 2){
 				if(subCommandRead == 1){
-					let array = Object.keys(keyCommands[firstWord]);
+					let obj2 = Object.keys(keyCommands[firstWord]);
+					array.push(...obj2);
 					console.log("returned subCommands")
 					return array
 				}else{
-					let array = [];
 					if(keyCommands[firstWord].w2.keywords == true){
 						array.push(...keywords);
 					}else if(keyCommands[firstWord].w2.allowedParams == true){
