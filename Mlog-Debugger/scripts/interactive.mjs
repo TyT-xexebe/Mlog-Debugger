@@ -73,7 +73,7 @@ let getArray = () => {
 		let secondWord = words[1];
 		console.log(`first: ${firstWord} | second: ${secondWord} | line: ${line}`)
 		if(keyCommands.hasOwnProperty(firstWord)){
-			let subCommandRead
+			let subCommandRead = 0
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
 				if(keyCommands[firstWord].hasOwnProperty(secondWord)){
 					subCommandRead = 1;
@@ -83,7 +83,7 @@ let getArray = () => {
 			}else{
 				subCommandRead = 0;
 			}
-		      
+		      	console.log(`sub: ${subCommandRead}`)
 		      	let commandToFind;
 				if(subCommandRead == 1){
 					commandToFind = keyCommands[firstWord][secondWord];
@@ -92,6 +92,9 @@ let getArray = () => {
 				}
 				console.log(typeof commandToFind);
 				if(typeof commandToFind === "undefined"){
+					continue loop2;
+				}
+				if(typeof subCommandRead === "undefined"){
 					continue loop2;
 				}
 				if(words[i].startsWith("<")){
