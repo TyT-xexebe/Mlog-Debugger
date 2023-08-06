@@ -83,7 +83,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 			}
 		}
 	}
-
+	variables = [];
 					for(let iteration6 = 0; iteration6 < lines.length; iteration6++){
 					let words4 = lines[iteration6].split(" ");
 					loop:for(let iteration7 = 0; iteration7 < words4.length; iteration7++){
@@ -362,8 +362,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			
 }
 }
-	export {variables};
-	variables = [];
 	inputVariables = [];
 	missingVar = [];
 		for(let iteration5 = 0; iteration5 < lines.length; iteration5++){
@@ -496,3 +494,4 @@ settings(set5, switch5);
 settings(set6, switch6);
 settings(set7, switch7);
 hightLightingErrors();
+export {variables};
