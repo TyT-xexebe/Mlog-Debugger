@@ -37,6 +37,7 @@ let switch4 = document.getElementById("show4");
 let switch5 = document.getElementById("show5");
 let switch6 = document.getElementById("show6");
 let switch7 = document.getElementById("show7");
+let switch8 = document.getElementById("show8");
 
 let set1 = new Set([1]);
 let set2 = new Set([1]);
@@ -45,6 +46,7 @@ let set4 = new Set([1]);
 let set5 = new Set([0]);
 let set6 = new Set([0]);
 let set7 = new Set([0]);
+let set8 = new Set([0]);
 
 // creating arrays for errors
 let jumpLabels1 = [];
@@ -430,6 +432,7 @@ let settings = (set, switching) => {
 	let value4 = [...set4][0];
 	let value5 = [...set5][0];
 	let value6 = [...set6][0];
+	let value8 = [...set8][0];
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
@@ -475,6 +478,13 @@ let settings = (set, switching) => {
 		}else{
 			inColor = "vOutput";
 		}
+		if(value8 == 1){
+			let helper = document.getElementById("helper");
+			helper.classList.add("autocomplete");
+		}else{
+			let helper = document.getElementById("helper");
+			helper.classList.remove("autocomplete");
+		}
 	}
 	hightLightingErrors();
 };
@@ -485,6 +495,7 @@ switch4.addEventListener("click", () => settings(set4, switch4));
 switch5.addEventListener("click", () => settings(set5, switch5));
 switch6.addEventListener("click", () => settings(set6, switch6));
 switch7.addEventListener("click", () => settings(set7, switch7));
+switch8.addEventListener("click", () => settings(set8, switch8));
 settings(set1, switch1);
 settings(set2, switch2);
 settings(set3, switch3);
@@ -492,5 +503,6 @@ settings(set4, switch4);
 settings(set5, switch5);
 settings(set6, switch6);
 settings(set7, switch7);
+settings(set8, switch8);
 hightLightingErrors();
 export {variables, hightLightingErrors};
