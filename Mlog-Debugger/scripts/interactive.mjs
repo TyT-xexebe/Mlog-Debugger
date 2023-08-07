@@ -212,20 +212,24 @@ document.addEventListener('keydown', function(event) {
         if (similarWords.length > 0) {
             const textarea = event.target;
             const caretPos = textarea.selectionStart;
-            const startPos = textarea.value.lastIndexOf("\n", caretPos - 1) + 1;
-            const endPos = textarea.value.indexOf("\n", caretPos);
+            const startPos = textarea.value.lastIndexOf(" ", caretPos - 1) + 1;
+            const endPos = textarea.value.indexOf(" ", caretPos);
 
-            const currentLine = textarea.value.substring(startPos, endPos === -1 ? undefined : endPos);
-            const remainingText = endPos === -1 ? "" : textarea.value.substring(endPos);
+            const beforeCaret = textarea.value.substring(0, startPos);
+            const afterCaret = endPos === -1 ? "" : textarea.value.substring(endPos);
+
             const autocompleteWord = similarWords[0];
 
-            const newText = textarea.value.substring(0, startPos) + currentLine + autocompleteWord + "\n" + remainingText;
+            const newText = beforeCaret.substring(0, caretPos - startPos) + autocompleteWord + afterCaret;
             textarea.value = newText;
-            textarea.selectionStart = startPos + currentLine.length + autocompleteWord.length + 1;
-            textarea.selectionEnd = startPos + currentLine.length + autocompleteWord.length + 1;
+
+            const newCaretPos = startPos + autocompleteWord.length + 1; // Add 1 for the space
+            textarea.selectionStart = newCaretPos;
+            textarea.selectionEnd = newCaretPos;
         }
     }
 });
+
 
 
 
