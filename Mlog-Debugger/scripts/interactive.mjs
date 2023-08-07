@@ -205,33 +205,18 @@ function compareWord() {
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
         event.preventDefault();
-
+        
         const currentWord = getWord();
         const similarWords = compareWord();
-
         if (similarWords.length > 0) {
-            const textarea = event.target;
-            const caretPos = textarea.selectionStart;
-            const startPos = textarea.value.lastIndexOf(" ", caretPos - 1) + 1;
-            const endPos = textarea.value.indexOf(" ", caretPos);
-
-            const beforeCaret = textarea.value.substring(0, startPos);
-            const afterCaret = endPos === -1 ? "" : textarea.value.substring(endPos);
-
+            const textarea2 = event.target;
+            const caretPos = textarea2.selectionStart;
+            const startPos = textarea2.value.lastIndexOf(" ", caretPos - 1) + 1;
+            const endPos = textarea2.value.indexOf(" ", caretPos);
+            const remainingText = textarea2.value.substring(endPos === -1 ? textarea2.value.length : endPos);
             const autocompleteWord = similarWords[0];
-
-            const newText = beforeCaret.substring(0, caretPos - startPos) + autocompleteWord + afterCaret;
-            textarea.value = newText;
-
-            const newCaretPos = startPos + autocompleteWord.length + 1; // Add 1 for the space
-            textarea.selectionStart = newCaretPos;
-            textarea.selectionEnd = newCaretPos;
+            textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
         }
     }
 });
-
-
-
-
-
 textarea.addEventListener("input", (compareWord));
