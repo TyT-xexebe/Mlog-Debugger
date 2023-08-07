@@ -1,7 +1,6 @@
 // imports all commands and his settings
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
 import {variables} from "../scripts/HightLighting-Errors.mjs"
-console.log("started...")
 const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
 
@@ -180,7 +179,6 @@ function compareWord() {
     const wordArray = getArray();
     const similar = document.getElementById("helper");
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
-    console.log(`similarWords: ${similarWords} | wordArray: ${wordArray}`)
     if (similarWords.length > 0) {
         similar.textContent = similarWords.join("\n");
     } else {
