@@ -407,6 +407,11 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
+document.addEventListener('keydown', function(event) {
+    if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
+	    hightLightingErrors();
+    }
+)};
 
 
 let settings = (set, switching) => {
