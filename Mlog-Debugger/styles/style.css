@@ -91,7 +91,7 @@
  	width: 550px;
 }
 
-.other #helper {
+.helper {
 	background-color: rgb(31, 31, 31);
 	padding: 4px 15px 4px 15px;
 	border: none;
@@ -105,12 +105,15 @@
 }
 
 .autocomplete {
-	height: 18vh;
+	color: white;
+	font-weight: 600;
+	font-size: small;
+	background-color: rgb(31, 31, 31);
+	height: 15vh;
 	overflow-y: scroll;
-	overflow-x: scroll;
 	overflow-wrap: normal;
 	width: calc(10vw - 10px);
-	margin-left: calc(50vw - 10px);
+	margin-left: 20vw;
 	margin-top: 12vh;
 	padding: 8vh 5px 5px 5px;
 	position: absolute;
