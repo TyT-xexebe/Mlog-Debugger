@@ -212,8 +212,8 @@ document.addEventListener('keydown', function(event) {
         if (similarWords.length > 0) {
             const textarea = event.target;
             const caretPos = textarea.selectionStart;
-            const startPos = textarea.value.lastIndexOf(" ", caretPos - 1) + 1;
-            const endPos = textarea.value.indexOf(" ", caretPos);
+            const startPos = textarea.value.lastIndexOf("\n", caretPos - 1) + 1;
+            const endPos = textarea.value.indexOf("\n", caretPos);
 
             const remainingText = endPos === -1 ? "" : textarea.value.substring(endPos);
             const autocompleteWord = similarWords[0];
@@ -225,5 +225,6 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
 
 textarea.addEventListener("input", (compareWord));
