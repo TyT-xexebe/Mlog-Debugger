@@ -127,7 +127,7 @@ let getArray = () => {
 				}else{
 					if(keyCommands[firstWord].w1.keywords == true){
 						array.push(...keywords);
-					}else if(keyCommands[firstWord].w1.allowedParams == true){
+					}else if(keyCommands[firstWord].w1.allowedParams !== undefined){
 						array.push(...keyCommands[firstWord].w1.allowedParams);
 					}
 
@@ -143,7 +143,7 @@ let getArray = () => {
 				if(subCommandRead == 1){
 					if(keyCommands[firstWord][secondWord][w].keywords == true){
 						array.push(...keywords);
-					}else if(keyCommands[firstWord][secondWord][w].allowedParams == true){
+					}else if(keyCommands[firstWord][secondWord][w].allowedParams !== undefined){
 						array.push(...keyCommands[firstWord][secondWord][w].allowedParams);
 					}
 
