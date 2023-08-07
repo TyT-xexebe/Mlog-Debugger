@@ -205,7 +205,6 @@ function compareWord() {
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
         event.preventDefault();
-        
         const currentWord = getWord();
         const similarWords = compareWord();
         if (similarWords.length > 0) {
@@ -213,7 +212,7 @@ document.addEventListener('keydown', function(event) {
             const caretPos = textarea2.selectionStart;
             const startPos = textarea2.value.lastIndexOf(" ", caretPos - 1) + 1;
             const endPos = textarea2.value.indexOf(" ", caretPos);
-            const remainingText = textarea2.value.substring(endPos === -1 ? textarea2.value.length : endPos);
+            const remainingText = textarea2.value.substring(endPos === -1 ? caretPos : endPos);
             const autocompleteWord = similarWords[0];
             textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
         }
