@@ -411,7 +411,7 @@ document.addEventListener('keydown', function(event) {
     if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
 	    hightLightingErrors();
     }
-)};
+});
 
 
 let settings = (set, switching) => {
