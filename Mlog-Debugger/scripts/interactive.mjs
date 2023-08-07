@@ -113,13 +113,13 @@ let getArray = () => {
 		}
 		console.log(`currWord: ${currentWord} | subCommandRead: ${subCommandRead}`);
 		if(words[i] == currentWord){
-			if(i == 1){
+			if(i == 0){
 				let obj1 = Object.keys(keyCommands);
 				array.push(...obj1);
 				console.log("returned keyCommands")
 				return array
 			}
-			if(i == 2){
+			if(i == 1){
 				if(subCommandRead == 1){
 					let obj2 = Object.keys(keyCommands[firstWord]);
 					array.push(...obj2);
