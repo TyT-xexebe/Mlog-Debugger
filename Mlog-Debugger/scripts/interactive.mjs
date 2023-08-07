@@ -63,7 +63,6 @@ function getWord() {
         wordEnd++;
     }
     const currentWord = text.substring(wordStart, wordEnd);
-    console.log(`current word: ${currentWord}`)
     return currentWord;
 }
 
@@ -81,7 +80,6 @@ let getArray = () => {
 	loop2:for(let i = 0; i < words.length; i++){
 		let firstWord = words[0];
 		let secondWord = words[1];
-		console.log(`first: ${firstWord} | second: ${secondWord} | line: ${line}`)
 		if(keyCommands.hasOwnProperty(firstWord)){
 			if(keyCommands[firstWord].hasOwnProperty("someVariants")){
 				if(keyCommands[firstWord].hasOwnProperty(secondWord)){
@@ -90,8 +88,7 @@ let getArray = () => {
 					subCommandRead = 0;
 					let obj5 = Object.keys(keyCommands[firstWord]);
 					array.push(...obj5);
-					console.log("returned keyCommands")
-					return array
+					return array;
 				}
 			}else{
 				subCommandRead = 0;
@@ -101,11 +98,9 @@ let getArray = () => {
 				}else{
 					commandToFind = keyCommands[firstWord];
 				}
-				console.log(`sub: ${subCommandRead} | ${typeof commandToFind}`);
 				if(typeof commandToFind === "undefined"){
 					let obj3 = Object.keys(keyCommands[firstWord]);
 					array.push(...obj3);
-					console.log("returned keyCommands")
 					return array
 				}
 				if(typeof subCommandRead === "undefined"){
@@ -117,22 +112,18 @@ let getArray = () => {
 		}else{
 			let obj4 = Object.keys(keyCommands);
 			array.push(...obj4);
-			console.log("returned keyCommands")
 			return array
 		}
-		console.log(`currWord: ${currentWord} | subCommandRead: ${subCommandRead}`);
 		if(words[i] == currentWord){
 			if(i == 0){
 				let obj1 = Object.keys(keyCommands);
 				array.push(...obj1);
-				console.log("returned keyCommands")
 				return array
 			}
 			if(i == 1){
 				if(subCommandRead == 1){
 					let obj2 = Object.keys(keyCommands[firstWord]);
 					array.push(...obj2);
-					console.log("returned subCommands")
 					return array
 				}else{
 					if(keyCommands[firstWord].w1.keywords == true){
@@ -146,12 +137,10 @@ let getArray = () => {
 					}else if(keyCommands[firstWord].w1.allowedWords !== false){
 						array.push(...keyCommands[firstWord].w1.allowedWords);
 					}
-					console.log(`w1: ${array}`)
 					return array
 				}
 			}else{
 				let w = `w${i}`
-				console.log(`wWord: ${w}`);
 				if(subCommandRead == 1){
 					if(keyCommands[firstWord][secondWord][w].keywords == true){
 						array.push(...keywords);
@@ -164,7 +153,6 @@ let getArray = () => {
 					}else if(keyCommands[firstWord][secondWord][w].allowedWords !== false){
 						array.push(...keyCommands[firstWord][secondWord][w].allowedWords);
 					}
-					console.log(`${w}: ${array}`)
 					return array
 				}else{
 					if(keyCommands[firstWord][w].keywords == true){
@@ -178,7 +166,6 @@ let getArray = () => {
 					}else if(keyCommands[firstWord][w].allowedWords !== false){
 						array.push(...keyCommands[firstWord][w].allowedWords);
 					}
-					console.log(`${w}: ${array}`)
 					return array
 				}
 			}	
@@ -191,7 +178,6 @@ let getArray = () => {
 function compareWord() {
     const currentWord = getWord();
     const wordArray = getArray();
-	console.log(`currt: ${currentWord} | wordArray ${wordArray}`)
     const similar = document.getElementById("helper");
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
     console.log(`similarWords: ${similarWords} | wordArray: ${wordArray}`)
