@@ -407,13 +407,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
-document.addEventListener('keydown', function(event) {
-    if(event.code === 'Tab') {
-	    console.log("updating...")
-	    hightLightingErrors();
-    }
-});
-
 
 let settings = (set, switching) => {
 	let setArray = [...set];
@@ -500,4 +493,4 @@ settings(set5, switch5);
 settings(set6, switch6);
 settings(set7, switch7);
 hightLightingErrors();
-export {variables};
+export {variables, hightLightingErrors};
