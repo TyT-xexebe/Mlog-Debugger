@@ -54,9 +54,9 @@ textarea.addEventListener("click", (syntaxHelper));
 function getWord() {
     const text = textarea.value;
     const caretPos = textarea.selectionStart;
-    const startPos = text.lastIndexOf(" ", caretPos - 1) + 1;
-    const startPos2 = text.lastIndexOf("&nbsp;<br>", caretPos - 1) + 1;
-    const endPos = text.indexOf(" ", caretPos);
+    const startPos = text.lastIndexOf("&nbsp;", caretPos - 1) + 1;
+    const startPos2 = text.lastIndexOf("\n", caretPos - 1) + 1;
+    const endPos = text.indexOf("&nbsp;", caretPos);
     const currentWord = text.substring(startPos || startPos2, endPos === -1 ? text.length : endPos);
     console.log(`current word: ${currentWord}`)
     return currentWord;
@@ -91,13 +91,12 @@ let getArray = () => {
 			}else{
 				subCommandRead = 0;
 			}
-		      	console.log(`sub: ${subCommandRead}`)
 				if(subCommandRead == 1){
 					commandToFind = keyCommands[firstWord][secondWord];
 				}else{
 					commandToFind = keyCommands[firstWord];
 				}
-				console.log(typeof commandToFind);
+				console.log(`sub: ${subCommandRead} | ${typeof commandToFind}`);
 				if(typeof commandToFind === "undefined"){
 					let obj3 = Object.keys(keyCommands[firstWord]);
 					array.push(...obj3);
@@ -131,42 +130,52 @@ let getArray = () => {
 					console.log("returned subCommands")
 					return array
 				}else{
-					if(keyCommands[firstWord].w2.keywords == true){
+					if(keyCommands[firstWord].w1.keywords == true){
 						array.push(...keywords);
-					}else if(keyCommands[firstWord].w2.allowedParams == true){
-						array.push(...keyCommands[firstWord].w2.allowedParams);
+					}else if(keyCommands[firstWord].w1.allowedParams == true){
+						array.push(...keyCommands[firstWord].w1.allowedParams);
 					}
 
-					if(keyCommands[firstWord].w2.words == true){
+					if(keyCommands[firstWord].w1.words == true){
 						array.push(...variables);
-					}else if(keyCommands[firstWord].w2.allowedWords !== false){
-						array.push(...keyCommands[firstWord].w2.allowedWords);
+					}else if(keyCommands[firstWord].w1.allowedWords !== false){
+						array.push(...keyCommands[firstWord].w1.allowedWords);
 					}
-					console.log(`w2: ${array}`)
+					console.log(`w1: ${array}`)
 					return array
 				}
 			}else{
-				let w;
-				if(subCommandRead == 1){
-					w = `w${i + 1}`
-				}else{
-					w = `w${i}`
-				}
+				let w = `w${i}`
 				console.log(`wWord: ${w}`);
-				let array = [];
-				if(keyCommands[firstWord][w].keywords == true){
-					array.push(...keywords);
-				}else if(keyCommands[firstWord][w].allowedParams == true){
-					array.push(...keyCommands[firstWord][w].allowedParams);
-				}
+				if(subCommandRead == 1){
+					if(keyCommands[firstWord][secondWord][w].keywords == true){
+						array.push(...keywords);
+					}else if(keyCommands[firstWord][secondWord][w].allowedParams == true){
+						array.push(...keyCommands[firstWord][secondWord][w].allowedParams);
+					}
 
-				if(keyCommands[firstWord][w].words == true){
-					array.push(...variables);
-				}else if(keyCommands[firstWord][w].allowedWords !== false){
-					array.push(...keyCommands[firstWord][w].allowedWords);
+					if(keyCommands[firstWord][secondWord][w].words == true){
+						array.push(...variables);
+					}else if(keyCommands[firstWord][secondWord][w].allowedWords !== false){
+						array.push(...keyCommands[firstWord][secondWord][w].allowedWords);
+					}
+					console.log(`${w}: ${array}`)
+					return array
+				}else{
+					if(keyCommands[firstWord][w].keywords == true){
+						array.push(...keywords);
+					}else if(keyCommands[firstWord][w].allowedParams == true){
+						array.push(...keyCommands[firstWord][w].allowedParams);
+					}
+
+					if(keyCommands[firstWord][w].words == true){
+						array.push(...variables);
+					}else if(keyCommands[firstWord][w].allowedWords !== false){
+						array.push(...keyCommands[firstWord][w].allowedWords);
+					}
+					console.log(`${w}: ${array}`)
+					return array
 				}
-				console.log(`${w}: ${array}`)
-				return array
 			}	
 		}else{
 			continue loop2;
@@ -190,7 +199,7 @@ function compareWord() {
 }
 
 document.addEventListener('keydown', function(event) {
-    if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
+    if (event.code === 'Enter' && event.target.tagName === 'TEXTAREA') {
         const currentWord = getWord();
         const similarWords = compareWord();
         if (similarWords.length > 0) {
