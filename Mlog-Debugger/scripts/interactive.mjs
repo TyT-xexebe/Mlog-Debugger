@@ -55,7 +55,7 @@ function getWord() {
     const text = textarea.value;
     const caretPos = textarea.selectionStart;
     const startPos = text.lastIndexOf(" ", caretPos - 1) + 1;
-    const startPos2 = text.lastIndexOf("<br>&nbsp;", caretPos - 1) + 1;
+    const startPos2 = text.lastIndexOf("&nbsp;<br>", caretPos - 1) + 1;
     const endPos = text.indexOf(" ", caretPos);
     const currentWord = text.substring(startPos || startPos2, endPos === -1 ? text.length : endPos);
     console.log(`current word: ${currentWord}`)
@@ -146,11 +146,13 @@ let getArray = () => {
 					return array
 				}
 			}else{
+				let w;
 				if(subCommandRead == 1){
-					let w = `w${i + 1}`
+					w = `w${i + 1}`
 				}else{
-					let w = `w${i}`
+					w = `w${i}`
 				}
+				console.log(`wWord: ${w}`);
 				let array = [];
 				if(keyCommands[firstWord][w].keywords == true){
 					array.push(...keywords);
