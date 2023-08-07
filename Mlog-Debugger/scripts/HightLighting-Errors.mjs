@@ -408,7 +408,8 @@ textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
 document.addEventListener('keydown', function(event) {
-    if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
+    if(event.code === 'Tab') {
+	    console.log("updating...")
 	    hightLightingErrors();
     }
 });
