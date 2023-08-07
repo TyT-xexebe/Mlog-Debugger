@@ -229,4 +229,5 @@ document.addEventListener('keydown', function(event) {
 
 
 
+
 textarea.addEventListener("input", (compareWord));
