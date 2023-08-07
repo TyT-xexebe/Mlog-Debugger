@@ -154,9 +154,10 @@ let getArray = () => {
 					}
 					return array
 				}else{
+					if(keyCommands[firstWord][secondWord][w].keywords == true){
 					if(keyCommands[firstWord][w].keywords == true){
 						array.push(...keywords);
-					}else if(keyCommands[firstWord][w].allowedParams == true){
+					}else if(keyCommands[firstWord][w].allowedParams !== undefined){
 						array.push(...keyCommands[firstWord][w].allowedParams);
 					}
 
