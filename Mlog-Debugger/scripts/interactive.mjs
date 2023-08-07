@@ -180,9 +180,9 @@ function compareWord() {
     const similar = document.getElementById("helper");
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
     if (similarWords.length > 0) {
-        similar.textContent = similarWords.join("\n");
+        similar.innerHTML = similarWords.join("\n");
     } else {
-        similar.textContent = "nothing";
+        similar.innerHTML = "nothing";
     }
 	return similarWords
 }
@@ -190,6 +190,8 @@ document.addEventListener('keydown', function(event) {
     if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
         event.preventDefault();
         const currentWord = getWord();
+	const similar = document.getElementById("helper");
+	similar.innerHTML = " ";
         const similarWords = compareWord();
         if (similarWords.length > 0) {
             const textarea2 = event.target;
