@@ -202,21 +202,28 @@ function compareWord() {
     }
 	return similarWords
 }
-
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Enter' && event.target.tagName === 'TEXTAREA') {
-	event.preventDefault();
+        event.preventDefault();
+
         const currentWord = getWord();
         const similarWords = compareWord();
+
         if (similarWords.length > 0) {
-            const textarea2 = event.target;
-            const caretPos = textarea2.selectionStart;
-            const startPos = textarea2.value.lastIndexOf(" ", caretPos - 1) + 1;
-            const endPos = textarea2.value.indexOf(" ", caretPos);
-            const remainingText = textarea2.value.substring(endPos === -1 ? textarea2.value.length : endPos);
+            const textarea = event.target;
+            const caretPos = textarea.selectionStart;
+            const startPos = textarea.value.lastIndexOf(" ", caretPos - 1) + 1;
+            const endPos = textarea.value.indexOf(" ", caretPos);
+
+            const remainingText = endPos === -1 ? "" : textarea.value.substring(endPos);
             const autocompleteWord = similarWords[0];
-            textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
+
+            const newText = textarea.value.substring(0, startPos) + autocompleteWord + remainingText;
+            textarea.value = newText;
+            textarea.selectionStart = startPos + autocompleteWord.length;
+            textarea.selectionEnd = startPos + autocompleteWord.length;
         }
     }
 });
+
 textarea.addEventListener("input", (compareWord));
