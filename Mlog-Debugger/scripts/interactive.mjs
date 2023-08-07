@@ -1,6 +1,6 @@
 // imports all commands and his settings
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
-import {variables} from "../scripts/HightLighting-Errors.mjs"
+import {variables, hightLightingErrors} from "../scripts/HightLighting-Errors.mjs"
 const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
 
@@ -199,6 +199,7 @@ document.addEventListener('keydown', function(event) {
             const remainingText = textarea2.value.substring(endPos === -1 ? caretPos : endPos);
             const autocompleteWord = similarWords[0];
             textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
+	    hightLightingErrors()
         }
     }
 });
