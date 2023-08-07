@@ -6,7 +6,7 @@ const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
 
 let syntaxHelper = () => {
-	output.innerHTML = " ";
+  output.innerHTML = " ";
   let cursorPos = textarea.selectionStart;
   let text = textarea.value;
   let startOfLine = text.lastIndexOf('\n', cursorPos - 1) + 1;
@@ -55,8 +55,9 @@ function getWord() {
     const text = textarea.value;
     const caretPos = textarea.selectionStart;
     const startPos = text.lastIndexOf(" ", caretPos - 1) + 1;
+    const startPos2 = text.lastIndexOf("<br>", caretPos - 1) + 1;
     const endPos = text.indexOf(" ", caretPos);
-    const currentWord = text.substring(startPos, endPos === -1 ? text.length : endPos);
+    const currentWord = text.substring(startPos || startPos2, endPos === -1 ? text.length : endPos);
     console.log(`current word: ${currentWord}`)
     return currentWord;
 }
@@ -82,6 +83,10 @@ let getArray = () => {
 					subCommandRead = 1;
 				}else{
 					subCommandRead = 0;
+					let obj5 = Object.keys(keyCommands[firstWord]);
+					array.push(...obj5);
+					console.log("returned keyCommands")
+					return array
 				}
 			}else{
 				subCommandRead = 0;
