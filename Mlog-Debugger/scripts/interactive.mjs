@@ -203,7 +203,7 @@ function compareWord() {
 	return similarWords
 }
 document.addEventListener('keydown', function(event) {
-    if (event.code === 'Enter' && event.target.tagName === 'TEXTAREA') {
+    if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
         event.preventDefault();
 
         const currentWord = getWord();
@@ -215,16 +215,18 @@ document.addEventListener('keydown', function(event) {
             const startPos = textarea.value.lastIndexOf("\n", caretPos - 1) + 1;
             const endPos = textarea.value.indexOf("\n", caretPos);
 
+            const currentLine = textarea.value.substring(startPos, endPos === -1 ? undefined : endPos);
             const remainingText = endPos === -1 ? "" : textarea.value.substring(endPos);
             const autocompleteWord = similarWords[0];
 
-            const newText = textarea.value.substring(0, startPos) + autocompleteWord + remainingText;
+            const newText = textarea.value.substring(0, startPos) + currentLine + autocompleteWord + "\n" + remainingText;
             textarea.value = newText;
-            textarea.selectionStart = startPos + autocompleteWord.length;
-            textarea.selectionEnd = startPos + autocompleteWord.length;
+            textarea.selectionStart = startPos + currentLine.length + autocompleteWord.length + 1;
+            textarea.selectionEnd = startPos + currentLine.length + autocompleteWord.length + 1;
         }
     }
 });
+
 
 
 textarea.addEventListener("input", (compareWord));
