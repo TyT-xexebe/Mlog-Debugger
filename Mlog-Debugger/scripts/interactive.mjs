@@ -210,7 +210,7 @@ document.addEventListener('keydown', function(event) {
         if (similarWords.length > 0) {
             const textarea2 = event.target;
             const caretPos = textarea2.selectionStart;
-            const startPos = textarea2.value.lastIndexOf(" ", caretPos - 1) + 1;
+            const startPos = Math.max(textarea2.value.lastIndexOf(" ", caretPos - 1) + 1, textarea2.value.lastIndexOf("\n", caretPos - 1) + 1);
             const endPos = textarea2.value.indexOf(" ", caretPos);
             const remainingText = textarea2.value.substring(endPos === -1 ? caretPos : endPos);
             const autocompleteWord = similarWords[0];
