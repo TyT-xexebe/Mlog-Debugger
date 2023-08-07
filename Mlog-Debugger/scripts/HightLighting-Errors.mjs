@@ -481,9 +481,11 @@ let settings = (set, switching) => {
 		if(value8 == 1){
 			let helper = document.getElementById("helper");
 			helper.classList.add("autocomplete");
+			helper.classList.remove("helper");
 		}else{
 			let helper = document.getElementById("helper");
 			helper.classList.remove("autocomplete");
+			helper.classList.add("helper");
 		}
 	}
 	hightLightingErrors();
