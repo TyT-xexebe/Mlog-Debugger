@@ -54,9 +54,9 @@ textarea.addEventListener("click", (syntaxHelper));
 function getWord() {
     const text = textarea.value;
     const caretPos = textarea.selectionStart;
-    const startPos = text.lastIndexOf("&nbsp;", caretPos - 1) + 1;
+    const startPos = text.lastIndexOf(" ", caretPos - 1) + 1;
     const startPos2 = text.lastIndexOf("\n", caretPos - 1) + 1;
-    const endPos = text.indexOf("&nbsp;", caretPos);
+    const endPos = text.indexOf(" ", caretPos);
     const currentWord = text.substring(startPos || startPos2, endPos === -1 ? text.length : endPos);
     console.log(`current word: ${currentWord}`)
     return currentWord;
@@ -200,6 +200,7 @@ function compareWord() {
 
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Enter' && event.target.tagName === 'TEXTAREA') {
+	event.preventDefault();
         const currentWord = getWord();
         const similarWords = compareWord();
         if (similarWords.length > 0) {
