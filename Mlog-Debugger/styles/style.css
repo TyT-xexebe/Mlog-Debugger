@@ -79,7 +79,7 @@
 	font-size: small;
 }
 
-.other h5 {
+.helper, #suggestions {
 	background-color: rgb(31, 31, 31);
 	padding: 4px 15px 4px 15px;
 	border: none;
@@ -109,17 +109,18 @@
 	font-weight: 600;
 	font-size: small;
 	background-color: rgb(31, 31, 31);
-	height: 15vh;
+	height: 20vh;
 	overflow-y: scroll;
 	overflow-wrap: normal;
-	width: calc(10vw - 10px);
-	margin-left: 20vw;
+	width: calc(14vw - 10px);
+	margin-left: 28vw;
 	margin-top: 12vh;
 	padding: 8vh 5px 5px 5px;
 	position: absolute;
 	top: 0%;
 	z-index: 1;
 	border: solid 0.5px black;
+	border-radius: 3px;
 }
 
 #errorList {
