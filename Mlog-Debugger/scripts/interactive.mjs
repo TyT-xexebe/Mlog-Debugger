@@ -52,12 +52,17 @@ textarea.addEventListener("input", (syntaxHelper));
 textarea.addEventListener("click", (syntaxHelper));
 
 function getWord() {
+    const cursorPosition = textarea.selectionEnd;
     const text = textarea.value;
-    const caretPos = textarea.selectionStart;
-    const startPos = text.lastIndexOf(" ", caretPos - 1) + 1;
-    const startPos2 = text.lastIndexOf("\n", caretPos - 1) + 1;
-    const endPos = text.indexOf(" ", caretPos);
-    const currentWord = text.substring(startPos || startPos2, endPos === -1 ? text.length : endPos);
+    let wordStart = cursorPosition;
+    while (wordStart > 0 && /\S/.test(text[wordStart - 1])) {
+        wordStart--;
+    }
+    let wordEnd = cursorPosition;
+    while (wordEnd < text.length && /\S/.test(text[wordEnd])) {
+        wordEnd++;
+    }
+    const currentWord = text.substring(wordStart, wordEnd);
     console.log(`current word: ${currentWord}`)
     return currentWord;
 }
