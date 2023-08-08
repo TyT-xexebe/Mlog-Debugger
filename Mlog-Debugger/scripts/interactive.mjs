@@ -180,7 +180,7 @@ function compareWord() {
     const similar = document.getElementById("helper");
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
     if (similarWords.length > 0) {
-        similar.innerHTML = similarWords.join("\n");
+        similar.innerHTML = similarWords.join("<br>");
     } else {
         similar.innerHTML = "nothing";
     }
