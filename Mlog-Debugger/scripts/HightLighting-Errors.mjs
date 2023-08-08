@@ -479,15 +479,15 @@ let settings = (set, switching) => {
 			inColor = "vOutput";
 		}
 		if(value8 == 1){
-			let helper1 = document.getElementByClassName("helper");
-			let helper2 = document.getElementByClassName("autocomplete");
+			let helper1 = document.getElementsByClassName("helper");
+			let helper2 = document.getElementsByClassName("autocomplete");
 			helper1.style.display = "none";
 			helper2.style.display = "block";
 			helper1.removeAttribute("id");
 			helper2.id = "helper";
 		}else{
-			let helper1 = document.getElementByClassName("autocomplete");
-			let helper2 = document.getElementByClassName("helper");
+			let helper1 = document.getElementsByClassName("autocomplete");
+			let helper2 = document.getElementsByClassName("helper");
 			helper1.style.display = "none";
 			helper2.style.display = "block";
 			helper1.removeAttribute("id");
