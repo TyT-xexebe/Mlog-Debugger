@@ -179,9 +179,25 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 			}
 
-			if(words[0] == "#" || words[0] == "print"){
+			if(words[0] == "#"){
 				for(let i = 1; i < words.length; i++){
 					words[i] = `<span id="${textColor}">${words[i]}<span>`
+				}
+			}
+
+			if(words[0] == "print"){
+				let letters = words[1].split(" ");
+				let letters2 = words[words.length + 1].split(" ");
+				if(letters[0] == '"' && letters2[letters2.length + 1] == '"'){
+					for(let i = 1; i < words.length; i++){
+						words[i] = `<span id="${textColor}">${words[i]}<span>`
+					}
+				}else if(letters[0] !== '"' && letters2[letters2.length + 1] !== '"'){
+					words[1] = `<span id="${inColor}">${words[i]}<span>`
+					inputVariables.push(words[1]);
+				}else{
+					Errors.push({notfound: words[1], message: `the ${words[1]} print error ${secondWord}`, line: iteration1});
+					words[1] = `<span id="${errorColor}">${words[1]}</span>`
 				}
 			}
 				words[0] = `<span id="${commandColor}">${words[0]}</span>`
