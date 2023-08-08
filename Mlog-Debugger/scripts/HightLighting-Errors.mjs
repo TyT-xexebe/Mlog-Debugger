@@ -46,7 +46,7 @@ let set4 = new Set([1]);
 let set5 = new Set([0]);
 let set6 = new Set([0]);
 let set7 = new Set([0]);
-let set8 = new Set([0]);
+let set8 = new Set([1]);
 
 // creating arrays for errors
 let jumpLabels1 = [];
