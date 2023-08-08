@@ -137,6 +137,10 @@ let getArray = () => {
 					array.push(...obj2);
 					return array
 				}else{
+					if(firstWord == "#" || firstWord == "print"){
+						array.push("text");
+						return array;
+					}
 					if(keyCommands[firstWord].w1.keywords == true){
 						array.push(...keywords);
 					}else if(keyCommands[firstWord].w1.allowedParams !== undefined){
@@ -166,6 +170,10 @@ let getArray = () => {
 					}
 					return array
 				}else{
+					if(firstWord == "#" || firstWord == "print"){
+						array.push("text");
+						return array;
+					}
 					if(keyCommands[firstWord][w].keywords == true){
 						array.push(...keywords);
 					}else if(keyCommands[firstWord][w].allowedParams !== undefined){
