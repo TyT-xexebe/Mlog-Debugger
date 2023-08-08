@@ -79,7 +79,7 @@
 	font-size: small;
 }
 
-.helper, #suggestions {
+#suggestions {
 	background-color: rgb(31, 31, 31);
 	padding: 4px 15px 4px 15px;
 	border: none;
