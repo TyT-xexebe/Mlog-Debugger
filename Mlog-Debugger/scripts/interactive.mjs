@@ -86,6 +86,10 @@ let getArray = () => {
 				}else{
 					subCommandRead = 0;
 					let obj5 = Object.keys(keyCommands[firstWord]);
+					if(obj5.includes("someVariants")){
+						let index = obj5.indexOf("someVariants");
+						obj5.splice(index, 1);
+					}
 					array.push(...obj5);
 					return array;
 				}
@@ -99,7 +103,6 @@ let getArray = () => {
 				}
 				if(typeof commandToFind === "undefined"){
 					let obj3 = Object.keys(keyCommands[firstWord]);
-					console.log(`with " : ${obj3.includes("someVariants")} | without: ${obj3.includes(someVariants)}`);
 					if(obj3.includes("someVariants")){
 						let index = obj3.indexOf("someVariants");
 						obj3.splice(index, 1);
@@ -127,7 +130,6 @@ let getArray = () => {
 			if(i == 1){
 				if(subCommandRead == 1){
 					let obj2 = Object.keys(keyCommands[firstWord]);
-					console.log(`with " : ${obj2.includes("someVariants")} | without: ${obj2.includes(someVariants)}`);
 					if(obj2.includes("someVariants")){
 						let index = obj2.indexOf("someVariants");
 						obj2.splice(index, 1);
