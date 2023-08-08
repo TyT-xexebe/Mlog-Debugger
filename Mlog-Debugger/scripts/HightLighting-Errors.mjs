@@ -180,7 +180,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 			}
 
 			if(words[0] == "#" || words[0] == "print"){
-				for(let i = 1; words.length; i++){
+				for(let i = 1; i < words.length; i++){
 					words[i] = `<span id="${textColor}">${words[i]}<span>`
 				}
 			}
