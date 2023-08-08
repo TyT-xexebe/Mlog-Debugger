@@ -122,6 +122,10 @@ let getArray = () => {
 			if(i == 1){
 				if(subCommandRead == 1){
 					let obj2 = Object.keys(keyCommands[firstWord]);
+					if(obj2.includes("someVariants")){
+						let index = obj2.indexOf(someVariants);
+						obj2.splice(index, 1);
+					}
 					array.push(...obj2);
 					return array
 				}else{
