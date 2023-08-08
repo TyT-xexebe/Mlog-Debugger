@@ -195,7 +195,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						words[i] = `<span id="${textColor}">${words[i]}<span>`
 					}
 				}else if(letters[0] !== '"' && letters2[iter2] !== '"'){
-					words[1] = `<span id="${inColor}">${words[i]}<span>`
+					words[1] = `<span id="${inColor}">${words[1]}<span>`
 					inputVariables.push(words[1]);
 				}else{
 					Errors.push({notfound: words[1], message: `the ${words[1]} print error ${secondWord}`, line: iteration1});
