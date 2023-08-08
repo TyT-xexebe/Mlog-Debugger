@@ -189,6 +189,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				if(words.length > 1){
 					let letters = words[1].split(" ");
 					let letters2 = words[words.length - 1].split(" ");
+					console.log(`letters: ${letters} | letters2: ${letters2} `);
 					console.log(`line: ${lines[iteration1]}\n words: ${words}\n firstLetter: ${letters[0]}\n lastLetter: ${letters2[letters2.length - 1]}`);
 					if(letters[0] == '"' && letters2[letters2.length - 1] == '"'){
 						for(let i = 1; i < words.length; i++){
