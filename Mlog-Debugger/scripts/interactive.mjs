@@ -99,7 +99,7 @@ let getArray = () => {
 				}
 				if(typeof commandToFind === "undefined"){
 					let obj3 = Object.keys(keyCommands[firstWord]);
-					if(obj3.includes("someVariants")){
+					if(obj3.includes(someVariants)){
 						let index = obj3.indexOf(someVariants);
 						obj3.splice(index, 1);
 					}
@@ -126,7 +126,7 @@ let getArray = () => {
 			if(i == 1){
 				if(subCommandRead == 1){
 					let obj2 = Object.keys(keyCommands[firstWord]);
-					if(obj2.includes("someVariants")){
+					if(obj2.includes(someVariants)){
 						let index = obj2.indexOf(someVariants);
 						obj2.splice(index, 1);
 					}
