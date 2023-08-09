@@ -471,7 +471,13 @@ let settings = (set, switching, num) => {
 		set = 1;
 	}
 	let setter = `set${num}`
-	userSettings[setter] = set;
+	let setted
+	if(set == 1){
+		setted = 0;
+	}else{
+		setted = 1;
+	}
+	userSettings[setter] = setted;
 	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	// settings for highligtning
@@ -482,7 +488,6 @@ let settings = (set, switching, num) => {
 	let value5 = userSettings.set5;
 	let value6 = userSettings.set6;
 	let value8 = userSettings.set8;
-	console.log(`values: ${value1} ${value2} ${value3} ${value4} ${value5} ${value6} ${value8}`)
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
