@@ -471,13 +471,7 @@ let settings = (set, switching, num) => {
 		set = 1;
 	}
 	let setter = `set${num}`
-	let setted
-	if(set == 1){
-		setted = 0;
-	}else{
-		setted = 1;
-	}
-	userSettings[setter] = setted;
+	userSettings[setter] = set;
 	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	// settings for highligtning
@@ -533,7 +527,7 @@ let settings = (set, switching, num) => {
 		}else{
 			inColor = "vOutput";
 		}
-		if(value8 == 0){
+		if(value8 == 1){
 			let helper1 = document.getElementsByClassName("helper")[0];
 			let helper2 = document.getElementsByClassName("autocomplete")[0];
 			helper1.style.display = "none";
