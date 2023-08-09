@@ -457,7 +457,7 @@ textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
 
-let settings = (set, switching, num) => {
+let settings = (set, switching, num, change) => {
 	console.log(`set: ${set} | switch: ${switching}`);
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	let arr = Object.keys(userSettings).map(key => userSettings[key]);
@@ -465,11 +465,11 @@ let settings = (set, switching, num) => {
 	if (set == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
-		set = 0;
+		if(change == 1){set = 0;}
 	} else {
 		switching.style.transform = "translateX(var(--index))";
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
-		set = 1;
+		if(change == 1){set = 1;}
 	}
 	let setter = `set${num}`
 	userSettings[setter] = set;
@@ -549,13 +549,21 @@ let settings = (set, switching, num) => {
 	hightLightingErrors();
 };
 
-switch1.addEventListener("click", () => settings(userSettings.set1, switch1, "1"));
-switch2.addEventListener("click", () => settings(userSettings.set2, switch2, "2"));
-switch3.addEventListener("click", () => settings(userSettings.set3, switch3, "3"));
-switch4.addEventListener("click", () => settings(userSettings.set4, switch4, "4"));
-switch5.addEventListener("click", () => settings(userSettings.set5, switch5, "5"));
-switch6.addEventListener("click", () => settings(userSettings.set6, switch6, "6"));
-switch7.addEventListener("click", () => settings(userSettings.set7, switch7, "7"));
-switch8.addEventListener("click", () => settings(userSettings.set8, switch8, "8"));
+switch1.addEventListener("click", () => settings(userSettings.set1, switch1, "1", "1"));
+switch2.addEventListener("click", () => settings(userSettings.set2, switch2, "2", "1"));
+switch3.addEventListener("click", () => settings(userSettings.set3, switch3, "3", "1"));
+switch4.addEventListener("click", () => settings(userSettings.set4, switch4, "4", "1"));
+switch5.addEventListener("click", () => settings(userSettings.set5, switch5, "5", "1"));
+switch6.addEventListener("click", () => settings(userSettings.set6, switch6, "6", "1"));
+switch7.addEventListener("click", () => settings(userSettings.set7, switch7, "7", "1"));
+switch8.addEventListener("click", () => settings(userSettings.set8, switch8, "8", "1"));
+settings(userSettings.set1, switch1, "1", "0");
+settings(userSettings.set2, switch2, "2", "0");
+settings(userSettings.set3, switch3, "3", "0");
+settings(userSettings.set4, switch4, "4", "0");
+settings(userSettings.set5, switch5, "5", "0");
+settings(userSettings.set6, switch6, "6", "0");
+settings(userSettings.set7, switch7, "7", "0");
+settings(userSettings.set8, switch8, "8", "0");
 hightLightingErrors();
 export {variables, hightLightingErrors};
