@@ -482,7 +482,7 @@ let settings = (set, switching, num) => {
 	let value5 = userSettings.set5;
 	let value6 = userSettings.set6;
 	let value8 = userSettings.set8;
-	console.log(`values: ${value1} ${value2} ${value3} ${value4} ${value5} ${value6} ${value7} ${value8}`)
+	console.log(`values: ${value1} ${value2} ${value3} ${value4} ${value5} ${value6} ${value8}`)
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
