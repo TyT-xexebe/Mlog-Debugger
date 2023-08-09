@@ -15,7 +15,7 @@ if(!localStorage.getItem('userSettings')){
 	  set5: 0,
 	  set6: 0,
 	  set7: 0,
-	  set8: 1
+	  set8: 0
 	};
 	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 }else{
@@ -468,9 +468,6 @@ let settings = (set, switching, num, change) => {
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		set = 1;
 	}
-	let setter = `set${num}`
-	userSettings[setter] = set;
-	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	let arr = Object.keys(userSettings).map(key => userSettings[key]);
 	console.log(`first checking: ${arr}`);
@@ -482,6 +479,9 @@ let settings = (set, switching, num, change) => {
 	let value5 = userSettings.set5;
 	let value6 = userSettings.set6;
 	let value8 = userSettings.set8;
+	let setter = `set${num}`
+	userSettings[setter] = set;
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
