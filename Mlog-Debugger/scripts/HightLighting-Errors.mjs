@@ -462,11 +462,11 @@ let settings = (set, switching, num, change) => {
 	if (set == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
-		if(change == 1){set = 0;}
+		set = 0;
 	} else {
 		switching.style.transform = "translateX(var(--index))";
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
-		if(change == 1){set = 1;}
+		set = 1;
 	}
 	let setter = `set${num}`
 	userSettings[setter] = set;
