@@ -459,9 +459,6 @@ button2.addEventListener("click", (openF2));
 
 let settings = (set, switching, num, change) => {
 	console.log(`set: ${set} | switch: ${switching}`);
-	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-	let arr = Object.keys(userSettings).map(key => userSettings[key]);
-	console.log(`first checking: ${arr}`);
 	if (set == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
@@ -471,9 +468,9 @@ let settings = (set, switching, num, change) => {
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		if(change == 1){set = 1;}
 	}
-	let setter = `set${num}`
-	userSettings[setter] = set;
-	localStorage.setItem('userSettings', JSON.stringify(userSettings));
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
+	let arr = Object.keys(userSettings).map(key => userSettings[key]);
+	console.log(`first checking: ${arr}`);
 	// settings for highligtning
 	let value1 = userSettings.set1;
 	let value2 = userSettings.set2;
@@ -543,9 +540,9 @@ let settings = (set, switching, num, change) => {
 			helper2.id = "helper";
 		}
 	}
-	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-	arr = Object.keys(userSettings).map(key => userSettings[key]);
-	console.log(`second checking: ${arr}`);
+	let setter = `set${num}`
+	userSettings[setter] = set;
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	hightLightingErrors();
 };
 
