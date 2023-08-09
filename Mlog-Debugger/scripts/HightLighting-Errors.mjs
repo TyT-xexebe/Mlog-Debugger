@@ -8,14 +8,14 @@ for (let i = 0; i < blocks.length; i++) {
 let userSettings
 if(!localStorage.getItem('userSettings')){
 	userSettings = {
-	  set1: '1',
-	  set2: '1',
-	  set3: '0',
-	  set4: '1',
-	  set5: '0',
-	  set6: '0',
-	  set7: '0',
-	  set8: '1'
+	  set1: 1,
+	  set2: 1,
+	  set3: 0,
+	  set4: 1,
+	  set5: 0,
+	  set6: 0,
+	  set7: 0,
+	  set8: 1
 	};
 	localStorage.setItem('userSettings', userSettings);
 }else{
