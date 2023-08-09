@@ -452,6 +452,8 @@ if(!localStorage.getItem('userSettings')){
 	  set7: [0],
 	  set8: [1]
 	};
+}else{
+	let userSettings = localStorage.getItem('userSettings');
 }
 
 let settings = (set, switching) => {
