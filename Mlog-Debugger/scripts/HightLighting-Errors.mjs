@@ -1,5 +1,8 @@
 // imports all commands and his settings
-import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
+import {keyCommands, keywords, blocks} from "../scripts/ObjectsMlog.mjs"
+for(let i = 0; i < blocks.length; i++){
+  blocks[i] = `/${blocks[i]}\d\?d\?d\?d/`
+}
 let openF = () => {
 	let errorOutput = document.getElementById("errorList");
 	if(errorOutput.style.display == "none"){
@@ -157,7 +160,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				lines[iteration1] = words.join('&nbsp;');
 			}else if(firstWord.startsWith("<")){
 				lines[iteration1] = words.join('&nbsp;');
-			}else if(firstWord.toString() == " " || firstWord.toString() == "&nbsp;<br>" || firstWord.toString() == " <br>" || firstWord.toString() == "<br>" || firstWord.toString() == " \n" || firstWord.toString() == " &nbsp;" || firstWord.toString() == " " || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "\n" || firstWord.toString() == "\n&nbsp;" || firstWord.toString() == "&nbsp;\n" || firstWord.toString() == "&nbsp;"){
+			}else if(firstWord == "\s" || firstWord == "\t" || firstWord == "\v"){
 				lines[iteration1] = words.join('&nbsp;');
 			}else{
 				Errors.push({notfound: firstWord, message: `the ${firstWord} not a command`, line: iteration1});
@@ -199,7 +202,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 						words[1] = `<span id="${inColor}">${words[1]}<span>`
 						inputVariables.push(words[1]);
 					}else{
-						Errors.push({notfound: words[1], message: `the ${words[1]} print error ${secondWord}`, line: iteration1});
+						Errors.push({notfound: words[1], message: `the ${words[0]} error ${secondWord}`, line: iteration1});
 						words[1] = `<span id="${errorColor}">${words[1]}</span>`
 					}
 				}
@@ -313,6 +316,13 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 							const missingVar1 = variables.filter(value => !inputVariables.includes(value));
 							const missingVar2 = inputVariables.filter(value => !variables.includes(value));
 							missingVar = [...missingVar1, ...missingVar2];
+							for (const regex of blocks) {
+							    if (regex.test(words[iteration2])) {
+							      	words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
+								Errors.push({notfound: words[iteration2], message: "variable output cant be named as blocks", line: iteration1});
+								continue MainLoop;
+							    }
+							}
 							if(!missingVar.includes(words[iteration2])){
 								if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
 									words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
@@ -348,6 +358,11 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								const missingVar1 = variables.filter(value => !inputVariables.includes(value));
 								const missingVar2 = inputVariables.filter(value => !variables.includes(value));
 								missingVar = [...missingVar1, ...missingVar2];
+								for (const regex of blocks) {
+								    if (regex.test(words[iteration2])) {
+									continue MainLoop;
+								    }
+								}
 								if(!missingVar.includes(words[iteration2])){
 									if(words[iteration2].toString() === "true" || words[iteration2].toString() === "false"){
 										words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
