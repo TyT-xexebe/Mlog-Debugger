@@ -468,6 +468,9 @@ let settings = (set, switching, num, change) => {
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		if(change == 1){set = 1;}
 	}
+	let setter = `set${num}`
+	userSettings[setter] = set;
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	let arr = Object.keys(userSettings).map(key => userSettings[key]);
 	console.log(`first checking: ${arr}`);
@@ -540,9 +543,6 @@ let settings = (set, switching, num, change) => {
 			helper2.id = "helper";
 		}
 	}
-	let setter = `set${num}`
-	userSettings[setter] = set;
-	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	hightLightingErrors();
 };
 
