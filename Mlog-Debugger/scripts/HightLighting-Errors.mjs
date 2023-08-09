@@ -441,8 +441,9 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
+let userSettings
 if(!localStorage.getItem('userSettings')){
-	let userSettings = {
+	userSettings = {
 	  set1: [1],
 	  set2: [1],
 	  set3: [0],
@@ -453,7 +454,7 @@ if(!localStorage.getItem('userSettings')){
 	  set8: [1]
 	};
 }else{
-	let userSettings = localStorage.getItem('userSettings');
+	userSettings = localStorage.getItem('userSettings');
 }
 
 let settings = (set, switching) => {
