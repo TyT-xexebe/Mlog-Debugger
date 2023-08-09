@@ -1,8 +1,26 @@
 // imports all commands and his settings
 import {keyCommands, keywords, blocks} from "../scripts/ObjectsMlog.mjs"
+
 for (let i = 0; i < blocks.length; i++) {
   blocks[i] = new RegExp(`/${blocks[i]}\\d\\?d\\?d\\?d/`);
 }
+
+let userSettings
+if(!localStorage.getItem('userSettings')){
+	userSettings = {
+	  set1: 1,
+	  set2: 1,
+	  set3: 0,
+	  set4: 1,
+	  set5: 0,
+	  set6: 0,
+	  set7: 0,
+	  set8: 1
+	};
+}else{
+	userSettings = localStorage.getItem('userSettings');
+}
+
 let openF = () => {
 	let errorOutput = document.getElementById("errorList");
 	if(errorOutput.style.display == "none"){
@@ -326,9 +344,8 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 									words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 									continue MainLoop;
 								}
-								let inp1 = [...set7];
-								let inp2 = inp1[0];
-								if(inp2 == 0){
+								
+								if(userSettings.set7 == 0){
 									Errors.push({notfound: words[iteration2], message: "this variable dont used in code", line: iteration1});
 									words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 								}else{
@@ -365,9 +382,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 										words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 										continue MainLoop;
 									}
-									let inp3 = [...set7];
-									let inp4 = inp3[0];
-									if(inp4 == 0){
+									if(userSettings.set7 == 0){
 										Errors.push({notfound: words[iteration2], message: "this variable not declarated in code", line: iteration1});
 										words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 									}else{
@@ -441,21 +456,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
-let userSettings
-if(!localStorage.getItem('userSettings')){
-	userSettings = {
-	  set1: [1],
-	  set2: [1],
-	  set3: [0],
-	  set4: [1],
-	  set5: [0],
-	  set6: [0],
-	  set7: [0],
-	  set8: [1]
-	};
-}else{
-	userSettings = localStorage.getItem('userSettings');
-}
 
 let settings = (set, switching) => {
 	if (set == 1) {
