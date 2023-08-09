@@ -469,6 +469,10 @@ let settings = (set, switching, num) => {
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		set = 1;
 	}
+	let setter = `set${num}`
+	userSettings[setter] = set;
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	// settings for highligtning
 	let value1 = userSettings.set1;
 	let value2 = userSettings.set2;
@@ -539,12 +543,6 @@ let settings = (set, switching, num) => {
 			helper2.id = "helper";
 		}
 	}
-	let setter = `set${num}`
-	console.log(userSettings[setter])
-	userSettings[setter] = set;
-	localStorage.setItem('userSettings', JSON.stringify(userSettings));
-	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-	console.log(userSettings);
 	hightLightingErrors();
 };
 
