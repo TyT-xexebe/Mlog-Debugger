@@ -17,9 +17,9 @@ if(!localStorage.getItem('userSettings')){
 	  set7: 0,
 	  set8: 1
 	};
-	localStorage.setItem('userSettings', userSettings);
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 }else{
-	userSettings = localStorage.getItem('userSettings');
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	console.log(userSettings);
 }
 
@@ -540,9 +540,10 @@ let settings = (set, switching, num) => {
 		}
 	}
 	let setter = `set${num}`
+	console.log(userSettings[setter])
 	userSettings[setter] = set;
-	localStorage.setItem('userSettings', userSettings);
-	userSettings = localStorage.getItem('userSettings');
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	console.log(userSettings);
 	hightLightingErrors();
 };
