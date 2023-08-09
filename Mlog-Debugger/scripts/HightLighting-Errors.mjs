@@ -19,7 +19,8 @@ if(!localStorage.getItem('userSettings')){
 	};
 	localStorage.setItem('userSettings', userSettings);
 }else{
-	userSettings = JSON.parse(localStorage.getItem('userSettings'));
+	userSettings = localStorage.getItem('userSettings');
+	userSettings = parse(userSettings);
 }
 
 let openF = () => {
@@ -541,6 +542,8 @@ let settings = (set, switching, num) => {
 	let setter = `set${num}`
 	userSettings[setter] = set;
 	localStorage.setItem('userSettings', userSettings);
+	userSettings = localStorage.getItem('userSettings');
+	userSettings = parse(userSettings);
 	hightLightingErrors();
 };
 
