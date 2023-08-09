@@ -1407,4 +1407,4 @@ let keyCommands = {
  }
 }
 
-export {keyCommands, keywords}
+export {keyCommands, keywords, blocks}
