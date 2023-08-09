@@ -43,7 +43,7 @@ let openF2 = () => {
 }
 openF2();
 
-// settings
+// highlighting settings
 let keyColor;
 let textColor;
 let commandColor;
@@ -432,8 +432,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 	jumpLabels1 = [];
 	jumpLabels2 = [];
 	missingValues = [];
-
-	
 
 	for (let ii = 0; ii < lines.length; ii++) {
 		let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
