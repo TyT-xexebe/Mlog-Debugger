@@ -460,6 +460,7 @@ button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
 
 let settings = (set, switching, num) => {
+	console.log(`set: ${set} | switch: ${switching}`)
 	if (set == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
@@ -481,7 +482,7 @@ let settings = (set, switching, num) => {
 	let value5 = userSettings.set5;
 	let value6 = userSettings.set6;
 	let value8 = userSettings.set8;
-	
+	console.log(`values: ${value1} ${value2} ${value3} ${value4} ${value5} ${value6} ${value7} ${value8}`)
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
@@ -554,6 +555,7 @@ switch5.addEventListener("click", () => settings(userSettings.set5, switch5, "5"
 switch6.addEventListener("click", () => settings(userSettings.set6, switch6, "6"));
 switch7.addEventListener("click", () => settings(userSettings.set7, switch7, "7"));
 switch8.addEventListener("click", () => settings(userSettings.set8, switch8, "8"));
+console.log("started fixing")
 settings(userSettings.set1, switch1, "1");
 settings(userSettings.set2, switch2, "2");
 settings(userSettings.set3, switch3, "3");
