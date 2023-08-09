@@ -1,7 +1,7 @@
 // imports all commands and his settings
 import {keyCommands, keywords, blocks} from "../scripts/ObjectsMlog.mjs"
-for(let i = 0; i < blocks.length; i++){
-  blocks[i] = `/${blocks[i]}\d\?d\?d\?d/`
+for (let i = 0; i < blocks.length; i++) {
+  blocks[i] = new RegExp(`/${blocks[i]}\\d\\?d\\?d\\?d/`);
 }
 let openF = () => {
 	let errorOutput = document.getElementById("errorList");
@@ -42,14 +42,16 @@ let switch6 = document.getElementById("show6");
 let switch7 = document.getElementById("show7");
 let switch8 = document.getElementById("show8");
 
-let set1 = new Set([1]);
-let set2 = new Set([1]);
-let set3 = new Set([0]);
-let set4 = new Set([1]);
-let set5 = new Set([0]);
-let set6 = new Set([0]);
-let set7 = new Set([0]);
-let set8 = new Set([1]);
+let userSettings = {
+  set1: [1],
+  set2: [1],
+  set3: [0],
+  set4: [1],
+  set5: [0],
+  set6: [0],
+  set7: [0],
+  set8: [1]
+};
 
 // creating arrays for errors
 let jumpLabels1 = [];
@@ -467,13 +469,13 @@ let settings = (set, switching) => {
 		set.add(1);
 	}
 	// settings for highligtning
-	let value1 = [...set1][0];
-	let value2 = [...set2][0];
-	let value3 = [...set3][0];
-	let value4 = [...set4][0];
-	let value5 = [...set5][0];
-	let value6 = [...set6][0];
-	let value8 = [...set8][0];
+	let value1 = [userSettings.set1][0];
+	let value2 = [userSettings.set2][0];
+	let value3 = [userSettings.set3][0];
+	let value4 = [userSettings.set4][0];
+	let value5 = [userSettings.set5][0];
+	let value6 = [userSettings.set6][0];
+	let value8 = [userSettings.set8][0];
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
@@ -535,23 +537,40 @@ let settings = (set, switching) => {
 			helper2.id = "helper";
 		}
 	}
+	userSettings[set] = [...set];
+
+  	// Convert settings object to JSON and save to localStorage
+  	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	hightLightingErrors();
 };
-switch1.addEventListener("click", () => settings(set1, switch1));
-switch2.addEventListener("click", () => settings(set2, switch2));
-switch3.addEventListener("click", () => settings(set3, switch3));
-switch4.addEventListener("click", () => settings(set4, switch4));
-switch5.addEventListener("click", () => settings(set5, switch5));
-switch6.addEventListener("click", () => settings(set6, switch6));
-switch7.addEventListener("click", () => settings(set7, switch7));
-switch8.addEventListener("click", () => settings(set8, switch8));
-settings(set1, switch1);
-settings(set2, switch2);
-settings(set3, switch3);
-settings(set4, switch4);
-settings(set5, switch5);
-settings(set6, switch6);
-settings(set7, switch7);
-settings(set8, switch8);
+
+function applySavedSettings() {
+  let storedSettings = localStorage.getItem('userSettings');
+  if (storedSettings) {
+    userSettings = JSON.parse(storedSettings);
+  }
+  
+  // Apply saved settings to switches
+  for (let key in userSettings) {
+    let set = userSettings[key];
+    let switchElement = document.getElementById(key);
+    updateSettings(set, switchElement);
+  }
+}
+
+// Set up switch event listeners
+function setupSwitchListeners() {
+  let switches = document.querySelectorAll('.switch');
+  switches.forEach(switchElem => {
+    switchElem.addEventListener("click", () => {
+      let setId = switchElem.id;
+      updateSettings(userSettings[setId], switchElem);
+    });
+  });
+}
+
+// Call functions to apply saved settings and set up listeners
+applySavedSettings();
+setupSwitchListeners();
 hightLightingErrors();
 export {variables, hightLightingErrors};
