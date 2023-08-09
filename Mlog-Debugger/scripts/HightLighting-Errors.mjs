@@ -458,7 +458,7 @@ button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
 
 let settings = (set, switching) => {
-	if (set == 1) {
+	if (userSettings[set] == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
 		set = 0;
@@ -468,13 +468,13 @@ let settings = (set, switching) => {
 		set = 1;
 	}
 	// settings for highligtning
-	let value1 = [userSettings.set1];
-	let value2 = [userSettings.set2];
-	let value3 = [userSettings.set3];
-	let value4 = [userSettings.set4];
-	let value5 = [userSettings.set5];
-	let value6 = [userSettings.set6];
-	let value8 = [userSettings.set8];
+	let value1 = userSettings.set1;
+	let value2 = userSettings.set2;
+	let value3 = userSettings.set3;
+	let value4 = userSettings.set4;
+	let value5 = userSettings.set5;
+	let value6 = userSettings.set6;
+	let value8 = userSettings.set8;
 	
 	if(value1 == 1){
 		keyColor = "text";
@@ -542,21 +542,21 @@ let settings = (set, switching) => {
 	hightLightingErrors();
 };
 
-switch1.addEventListener("click", () => settings(userSettings.set1, switch1));
-switch2.addEventListener("click", () => settings(userSettings.set2, switch2));
-switch3.addEventListener("click", () => settings(userSettings.set3, switch3));
-switch4.addEventListener("click", () => settings(userSettings.set4, switch4));
-switch5.addEventListener("click", () => settings(userSettings.set5, switch5));
-switch6.addEventListener("click", () => settings(userSettings.set6, switch6));
-switch7.addEventListener("click", () => settings(userSettings.set7, switch7));
-switch8.addEventListener("click", () => settings(userSettings.set8, switch8));
-settings(userSettings.set1, switch1);
-settings(userSettings.set2, switch2);
-settings(userSettings.set3, switch3);
-settings(userSettings.set4, switch4);
-settings(userSettings.set5, switch5);
-settings(userSettings.set6, switch6);
-settings(userSettings.set7, switch7);
-settings(userSettings.set8, switch8);
+switch1.addEventListener("click", () => settings(set1, switch1));
+switch2.addEventListener("click", () => settings(set2, switch2));
+switch3.addEventListener("click", () => settings(set3, switch3));
+switch4.addEventListener("click", () => settings(set4, switch4));
+switch5.addEventListener("click", () => settings(set5, switch5));
+switch6.addEventListener("click", () => settings(set6, switch6));
+switch7.addEventListener("click", () => settings(set7, switch7));
+switch8.addEventListener("click", () => settings(set8, switch8));
+settings(set1, switch1);
+settings(set2, switch2);
+settings(set3, switch3);
+settings(set4, switch4);
+settings(set5, switch5);
+settings(set6, switch6);
+settings(set7, switch7);
+settings(set8, switch8);
 hightLightingErrors();
 export {variables, hightLightingErrors};
