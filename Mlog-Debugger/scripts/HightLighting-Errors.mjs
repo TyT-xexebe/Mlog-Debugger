@@ -489,7 +489,8 @@ let settings = (set, switching, num, change) => {
 	let value5 = userSettings.set5;
 	let value6 = userSettings.set6;
 	let value8 = userSettings.set8;
-	if(value1 == 1){
+	
+	if(value1 == 0){
 		keyColor = "text";
 		commandColor = "text";
 		textColor = "text";
@@ -499,19 +500,19 @@ let settings = (set, switching, num, change) => {
 		varColor = "text";
 		inColor = "text";
 	}else{
-		if(value2 == 1){
+		if(value2 == 0){
 			errorColor = "text";
 		}else{
 			errorColor = "errors";
 		}
 		
-		if(value3 == 1){
+		if(value3 == 0){
 			labelColor = "text";
 		}else{
 			labelColor = "label";
 		}
 
-		if(value4 == 1){
+		if(value4 == 0){
 			keyColor = "text";
 			commandColor = "text";
 			numberColor = "text";
@@ -523,18 +524,18 @@ let settings = (set, switching, num, change) => {
 			textColor = "text";
 		}
 
-		if(value5 == 1){
+		if(value5 == 0){
 			varColor = "text";
 		}else{
 			varColor = "variable";
 		}
 
-		if(value6 == 1){
+		if(value6 == 0){
 			inColor = "text";
 		}else{
 			inColor = "vOutput";
 		}
-		if(value8 == 1){
+		if(value8 == 0){
 			let helper1 = document.getElementsByClassName("helper")[0];
 			let helper2 = document.getElementsByClassName("autocomplete")[0];
 			helper1.style.display = "none";
