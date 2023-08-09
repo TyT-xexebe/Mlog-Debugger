@@ -461,9 +461,6 @@ button2.addEventListener("click", (openF2));
 
 let settings = (set, switching, num) => {
 	console.log(`set: ${set} | switch: ${switching}`);
-	let setter = `set${num}`
-	userSettings[setter] = set;
-	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	if (set == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
@@ -474,6 +471,9 @@ let settings = (set, switching, num) => {
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		set = 1;
 	}
+	let setter = `set${num}`
+	userSettings[setter] = set;
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	// settings for highligtning
 	let value1 = userSettings.set1;
 	let value2 = userSettings.set2;
