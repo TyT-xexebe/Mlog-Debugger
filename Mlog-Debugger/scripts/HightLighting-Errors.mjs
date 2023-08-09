@@ -459,6 +459,9 @@ button2.addEventListener("click", (openF2));
 
 let settings = (set, switching, num, change) => {
 	console.log(`set: ${set} | switch: ${switching}`);
+	let setter = `set${num}`
+	userSettings[setter] = set;
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	if (set == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
@@ -479,9 +482,6 @@ let settings = (set, switching, num, change) => {
 	let value5 = userSettings.set5;
 	let value6 = userSettings.set6;
 	let value8 = userSettings.set8;
-	let setter = `set${num}`
-	userSettings[setter] = set;
-	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
