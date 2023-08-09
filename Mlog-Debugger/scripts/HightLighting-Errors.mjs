@@ -462,6 +462,8 @@ button2.addEventListener("click", (openF2));
 let settings = (set, switching, num) => {
 	console.log(`set: ${set} | switch: ${switching}`);
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
+	let arr = Object.keys(userSettings).map(key => userSettings[key]);
+	console.log(`first checking: ${arr}`);
 	if (set == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
@@ -543,6 +545,9 @@ let settings = (set, switching, num) => {
 			helper2.id = "helper";
 		}
 	}
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
+	arr = Object.keys(userSettings).map(key => userSettings[key]);
+	console.log(`second checking: ${arr}`);
 	hightLightingErrors();
 };
 
@@ -554,14 +559,5 @@ switch5.addEventListener("click", () => settings(userSettings.set5, switch5, "5"
 switch6.addEventListener("click", () => settings(userSettings.set6, switch6, "6"));
 switch7.addEventListener("click", () => settings(userSettings.set7, switch7, "7"));
 switch8.addEventListener("click", () => settings(userSettings.set8, switch8, "8"));
-console.log("started fixing")
-settings(userSettings.set1, switch1, "1");
-settings(userSettings.set2, switch2, "2");
-settings(userSettings.set3, switch3, "3");
-settings(userSettings.set4, switch4, "4");
-settings(userSettings.set5, switch5, "5");
-settings(userSettings.set6, switch6, "6");
-settings(userSettings.set7, switch7, "7");
-settings(userSettings.set8, switch8, "8");
 hightLightingErrors();
 export {variables, hightLightingErrors};
