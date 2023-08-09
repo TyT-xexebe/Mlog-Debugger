@@ -42,17 +42,6 @@ let switch6 = document.getElementById("show6");
 let switch7 = document.getElementById("show7");
 let switch8 = document.getElementById("show8");
 
-let userSettings = {
-  set1: [1],
-  set2: [1],
-  set3: [0],
-  set4: [1],
-  set5: [0],
-  set6: [0],
-  set7: [0],
-  set8: [1]
-};
-
 // creating arrays for errors
 let jumpLabels1 = [];
 let jumpLabels2 = [];
@@ -452,30 +441,38 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 textarea.addEventListener("input", (hightLightingErrors));
 button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
+if(!localStorage.getItem('userSettings')){
+	let userSettings = {
+	  set1: [1],
+	  set2: [1],
+	  set3: [0],
+	  set4: [1],
+	  set5: [0],
+	  set6: [0],
+	  set7: [0],
+	  set8: [1]
+	};
+}
 
 let settings = (set, switching) => {
-	let setArray = [...set];
-	let firstValue = setArray[0];
-
-	if (firstValue == 1) {
+	if (set == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
-		set.clear();
-		set.add(0);
+		set = 0;
 	} else {
 		switching.style.transform = "translateX(var(--index))";
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
-		set.clear();
-		set.add(1);
+		set = 1;
 	}
 	// settings for highligtning
-	let value1 = [userSettings.set1][0];
-	let value2 = [userSettings.set2][0];
-	let value3 = [userSettings.set3][0];
-	let value4 = [userSettings.set4][0];
-	let value5 = [userSettings.set5][0];
-	let value6 = [userSettings.set6][0];
-	let value8 = [userSettings.set8][0];
+	let value1 = [userSettings.set1];
+	let value2 = [userSettings.set2];
+	let value3 = [userSettings.set3];
+	let value4 = [userSettings.set4];
+	let value5 = [userSettings.set5];
+	let value6 = [userSettings.set6];
+	let value8 = [userSettings.set8];
+	
 	if(value1 == 1){
 		keyColor = "text";
 		commandColor = "text";
@@ -521,7 +518,7 @@ let settings = (set, switching) => {
 		}else{
 			inColor = "vOutput";
 		}
-		if(value8 == 1){
+		if(value8 == 0){
 			let helper1 = document.getElementsByClassName("helper")[0];
 			let helper2 = document.getElementsByClassName("autocomplete")[0];
 			helper1.style.display = "none";
@@ -537,40 +534,26 @@ let settings = (set, switching) => {
 			helper2.id = "helper";
 		}
 	}
-	userSettings[set] = [...set];
-
-  	// Convert settings object to JSON and save to localStorage
-  	localStorage.setItem('userSettings', JSON.stringify(userSettings));
+	userSettings[set] = set;
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	hightLightingErrors();
 };
 
-function applySavedSettings() {
-  let storedSettings = localStorage.getItem('userSettings');
-  if (storedSettings) {
-    userSettings = JSON.parse(storedSettings);
-  }
-  
-  // Apply saved settings to switches
-  for (let key in userSettings) {
-    let set = userSettings[key];
-    let switchElement = document.getElementById(key);
-    updateSettings(set, switchElement);
-  }
-}
-
-// Set up switch event listeners
-function setupSwitchListeners() {
-  let switches = document.querySelectorAll('.switch');
-  switches.forEach(switchElem => {
-    switchElem.addEventListener("click", () => {
-      let setId = switchElem.id;
-      updateSettings(userSettings[setId], switchElem);
-    });
-  });
-}
-
-// Call functions to apply saved settings and set up listeners
-applySavedSettings();
-setupSwitchListeners();
+switch1.addEventListener("click", () => settings(userSettings.set1, switch1));
+switch2.addEventListener("click", () => settings(userSettings.set2, switch2));
+switch3.addEventListener("click", () => settings(userSettings.set3, switch3));
+switch4.addEventListener("click", () => settings(userSettings.set4, switch4));
+switch5.addEventListener("click", () => settings(userSettings.set5, switch5));
+switch6.addEventListener("click", () => settings(userSettings.set6, switch6));
+switch7.addEventListener("click", () => settings(userSettings.set7, switch7));
+switch8.addEventListener("click", () => settings(userSettings.set8, switch8));
+settings(userSettings.set1, switch1);
+settings(userSettings.set2, switch2);
+settings(userSettings.set3, switch3);
+settings(userSettings.set4, switch4);
+settings(userSettings.set5, switch5);
+settings(userSettings.set6, switch6);
+settings(userSettings.set7, switch7);
+settings(userSettings.set8, switch8);
 hightLightingErrors();
 export {variables, hightLightingErrors};
