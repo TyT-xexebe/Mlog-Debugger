@@ -225,10 +225,10 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
-let complete = document.getElementsByClassName("autocomplete")[0];
 
 document.addEventListener('keydown', function(event) {
 	if (event.altKey && event.key === 'z'){
+		let complete = document.getElementsByClassName("autocomplete")[0];
 		console.log("clicked")
 		if(complete.style.display == "block"){
 			complete.style.display = "none";
@@ -241,6 +241,7 @@ document.addEventListener('keydown', function(event) {
 function showing(line, num){
     let xOS = num * 10;
     let yOS = line * 16 + 10vh;
+    let complete = document.getElementsByClassName("autocomplete")[0];
     complete.style.left = `${xOS}px`
     complete.style.top = `${yOS}px`
 }
