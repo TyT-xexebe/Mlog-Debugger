@@ -459,12 +459,12 @@ button2.addEventListener("click", (openF2));
 
 let settings = (set, switching, num, change) => {
 	let setter = `set${num}`
-	if (set == 0) {
+	if (set == 1) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
 		if(change == 1){
 			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
-			set = 1;
+			set = 0;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
 		}
@@ -473,7 +473,7 @@ let settings = (set, switching, num, change) => {
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		if(change == 1){
 			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
-			set = 0;
+			set = 1;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
 		}
