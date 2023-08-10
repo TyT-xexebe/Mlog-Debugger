@@ -463,7 +463,7 @@ let settings = (set, switching, num, change) => {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
 		if(change == 1){
-			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
+			console.log(`set: ${setter} | oldUser: ${userSettings[setter]} | green`)
 			set = 0;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
@@ -472,7 +472,7 @@ let settings = (set, switching, num, change) => {
 		switching.style.transform = "translateX(var(--index))";
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		if(change == 1){
-			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
+			console.log(`set: ${setter} | oldUser: ${userSettings[setter]} | red`)
 			set = 1;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
