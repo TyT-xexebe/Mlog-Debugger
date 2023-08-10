@@ -86,7 +86,9 @@ let hightLightingErrors = () => {
 	const lines = code.split('\n');
 	let missingValues = [];
 	let missingVar = [];
-
+	jumpLabels1 = [];
+	jumpLabels2 = [];
+	missingValues = [];
 for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		let words2 = lines[iteration3].split(' ');
 		if(words2[0].endsWith(':')){
@@ -156,7 +158,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 	
 // creating iteration of all lines         
 for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
-
+	
 	jumpLabels1 = [...new Set(jumpLabels1)];
 	jumpLabels2 = [...new Set(jumpLabels2)];
 	const missingValues1 = jumpLabels1.filter(value => !jumpLabels2.includes(value));
@@ -432,9 +434,6 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 				}
 			}
 		}
-	jumpLabels1 = [];
-	jumpLabels2 = [];
-	missingValues = [];
 
 	for (let ii = 0; ii < lines.length; ii++) {
 		let lineContent = `<h5 class="line-number" style="display: inline-block; width: 30px; color: grey;">${ii}</h5> ${lines[ii]}`;
@@ -584,4 +583,4 @@ settings(userSettings.set6, switch6, "6", "0");
 settings(userSettings.set7, switch7, "7", "0");
 settings(userSettings.set8, switch8, "8", "0");
 hightLightingErrors();
-export {variables, hightLightingErrors};
+export {variables, hightLightingErrors, jumpLabels1};
