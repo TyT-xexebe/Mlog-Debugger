@@ -458,12 +458,12 @@ button.addEventListener("click", (openF));
 button2.addEventListener("click", (openF2));
 
 let settings = (set, switching, num, change) => {
+	let setter = `set${num}`
 	if (set == 0) {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
 		if(change == 1){
 			set = 1;
-			let setter = `set${num}`
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
 			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
@@ -473,14 +473,13 @@ let settings = (set, switching, num, change) => {
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		if(change == 1){
 			set = 0;
-			let setter = `set${num}`
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
 			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
 		}
 	}
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-	console.log(`newUser: ${userSettings[setter]}`)
+	console.log(`newUser: ${userSettings[setter]}`);
 	
 	let arr = Object.keys(userSettings).map(key => userSettings[key]);
 	console.log(`first checking: ${arr}`);
