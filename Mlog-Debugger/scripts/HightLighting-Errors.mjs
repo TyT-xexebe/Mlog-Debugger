@@ -34,11 +34,14 @@ let openF = () => {
 openF();
 
 let openF2 = () => {
+	let complete = document.getElementsByClassName("autocomplete")[0];
 	let setting = document.getElementById("settings");
 	if(setting.style.display == "none"){
 		setting.style.display = "block";
+		complete.style.zIndex = "0";
 	}else{
 		setting.style.display = "none";
+		complete.style.zIndex = "1";
 	}
 }
 openF2();
