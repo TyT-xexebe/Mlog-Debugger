@@ -459,21 +459,27 @@ button2.addEventListener("click", (openF2));
 
 let settings = (set, switching, num, change) => {
 	let setter = `set${num}`
-	if (set == 1) {
-		switching.style.transform = "translateX(calc(- var(--index)))";
-		switching.style.backgroundColor = "rgb(32, 156, 53)";
-		if(change == 1){
+	if(change == 0){
+		if (set == 1) {
+			switching.style.transform = "translateX(calc(- var(--index)))";
+			switching.style.backgroundColor = "rgb(32, 156, 53)";
+		} else {
+			switching.style.transform = "translateX(var(--index))";
+			switching.style.backgroundColor = "rgb(177, 22, 22)";
+		}
+	}else{
+		if (set == 0) {
+			switching.style.transform = "translateX(calc(- var(--index)))";
+			switching.style.backgroundColor = "rgb(32, 156, 53)";
 			console.log(`set: ${setter} | oldUser: ${userSettings[setter]} | green`)
-			set = 0;
+			set = 1;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
-		}
-	} else {
-		switching.style.transform = "translateX(var(--index))";
-		switching.style.backgroundColor = "rgb(177, 22, 22)";
-		if(change == 1){
+		} else {
+			switching.style.transform = "translateX(var(--index))";
+			switching.style.backgroundColor = "rgb(177, 22, 22)";
 			console.log(`set: ${setter} | oldUser: ${userSettings[setter]} | red`)
-			set = 1;
+			set = 0;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
 		}
