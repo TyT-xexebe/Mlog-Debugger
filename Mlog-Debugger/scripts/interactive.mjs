@@ -225,11 +225,11 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+let complete = document.getElementsByClassName("autocomplete")[0];
 
 document.addEventListener('keydown', function(event) {
 	if (event.altKey && event.key === 'z'){
 		console.log("clicked")
-		let complete = document.getElementsByClassName("autocomplete")[0];
 		if(complete.style.display == "block"){
 			complete.style.display = "none";
 		}else{
@@ -237,5 +237,21 @@ document.addEventListener('keydown', function(event) {
 		}
 	}
 });
+
+function showing(line, num){
+    let xOS = num * 10;
+    let yOS = line * 16 + 10vh;
+    complete.style.left = `${xOS}px`
+    complete.style.top = `${yOS}px`
+}
+
+textarea.addEventListener('input', () => {
+    const cursorPosition = textarea.selectionStart;
+    const lines = textarea.value.substr(0, cursorPosition).split('\n');
+    const currentLine = lines.length;
+    const currentColumn = lines[lines.length - 1].length + 1;
+    showing(currentLine, currentColumn);
+  });
+								  
 			  
 textarea.addEventListener("input", (compareWord));
