@@ -2,7 +2,7 @@
 import {keyCommands, keywords, blocks} from "../scripts/ObjectsMlog.mjs"
 
 for (let i = 0; i < blocks.length; i++) {
-  blocks[i] = new RegExp(`${blocks[i]}\\d{1,4}$`;
+  blocks[i] = new RegExp(`${blocks[i]}\\d{1,4}$`);
 }
 
 let userSettings
