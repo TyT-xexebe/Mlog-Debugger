@@ -109,10 +109,10 @@
 	font-weight: 600;
 	font-size: small;
 	background-color: rgb(31, 31, 31);
-	height: 15vh;
+	height: 14vh;
 	overflow-y: scroll;
 	overflow-wrap: normal;
-	width: 18vw;
+	width: 16vw;
 	padding: 5px 5px 5px 5px;
 	position: absolute;
 	z-index: 1;
