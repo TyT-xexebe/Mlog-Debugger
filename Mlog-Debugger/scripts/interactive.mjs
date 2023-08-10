@@ -4,8 +4,8 @@ import {variables, hightLightingErrors, jumpLabels1} from "../scripts/HightLight
 const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
 
-variables = new Set(...variables);
-jumpLabels = new Set(...jumpLabels1)
+let variable = new Set(...variables);
+let jumpLabels = new Set(...jumpLabels1)
 
 let syntaxHelper = () => {
   output.innerHTML = " ";
@@ -153,7 +153,7 @@ let getArray = () => {
 					}
 
 					if(keyCommands[firstWord].w1.words == true){
-						array.push(...variables);
+						array.push(...variable);
 					}else if(keyCommands[firstWord].w1.allowedWords !== false){
 						array.push(...keyCommands[firstWord].w1.allowedWords);
 					}
@@ -169,7 +169,7 @@ let getArray = () => {
 					}
 
 					if(keyCommands[firstWord][secondWord][w].words == true){
-						array.push(...variables);
+						array.push(...variable);
 					}else if(keyCommands[firstWord][secondWord][w].allowedWords !== false){
 						array.push(...keyCommands[firstWord][secondWord][w].allowedWords);
 					}
@@ -186,7 +186,7 @@ let getArray = () => {
 					}
 
 					if(keyCommands[firstWord][w].words == true){
-						array.push(...variables);
+						array.push(...variable);
 					}else if(keyCommands[firstWord][w].allowedWords !== false){
 						array.push(...keyCommands[firstWord][w].allowedWords);
 					}
