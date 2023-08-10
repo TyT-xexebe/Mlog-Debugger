@@ -225,4 +225,16 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+document.addEventListener('keydown', function(event) {
+	if (event.altKey && event.code === 'z'){
+		let complete = document.getElementsByClassName("autocomplete")[0];
+		if(complete.style.display == "block"){
+			complete.style.display = "none";
+		}else{
+			complete.style.display = "block";
+		}
+	}
+}
+			  
 textarea.addEventListener("input", (compareWord));
