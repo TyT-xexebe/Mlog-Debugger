@@ -227,7 +227,7 @@ document.addEventListener('keydown', function(event) {
 });
 
 document.addEventListener('keydown', function(event) {
-	if (event.altKey && event.code === 'z'){
+	if (event.altKey && event.key === 'z'){
 		let complete = document.getElementsByClassName("autocomplete")[0];
 		if(complete.style.display == "block"){
 			complete.style.display = "none";
