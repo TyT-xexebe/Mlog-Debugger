@@ -466,6 +466,7 @@ let settings = (set, switching, num, change) => {
 			let setter = `set${num}`
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
+			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
 		}
 	} else {
 		switching.style.transform = "translateX(var(--index))";
@@ -475,9 +476,9 @@ let settings = (set, switching, num, change) => {
 			let setter = `set${num}`
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
+			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
 		}
 	}
-	console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	console.log(`newUser: ${userSettings[setter]}`)
 	
