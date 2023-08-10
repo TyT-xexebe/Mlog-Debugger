@@ -463,19 +463,19 @@ let settings = (set, switching, num, change) => {
 		switching.style.transform = "translateX(calc(- var(--index)))";
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
 		if(change == 1){
+			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
 			set = 1;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
-			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
 		}
 	} else {
 		switching.style.transform = "translateX(var(--index))";
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		if(change == 1){
+			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
 			set = 0;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
-			console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
 		}
 	}
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
@@ -555,15 +555,20 @@ let settings = (set, switching, num, change) => {
 	}
 	hightLightingErrors();
 };
+function update(switching, num) {
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
+	let setter = `set${num}`;
+	settings(userSettings[setter], switching, num, 1);
+}
 
-switch1.addEventListener("click", () => settings(userSettings.set1, switch1, "1", "1"));
-switch2.addEventListener("click", () => settings(userSettings.set2, switch2, "2", "1"));
-switch3.addEventListener("click", () => settings(userSettings.set3, switch3, "3", "1"));
-switch4.addEventListener("click", () => settings(userSettings.set4, switch4, "4", "1"));
-switch5.addEventListener("click", () => settings(userSettings.set5, switch5, "5", "1"));
-switch6.addEventListener("click", () => settings(userSettings.set6, switch6, "6", "1"));
-switch7.addEventListener("click", () => settings(userSettings.set7, switch7, "7", "1"));
-switch8.addEventListener("click", () => settings(userSettings.set8, switch8, "8", "1"));
+switch1.addEventListener("click", () => update(switch1, "1"));
+switch2.addEventListener("click", () => update(switch2, "2"));
+switch3.addEventListener("click", () => update(switch3, "3"));
+switch4.addEventListener("click", () => update(switch4, "4"));
+switch5.addEventListener("click", () => update(switch5, "5"));
+switch6.addEventListener("click", () => update(switch6, "6"));
+switch7.addEventListener("click", () => update(switch7, "7"));
+switch8.addEventListener("click", () => update(switch8, "8"));
 settings(userSettings.set1, switch1, "1", "0");
 settings(userSettings.set2, switch2, "2", "0");
 settings(userSettings.set3, switch3, "3", "0");
