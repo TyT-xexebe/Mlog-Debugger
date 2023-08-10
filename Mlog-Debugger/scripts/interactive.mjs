@@ -4,9 +4,6 @@ import {variables, hightLightingErrors, jumpLabels1} from "../scripts/HightLight
 const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
 
-let variable = new Set(...variables);
-let jumpLabels = new Set(...jumpLabels1)
-
 let syntaxHelper = () => {
   output.innerHTML = " ";
   let cursorPos = textarea.selectionStart;
@@ -69,6 +66,9 @@ function getWord() {
 }
 
 let getArray = () => {
+	let variable = new Set(...variables);
+	let jumpLabels = new Set(...jumpLabels1);
+	console.log(`vars: ${variable} | labels: ${jumpLabels}`)
         const text = textarea.value;
         const caretPos = textarea.selectionStart;
         const startPos = text.lastIndexOf("\n", caretPos - 1) + 1;
