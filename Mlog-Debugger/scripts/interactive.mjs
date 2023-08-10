@@ -199,9 +199,12 @@ function compareWord() {
     const wordArray = getArray();
     const similar = document.getElementById("helper");
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
+    let complete = document.getElementsByClassName("autocomplete")[0];
     if (similarWords.length > 0) {
+	complete.style.display = "block";
         similar.innerHTML = similarWords.join("<br>");
     } else {
+	complete.style.display = "none";
         similar.innerHTML = "nothing";
     }
 	return similarWords
@@ -229,7 +232,6 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener('keydown', function(event) {
 	if (event.altKey && event.key === 'z'){
 		let complete = document.getElementsByClassName("autocomplete")[0];
-		console.log("clicked")
 		if(complete.style.display == "block"){
 			complete.style.display = "none";
 		}else{
@@ -239,12 +241,16 @@ document.addEventListener('keydown', function(event) {
 });
 
 function showing(line, num){
-    let xOS = num * 10;
-    let yOS = line * 16;
-    let complete = document.getElementsByClassName("autocomplete")[0];
-	console.log(`x: ${xOS} | y: ${yOS}`)
-    complete.style.left = `${xOS}px`
-    complete.style.top = `calc(${yOS}px + 10vh)`
+	let xOS
+	if(num < 34){
+		xOS = num * 10;
+	}else{
+		xOS = 340;
+	}
+    	let yOS = line * 16;
+    	let complete = document.getElementsByClassName("autocomplete")[0];
+    	complete.style.left = `${xOS}px`
+    	complete.style.top = `calc(${yOS}px + 10vh)`
 }
 
 textarea.addEventListener('input', () => {
@@ -252,7 +258,6 @@ textarea.addEventListener('input', () => {
     const lines = textarea.value.substr(0, cursorPosition).split('\n');
     const currentLine = lines.length;
     const currentColumn = lines[lines.length - 1].length + 1;
-	console.log(`line: ${currentLine} | letter: ${currentColumn}`);
     showing(currentLine, currentColumn);
   });
 								  
