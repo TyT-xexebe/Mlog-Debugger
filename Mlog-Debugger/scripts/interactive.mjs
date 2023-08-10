@@ -236,6 +236,6 @@ document.addEventListener('keydown', function(event) {
 			complete.style.display = "block";
 		}
 	}
-}
+});
 			  
 textarea.addEventListener("input", (compareWord));
