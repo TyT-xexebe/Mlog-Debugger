@@ -242,6 +242,7 @@ function showing(line, num){
     let xOS = num * 10;
     let yOS = line * 16 + 10vh;
     let complete = document.getElementsByClassName("autocomplete")[0];
+	console.log(`x: ${xOS} | y: ${yOS}`)
     complete.style.left = `${xOS}px`
     complete.style.top = `${yOS}px`
 }
@@ -251,6 +252,7 @@ textarea.addEventListener('input', () => {
     const lines = textarea.value.substr(0, cursorPosition).split('\n');
     const currentLine = lines.length;
     const currentColumn = lines[lines.length - 1].length + 1;
+	console.log(`line: ${currentLine} | letter: ${currentColumn}`);
     showing(currentLine, currentColumn);
   });
 								  
