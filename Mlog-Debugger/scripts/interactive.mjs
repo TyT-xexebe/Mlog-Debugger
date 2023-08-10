@@ -1,8 +1,11 @@
 // imports all commands and his settings
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
-import {variables, hightLightingErrors} from "../scripts/HightLighting-Errors.mjs"
+import {variables, hightLightingErrors, jumpLabels1} from "../scripts/HightLighting-Errors.mjs"
 const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
+
+variables = new Set(...variables);
+jumpLabels = new Set(...jumpLabels1)
 
 let syntaxHelper = () => {
   output.innerHTML = " ";
@@ -119,12 +122,14 @@ let getArray = () => {
 		}else{
 			let obj4 = Object.keys(keyCommands);
 			array.push(...obj4);
+			array.push(...jumpLabels);
 			return array
 		}
 		if(words[i] == currentWord){
 			if(i == 0){
 				let obj1 = Object.keys(keyCommands);
 				array.push(...obj1);
+				array.push(...jumpLabels);
 				return array
 			}
 			if(i == 1){
