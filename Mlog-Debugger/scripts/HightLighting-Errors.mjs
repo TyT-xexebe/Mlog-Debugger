@@ -463,19 +463,21 @@ let settings = (set, switching, num, change) => {
 		switching.style.backgroundColor = "rgb(32, 156, 53)";
 		if(change == 1){
 			set = 1;
+			let setter = `set${num}`
+			userSettings[setter] = set;
+			localStorage.setItem('userSettings', JSON.stringify(userSettings));
 		}
 	} else {
 		switching.style.transform = "translateX(var(--index))";
 		switching.style.backgroundColor = "rgb(177, 22, 22)";
 		if(change == 1){
 			set = 0;
+			let setter = `set${num}`
+			userSettings[setter] = set;
+			localStorage.setItem('userSettings', JSON.stringify(userSettings));
 		}
 	}
-
-	let setter = `set${num}`
 	console.log(`set: ${setter} | oldUser: ${userSettings[setter]}`)
-	userSettings[setter] = set;
-	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	console.log(`newUser: ${userSettings[setter]}`)
 	
