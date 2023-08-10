@@ -347,7 +347,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 									continue MainLoop;
 								}
 								
-								if(userSettings.set7 == 0){
+								if(userSettings.set7 == 1){
 									Errors.push({notfound: words[iteration2], message: "this variable dont used in code", line: iteration1});
 									words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 								}else{
@@ -384,7 +384,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 										words[iteration2] = `<span id="${commandColor}">${words[iteration2]}</span>`
 										continue MainLoop;
 									}
-									if(userSettings.set7 == 0){
+									if(userSettings.set7 == 1){
 										Errors.push({notfound: words[iteration2], message: "this variable not declarated in code", line: iteration1});
 										words[iteration2] = `<span id="${errorColor}">${words[iteration2]}</span>`
 									}else{
@@ -544,15 +544,15 @@ let settings = (set, switching, num, change) => {
 			inColor = "vOutput";
 		}
 		if(value8 == 0){
-			let helper1 = document.getElementsByClassName("helper")[0];
-			let helper2 = document.getElementsByClassName("autocomplete")[0];
+			let helper1 = document.getElementsByClassName("autocomplete")[0];
+			let helper2 = document.getElementsByClassName("helper")[0];
 			helper1.style.display = "none";
 			helper2.style.display = "block";
 			helper1.removeAttribute("id");
 			helper2.id = "helper";
 		}else{
-			let helper1 = document.getElementsByClassName("autocomplete")[0];
-			let helper2 = document.getElementsByClassName("helper")[0];
+			let helper1 = document.getElementsByClassName("helper")[0];
+			let helper2 = document.getElementsByClassName("autocomplete")[0];
 			helper1.style.display = "none";
 			helper2.style.display = "block";
 			helper1.removeAttribute("id");
