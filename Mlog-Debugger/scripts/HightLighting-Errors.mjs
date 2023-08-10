@@ -20,7 +20,6 @@ if(!localStorage.getItem('userSettings')){
 	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 }else{
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-	console.log(userSettings);
 }
 
 let openF = () => {
@@ -475,24 +474,21 @@ let settings = (set, switching, num, change) => {
 		if (set == 0) {
 			switching.style.transform = "translateX(calc(- var(--index)))";
 			switching.style.backgroundColor = "rgb(32, 156, 53)";
-			console.log(`set: ${setter} | oldUser: ${userSettings[setter]} | green`)
 			set = 1;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
 		} else {
 			switching.style.transform = "translateX(var(--index))";
 			switching.style.backgroundColor = "rgb(177, 22, 22)";
-			console.log(`set: ${setter} | oldUser: ${userSettings[setter]} | red`)
 			set = 0;
 			userSettings[setter] = set;
 			localStorage.setItem('userSettings', JSON.stringify(userSettings));
 		}
 	}
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-	console.log(`newUser: ${userSettings[setter]}`);
 	
 	let arr = Object.keys(userSettings).map(key => userSettings[key]);
-	console.log(`first checking: ${arr}`);
+	
 	// settings for highligtning
 	let value1 = userSettings.set1;
 	let value2 = userSettings.set2;
