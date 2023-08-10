@@ -106,13 +106,13 @@
 
 .autocomplete {
 	color: white;
-	font-weight: 600;
-	font-size: small;
+	font-weight: 400;
+	font-size: 12px;
 	background-color: rgb(31, 31, 31);
-	height: 14vh;
+	height: 10vh;
 	overflow-y: scroll;
 	overflow-wrap: normal;
-	width: 16vw;
+	width: 14vw;
 	padding: 5px 5px 5px 5px;
 	position: absolute;
 	z-index: 1;
