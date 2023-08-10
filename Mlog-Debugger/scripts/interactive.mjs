@@ -240,11 +240,11 @@ document.addEventListener('keydown', function(event) {
 
 function showing(line, num){
     let xOS = num * 10;
-    let yOS = line * 16 + 10vh;
+    let yOS = line * 16;
     let complete = document.getElementsByClassName("autocomplete")[0];
 	console.log(`x: ${xOS} | y: ${yOS}`)
     complete.style.left = `${xOS}px`
-    complete.style.top = `${yOS}px`
+    complete.style.top = `calc(${yOS}px + 10vh)`
 }
 
 textarea.addEventListener('input', () => {
