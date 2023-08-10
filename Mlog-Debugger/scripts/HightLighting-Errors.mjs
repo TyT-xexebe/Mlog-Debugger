@@ -373,6 +373,7 @@ for(let iteration1 = 0; iteration1 < lines.length; iteration1++){
 								missingVar = [...missingVar1, ...missingVar2];
 								for (const regex of blocks) {
 								    if (regex.test(words[iteration2])) {
+									words[iteration2] = `<span id="${textColor}">${words[iteration2]}</span>`
 									continue MainLoop;
 								    }
 								}
