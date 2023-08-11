@@ -242,6 +242,7 @@ document.addEventListener('keydown', function(event) {
             const remainingText = textarea2.value.substring(endPos === -1 ? caretPos : endPos);
             const autocompleteWord = document.getElementsByClassName("active")[0].textContent;
             textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
+	    document.getElementsByClassName("active")[0].classList.remove("active");
 	    hightLightingErrors()
         }
     }
@@ -289,8 +290,14 @@ function updateSpan() {
 			span.classList.add("active");
 			span.style.backgroundColor = "grey";
 		}else{
-	        	span.classList.remove("active");
-			span.style.backgroundColor = "rgb(31, 31, 31)"
+			document.addEventListener("keydown", function(event){
+				if(event.code !== "Tab"){
+					span.classList.remove("active");
+					span.style.backgroundColor = "rgb(31, 31, 31)"
+				}else{
+					span.style.backgroundColor = "rgb(31, 31, 31)"
+				}
+			}
 		}
 	});
   }
