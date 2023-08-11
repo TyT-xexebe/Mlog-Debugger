@@ -216,15 +216,17 @@ function compareWord() {
     const similar = document.getElementById("helper");
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
     let complete = document.getElementsByClassName("autocomplete")[0];
-    if (similarWords.length > 0) {
-	complete.style.display = "block";
-        similar.innerHTML = similarWords.join("<br>");
-    } else {
-	complete.style.display = "none";
+    
+    if(similarWords.length > 0) {
+        complete.style.display = "block";
+        similar.innerHTML = similarWords.map(word => `<span>${word}</span>`).join(" ");
+    }else{
+        complete.style.display = "none";
         similar.innerHTML = "nothing";
     }
-	return similarWords
+    return similarWords;
 }
+
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Tab' && event.target.tagName === 'TEXTAREA') {
         event.preventDefault();
