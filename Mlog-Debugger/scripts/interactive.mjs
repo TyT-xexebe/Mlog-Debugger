@@ -69,8 +69,8 @@ let jumpLabels = []
 let getArray = () => {
 	variable = [];
 	jumpLabels = [];
-	variable = new Set(...variables);
-	jumpLabels = new Set(...jumpLabels1);
+	variable = new Set(variables);
+	jumpLabels = new Set(jumpLabels1);
         const text = textarea.value;
         const caretPos = textarea.selectionStart;
         const startPos = text.lastIndexOf("\n", caretPos - 1) + 1;
