@@ -134,7 +134,7 @@ body {
 	background-color: rgb(31, 31, 31);
 	height: 10px;
 	width: 10vw;
-	padding: 1px 1px 1px 1px;
+	padding: 2px;
 }
 
 .active {
@@ -211,7 +211,7 @@ body {
 	background-color: rgb(58, 58, 58);
 	border: none;
 	border-radius: 8px;
-	padding: 0.5px 0.5px 0.5px 0.5px;
+	padding: 0.5px;
 }
 
 .scr {
@@ -220,7 +220,7 @@ body {
 	width: calc(var(--index)*0.9);
 	background-color: rgb(21, 134, 40);
 	border-radius: 46%;
-	margin: 0.5px 0.5px 0.5px 0.5px;
+	margin: 0.5px;
 	transition: 0.5s;
 }
 
