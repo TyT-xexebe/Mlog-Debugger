@@ -298,7 +298,7 @@ function updateSpan() {
 			span.classList.add("active");
 			span.style.backgroundColor = "grey";
 			span.scrollIntoView({
-        			behavior: "smooth",
+        			behavior: "auto",
         			block: "nearest",
       			});
 		}else{
