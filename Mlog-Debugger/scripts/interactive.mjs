@@ -277,7 +277,36 @@ textarea.addEventListener('input', () => {
     const currentLine = lines.length;
     const currentColumn = lines[lines.length - 1].length + 1;
     showing(currentLine, currentColumn);
-  });
-								  
-			  
+});  
 textarea.addEventListener("input", (compareWord));
+
+let activeIndex = 0;
+function updateSpan() {
+	let complete = document.getElementsByClassName("autocomplete")[0];
+	let spans = complete.querySelectorAll("span");
+	spans.forEach((span, index) => {
+		if(index === activeIndex) {
+			span.classList.add("active");
+		}else{
+	        	span.classList.remove("active");
+		}
+	});
+  }
+
+updateActiveSpan();
+
+document.addEventListener("keydown", function(event) {
+	let complete = document.getElementsByClassName("autocomplete")[0];
+	if(complete.style.display == "block"){
+		if (event.key === "ArrowUp") {
+			event.preventDefault();
+	        	activeIndex = Math.max(0, activeIndex - 1);
+			updateActiveSpan();
+		}else if(event.key === "ArrowDown") {
+		event.preventDefault();
+		      	activeIndex = Math.min(spans.length - 1, activeIndex + 1);
+		      	updateActiveSpan();
+		}
+	}
+});
+
