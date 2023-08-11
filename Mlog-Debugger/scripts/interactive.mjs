@@ -287,8 +287,10 @@ function updateSpan() {
 	spans.forEach((span, index) => {
 		if(index === activeIndex) {
 			span.classList.add("active");
+			span.style.backgroundColor = "grey";
 		}else{
 	        	span.classList.remove("active");
+			span.style.backgroundColor = "rgb(31, 31, 31)"
 		}
 	});
   }
