@@ -293,7 +293,7 @@ function updateSpan() {
 	});
   }
 
-updateActiveSpan();
+updateSpan();
 
 document.addEventListener("keydown", function(event) {
 	let complete = document.getElementsByClassName("autocomplete")[0];
@@ -301,11 +301,11 @@ document.addEventListener("keydown", function(event) {
 		if (event.key === "ArrowUp") {
 			event.preventDefault();
 	        	activeIndex = Math.max(0, activeIndex - 1);
-			updateActiveSpan();
+			updateSpan();
 		}else if(event.key === "ArrowDown") {
 		event.preventDefault();
 		      	activeIndex = Math.min(spans.length - 1, activeIndex + 1);
-		      	updateActiveSpan();
+		      	updateSpan();
 		}
 	}
 });
