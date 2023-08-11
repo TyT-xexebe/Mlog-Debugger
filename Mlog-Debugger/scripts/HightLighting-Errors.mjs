@@ -100,7 +100,6 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		if(words2[0] == "jump"){
 			if(isNaN(words2[1])){
 				jumpLabels1.push(words2[1]);
-				console.log(jumpLabels1);
 			}
 		}
 	}
