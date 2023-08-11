@@ -226,7 +226,7 @@ function compareWord() {
     let complete = document.getElementsByClassName("autocomplete")[0];
     if(similarWords.length > 0) {
         complete.style.display = "block";
-        similar.innerHTML = similarWords.map((word, index) => <span class="${index === 0 ? 'active' : ''}" style="${index === 0 ? 'background-color: grey;' : ''}">${word}</span>
+        similar.innerHTML = similarWords.map((word, index) => `<span class="${index === 0 ? 'active' : ''}" style="${index === 0 ? 'background-color: grey;' : ''}">${word}</span>`
 ).join("<br>");
     }else{
         complete.style.display = "none";
