@@ -252,6 +252,7 @@ document.addEventListener('keydown', function(event) {
             textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
 	    activeIndex = 0;
 	    compareWord()
+	    syntaxHelper()
 	    hightLightingErrors()
         }
     }
