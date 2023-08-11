@@ -130,6 +130,10 @@
 	padding: 1px, 1px, 1px, 1px;
 }
 
+.active {
+	background-color: grey;
+}
+
 #errorList {
 	position: absolute;
 	height: 89vh;
