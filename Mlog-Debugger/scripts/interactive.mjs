@@ -173,6 +173,10 @@ let getArray = () => {
 			}else{
 				let w = `w${i}`
 				if(subCommandRead == 1){
+					if(i > keyCommands[firstWord][secondWord][max]){
+						array.push("nothing");
+						return array
+					}
 					if(keyCommands[firstWord][secondWord][w].keywords == true){
 						array.push(...keywords);
 					}else if(keyCommands[firstWord][secondWord][w].allowedParams !== undefined){
@@ -189,6 +193,10 @@ let getArray = () => {
 					if(firstWord == "#" || firstWord == "print"){
 						array.push("text");
 						return array;
+					}
+					if(i > keyCommands[firstWord][max]){
+						array.push("nothing");
+						return array
 					}
 					if(keyCommands[firstWord][w].keywords == true){
 						array.push(...keywords);
@@ -218,7 +226,8 @@ function compareWord() {
     let complete = document.getElementsByClassName("autocomplete")[0];
     if(similarWords.length > 0) {
         complete.style.display = "block";
-        similar.innerHTML = similarWords.map((word, index) => `<span class="${index === 0 ? 'active' : ''}" style="${index === 0 ? 'backgroundColor = \"grey\"' : ''}">${word}</span>`).join("<br>");
+        similar.innerHTML = similarWords.map((word, index) => <span class="${index === 0 ? 'active' : ''}" style="${index === 0 ? 'background-color: grey;' : ''}">${word}</span>
+).join("<br>");
     }else{
         complete.style.display = "none";
         similar.innerHTML = "nothing";
