@@ -297,6 +297,7 @@ updateSpan();
 
 document.addEventListener("keydown", function(event) {
 	let complete = document.getElementsByClassName("autocomplete")[0];
+	let spans = complete.querySelectorAll("span");
 	if(complete.style.display == "block"){
 		if (event.key === "ArrowUp") {
 			event.preventDefault();
