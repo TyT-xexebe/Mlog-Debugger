@@ -219,7 +219,7 @@ function compareWord() {
     
     if(similarWords.length > 0) {
         complete.style.display = "block";
-        similar.innerHTML = similarWords.map(word => `<span>${word}</span>`).join(" ");
+        similar.innerHTML = similarWords.map(word => `<span>${word}</span>`).join("<br>");
     }else{
         complete.style.display = "none";
         similar.innerHTML = "nothing";
