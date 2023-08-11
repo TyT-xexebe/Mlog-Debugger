@@ -173,7 +173,7 @@ let getArray = () => {
 			}else{
 				let w = `w${i}`
 				if(subCommandRead == 1){
-					if(i > keyCommands[firstWord][secondWord][max]){
+					if(i > keyCommands[firstWord][secondWord].max){
 						array.push("nothing");
 						return array
 					}
@@ -194,7 +194,7 @@ let getArray = () => {
 						array.push("text");
 						return array;
 					}
-					if(i > keyCommands[firstWord][max]){
+					if(i > keyCommands[firstWord].max){
 						array.push("nothing");
 						return array
 					}
