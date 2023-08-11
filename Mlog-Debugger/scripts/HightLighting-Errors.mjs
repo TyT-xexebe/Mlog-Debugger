@@ -566,16 +566,6 @@ function update(switching, num) {
 	settings(userSettings[setter], switching, num, 1);
 }
 
-document.addEventListener("keydown", function(event){
-	let helper1 = document.getElementsByClassName("helper")[0];
-	let helper2 = document.getElementsByClassName("autocomplete")[0];
-	helper1.style.display = "none";
-	helper2.style.display = "block";
-	helper1.removeAttribute("id");
-	helper2.id = "helper";
-})
-
-
 switch1.addEventListener("click", () => update(switch1, "1"));
 switch2.addEventListener("click", () => update(switch2, "2"));
 switch3.addEventListener("click", () => update(switch3, "3"));
