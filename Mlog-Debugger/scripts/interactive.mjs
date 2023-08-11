@@ -1,6 +1,6 @@
 // imports all commands and his settings
 import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
-import {variables, hightLightingErrors, jumpLabels1} from "../scripts/HightLighting-Errors.mjs"
+import {variables, hightLightingErrors, jumpLabels1, jumpLabels2} from "../scripts/HightLighting-Errors.mjs"
 const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
 
@@ -64,13 +64,19 @@ function getWord() {
     const currentWord = text.substring(wordStart, wordEnd);
     return currentWord;
 }
-let variable = []
-let jumpLabels = []
+let variable = [];
+let jumpLabels = [];
+let labels = [];
 let getArray = () => {
 	variable = [];
 	jumpLabels = [];
+	labels = [];
 	variable = new Set(variables);
 	jumpLabels = new Set(jumpLabels1);
+	for(let i = 0; i < jumpLabels.length; i++){
+		jumpLabels[i] = `${jumpLabels[i]}:`
+	}
+	labels = new Set(jumpLabels2);
         const text = textarea.value;
         const caretPos = textarea.selectionStart;
         const startPos = text.lastIndexOf("\n", caretPos - 1) + 1;
@@ -147,6 +153,9 @@ let getArray = () => {
 					if(firstWord == "#" || firstWord == "print"){
 						array.push("text");
 						return array;
+					}
+					if(firstWord == "jump"){
+						array.push(...labels);
 					}
 					if(keyCommands[firstWord].w1.keywords == true){
 						array.push(...keywords);
