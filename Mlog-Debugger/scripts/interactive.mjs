@@ -297,7 +297,7 @@ function updateSpan() {
 				}else{
 					span.style.backgroundColor = "rgb(31, 31, 31)"
 				}
-			}
+			})
 		}
 	});
   }
