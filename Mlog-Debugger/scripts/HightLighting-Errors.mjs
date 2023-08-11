@@ -2,7 +2,7 @@
 import {keyCommands, keywords, blocks} from "../scripts/ObjectsMlog.mjs"
 
 for (let i = 0; i < blocks.length; i++) {
-  blocks[i] = new RegExp(`${blocks[i]}\\d{1,4}$`);
+  blocks[i] = new RegExp(`${blocks[i]}\\d{1,999}$`);
 }
 
 let userSettings
@@ -100,6 +100,7 @@ for (let iteration3 = 0; iteration3 < lines.length; iteration3++){
 		if(words2[0] == "jump"){
 			if(isNaN(words2[1])){
 				jumpLabels1.push(words2[1]);
+				console.log(jumpLabels1);
 			}
 		}
 	}
