@@ -120,6 +120,16 @@
 	border-radius: 3px;
 }
 
+#helper span {
+	color: white;
+	font-weight: 400;
+	font-size: 12px;
+	background-color: rgb(31, 31, 31);
+	height: min-height;
+	width: 100%;
+	padding: 1px, 1px, 1px, 1px;
+}
+
 #errorList {
 	position: absolute;
 	height: 89vh;
