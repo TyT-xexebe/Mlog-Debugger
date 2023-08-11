@@ -216,10 +216,9 @@ function compareWord() {
     const similar = document.getElementById("helper");
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
     let complete = document.getElementsByClassName("autocomplete")[0];
-    
     if(similarWords.length > 0) {
         complete.style.display = "block";
-        similar.innerHTML = similarWords.map(word => `<span>${word}</span>`).join("<br>");
+        similar.innerHTML = similarWords.map((word, index) => `<span class="${index === 0 ? 'active' : ''}">${word}</span>`).join("<br>");
     }else{
         complete.style.display = "none";
         similar.innerHTML = "nothing";
@@ -234,6 +233,7 @@ document.addEventListener('keydown', function(event) {
 	const similar = document.getElementById("helper");
 	similar.innerHTML = " ";
         const similarWords = compareWord();
+	updateSpan();
         if (similarWords.length > 0) {
             const textarea2 = event.target;
             const caretPos = textarea2.selectionStart;
@@ -242,7 +242,6 @@ document.addEventListener('keydown', function(event) {
             const remainingText = textarea2.value.substring(endPos === -1 ? caretPos : endPos);
             const autocompleteWord = document.getElementsByClassName("active")[0].textContent;
             textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
-	    document.getElementsByClassName("active")[0].classList.remove("active");
 	    hightLightingErrors()
         }
     }
@@ -290,14 +289,9 @@ function updateSpan() {
 			span.classList.add("active");
 			span.style.backgroundColor = "grey";
 		}else{
-			document.addEventListener("keydown", function(event){
-				if(event.code !== "Tab"){
-					span.classList.remove("active");
-					span.style.backgroundColor = "rgb(31, 31, 31)"
-				}else{
-					span.style.backgroundColor = "rgb(31, 31, 31)"
-				}
-			})
+			span.classList.remove("active");
+			span.style.backgroundColor = "rgb(31, 31, 31)"
+				
 		}
 	});
   }
