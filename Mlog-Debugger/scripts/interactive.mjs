@@ -209,7 +209,7 @@ let getArray = () => {
 		}
 	}
 }
-
+let activeIndex = 0;
 function compareWord() {
     const currentWord = getWord();
     const wordArray = getArray();
@@ -218,7 +218,7 @@ function compareWord() {
     let complete = document.getElementsByClassName("autocomplete")[0];
     if(similarWords.length > 0) {
         complete.style.display = "block";
-        similar.innerHTML = similarWords.map((word, index) => `<span class="${index === 0 ? 'active' : ''}">${word}</span>`).join("<br>");
+        similar.innerHTML = similarWords.map((word, index) => `<span class="${index === 0 ? 'active' : ''}" style="${index === 0 ? 'backgroundColor = \"grey\"' : ''}">${word}</span>`).join("<br>");
     }else{
         complete.style.display = "none";
         similar.innerHTML = "nothing";
@@ -242,6 +242,7 @@ document.addEventListener('keydown', function(event) {
             const remainingText = textarea2.value.substring(endPos === -1 ? caretPos : endPos);
             const autocompleteWord = document.getElementsByClassName("active")[0].textContent;
             textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
+	    activeIndex = 0
 	    hightLightingErrors()
         }
     }
@@ -280,7 +281,6 @@ textarea.addEventListener('input', () => {
 });  
 textarea.addEventListener("input", (compareWord));
 
-let activeIndex = 0;
 function updateSpan() {
 	let complete = document.getElementsByClassName("autocomplete")[0];
 	let spans = complete.querySelectorAll("span");
@@ -288,6 +288,10 @@ function updateSpan() {
 		if(index === activeIndex) {
 			span.classList.add("active");
 			span.style.backgroundColor = "grey";
+			span.scrollIntoView({
+        			behavior: "smooth",
+        			block: "nearest",
+      			});
 		}else{
 			span.classList.remove("active");
 			span.style.backgroundColor = "rgb(31, 31, 31)"
