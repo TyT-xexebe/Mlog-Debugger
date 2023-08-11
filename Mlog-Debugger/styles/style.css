@@ -121,13 +121,14 @@
 }
 
 .autocomplete span, .helper span {
+	display: inline-block;
 	color: white;
 	font-weight: 400;
 	font-size: 12px;
 	background-color: rgb(31, 31, 31);
 	height: 16px;
 	width: 14vw;
-	padding: 1px, 1px, 1px, 1px;
+	padding: 1px 1px 1px 1px;
 }
 
 .active {
