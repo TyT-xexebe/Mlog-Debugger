@@ -566,7 +566,7 @@ function update(switching, num) {
 	settings(userSettings[setter], switching, num, 1);
 }
 
-document.addEventListener("keydown" function(event){
+document.addEventListener("keydown", function(event){
 	let helper1 = document.getElementsByClassName("helper")[0];
 	let helper2 = document.getElementsByClassName("autocomplete")[0];
 	helper1.style.display = "none";
