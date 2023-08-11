@@ -72,10 +72,10 @@ let getArray = () => {
 	jumpLabels = [];
 	labels = [];
 	variable = new Set(variables);
-	jumpLabels = new Set(jumpLabels1);
-	for(let i = 0; i < jumpLabels.length; i++){
-		jumpLabels[i] = `${jumpLabels[i]}:`
+	for(let i = 0; i < jumpLabels1.length; i++){
+		jumpLabels1[i] = `${jumpLabels1[i]}:`
 	}
+	jumpLabels = new Set(jumpLabels1);
 	labels = new Set(jumpLabels2);
         const text = textarea.value;
         const caretPos = textarea.selectionStart;
@@ -249,7 +249,7 @@ document.addEventListener('keydown', function(event) {
             const startPos = Math.max(textarea2.value.lastIndexOf(" ", caretPos - 1) + 1, textarea2.value.lastIndexOf("\n", caretPos - 1) + 1);
             const endPos = textarea2.value.indexOf(" ", caretPos);
             const remainingText = textarea2.value.substring(endPos === -1 ? caretPos : endPos);
-            const autocompleteWord = document.getElementsByClassName("active")[0].textContent;
+            const autocompleteWord = `${document.getElementsByClassName("active")[0].textContent} `;
             textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
 	    activeIndex = 0
 	    hightLightingErrors()
