@@ -64,10 +64,13 @@ function getWord() {
     const currentWord = text.substring(wordStart, wordEnd);
     return currentWord;
 }
-
+let variable = []
+let jumpLabels = []
 let getArray = () => {
-	let variable = new Set(...variables);
-	let jumpLabels = new Set(...jumpLabels1);
+	variable = [];
+	jumpLabels = [];
+	variable = new Set(...variables);
+	jumpLabels = new Set(...jumpLabels1);
 	console.log(`vars: ${variable} | labels: ${jumpLabels}`)
         const text = textarea.value;
         const caretPos = textarea.selectionStart;
