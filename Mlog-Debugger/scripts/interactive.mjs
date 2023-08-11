@@ -3,7 +3,9 @@ import {keyCommands, keywords} from "../scripts/ObjectsMlog.mjs"
 import {variables, hightLightingErrors, jumpLabels1, jumpLabels2} from "../scripts/HightLighting-Errors.mjs"
 const textarea = document.getElementById('codeInput');
 const output = document.getElementById("suggestions");
-
+for(let i = 0; i < jumpLabels1.length; i++){
+	jumpLabels1[i] = `${jumpLabels1[i]}:`
+}
 let syntaxHelper = () => {
   output.innerHTML = " ";
   let cursorPos = textarea.selectionStart;
@@ -72,9 +74,6 @@ let getArray = () => {
 	jumpLabels = [];
 	labels = [];
 	variable = new Set(variables);
-	for(let i = 0; i < jumpLabels1.length; i++){
-		jumpLabels1[i] = `${jumpLabels1[i]}:`
-	}
 	jumpLabels = new Set(jumpLabels1);
 	labels = new Set(jumpLabels2);
         const text = textarea.value;
@@ -251,7 +250,8 @@ document.addEventListener('keydown', function(event) {
             const remainingText = textarea2.value.substring(endPos === -1 ? caretPos : endPos);
             const autocompleteWord = `${document.getElementsByClassName("active")[0].textContent} `;
             textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
-	    activeIndex = 0
+	    activeIndex = 0;
+	    compareWord()
 	    hightLightingErrors()
         }
     }
