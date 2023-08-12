@@ -542,20 +542,11 @@ let settings = (set, switching, num, change) => {
 		}else{
 			inColor = "vOutput";
 		}
+		let helper1 = document.getElementsByClassName("autocomplete")[0];
 		if(value8 == 0){
-			let helper1 = document.getElementsByClassName("autocomplete")[0];
-			let helper2 = document.getElementsByClassName("helper")[0];
 			helper1.style.display = "none";
-			helper2.style.display = "block";
-			helper1.removeAttribute("id");
-			helper2.id = "helper";
 		}else{
-			let helper1 = document.getElementsByClassName("helper")[0];
-			let helper2 = document.getElementsByClassName("autocomplete")[0];
-			helper1.style.display = "none";
 			helper2.style.display = "block";
-			helper1.removeAttribute("id");
-			helper2.id = "helper";
 		}
 	}
 	hightLightingErrors();
