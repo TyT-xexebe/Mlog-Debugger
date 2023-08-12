@@ -333,6 +333,4 @@ function updateSpan() {
   }
 
 updateSpan();
-	}
-});
 
