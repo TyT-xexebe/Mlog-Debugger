@@ -281,6 +281,7 @@ document.addEventListener('keydown', function(event) {
 	if (event.altKey && event.key === 'z'){
 		let complete = document.getElementsByClassName("autocomplete")[0];
 		userSettings = JSON.parse(localStorage.getItem('userSettings'));
+		console.log(`user: ${userSettings.set8}`);
 		if(userSettings.set8 = 1){
 			if(complete.style.display == "block"){
 				complete.style.display = "none";
@@ -333,4 +334,21 @@ function updateSpan() {
   }
 
 updateSpan();
+
+
+document.addEventListener("keydown", function(event) {
+	let complete = document.getElementsByClassName("autocomplete")[0];
+	let spans = complete.querySelectorAll("span");
+	if(complete.style.display == "block"){
+		if (event.key === "ArrowUp") {
+			event.preventDefault();
+	        	activeIndex = Math.max(0, activeIndex - 1);
+			updateSpan();
+		}else if(event.key === "ArrowDown") {
+		event.preventDefault();
+		      	activeIndex = Math.min(spans.length - 1, activeIndex + 1);
+		      	updateSpan();
+		}
+	}
+});
 
