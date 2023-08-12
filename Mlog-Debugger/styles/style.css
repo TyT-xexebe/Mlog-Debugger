@@ -113,14 +113,14 @@ body {
 	border-radius: 3px;
 }
 
-.autocomplete span, {
+.autocomplete span {
 	display: inline-block;
 	color: white;
 	font-weight: 400;
 	font-size: 12px;
 	background-color: rgb(31, 31, 31);
-	height: 10px;
-	width: 10vw;
+	height: 11px;
+	width: 100%;
 	padding: 2px;
 }
 
