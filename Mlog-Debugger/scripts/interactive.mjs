@@ -6,6 +6,23 @@ const output = document.getElementById("suggestions");
 for(let i = 0; i < jumpLabels1.length; i++){
 	jumpLabels1[i] = `${jumpLabels1[i]}:`
 }
+let userSettings
+if(!localStorage.getItem('userSettings')){
+	userSettings = {
+	  set1: 1,
+	  set2: 1,
+	  set3: 0,
+	  set4: 1,
+	  set5: 0,
+	  set6: 0,
+	  set7: 0,
+	  set8: 0
+	};
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
+}else{
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
+}
+
 let syntaxHelper = () => {
   output.innerHTML = " ";
   let cursorPos = textarea.selectionStart;
@@ -224,9 +241,11 @@ function compareWord() {
     const similarWords = wordArray.filter(word => word.startsWith(currentWord));
     let complete = document.getElementsByClassName("autocomplete")[0];
     if(similarWords.length > 0) {
-        complete.style.display = "block";
-        similar.innerHTML = similarWords.map((word, index) => `<span class="${index === 0 ? 'active' : ''}" style="${index === 0 ? 'background-color: grey;' : ''}">${word}</span>`
-).join("<br>");
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
+	if(userSettings.set8 = 1){
+        	complete.style.display = "block";
+        	similar.innerHTML = similarWords.map((word, index) => `<span class="${index === 0 ? 'active' : ''}" style="${index === 0 ? 'background-color: grey;' : ''}">${word}</span>`).join("<br>");
+	}
     }else{
         complete.style.display = "none";
         similar.innerHTML = "nothing";
@@ -261,10 +280,13 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener('keydown', function(event) {
 	if (event.altKey && event.key === 'z'){
 		let complete = document.getElementsByClassName("autocomplete")[0];
-		if(complete.style.display == "block"){
-			complete.style.display = "none";
-		}else{
-			complete.style.display = "block";
+		userSettings = JSON.parse(localStorage.getItem('userSettings'));
+		if(userSettings.set8 = 1){
+			if(complete.style.display == "block"){
+				complete.style.display = "none";
+			}else{
+				complete.style.display = "block";
+			}
 		}
 	}
 });
@@ -311,20 +333,6 @@ function updateSpan() {
   }
 
 updateSpan();
-
-document.addEventListener("keydown", function(event) {
-	let complete = document.getElementsByClassName("autocomplete")[0];
-	let spans = complete.querySelectorAll("span");
-	if(complete.style.display == "block"){
-		if (event.key === "ArrowUp") {
-			event.preventDefault();
-	        	activeIndex = Math.max(0, activeIndex - 1);
-			updateSpan();
-		}else if(event.key === "ArrowDown") {
-		event.preventDefault();
-		      	activeIndex = Math.min(spans.length - 1, activeIndex + 1);
-		      	updateSpan();
-		}
 	}
 });
 
