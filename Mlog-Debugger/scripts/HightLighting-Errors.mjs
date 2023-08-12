@@ -546,7 +546,7 @@ let settings = (set, switching, num, change) => {
 		if(value8 == 0){
 			helper1.style.display = "none";
 		}else{
-			helper2.style.display = "block";
+			helper1.style.display = "block";
 		}
 	}
 	hightLightingErrors();
