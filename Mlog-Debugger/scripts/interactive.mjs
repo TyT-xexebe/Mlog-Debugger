@@ -275,10 +275,13 @@ document.addEventListener('keydown', function(event) {
 		if (endPos === -1 || endPos > lineEnd) {
   			endPos = lineEnd;
 		}
-
-		const remainingText = textarea2.value.substring(startPos, endPos);
 		const autocompleteWord = `${document.getElementsByClassName("active")[0].textContent} `;
-		textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + textarea2.value.substring(endPos);
+		const newText = textarea2.value.substring(0, startPos) + autocompleteWord + textarea2.value.substring(endPos);
+		const newCaretPos = startPos + autocompleteWord.length;
+
+		textarea2.value = newText;
+		textarea2.selectionStart = newCaretPos;
+		textarea2.selectionEnd = newCaretPos;
 
 	    activeIndex = 0;
 	    compareWord()
