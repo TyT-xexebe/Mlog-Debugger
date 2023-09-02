@@ -75,6 +75,15 @@ let inputVariables = [];
 let button = document.getElementById("button");
 let button2 = document.getElementById("setting");
 const textarea = document.getElementById('codeInput');
+
+textarea.addEventListener('focus', function() {
+	setting.style.display = "block";
+});
+
+textarea.addEventListener('blur', function() {
+	setting.style.display = "none";
+});
+
 // creating function with all code
 let hightLightingErrors = () => {
 	// getting textarea text-code
