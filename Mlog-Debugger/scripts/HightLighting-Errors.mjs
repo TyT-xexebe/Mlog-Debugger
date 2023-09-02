@@ -15,7 +15,7 @@ if(!localStorage.getItem('userSettings')){
 	  set5: 0,
 	  set6: 0,
 	  set7: 0,
-	  set8: 0
+	  set8: 0,
 	};
 	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 }else{
@@ -582,5 +582,12 @@ settings(userSettings.set5, switch5, "5", "0");
 settings(userSettings.set6, switch6, "6", "0");
 settings(userSettings.set7, switch7, "7", "0");
 settings(userSettings.set8, switch8, "8", "0");
+document.addEventListener('DOMContentLoaded', function() {
+	if(userSettings.code){
+		const textarea = document.getElementById('codeInput');
+		textarea.textContent = userSettings.code;
+		hightLightingErrors();
+	}
+}
 hightLightingErrors();
 export {variables, hightLightingErrors, jumpLabels1, jumpLabels2};
