@@ -262,13 +262,24 @@ document.addEventListener('keydown', function(event) {
         const similarWords = compareWord();
 	updateSpan();
         if (similarWords.length > 0) {
-            const textarea2 = event.target;
-            const caretPos = textarea2.selectionStart;
-            const startPos = Math.max(textarea2.value.lastIndexOf(" ", caretPos - 1) + 1, textarea2.value.lastIndexOf("\n", caretPos - 1) + 1);
-            const endPos = textarea2.value.indexOf(" ", caretPos);
-            const remainingText = textarea2.value.substring(startPos, endPos)
-            const autocompleteWord = `${document.getElementsByClassName("active")[0].textContent} `;
-            textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
+            	const textarea2 = event.target;
+		const caretPos = textarea2.selectionStart;
+		const startPos = textarea2.value.lastIndexOf(" ", caretPos - 1) + 1;
+		const endPos = textarea2.value.indexOf(" ", caretPos);
+		const lineStart = textarea2.value.lastIndexOf("\n", caretPos - 1) + 1;
+		const lineEnd = textarea2.value.indexOf("\n", caretPos) !== -1 ? textarea2.value.indexOf("\n", caretPos) : textarea2.value.length;
+
+		if (startPos < lineStart) {
+  			startPos = lineStart;
+		}
+		if (endPos === -1 || endPos > lineEnd) {
+  			endPos = lineEnd;
+		}
+
+		const remainingText = textarea2.value.substring(startPos, endPos);
+		const autocompleteWord = `${document.getElementsByClassName("active")[0].textContent} `;
+		textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + textarea2.value.substring(endPos);
+
 	    activeIndex = 0;
 	    compareWord()
 	    syntaxHelper()
