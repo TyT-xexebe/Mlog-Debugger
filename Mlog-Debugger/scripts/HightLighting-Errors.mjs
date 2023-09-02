@@ -16,6 +16,7 @@ if(!localStorage.getItem('userSettings')){
 	  set6: 0,
 	  set7: 0,
 	  set8: 0,
+	  code: false,
 	};
 	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 }else{
@@ -91,6 +92,7 @@ let hightLightingErrors = () => {
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
 	const textarea = document.getElementById('codeInput');
+	userSettings.code = textarea.textContent
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 	let missingValues = [];
