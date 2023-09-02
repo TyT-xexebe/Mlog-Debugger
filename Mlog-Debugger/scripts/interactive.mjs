@@ -266,7 +266,7 @@ document.addEventListener('keydown', function(event) {
             const caretPos = textarea2.selectionStart;
             const startPos = Math.max(textarea2.value.lastIndexOf(" ", caretPos - 1) + 1, textarea2.value.lastIndexOf("\n", caretPos - 1) + 1);
             const endPos = textarea2.value.indexOf(" ", caretPos);
-            const remainingText = textarea2.value.substring(endPos === -1 ? caretPos : endPos);
+            const remainingText = textarea2.value.substring(startPos, endPos)
             const autocompleteWord = `${document.getElementsByClassName("active")[0].textContent} `;
             textarea2.value = textarea2.value.substring(0, startPos) + autocompleteWord + remainingText;
 	    activeIndex = 0;
