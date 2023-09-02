@@ -92,7 +92,8 @@ let hightLightingErrors = () => {
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
 	const textarea = document.getElementById('codeInput');
-	userSettings.code = textarea.textContent
+	userSettings.code = textarea.textContent;
+	console.log(userSettings.code);
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 	let missingValues = [];
@@ -587,6 +588,7 @@ settings(userSettings.set8, switch8, "8", "0");
 document.addEventListener('DOMContentLoaded', function() {
 	if(userSettings.code){
 		const textarea = document.getElementById('codeInput');
+		console.log(userSettings.code);
 		textarea.textContent = userSettings.code;
 		hightLightingErrors();
 	}
