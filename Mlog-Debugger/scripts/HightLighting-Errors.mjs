@@ -590,6 +590,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		textarea.textContent = userSettings.code;
 		hightLightingErrors();
 	}
-}
+})
 hightLightingErrors();
 export {variables, hightLightingErrors, jumpLabels1, jumpLabels2};
