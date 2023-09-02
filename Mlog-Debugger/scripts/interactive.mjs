@@ -264,8 +264,8 @@ document.addEventListener('keydown', function(event) {
         if (similarWords.length > 0) {
             	const textarea2 = event.target;
 		const caretPos = textarea2.selectionStart;
-		const startPos = textarea2.value.lastIndexOf(" ", caretPos - 1) + 1;
-		const endPos = textarea2.value.indexOf(" ", caretPos);
+		let startPos = textarea2.value.lastIndexOf(" ", caretPos - 1) + 1;
+		let endPos = textarea2.value.indexOf(" ", caretPos);
 		const lineStart = textarea2.value.lastIndexOf("\n", caretPos - 1) + 1;
 		const lineEnd = textarea2.value.indexOf("\n", caretPos) !== -1 ? textarea2.value.indexOf("\n", caretPos) : textarea2.value.length;
 
