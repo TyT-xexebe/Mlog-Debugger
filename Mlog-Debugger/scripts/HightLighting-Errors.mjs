@@ -21,13 +21,10 @@ if(!localStorage.getItem('userSettings')){
 	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 }else{
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-}
-
 	console.log("readed from userSavedData");
-	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-		const textarea = document.getElementById('codeInput');
-		textarea.value = userSettings.code;
-		hightLightingErrors();
+	let textarea = document.getElementById('codeInput');
+	textarea.value = userSettings.code;
+}
 
 let openF = () => {
 	let errorOutput = document.getElementById("errorList");
@@ -79,9 +76,9 @@ let label2;
 let Errors = [];
 let variables = [];
 let inputVariables = [];
+let textarea = document.getElementById('codeInput');
 let button = document.getElementById("button");
 let button2 = document.getElementById("setting");
-const textarea = document.getElementById('codeInput');
 let Acomplete = document.getElementsByClassName("autocomplete")[0];
 textarea.addEventListener('focus', function() {
 	Acomplete.style.display = "block";
