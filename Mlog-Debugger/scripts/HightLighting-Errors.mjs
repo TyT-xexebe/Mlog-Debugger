@@ -23,13 +23,11 @@ if(!localStorage.getItem('userSettings')){
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 }
 
-document.addEventListener('DOMContentLoaded', function() {
 	console.log("readed from userSavedData");
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 		const textarea = document.getElementById('codeInput');
 		textarea.value = userSettings.code;
 		hightLightingErrors();
-});
 
 let openF = () => {
 	let errorOutput = document.getElementById("errorList");
