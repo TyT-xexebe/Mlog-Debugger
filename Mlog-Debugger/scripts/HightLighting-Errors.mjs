@@ -588,6 +588,7 @@ settings(userSettings.set6, switch6, "6", "0");
 settings(userSettings.set7, switch7, "7", "0");
 settings(userSettings.set8, switch8, "8", "0");
 document.addEventListener('DOMContentLoaded', function() {
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	if(userSettings.code){
 		const textarea = document.getElementById('codeInput');
 		console.log(userSettings.code);
