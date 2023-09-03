@@ -78,11 +78,11 @@ let button2 = document.getElementById("setting");
 const textarea = document.getElementById('codeInput');
 
 textarea.addEventListener('focus', function() {
-	setting.style.display = "block";
+	complete.style.display = "block";
 });
 
 textarea.addEventListener('blur', function() {
-	setting.style.display = "none";
+	complete.style.display = "none";
 });
 
 // creating function with all code
@@ -92,7 +92,7 @@ let hightLightingErrors = () => {
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
 	const textarea = document.getElementById('codeInput');
-	userSettings.code = textarea.textContent;
+	userSettings.code = textarea.value;
 	console.log(userSettings.code);
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
@@ -589,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	if(userSettings.code){
 		const textarea = document.getElementById('codeInput');
 		console.log(userSettings.code);
-		textarea.textContent = userSettings.code;
+		textarea.value = userSettings.code;
 		hightLightingErrors();
 	}
 })
