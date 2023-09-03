@@ -76,13 +76,13 @@ let inputVariables = [];
 let button = document.getElementById("button");
 let button2 = document.getElementById("setting");
 const textarea = document.getElementById('codeInput');
-
+let Acomplete = document.getElementsByClassName("autocomplete")[0];
 textarea.addEventListener('focus', function() {
-	complete.style.display = "block";
+	Acomplete.style.display = "block";
 });
 
 textarea.addEventListener('blur', function() {
-	complete.style.display = "none";
+	Acomplete.style.display = "none";
 });
 
 // creating function with all code
