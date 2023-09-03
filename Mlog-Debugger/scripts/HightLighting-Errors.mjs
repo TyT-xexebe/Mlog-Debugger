@@ -92,7 +92,9 @@ let hightLightingErrors = () => {
 	const output = document.getElementById('codeOutput');
 	output.innerHTML = formattedCode;
 	const textarea = document.getElementById('codeInput');
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	userSettings.code = textarea.value;
+	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	console.log(userSettings.code);
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
