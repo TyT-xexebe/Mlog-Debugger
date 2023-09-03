@@ -24,12 +24,11 @@ if(!localStorage.getItem('userSettings')){
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+	console.log("readed from userSavedData");
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-	if(userSettings.code){
 		const textarea = document.getElementById('codeInput');
 		textarea.value = userSettings.code;
 		hightLightingErrors();
-	}
 });
 
 let openF = () => {
@@ -103,6 +102,7 @@ let hightLightingErrors = () => {
 	const textarea = document.getElementById('codeInput');
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	userSettings.code = textarea.value;
+	console.log("updated userSavedData");
 	localStorage.setItem('userSettings', JSON.stringify(userSettings));
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
