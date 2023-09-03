@@ -23,6 +23,15 @@ if(!localStorage.getItem('userSettings')){
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+	userSettings = JSON.parse(localStorage.getItem('userSettings'));
+	if(userSettings.code){
+		const textarea = document.getElementById('codeInput');
+		textarea.value = userSettings.code;
+		hightLightingErrors();
+	}
+});
+
 let openF = () => {
 	let errorOutput = document.getElementById("errorList");
 	if(errorOutput.style.display == "none"){
@@ -95,7 +104,6 @@ let hightLightingErrors = () => {
 	userSettings = JSON.parse(localStorage.getItem('userSettings'));
 	userSettings.code = textarea.value;
 	localStorage.setItem('userSettings', JSON.stringify(userSettings));
-	console.log(userSettings.code);
 	const code = textarea.value.trim();
 	const lines = code.split('\n');
 	let missingValues = [];
@@ -587,14 +595,5 @@ settings(userSettings.set5, switch5, "5", "0");
 settings(userSettings.set6, switch6, "6", "0");
 settings(userSettings.set7, switch7, "7", "0");
 settings(userSettings.set8, switch8, "8", "0");
-document.addEventListener('DOMContentLoaded', function() {
-	userSettings = JSON.parse(localStorage.getItem('userSettings'));
-	if(userSettings.code){
-		const textarea = document.getElementById('codeInput');
-		console.log(userSettings.code);
-		textarea.value = userSettings.code;
-		hightLightingErrors();
-	}
-})
 hightLightingErrors();
 export {variables, hightLightingErrors, jumpLabels1, jumpLabels2};
